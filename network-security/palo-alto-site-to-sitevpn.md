@@ -11,7 +11,7 @@ Configure and validate a **site-to-site IPsec VPN** tunnel between two Palo Alto
 ---
 
 ## 🖥 Lab Diagram
-![VPN Diagram](/assets/screenshots/palo-vpn-topology.png)
+![VPN Diagram](./assets/screenshots/palo-vpn-topology.png)
 
 - **Site PaloAlto-1 :** 10.0.1.0/24 behind PaloAlto-1 
 - **Site PaloAlto-2 :** 10.0.2.0/24 behind PaloAlto-2  
