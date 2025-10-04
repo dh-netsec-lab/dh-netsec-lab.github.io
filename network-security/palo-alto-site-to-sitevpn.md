@@ -67,6 +67,7 @@ Configure and validate a **site-to-site IPsec VPN** tunnel between two Palo Alto
 ---
 
 ## 📸 Screenshots
+
 ### 1. Lab Topology
 ![Lab Diagram](../assets/screenshots/palo-vpn-topology.png)
 
@@ -76,20 +77,21 @@ Configure and validate a **site-to-site IPsec VPN** tunnel between two Palo Alto
 ### 3. IPsec Tunnel Configuration
 ![IPsec Config](../assets/screenshots/palo-vpn-ipsec.png)
 
-### 4. Tunnel Interface Settings
+### 4. Tunnel Interface Config
 ![Tunnel Interface Config](../assets/screenshots/palo-vpn-tunnel-config.png)
 
-### 5. Tunnel Interface Settings
-![Tunnel Interface Interface](../assets/screenshots/palo-vpn-tunnel-interface.png)
+### 5. Tunnel Interface Assignment
+![Tunnel Interface](../assets/screenshots/palo-vpn-tunnel-interface.png)
 
-### 6. Tunnel Interface Settings
-![Tunnel Interface Status](../assets/screenshots/palo-vpn-tunnel-status.png)
+### 6. Tunnel Interface Status
+![Tunnel Status](../assets/screenshots/palo-vpn-tunnel-status.png)
 
-### 6. Security Policies
+### 7. Security Policies
 ![Policies](../assets/screenshots/palo-vpn-policy.png)
 
 ### 8. Routing Table
 ![Routing](../assets/screenshots/palo-vpn-route.png)
+
 
 
 Example CLI validation:  
