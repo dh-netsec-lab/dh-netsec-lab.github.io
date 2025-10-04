@@ -68,9 +68,12 @@ Configure and validate a **site-to-site IPsec VPN** tunnel between two Palo Alto
 
 ## 📸 Screenshots
 ![VPN Topology](../assets/screenshots/Palo-VPN-Topology.png)
-![IKE Config](../assets/screenshots/palo-vpn-ike.png)
+![IKE Config](../assets/screenshots/IKE_Crypto_Profile.png)
 ![IPsec Config](../assets/screenshots/palo-vpn-ipsec.png)
-![Tunnel Interface](../assets/screenshots/palo-vpn-tunnel.png)
+![Tunnel Interface](../assets/screenshots/palo-vpn-tunnel-interface.png)
+![Tunnel Status](../assets/screenshots/palo-vpn-tunnel-status.png)
+![IKE Gateway](../assets/screenshots/palo-vpn-gateway.png)
+![Tunnel Config](../assets/screenshots/palo-vpn-tunnel-config.png)
 ![Policies](../assets/screenshots/palo-vpn-policy.png)
 ![Routing Table](../assets/screenshots/palo-vpn-route.png)
 ![VPN SA Status](../assets/screenshots/palo-vpn-sa.png)
