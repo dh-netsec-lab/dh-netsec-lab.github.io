@@ -67,18 +67,29 @@ Configure and validate a **site-to-site IPsec VPN** tunnel between two Palo Alto
 ---
 
 ## 📸 Screenshots
-![VPN Topology](../assets/screenshots/palo-vpn-topology.png)
+### 1. Lab Topology
+![Lab Diagram](../assets/screenshots/palo-vpn-topology.png)
+
+### 2. IKE Gateway Configuration
 ![IKE Config](../assets/screenshots/palo-vpn-ike.png)
+
+### 3. IPsec Tunnel Configuration
 ![IPsec Config](../assets/screenshots/palo-vpn-ipsec.png)
+
+### 4. Tunnel Interface Settings
+![Tunnel Interface](../assets/screenshots/palo-vpn-tunnel-config.png)
+
+### 5. Tunnel Interface Settings
 ![Tunnel Interface](../assets/screenshots/palo-vpn-tunnel-interface.png)
-![Tunnel Status](../assets/screenshots/palo-vpn-tunnel-status.png)
-![IKE Gateway](../assets/screenshots/palo-vpn-gateway.png)
-![Tunnel Config](../assets/screenshots/palo-vpn-tunnel-config.png)
+
+### 6. Tunnel Interface Settings
+![Tunnel Interface](../assets/screenshots/palo-vpn-tunnel-status.png)
+
+### 6. Security Policies
 ![Policies](../assets/screenshots/palo-vpn-policy.png)
-![Routing Table](../assets/screenshots/palo-vpn-route.png)
-![VPN SA Status](../assets/screenshots/palo-vpn-sa.png)
-![VPN Flow](../assets/screenshots/palo-vpn-flow.png)
-![Ping Success](../assets/screenshots/palo-vpn-ping.png)
+
+### 8. Routing Table
+![Routing](../assets/screenshots/palo-vpn-route.png)
 
 
 Example CLI validation:  
