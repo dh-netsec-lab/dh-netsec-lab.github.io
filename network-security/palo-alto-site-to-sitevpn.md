@@ -80,10 +80,10 @@ Configure and validate a **site-to-site IPsec VPN** tunnel between two Palo Alto
 ![Tunnel Interface](../assets/screenshots/palo-vpn-tunnel-config.png)
 
 ### 5. Tunnel Interface Settings
-![Tunnel Interface](../assets/screenshots/palo-vpn-tunnel-interface.png)
+![Tunnel Interface](/assets/screenshots/palo-vpn-tunnel-interface.png)
 
 ### 6. Tunnel Interface Settings
-![Tunnel Interface](../assets/screenshots/palo-vpn-tunnel-status.png)
+![Tunnel Interface](./assets/screenshots/palo-vpn-tunnel-status.png)
 
 ### 6. Security Policies
 ![Policies](../assets/screenshots/palo-vpn-policy.png)
