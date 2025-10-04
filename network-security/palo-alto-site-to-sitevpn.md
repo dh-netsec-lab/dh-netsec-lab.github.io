@@ -67,7 +67,16 @@ Configure and validate a **site-to-site IPsec VPN** tunnel between two Palo Alto
 ---
 
 ## 📸 Screenshots
-(Add: IKE gateway config, IPsec tunnel config, successful SA output)  
+![VPN Topology](../assets/screenshots/palo-vpn-topology.png)
+![IKE Config](../assets/screenshots/palo-vpn-ike.png)
+![IPsec Config](../assets/screenshots/palo-vpn-ipsec.png)
+![Tunnel Interface](../assets/screenshots/palo-vpn-tunnel.png)
+![Policies](../assets/screenshots/palo-vpn-policy.png)
+![Routing Table](../assets/screenshots/palo-vpn-route.png)
+![VPN SA Status](../assets/screenshots/palo-vpn-sa.png)
+![VPN Flow](../assets/screenshots/palo-vpn-flow.png)
+![Ping Success](../assets/screenshots/palo-vpn-ping.png)
+
 
 Example CLI validation:  
 ```bash
