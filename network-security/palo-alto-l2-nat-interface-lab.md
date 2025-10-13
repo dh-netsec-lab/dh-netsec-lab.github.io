@@ -30,6 +30,12 @@ Showcase configuration and validation of:
 
 ## ⚙️ Key Configuration (Summary)
 
+```
+set network interface ethernet e1/7 layer3 ip 172.16.1.2/24
+set rulebase nat rules Outbound-SNAT from Trust to Untrust source 10.1.0.0/24 to-interface e1/7 source-translation dynamic-ip-and-port interface-address interface e1/7
+set rulebase security rules Allow-Trust-to-Untrust from Trust to Untrust source any destination any application any action allow
+commit
+```
 
 ---
 
