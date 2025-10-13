@@ -30,3 +30,23 @@ Showcase configuration and validation of:
 
 ## ⚙️ Key Configuration (Summary)
 
+
+---
+
+## 🧪 Validation Steps
+1. Verify NAT and policy logs in **Monitor → Traffic**  
+2. Observe mirrored packets on the Tap interface  
+3. Confirm intra-VLAN and inter-zone policies  
+4. Test outbound Internet access via SNAT
+
+---
+
+## 📸 Suggested Screenshots
+- Interfaces (L2, VLAN, VWire, Tap)  
+- NAT and Security Policy tabs  
+- Monitor → Traffic showing translations
+
+---
+
+**Back to Labs:** [⬅ Network-Security Index](./index.md)
+
