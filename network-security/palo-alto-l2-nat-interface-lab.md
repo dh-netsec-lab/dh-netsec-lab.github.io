@@ -28,6 +28,13 @@ Showcase configuration and validation of:
 
 ---
 
+## 🧭 Topology Diagram
+
+![Topology](../assets/screenshots/palo-alto-l2-nat-interface-lab/topology.png)
+
+*Figure 1: L2, L3, VWire, and Tap layout used for NAT and security policy validation*
+
+
 ## ⚙️ Key Configuration (Summary)
 
 ```
