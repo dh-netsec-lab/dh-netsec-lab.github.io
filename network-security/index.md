@@ -1,10 +1,18 @@
-# 🔐 Network Security Labs
+# 🧠 Network Security Labs
 
-This section will highlight firewall and secure networking labs.  
-Labs coming soon including:  
-- Palo Alto and Fortinet Firewalls
-- Topics covering PCNSA, PCNSE, and NSE4
-- SNAT, DNAT, VPNS
-- Security Profiles & Policy Enforcement
-  
+Welcome to my collection of Palo Alto firewall and security integration labs.  
+Each lab demonstrates different configurations and concepts for network security environments.
+
+---
+
+## 🔐 Palo Alto Labs
+
+- [Site-to-Site VPN Lab](./palo-alto-site-to-sitevpn.md)
+- [User-ID Integration Lab](./palo-alto-userid.md)
+- [Layer 2 + NAT Interface Lab](./palo-alto-l2-nat-interface-lab.md)
+
+---
+
+**Return to Main Portfolio:** [🏠 Home](../index.md)
+
 
