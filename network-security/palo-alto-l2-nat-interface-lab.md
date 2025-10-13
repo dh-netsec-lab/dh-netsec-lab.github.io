@@ -47,10 +47,16 @@ commit
 
 ---
 
-## 📸 Suggested Screenshots
-- Interfaces (L2, VLAN, VWire, Tap)  
-- NAT and Security Policy tabs  
-- Monitor → Traffic showing translations
+## 📸 Screenshots
+
+| Section | Screenshot |
+|----------|-------------|
+| Interface Overview (with Sub-interfaces) | ![Interfaces](../assets/screenshots/palo-alto-l2-nat-interface-lab/interfaces.png) |
+| Zone Configuration | ![Zones](../assets/screenshots/palo-alto-l2-nat-interface-lab/zones.png) |
+| NAT Policy | ![NAT Policy](../assets/screenshots/palo-alto-l2-nat-interface-lab/nat-policy.png) |
+| Security Policy | ![Security Policy](../assets/screenshots/palo-alto-l2-nat-interface-lab/security-policy.png) |
+| Traffic Logs | ![Traffic Logs](../assets/screenshots/palo-alto-l2-nat-interface-lab/traffic-logs.png) |
+| Tap Monitor *(optional)* | ![Tap](../assets/screenshots/palo-alto-l2-nat-interface-lab/tap-monitor.png) |
 
 ---
 
