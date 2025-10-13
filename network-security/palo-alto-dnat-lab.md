@@ -15,7 +15,6 @@ The goal of this lab is to configure and verify **Destination NAT (DNAT)** on a 
                                 |
                                [ Web Server - DMZ ]
 
-
 ![Topology](../assets/screenshots/dnat/topology.png)
 
 ---
