@@ -34,4 +34,4 @@ Configure **Destination NAT (DNAT)** on a Palo Alto Firewall to allow external (
 ```bash
 # CLI Example
 set address WAN_Public_IP ip-netmask 172.16.1.2/32
-set address DMZ_Web_10.3.0.1 ip-netmask 10.3.0.1/32
+set address DMZ_Web_Srv_1 ip-netmask 10.3.0.1/32
