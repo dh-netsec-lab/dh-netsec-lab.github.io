@@ -8,10 +8,10 @@
 
 ## 🎯 Objective
 Showcase configuration and validation of:
-- Layer-2 VLANs
-- VLAN subinterfaces (L3)
-- Virtual Wire and Tap modes
-- Source NAT and Security Policies
+- Layer-2 VLANs  
+- VLAN subinterfaces (L3)  
+- Virtual Wire and Tap modes  
+- Source NAT and Security Policies  
 - Traffic verification using Monitor → Traffic
 
 ---
@@ -22,9 +22,9 @@ Showcase configuration and validation of:
 | e1/1,e1/2 | L2 / VLAN 10 | Inside | Access layer |
 | e1/3,e1/4 | L3 sub-interfaces | Inside | Routed segments |
 | e1/5,e1/6 | Virtual Wire | VWire | Inline inspection |
-| e1/7 | L3 Untrust | WAN 172.16.1.2/24 |
+| e1/7 | L3 Untrust | WAN | 172.16.1.2/24 |
 | e1/9 | Tap | Tap-Monitor | SPAN mirror |
-| e1/11 | L3 Trust | Inside 10.1.0.1/24 |
+| e1/11 | L3 Trust | Inside | 10.1.0.1/24 |
 
 ---
 
@@ -49,4 +49,3 @@ Showcase configuration and validation of:
 ---
 
 **Back to Labs:** [⬅ Network-Security Index](./index.md)
-
