@@ -55,7 +55,8 @@ commit
 | Zone Configuration | ![Zones](../assets/screenshots/palo-alto-l2-nat-interface-lab/zones.png) |
 | NAT Policy | ![NAT Policy](../assets/screenshots/palo-alto-l2-nat-interface-lab/nat-policy.png) |
 | Security Policy | ![Security Policy](../assets/screenshots/palo-alto-l2-nat-interface-lab/security-policy.png) |
-| Traffic Logs | ![Traffic Logs](../assets/screenshots/palo-alto-l2-nat-interface-lab/traffic-logs.png) |
+| Traffic Logs | ![Traffic Logs](../assets/screenshots/palo-alto-l2-nat-interface-lab/traffic-logs-l2-inter-zone.png) |
+| Traffic Logs | ![Traffic Logs](../assets/screenshots/palo-alto-l2-nat-interface-lab/traffic-logs-l2-intra-zone.png) |
 | Tap Monitor *(optional)* | ![Tap](../assets/screenshots/palo-alto-l2-nat-interface-lab/tap-monitor.png) |
 
 ---
