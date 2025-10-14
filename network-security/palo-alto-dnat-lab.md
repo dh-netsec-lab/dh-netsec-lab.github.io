@@ -15,6 +15,7 @@ The goal of this lab is to configure and verify **Destination NAT (DNAT)** on a 
 ---
 
 ### 2️⃣ Create the DNAT Policy
+
 **NAT Rule:**
 Name: DNAT_SIP
 Type: ipv4
@@ -33,6 +34,7 @@ This rule translates inbound requests to the firewall’s public IP into the int
 ---
 
 ### 3️⃣ Create a Security Policy
+
 **Security Rule:**
 Name: DNAT_To_10.3.0.1
 From: Untrust
