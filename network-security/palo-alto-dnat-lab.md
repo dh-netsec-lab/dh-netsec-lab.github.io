@@ -87,6 +87,8 @@ Look for entries showing translation from `172.16.1.2` (public IP) to `10.3.0.1`
 📸 **Screenshot:**  
 ![Session Verification](../assets/screenshots/dnat/session-verify.png)
 
+![Session Verification](../assets/screenshots/dnat/session-id.png)
+
 ---
 
 ### 🔹 Verify in Monitor → Traffic
