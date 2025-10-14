@@ -15,7 +15,7 @@ The goal of this lab is to configure and verify **Destination NAT (DNAT)** on a 
 ---
 
 ### 2️⃣ Create the DNAT Policy
-
+---
 **NAT Rule:**
 Name: DNAT_SIP
 Type: ipv4
