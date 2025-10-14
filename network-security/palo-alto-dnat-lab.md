@@ -63,12 +63,12 @@ This rule allows the inbound traffic to reach the internal web server after tran
 ### 4️⃣ Verify NAT and Security Policies
 Run the following commands to confirm configuration:
 show running nat-policy
-![Policy Verification](../assets/screenshots/dnat/security-policy-verification.png)
 
-show running security-policy
 ![Policy Verification](../assets/screenshots/dnat/nat-policy-verification.png)
 
----
+show running security-policy
+
+![Policy Verification](../assets/screenshots/dnat/security-policy-verification.png)
 
 ## 🧪 Verification
 
