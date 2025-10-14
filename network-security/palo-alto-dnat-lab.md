@@ -6,17 +6,6 @@ The goal of this lab is to configure and verify **Destination NAT (DNAT)** on a 
 ---
 
 ## 🧩 Topology
-
-    [ WAN PC ] 
-        |
-    [Internet Router]
-        |
-   e1/7 (172.16.1.2) ───── [ Palo Alto Firewall ] ───── e1/3 (10.3.0.1)
-                                |
-                               [ Web Server - DMZ ]
-
-
-
 ![Topology](../assets/screenshots/dnat/topology.png)
 
 ---
@@ -62,6 +51,7 @@ This rule allows the inbound traffic to reach the internal web server after tran
 
 ### 4️⃣ Verify NAT and Security Policies
 Run the following commands to confirm configuration:
+
 show running nat-policy
 
 ![Policy Verification](../assets/screenshots/dnat/nat-policy-verification.png)
