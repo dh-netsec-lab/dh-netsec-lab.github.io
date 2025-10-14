@@ -6,12 +6,32 @@ The goal of this lab is to configure and verify **Destination NAT (DNAT)** on a 
 ---
 
 ## 🧩 Topology
+    [ WAN PC ] 
+        |
+    [Internet Router]
+        |
+   e1/7 (172.16.1.2) ───── [ Palo Alto Firewall ] ───── e1/3 (10.3.0.1)
+                                |
+                               [ Web Server - DMZ ]
+
+
 
 ![Topology](../assets/screenshots/dnat/topology.png)
 
 ---
 
 ## ⚙️ Configuration Steps
+
+### 1️⃣ Create Address Objects
+- **WAN Public IP:** `172.16.1.2`
+- **Internal Web Server:** `10.3.0.1`
+
+These will be used in the NAT and Security Policies.
+
+📸 **Screenshot:**  
+![Address Objects](../assets/screenshots/dnat/address-objects.png)
+
+---
 
 ### 2️⃣ Create the DNAT Policy
 **NAT Rule:**
@@ -25,6 +45,9 @@ Service: any
 Translated Address: 10.3.0.1
 
 This rule translates inbound requests to the firewall’s public IP into the internal web server’s IP address in the DMZ.
+
+📸 **Screenshot:**  
+![NAT Policy](../assets/screenshots/dnat/nat-policy.png)
 
 ---
 
@@ -40,13 +63,19 @@ Action: allow
 
 This rule allows the inbound traffic to reach the internal web server after translation.
 
+📸 **Screenshot:**  
+![Security Policy](../assets/screenshots/dnat/security-policy.png)
+
 ---
 
 ### 4️⃣ Verify NAT and Security Policies
+Run the following commands to confirm configuration:
 show running nat-policy
 show running security-policy
 
-Ensure the DNAT and SNAT rules appear as expected.
+
+📸 **Screenshot:**  
+![Policy Verification](../assets/screenshots/dnat/policy-verification.png)
 
 ---
 
@@ -54,9 +83,11 @@ Ensure the DNAT and SNAT rules appear as expected.
 
 ### 🔹 Test from WAN PC
 Open a browser on your **WAN PC** and browse to:
-
 http://172.16.1.2
 You should see the webpage hosted on your internal web server (`10.3.0.1`).
+
+📸 **Screenshot:**  
+![Browser Test](../assets/screenshots/dnat/browser-test.png)
 
 ---
 
@@ -66,6 +97,9 @@ show session id <session-id>
 
 Look for entries showing translation from `172.16.1.2` (public IP) to `10.3.0.1` (private IP).
 
+📸 **Screenshot:**  
+![Session Verification](../assets/screenshots/dnat/session-verify.png)
+
 ---
 
 ### 🔹 Verify in Monitor → Traffic
@@ -74,27 +108,22 @@ Confirm that:
 - The action was **allow**.
 - The translated destination IP shows **10.3.0.1**.
 
+📸 **Screenshot:**  
+![Traffic Log](../assets/screenshots/dnat/traffic-log.png)
+
 ---
 
-## 🖼️ Screenshots
-
-### 🔹 Address Objects
-![Address Objects](../assets/screenshots/dnat/address-objects.png)
-
-### 🔹 NAT Policy
-![NAT Policy](../assets/screenshots/dnat/nat-policy.png)
-
-### 🔹 Security Policy
-![Security Policy](../assets/screenshots/dnat/security-policy.png)
-
-### 🔹 Browser Test
-![Browser Test](../assets/screenshots/dnat/browser-test.png)
-
-### 🔹 Session Verification
-![Session Verification](../assets/screenshots/dnat/session-verify.png)
-
-### 🔹 Traffic Log
-![Traffic Log](../assets/screenshots/dnat/traffic-log.png)
+## 🖼️ Screenshot Summary
+| Section | Screenshot File |
+|----------|------------------|
+| Topology | `topology.png` |
+| Address Objects | `address-objects.png` |
+| NAT Policy | `nat-policy.png` |
+| Security Policy | `security-policy.png` |
+| Policy Verification | `policy-verification.png` |
+| Browser Test | `browser-test.png` |
+| Session Verification | `session-verify.png` |
+| Traffic Log | `traffic-log.png` |
 
 ---
 
@@ -107,14 +136,6 @@ In this lab, we demonstrated how to:
 ✅ **Outcome:**  
 External users can successfully reach the internal server via the public IP `172.16.1.2`.
 
-Look for entries showing translation from `172.16.1.2` (public IP) to `10.3.0.1` (private IP).
 
----
 
-### 🔹 Verify in Monitor → Traffic
-Confirm that:
-- The DNAT policy was matched.
-- The action was **allow**.
-- The translated destination IP shows **10.3.0.1**.
 
----
