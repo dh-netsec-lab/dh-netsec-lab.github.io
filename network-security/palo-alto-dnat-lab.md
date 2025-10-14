@@ -36,13 +36,13 @@ This rule translates inbound requests to the firewall’s public IP into the int
 ### 3️⃣ Create a Security Policy
 
 **Security Rule:**
-Name: DNAT_To_10.3.0.1
+Name: DNAT_SIP
 From: Untrust
-To: DMZ
-Source: any
+To: Untrust
 Destination: 172.16.1.2
-Application: web-browsing, ssl, ping
-Action: allow
+Translated Address: 10.3.0.1
+Service: any
+
 
 This rule allows the inbound traffic to reach the internal web server after translation.
 
@@ -66,7 +66,7 @@ show running security-policy
 
 ### 🔹 Test from WAN PC
 Open a browser on your **WAN PC** and browse to:
-http://172.16.1.2
+http[:]//172.16.1.2
 You should see the webpage hosted on your internal web server (`10.3.0.1`).
 
 📸 **Screenshot:**  
