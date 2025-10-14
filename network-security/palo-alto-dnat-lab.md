@@ -22,15 +22,6 @@ The goal of this lab is to configure and verify **Destination NAT (DNAT)** on a 
 
 ## ⚙️ Configuration Steps
 
-### 1️⃣ Create Address Objects
-- **WAN Public IP:** `172.16.1.2`
-- **Internal Web Server:** `10.3.0.1`
-
-These will be used in the NAT and Security Policies.
-
-📸 **Screenshot:**  
-![Address Objects](../assets/screenshots/dnat/address-objects.png)
-
 ---
 
 ### 2️⃣ Create the DNAT Policy
