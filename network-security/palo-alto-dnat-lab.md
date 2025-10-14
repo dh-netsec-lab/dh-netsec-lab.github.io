@@ -75,8 +75,10 @@ You should see the webpage hosted on your internal web server (`10.3.0.1`).
 ---
 
 ### 🔹 Check Firewall Sessions
+show session all
+
 show session all | match 10.3.0.1
-show session id <session-id>
+
 
 Look for entries showing translation from `172.16.1.2` (public IP) to `10.3.0.1` (private IP).
 
