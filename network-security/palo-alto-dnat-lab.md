@@ -78,6 +78,7 @@ You should see the webpage hosted on your internal web server (`10.3.0.1`).
 show session all
 
 show session all | match 10.3.0.1
+
 show session id 113449
 
 
