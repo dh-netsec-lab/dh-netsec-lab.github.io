@@ -81,10 +81,12 @@ Look for entries showing translation from `172.16.1.2` (public IP) to `10.3.0.1`
 show session all
 
 show session all | match 10.3.0.1
+
 📸 **Screenshot:** 
 ![Session Verification](../assets/screenshots/dnat/session-verify.png)
 
 show session id 113449
+
 📸 **Screenshot:**  
 ![Session Verification](../assets/screenshots/dnat/session-id.png)
 
