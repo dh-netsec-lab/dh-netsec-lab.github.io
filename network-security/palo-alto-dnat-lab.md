@@ -75,7 +75,8 @@ show running security-policy
 
 
 📸 **Screenshot:**  
-![Policy Verification](../assets/screenshots/dnat/policy-verification.png)
+![Policy Verification](../assets/screenshots/dnat/security-policy-verification.png)
+![Policy Verification](../assets/screenshots/dnat/nat-policy-verification.png)
 
 ---
 
