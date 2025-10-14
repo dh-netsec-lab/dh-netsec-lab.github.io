@@ -99,8 +99,7 @@ Confirm that:
 ## 🖼️ Screenshot Summary
 | Section | Screenshot File |
 |----------|------------------|
-| Topology | `topology.png` |
-| Address Objects | `address-objects.png` |
+| Topology | `topology.png` 
 | NAT Policy | `nat-policy.png` |
 | Security Policy | `security-policy.png` |
 | Policy Verification | `policy-verification.png` |
