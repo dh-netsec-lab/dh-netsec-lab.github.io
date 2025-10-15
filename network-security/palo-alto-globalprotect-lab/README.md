@@ -45,7 +45,10 @@ The lab covers:
 This lab is built and verified in a **VMware environment**.  
 Future versions will include an **EVE-NG variant** for consistency across the full GitHub portfolio.
 
-[View the GlobalProtect VPN Lab →](./palo-alto-globalprotect-lab/palo-alto-globalprotect-lab.md)
+[View the Palo Alto GlobalProtect VPN Lab →](./palo-alto-globalprotect-lab/palo-alto-globalprotect-lab.md)
+
+
+
 
 
 
