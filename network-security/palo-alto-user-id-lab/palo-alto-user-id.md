@@ -1,49 +1,83 @@
-# Palo Alto User-ID Integration with Active Directory
+# Palo Alto User-ID Lab
 
-**Category:** Network Security  
-**Tools/Tech:** Palo Alto NGFW (PAN-OS 10.1.6), Windows Server 2019 (Active Directory, LDAP)
-
----
-
-## 🎯 Objective
-Integrate a Palo Alto firewall with Microsoft Active Directory to enforce security policies based on user identity.  
-This lab demonstrates configuring LDAP integration, creating an authentication profile, and validating user-to-IP mappings.
+## Objective
+This lab demonstrates how to configure **User-ID** on a Palo Alto Networks firewall to map user activity to IP addresses using **Agentless User-ID** and **Active Directory (AD)** integration.  
+The goal is to enable identity-based security policies for better visibility and control.
 
 ---
 
-## 🖥 Lab Diagram
-(Replace with your own diagram or screenshot)  
-![Lab Diagram](../assets/diagrams/palo-uid.png)
+## Topology
+The following diagram represents the User-ID lab environment.
+
+![Topology](screenshots/topology.png)
+
+**Key Components:**
+- **Palo Alto Firewall:** 10.1.0.254 (Trust interface), 192.168.118.188 (Management)
+- **Domain Controller (AD):** 10.1.0.207
+- **Windows User System:** 10.1.0.153
+- **Domain:** 4OUTOF7.com
+- **User-ID Service Account:** 4OUTOF7\svc-paloalto
 
 ---
 
-## ⚙️ Environment Setup
-- **Firewall:** Palo Alto VM-100 (PAN-OS 10.1.6)  
-- **Domain Controller:** Windows Server 2019 (AD + LDAP)  
-- **Service Account:** `svc-palo` created in `OU=ServiceAccounts,DC=4outof7,DC=com`  
-- **Network:**  
-  - Mgmt: 192.168.118.132  
-  - AD/DC: 192.168.118.207  
+## Lab Environment
+- **Platform:** VMware Workstation  
+- **PAN-OS Version:** 10.x  
+- **Windows Server 2022:** Domain Controller, DNS, and AD  
+- **Windows 10:** Domain-joined client system  
+- **Purpose:** Demonstrate WMI/LDAP-based User-ID mapping.
 
 ---
 
-## 📝 Steps
-1. **Create Service Account in AD**  
-   - Username: `svc-palo`  
-   - OU: `ServiceAccounts`  
-   - Permissions: Read-only for LDAP bind  
+## Step 1: Configure User-ID Settings on the Firewall
 
-2. **Configure LDAP Server Profile** (PAN-OS GUI)  
-   - Name: `AD-LDAP`  
-   - Server: `192.168.118.207:389` (StartTLS)  
-   - Bind DN: `svc-palo@4outof7.com`  
-   - Password: *(account password)*  
+1. Navigate to **Device → User Identification → User Mapping**.  
+2. Click **Add** and configure:
+   - **Server:** 10.1.0.207  
+   - **Type:** Active Directory  
+   - **Network User:** `4OUTOF7\svc-paloalto`  
+   - **Password:** (Service Account Password)
+   - **WMI Authentication:** Enabled  
+   - **Enable Session Read:** Checked  
 
-3. **Configure Authentication Profile**  
-   - Profile: `AD-Auth`  
-   - Type: LDAP  
-   - Server Profile: `AD-LDAP`  
-   - Allow List: `all` or specific AD groups  
+3. Commit the configuration.
 
-4. **Enable User-ID on Internal Zone**  
-   - Network → Zones → Enable User-ID  
+![User-ID Agentless Config](screenshots/userid-agentless-settings.png)
+
+---
+
+## Step 2: Configure Server Monitoring
+
+1. Navigate to **Device → User Identification → Server Monitoring**.  
+2. Add your AD server:
+   - **Server Name:** WIN_2022_AD  
+   - **Server Address:** 10.1.0.207  
+   - **Enable Server:** Checked  
+
+3. Under **Server List**, ensure **Connection Status** shows as *Connected* after commit.
+
+![Server Monitoring](screenshots/server-monitor.png)
+
+---
+
+## Step 3: Create Security Policy Using User-ID
+
+1. Go to **Policies → Security → Add**  
+2. Configure the following:
+   - **Name:** User-ID_Test  
+   - **From:** Trust  
+   - **To:** Untrust  
+   - **Source User:** Select specific AD users or groups  
+   - **Application:** web-browsing, ssl  
+   - **Action:** Allow  
+
+![User-ID Security Policy](screenshots/userid-security-policy.png)
+
+---
+
+## Step 4: Verification and Troubleshooting
+
+### CLI Commands
+Check user mappings:
+```bash
+show user ip-user-mapping all
