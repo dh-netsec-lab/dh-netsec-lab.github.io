@@ -9,7 +9,7 @@ The goal is to enable identity-based security policies for better visibility and
 ## Topology
 The following diagram represents the User-ID lab environment.
 
-![Topology](./screenshots/topology.png)
+![Topology](https://dh-netsec-lab.github.io/network-security/palo-alto-userid-lab/screenshots/topology.png)
 
 **Key Components:**
 - **Palo Alto Firewall:** 10.1.0.254 (Trust interface), 192.168.118.188 (Management)
@@ -42,7 +42,7 @@ The following diagram represents the User-ID lab environment.
 
 3. Commit the configuration.
 
-![User-ID Agentless Config](screenshots/userid-agentless-settings.png)
+![User-ID Agentless Config](https://dh-netsec-lab.github.io/network-security/palo-alto-userid-lab/screenshots/userid-agentless-settings.png)
 
 ---
 
@@ -56,7 +56,7 @@ The following diagram represents the User-ID lab environment.
 
 3. Under **Server List**, ensure **Connection Status** shows as *Connected* after commit.
 
-![Server Monitoring](screenshots/server-monitor.png)
+![Server Monitoring](https://dh-netsec-lab.github.io/network-security/palo-alto-userid-lab/screenshots/server-monitor.png)
 
 ---
 
@@ -71,7 +71,7 @@ The following diagram represents the User-ID lab environment.
    - **Application:** web-browsing, ssl  
    - **Action:** Allow  
 
-![User-ID Security Policy](screenshots/userid-security-policy.png)
+![User-ID Security Policy](https://dh-netsec-lab.github.io/network-security/palo-alto-userid-lab/screenshots/userid-security-policy.png)
 
 ---
 
@@ -81,3 +81,4 @@ The following diagram represents the User-ID lab environment.
 Check user mappings:
 ```bash
 show user ip-user-mapping all
+
