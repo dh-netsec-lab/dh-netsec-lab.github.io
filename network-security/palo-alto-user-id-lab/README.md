@@ -42,7 +42,7 @@ The following diagram represents the User-ID lab environment.
 
 3. Commit the configuration.
 
-![User-ID Agentless Config](screenshots/userid-agentless-settings.png)
+![User-ID Agentless Config](screenshots/user-id-agentless-settings.png)
 
 ---
 
