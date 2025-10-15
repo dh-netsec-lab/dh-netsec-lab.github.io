@@ -7,7 +7,7 @@ The goal of this lab is to configure and verify **Destination NAT (DNAT)** on a 
 ---
 
 ## 🧩 Topology
-![Topology](screenshots/dnat/topology.png)
+![Topology](screenshots/topology.png)
 
 ---
 
@@ -30,7 +30,7 @@ Translated Address: 10.3.0.1
 This rule translates inbound requests to the firewall’s public IP into the internal web server’s IP address in the DMZ.
 
 📸 **Screenshot:**  
-![NAT Policy](screenshots/dnat/nat-policy.png)
+![NAT Policy](screenshots/nat-policy.png)
 
 ---
 
@@ -48,7 +48,7 @@ Service: any
 This rule allows the inbound traffic to reach the internal web server after translation.
 
 📸 **Screenshot:**  
-![Security Policy](screenshots/dnat/security-policy.png)
+![Security Policy](screenshots/security-policy.png)
 
 ---
 
@@ -57,11 +57,11 @@ Run the following commands to confirm configuration:
 
 show running nat-policy
 
-![Policy Verification](screenshots/dnat/nat-policy-verification.png)
+![Policy Verification](screenshots/nat-policy-verification.png)
 
 show running security-policy
 
-![Policy Verification](screenshots/dnat/security-policy-verification.png)
+![Policy Verification](screenshots/security-policy-verification.png)
 
 ## 🧪 Verification
 
@@ -71,7 +71,7 @@ http[:]//172.16.1.2
 You should see the webpage hosted on your internal web server (`10.3.0.1`).
 
 📸 **Screenshot:**  
-![Browser Test](screenshots/dnat/browser-test.png)
+![Browser Test](screenshots/browser-test.png)
 
 ---
 
@@ -84,12 +84,12 @@ show session all
 show session all | match 10.3.0.1
 
 📸 **Screenshot:** 
-![Session Verification](screenshots/dnat/session-verify.png)
+![Session Verification](screenshots/session-verify.png)
 
 show session id 113449
 
 📸 **Screenshot:**  
-![Session Verification](screenshots/dnat/session-id.png)
+![Session Verification](screenshots/session-id.png)
 
 ---
 
@@ -100,7 +100,7 @@ Confirm that:
 - The translated destination IP shows **10.3.0.1**.
 
 📸 **Screenshot:**  
-![Traffic Log](screenshots/dnat/traffic-log.png)
+![Traffic Log](screenshots/traffic-log.png)
 
 ---
 
