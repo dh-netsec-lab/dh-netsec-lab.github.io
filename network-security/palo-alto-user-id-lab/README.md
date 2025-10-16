@@ -9,7 +9,7 @@ The goal is to enable identity-based security policies for better visibility and
 ## Topology
 The following diagram represents the User-ID lab environment.
 
-![Topology](/network-security/palo-alto-user-id-lab/Screenshot/topology.png)
+![Topology](/network-security/palo-alto-user-id-lab/screenshot/topology.png)
 
 
 **Key Components:**
