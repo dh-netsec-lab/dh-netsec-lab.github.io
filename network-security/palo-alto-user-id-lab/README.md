@@ -9,7 +9,8 @@ The goal is to enable identity-based security policies for better visibility and
 ## Topology
 The following diagram represents the User-ID lab environment.
 
-![Topology](screenshots/topology.png)
+![Topology](/network-security/palo-alto-user-id-lab/Screenshot/topology.png)
+
 
 **Key Components:**
 - **Palo Alto Firewall:** 10.1.0.254 (Trust interface), 192.168.118.188 (Management)
