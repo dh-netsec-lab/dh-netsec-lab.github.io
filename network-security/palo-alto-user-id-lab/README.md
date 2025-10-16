@@ -1,76 +1,88 @@
-# Palo Alto User-ID Agentless Configuration Lab
+# Palo Alto User-ID Integration Lab
 
-## Objective
-This lab demonstrates the configuration and troubleshooting of **Palo Alto’s User-ID Agentless setup** using Windows Server 2022 as the domain controller.  
-The goal is to enable user identification on the firewall without installing the User-ID agent, leveraging WMI and LDAP queries directly from the firewall.
-
----
-
-## Topology
-
-![Topology](screenshots/topology.png)
-
-**Components**
-- **Firewall (PA-VM)**  
-  - Mgmt: `192.168.118.188`  
-  - Untrust: `192.168.1.254/24`  
-  - Trust: `10.1.0.254/24`
-- **Domain Controller / AD**  
-  - Hostname: `WIN_2022_AD`  
-  - IP: `10.1.0.207`  
-  - Domain: `4OUTOF7.com`
-- **Client Systems**  
-  - Domain-joined Windows 10 host(s)
+## 🎯 Objective
+This lab demonstrates how to integrate a **Palo Alto Networks Firewall** with **Active Directory (AD)** using **User-ID Agentless Integration**.  
+The goal is to map network traffic to specific AD user identities for user-based visibility, policy enforcement, and logging.
 
 ---
 
-## Lab Overview
+## 🧩 Topology
+![User-ID Topology](screenshots/palo-user-id-topology.png)
 
-| Component | Purpose |
-|------------|----------|
-| **Windows Server 2022** | Domain Controller, DNS, and LDAP Authentication |
-| **Palo Alto Firewall** | Agentless User-ID Integration |
-| **User-ID Service Account** | Service account with necessary WMI and DCOM privileges |
-| **Verification** | Map IP addresses to domain users in the firewall |
+**Key Components**
+- **Firewall:** 10.1.0.254 (Trust) / 192.168.1.254 (Untrust) / 192.168.118.188 (Mgmt)
+- **Active Directory / Domain Controller:** 10.1.0.207 (AD, DNS, WMI)
+- **Domain:** 4OUTOF7.COM
+- **Service Account:** `svc-paloalto`
+- **Objective:** Retrieve user mappings via WMI and monitor AD login events.
 
 ---
 
-## Step 1: Create the User-ID Service Account
-
-1. In **Active Directory Users and Computers**, create a user:  
-   **Name:** `svc-paloalto`  
-   **Password:** Strong non-expiring password  
-2. Add this account to the following local groups on the Domain Controller:  
+## ⚙️ Step 1: Create Service Account in Active Directory
+1. On the AD server, create a dedicated service account:
+   - **Username:** `svc-paloalto`
+   - **Password:** Strong and set to never expire.
+2. Add the account to the following local groups:
    - Distributed COM Users  
    - Event Log Readers  
    - Remote Management Users  
-3. Delegate “Read all properties” and “Read logon information” in AD Users & Computers.
 
-![User-ID Configuration](screenshots/service-account.png)
-
----
-
-## Step 2: Enable Agentless User-ID on the Firewall
-
-1. Navigate to **Device → User Identification → User Mapping**.  
-2. Enable **User-ID** and **Server Monitoring**.  
-3. Add the Domain Controller as a monitored server:  
-   - **Name:** `Windows_AD`  
-   - **Server:** `10.1.0.207`  
-   - **Type:** `Active Directory (WMI)`  
-   - **User:** `4OUTOF7\svc-paloalto`  
-   - **Enable Server Monitoring**
-
-![Server Monitor](/network-security/palo-alto-user-id-lab/screenshot/server-monitor.png)
+![Service Account Permissions](screenshots/palo-user-id-permissions.png)
 
 ---
 
-## Step 3: Verify Connectivity and Permissions
+## 🧱 Step 2: Configure WMI Security
+1. On the AD server:
+   - Open **wmimgmt.msc** → Right-click **WMI Control (Local)** → **Properties**.
+   - Under **Security**, expand **Root → CIMV2** → select **Security**.
+2. Grant **Remote Enable** and **Execute Methods** permissions to `svc-paloalto`.
 
-Run the following CLI commands on the firewall:
+![WMI Security Settings](screenshots/palo-user-id-wmi-security.png)
+
+---
+
+## 🔐 Step 3: Configure LDAP Server Profile
+1. On the Palo Alto Firewall:
+   - Go to **Device → Server Profiles → LDAP → Add**.
+   - Name: `LDAP-Profile`
+   - Type: `Active Directory`
+   - Base DN: `dc=4OUTOF7,dc=com`
+   - Bind DN: `svc-paloalto@4outof7.com`
+   - Server: `10.1.0.207`
+   - Port: `389`
+   - Test connectivity to confirm successful bind.
+
+![LDAP Server Profile](screenshots/palo-user-id-ldap.png)
+
+---
+
+## 🔑 Step 4: Configure Authentication Profile
+1. Go to **Device → Authentication Profile → Add**.
+2. Select **LDAP** as the authentication method.
+3. Choose the previously created `LDAP-Profile`.
+4. Add allowed users or groups (e.g., `Domain Users`).
+
+![Authentication Profile](screenshots/palo-user-id-auth-profile.png)
+
+---
+
+## 🌐 Step 5: Enable User-ID on the Firewall
+1. Go to **Device → User Identification → User Mapping**.
+2. Check **Enable User Identification**.
+3. Add the server (AD):
+   - **Type:** WMI
+   - **Server:** 10.1.0.207  
+   - **Username:** 4OUTOF7\svc-paloalto
+4. Click **OK**, then **Commit**.
+
+![Server Monitor Status](screenshots/palo-user-id-server-monitor.png)
+
+---
+
+## 🧠 Step 6: Verify Configuration
+Run the following CLI commands to confirm connectivity and user mappings:
 
 ```bash
-> show user server-monitor state all
-> show user user-id-agent statistics
-> show user ip-user-mapping all
-> show user user-id-agent state all
+show user server-monitor state all
+show user ip-user-mapping all
+
