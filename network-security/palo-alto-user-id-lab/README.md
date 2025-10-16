@@ -8,7 +8,7 @@ The goal is to enable user identification on the firewall without installing the
 
 ## Topology
 
-![Topology](/network-security/palo-alto-user-id-lab/screenshot/topology.png)
+![Topology](screenshots/topology.png)
 
 **Components**
 - **Firewall (PA-VM)**  
