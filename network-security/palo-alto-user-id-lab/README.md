@@ -46,7 +46,7 @@ The goal is to enable user identification on the firewall without installing the
    - Remote Management Users  
 3. Delegate “Read all properties” and “Read logon information” in AD Users & Computers.
 
-![User-ID Configuration](/network-security/palo-alto-user-id-lab/screenshot/service-account.png)
+![User-ID Configuration](screenshots/service-account.png)
 
 ---
 
