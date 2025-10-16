@@ -1,85 +1,76 @@
-# Palo Alto User-ID Lab
+# Palo Alto User-ID Agentless Configuration Lab
 
 ## Objective
-This lab demonstrates how to configure **User-ID** on a Palo Alto Networks firewall to map user activity to IP addresses using **Agentless User-ID** and **Active Directory (AD)** integration.  
-The goal is to enable identity-based security policies for better visibility and control.
+This lab demonstrates the configuration and troubleshooting of **Palo Alto’s User-ID Agentless setup** using Windows Server 2022 as the domain controller.  
+The goal is to enable user identification on the firewall without installing the User-ID agent, leveraging WMI and LDAP queries directly from the firewall.
 
 ---
 
 ## Topology
-The following diagram represents the User-ID lab environment.
 
 ![Topology](/network-security/palo-alto-user-id-lab/screenshot/topology.png)
 
-
-**Key Components:**
-- **Palo Alto Firewall:** 10.1.0.254 (Trust interface), 192.168.118.188 (Management)
-- **Domain Controller (AD):** 10.1.0.207
-- **Windows User System:** 10.1.0.153
-- **Domain:** 4OUTOF7.com
-- **User-ID Service Account:** 4OUTOF7\svc-paloalto
-
----
-
-## Lab Environment
-- **Platform:** VMware Workstation  
-- **PAN-OS Version:** 10.x  
-- **Windows Server 2022:** Domain Controller, DNS, and AD  
-- **Windows 10:** Domain-joined client system  
-- **Purpose:** Demonstrate WMI/LDAP-based User-ID mapping.
+**Components**
+- **Firewall (PA-VM)**  
+  - Mgmt: `192.168.118.188`  
+  - Untrust: `192.168.1.254/24`  
+  - Trust: `10.1.0.254/24`
+- **Domain Controller / AD**  
+  - Hostname: `WIN_2022_AD`  
+  - IP: `10.1.0.207`  
+  - Domain: `4OUTOF7.com`
+- **Client Systems**  
+  - Domain-joined Windows 10 host(s)
 
 ---
 
-## Step 1: Configure User-ID Settings on the Firewall
+## Lab Overview
+
+| Component | Purpose |
+|------------|----------|
+| **Windows Server 2022** | Domain Controller, DNS, and LDAP Authentication |
+| **Palo Alto Firewall** | Agentless User-ID Integration |
+| **User-ID Service Account** | Service account with necessary WMI and DCOM privileges |
+| **Verification** | Map IP addresses to domain users in the firewall |
+
+---
+
+## Step 1: Create the User-ID Service Account
+
+1. In **Active Directory Users and Computers**, create a user:  
+   **Name:** `svc-paloalto`  
+   **Password:** Strong non-expiring password  
+2. Add this account to the following local groups on the Domain Controller:  
+   - Distributed COM Users  
+   - Event Log Readers  
+   - Remote Management Users  
+3. Delegate “Read all properties” and “Read logon information” in AD Users & Computers.
+
+![User-ID Configuration](/network-security/palo-alto-user-id-lab/screenshot/service-account.png)
+
+---
+
+## Step 2: Enable Agentless User-ID on the Firewall
 
 1. Navigate to **Device → User Identification → User Mapping**.  
-2. Click **Add** and configure:
-   - **Server:** 10.1.0.207  
-   - **Type:** Active Directory  
-   - **Network User:** `4OUTOF7\svc-paloalto`  
-   - **Password:** (Service Account Password)
-   - **WMI Authentication:** Enabled  
-   - **Enable Session Read:** Checked  
+2. Enable **User-ID** and **Server Monitoring**.  
+3. Add the Domain Controller as a monitored server:  
+   - **Name:** `Windows_AD`  
+   - **Server:** `10.1.0.207`  
+   - **Type:** `Active Directory (WMI)`  
+   - **User:** `4OUTOF7\svc-paloalto`  
+   - **Enable Server Monitoring**
 
-3. Commit the configuration.
-
-![User-ID Agentless Config](screenshots/user-id-agentless-settings.png)
+![Server Monitor](/network-security/palo-alto-user-id-lab/screenshot/server-monitor.png)
 
 ---
 
-## Step 2: Configure Server Monitoring
+## Step 3: Verify Connectivity and Permissions
 
-1. Navigate to **Device → User Identification → Server Monitoring**.  
-2. Add your AD server:
-   - **Server Name:** WIN_2022_AD  
-   - **Server Address:** 10.1.0.207  
-   - **Enable Server:** Checked  
+Run the following CLI commands on the firewall:
 
-3. Under **Server List**, ensure **Connection Status** shows as *Connected* after commit.
-
-![Server Monitoring](screenshots/server-monitor.png)
-
----
-
-## Step 3: Create Security Policy Using User-ID
-
-1. Go to **Policies → Security → Add**  
-2. Configure the following:
-   - **Name:** User-ID_Test  
-   - **From:** Trust  
-   - **To:** Untrust  
-   - **Source User:** Select specific AD users or groups  
-   - **Application:** web-browsing, ssl  
-   - **Action:** Allow  
-
-![User-ID Security Policy](screenshots/userid-security-policy.png)
-
----
-
-## Step 4: Verification and Troubleshooting
-
-### CLI Commands
-Check user mappings:
 ```bash
-show user ip-user-mapping all
-
+> show user server-monitor state all
+> show user user-id-agent statistics
+> show user ip-user-mapping all
+> show user user-id-agent state all
