@@ -125,3 +125,12 @@ In this lab, we demonstrated how to:
 
 ✅ **Outcome:**  
 External users can successfully reach the internal server via the public IP `172.16.1.2`.
+
+---
+
+### 🔁 Lab Navigation
+
+| ⬅ Previous | 🏠 Back to Index | Next ➡ |
+|-------------|-----------------|---------|
+| — | [Network Security Labs](../index.md) | [L2 NAT Interface Lab →](../palo-alto-l2-nat-interface-lab/) |
+
