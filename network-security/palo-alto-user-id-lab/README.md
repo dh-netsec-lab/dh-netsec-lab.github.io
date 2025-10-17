@@ -92,6 +92,7 @@ show user ip-user-mapping all
 
 | ⬅ Previous | 🏠 Back to Index | Next ➡ |
 |-------------|-----------------|---------|
-| [← Site-to-Site VPN Lab](../palo-alto-site-to-site-vpn/) | [Network Security Labs](../index.md) | [GlobalProtect VPN Lab →](../palo-alto-globalprotect-vpn/) |
+| [← Site-to-Site VPN Lab](../palo-alto-site-to-site-vpn/) | [Network Security Labs](../index.md) | [GlobalProtect VPN Lab →](../palo-alto-globalprotect-lab/) |
+
 
 
