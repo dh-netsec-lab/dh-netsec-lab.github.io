@@ -1,7 +1,7 @@
-# 🛡️ Palo Alto Network Security Labs
+# 🧱 Palo Alto Networks Lab Series
 
 Welcome to my **Palo Alto Networks Lab Series** — a hands-on collection of firewall and network-security configurations built in **VMware** and **EVE-NG** environments.  
-Each lab demonstrates real-world enterprise use cases and is designed to show practical skills across routing, NAT, VPN, and identity integration.
+Each lab demonstrates real-world enterprise use cases and showcases practical skills in **routing**, **NAT**, **VPN**, and **user identity integration**.
 
 ---
 
@@ -9,36 +9,32 @@ Each lab demonstrates real-world enterprise use cases and is designed to show pr
 
 | 🧩 **Lab Name** | 🧠 **Description** | 🔗 **Link** |
 |-----------------|--------------------|-------------|
-| **DNAT Lab** | Configures **Destination NAT** to publish an internal web server (e.g., 10.3.0.1) to the internet via the untrust interface. | [View Lab →](./palo-alto-dnat-lab/palo-alto-dnat-lab.md) |
-| **L2 NAT Interface Lab** | Demonstrates **Layer 2 NAT** configuration and traffic flow between VLAN zones using Ethernet switching. | [View Lab →](./palo-alto-l2-nat-interface-lab/palo-alto-l2-nat-interface-lab.md) |
-| **Site-to-Site VPN Lab** | Builds an **IPsec VPN** tunnel between two Palo Alto firewalls to securely connect remote networks. | [View Lab →](./palo-alto-site-to-sitevpn/palo-alto-site-to-sitevpn.md) |
-| **User-ID Integration Lab** | Integrates Palo Alto with **Active Directory (WMI/LDAP)** for user-based policies and monitoring. | [View Lab →](./palo-alto-userid/palo-alto-userid.md) |
-| **GlobalProtect VPN Lab** | Configures **GlobalProtect** to enable secure remote user access with certificate-based authentication. | [View Lab →](./palo-alto-globalprotect-lab/palo-alto-globalprotect-lab.md) |
+| **DNAT Lab** | Configure **Destination NAT** to publish an internal web server (e.g., 10.3.0.1) to the internet via the untrust interface. | [View Lab →](./palo-alto-dnat-lab/) |
+| **L2 NAT Interface Lab** | Demonstrate **Layer 2 + Layer 3 + VWire** with **SNAT** and VLAN segmentation. | [View Lab →](./palo-alto-l2-nat-interface-lab/) |
+| **Site-to-Site VPN Lab** | Build a **site-to-site IPsec VPN** between two Palo Alto firewalls to securely connect remote networks. | [View Lab →](./palo-alto-site-to-site-vpn/) |
+| **User-ID Integration Lab** | Integrate Palo Alto with **Active Directory (WMI/LDAP)** for user-based policies and visibility. | [View Lab →](./palo-alto-userid-lab/) |
+| **GlobalProtect VPN Lab** | Configure **GlobalProtect VPN** for secure remote access using certificate authentication. | [View Lab →](./palo-alto-globalprotect-vpn/) |
 
 ---
 
 ## 🧱 Technologies Covered
 - Palo Alto Networks **NGFW (PAN-OS 10.x)**
 - **NAT (SNAT & DNAT)** rules and verification
-- **IPsec VPN** and routing between firewalls
-- **User-ID / LDAP / WMI** integration
-- **GlobalProtect VPN** (portal + gateway)
-- Security policy, logging, and monitoring
+- **IPsec VPN** configuration and routing between sites
+- **User-ID / LDAP / WMI** authentication integration
+- **GlobalProtect VPN** portal and gateway setup
+- Security policy design, traffic inspection, and logging
 
 ---
 
 ## 💡 Usage
 Each lab directory contains:
-- A `README` or `*.md` guide explaining the full configuration  
-- A `/screenshots/` folder for visual references  
-- Verified CLI outputs and GUI examples  
+- A detailed **README.md** guide for configuration  
+- A **/screenshots/** folder for visual reference  
+- **CLI validation** and troubleshooting steps  
 
-Clone or browse individual labs to view step-by-step configurations.
+Browse each folder to explore configurations or clone this repository for your own lab environment.
 
 ---
 
-## 🌐 Repository
-Return to the main project home:  
-➡️ [dh-netsec-lab.github.io](https://dh-netsec-lab.github.io/)
-
-
+**Next:** [Start with the DNAT Lab →](./palo-alto-dnat-lab/)
