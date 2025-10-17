@@ -62,7 +62,7 @@ This interface carries encrypted VPN traffic.
 ![Tunnel Interface Config](screenshots/palo-vpn-tunnel-config.png)
 
 📸 **Screenshot:**  
-![Tunnel Interface Assignment](screenshots/pal-vpn-tunnel-interface.png)
+![Tunnel Interface Assignment](screenshots/palo-vpn-tunnel-interface.png)
 
 ---
 
