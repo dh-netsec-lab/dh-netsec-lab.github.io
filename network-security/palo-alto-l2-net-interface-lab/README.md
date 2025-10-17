@@ -134,3 +134,12 @@ In this lab we demonstrated how to:
 - Validate traffic and policy enforcement in mixed-mode environments  
 
 ✅ **Outcome:** Internal hosts in VLAN 10 can securely reach external networks through dynamic IP and port translation.
+
+---
+
+### 🔁 Lab Navigation
+
+| ⬅ Previous | 🏠 Back to Index | Next ➡ |
+|-------------|-----------------|---------|
+| [← DNAT Lab](../palo-alto-dnat-lab/) | [Network Security Labs](../index.md) | [Site-to-Site VPN Lab →](../palo-alto-site-to-site-vpn/) |
+
