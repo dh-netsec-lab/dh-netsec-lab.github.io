@@ -108,10 +108,13 @@ Use the following commands to verify the tunnel and routes:
 
 ---
 
+---
+
 ### 🔁 Lab Navigation
 
 | ⬅ Previous | 🏠 Back to Index | Next ➡ |
 |-------------|-----------------|---------|
-| [← L2 NAT Interface Lab](../palo-alto-l2-nat-interface-lab/) | [Network Security Labs](../index.md) | [User-ID Integration Lab →](../palo-alto-userid-lab/) |
+| [← DNAT Lab](../palo-alto-dnat-lab/) | [Network Security Labs](../index.md) | [Site-to-Site VPN Lab →](../paloalto-site-to-site-vpn/) |
+
 
 
