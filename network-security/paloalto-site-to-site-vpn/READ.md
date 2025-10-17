@@ -26,44 +26,46 @@ Establish a **site-to-site IPsec VPN tunnel** between two Palo Alto firewalls, e
 ---
 
 ## ⚙️ Environment Setup
-- Two Palo Alto VM-Series firewalls running in **EVE-NG**  
-- Each device has:
-  - **LAN Zone** (Trust)
-  - **Transport Zone** (Untrust)
-  - **Tunnel Zone** (VPN)
+- Two **Palo Alto VM-Series** firewalls running in **EVE-NG**
+- Each device configured with three zones:
+  - **Trust (LAN)**
+  - **Untrust (Transport/Public)**
+  - **VPN (Tunnel)**
 
 ---
 
 ## 🧭 Configuration Steps
 
 ### 1️⃣ IKE Gateway
-- Authentication – Pre-shared key  
-- Version – IKEv2  
-- Peer IPs: 192.168.1.1 ↔ 192.168.3.1  
+- Authentication: **Pre-shared key**
+- Version: **IKEv2**
+- Local Address: 192.168.1.1 (HQ), 192.168.3.1 (Branch)
+- Peer IPs exchanged between both sites
 
 ### 2️⃣ IPsec Tunnel
-- IKE Gateway: `vpn-gw`  
-- IPsec Crypto Profile: AES-256 / SHA256 / DH Group 14  
-- Proxy IDs: 10.0.1.0/24 ↔ 10.0.2.0/24  
+- IKE Gateway: `vpn-gw`
+- IPsec Crypto Profile: AES-256 / SHA256 / DH Group 14
+- Proxy IDs: 10.0.1.0/24 ↔ 10.0.2.0/24
 
 ### 3️⃣ Tunnel Interface
-- Interface: `tunnel.1`  
-- Zone: VPN  
-- Added to virtual router  
+- Interface: `tunnel.1`
+- Zone: VPN
+- Added to virtual router for route propagation
 
 ### 4️⃣ Routing
-- HQ: Static route 10.0.2.0/24 → `tunnel.1`  
-- Branch: Static route 10.0.1.0/24 → `tunnel.1`  
+- HQ: Static route **10.0.2.0/24 → tunnel.1**
+- Branch: Static route **10.0.1.0/24 → tunnel.1**
 
 ### 5️⃣ Security Policies
-- Allow Trust → VPN  
-- Allow VPN → Trust  
+- Allow traffic from **Trust → VPN**
+- Allow traffic from **VPN → Trust**
 
 ### 6️⃣ Validation
+Run the following commands on both firewalls:
+
 ```bash
 > show vpn ike-sa
 > show vpn ipsec-sa
 > test security-policy-match source 10.0.1.13 destination 10.0.2.13 protocol 6 destination-port 80
 > show routing route | match 10.0.1.13
 > ping source 10.0.1.13 host 10.0.2.13
-
