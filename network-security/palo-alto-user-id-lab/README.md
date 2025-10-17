@@ -86,3 +86,12 @@ Run the following CLI commands to confirm connectivity and user mappings:
 show user server-monitor state all
 show user ip-user-mapping all
 
+---
+
+### 🔁 Lab Navigation
+
+| ⬅ Previous | 🏠 Back to Index | Next ➡ |
+|-------------|-----------------|---------|
+| [← Site-to-Site VPN Lab](../palo-alto-site-to-site-vpn/) | [Network Security Labs](../index.md) | [GlobalProtect VPN Lab →](../palo-alto-globalprotect-vpn/) |
+
+
