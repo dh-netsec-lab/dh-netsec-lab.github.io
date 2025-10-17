@@ -128,9 +128,12 @@ External users can successfully reach the internal server via the public IP `172
 
 ---
 
+---
+
 ### 🔁 Lab Navigation
 
 | ⬅ Previous | 🏠 Back to Index | Next ➡ |
 |-------------|-----------------|---------|
-| — | [Network Security Labs](../index.md) | [L2 NAT Interface Lab →](../palo-alto-l2-nat-interface-lab/) |
+| — | [Network Security Labs](../index.md) | [L2 NAT Interface Lab →](../palo-alto-l2-net-interface-lab/) |
+
 
