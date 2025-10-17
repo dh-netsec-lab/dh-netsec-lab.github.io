@@ -117,7 +117,6 @@ Use the following commands to verify the tunnel and routes:
 | ⬅ Previous | 🏠 Back to Index | Next ➡ |
 |-------------|-----------------|---------|
 | [← DNAT Lab](../palo-alto-dnat-lab/) | [Network Security Labs](../index.md) | [User-ID Integration Lab →](../palo-alto-userid-lab/) |
- |
 
 
 
