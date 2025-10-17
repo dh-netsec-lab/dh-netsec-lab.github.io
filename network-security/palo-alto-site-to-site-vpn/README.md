@@ -110,11 +110,14 @@ Use the following commands to verify the tunnel and routes:
 
 ---
 
+---
+
 ### 🔁 Lab Navigation
 
 | ⬅ Previous | 🏠 Back to Index | Next ➡ |
 |-------------|-----------------|---------|
-| [← DNAT Lab](../palo-alto-dnat-lab/) | [Network Security Labs](../index.md) | [Site-to-Site VPN Lab →](../paloalto-site-to-site-vpn/) |
+| [← DNAT Lab](../palo-alto-dnat-lab/) | [Network Security Labs](../index.md) | [User-ID Integration Lab →](../palo-alto-userid-lab/) |
+ |
 
 
 
