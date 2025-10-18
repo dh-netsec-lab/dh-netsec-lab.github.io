@@ -106,6 +106,8 @@ Use the following commands to verify the tunnel and routes:
 > test security-policy-match source 10.0.1.13 destination 10.0.2.13 protocol 6 destination-port 80
 > ping source 10.0.1.13 host 10.0.2.13
 
+```
+
 ---
 
 ---
