@@ -86,6 +86,7 @@ Run the following CLI commands to confirm connectivity and user mappings:
 show user server-monitor state all
 show user ip-user-mapping all
 
+```
 ---
 
 ### 🔁 Lab Navigation
