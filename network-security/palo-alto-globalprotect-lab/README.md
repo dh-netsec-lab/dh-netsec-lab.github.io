@@ -48,12 +48,12 @@ Future versions will include an **EVE-NG variant** for consistency across the fu
 [View the Palo Alto GlobalProtect VPN Lab →](./palo-alto-globalprotect-lab.md)
 
 ---
-
 ### 🔁 Lab Navigation
 
 | ⬅ Previous | 🏠 Back to Index | Next ➡ |
 |-------------|-----------------|---------|
-| [← User-ID Integration Lab](../palo-alto-userid-lab/) | [Network Security Labs](../index.md) | — |
+| [← User-ID Integration Lab](../palo-alto-user-id-lab/) | [Network Security Labs](../index.md) | — |
+
 
 
 
