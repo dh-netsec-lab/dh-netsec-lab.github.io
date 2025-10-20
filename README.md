@@ -6,7 +6,7 @@ As a **Senior Network Engineer** with over a decade of experience, I’m expandi
 
 This repository is organized into distinct domains representing key focus areas in my professional journey:  
 
-
+---
 
 ## 📂 Portfolio Categories
 
