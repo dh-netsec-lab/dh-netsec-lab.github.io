@@ -177,7 +177,7 @@ This configuration mirrors real-world enterprise scenarios such as mergers, acqu
 **Author:** dh-netsec-lab  
 **Category:** Network Security Labs  
 
-🔙 [Return to Palo Alto Network Lab Index](../README.md)
+🔙 [Return to Palo Alto Network Lab Index](../index.md)
 
 
 
