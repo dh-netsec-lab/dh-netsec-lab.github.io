@@ -127,13 +127,15 @@ From Site A (Host 10.2.2.8 behind the firewall):
 
 ping source 10.2.2.8 host 10.3.3.7
 **Screenshot:**  
-![Ping Success](screenshots/ping-success.png)
+![Ping Success - Site A](screenshots/ping-success-siteA.png)
 
 ---
 
+#### From Site B (Host 10.2.2.9 behind the firewall)
+---
 ping source 10.2.2.9 host 10.4.4.8
 **Screenshot:**  
-![Ping Success](screenshots/ping-success.png)
+![Ping Success - Site B](screenshots/ping-success-siteB.png)
 
 ---
 
