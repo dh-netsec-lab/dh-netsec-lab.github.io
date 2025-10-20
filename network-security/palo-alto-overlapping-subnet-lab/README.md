@@ -16,7 +16,7 @@ By using **NAT translation**, each site maps its internal network to a unique su
 | **Mapped Subnet (Site A)** | 10.4.4.0/24 | Used for traffic sent to Site B |
 | **Mapped Subnet (Site B)** | 10.3.3.0/24 | Used for traffic sent to Site A |
 | **WAN Router** | 203.0.113.0/24 ↔ 198.51.100.0/24 | Simulated public WAN connection |
-| **Management** | Site A: 172.29.129.140 <br> Site B: 172.29.129.141 | For firewall GUI/CLI access |
+| **Management** | Site A: 192.168.118.140 <br> Site B: 192.168.118.141 | For firewall GUI/CLI access |
 
 ---
 
