@@ -6,11 +6,14 @@ As a **Senior Network Engineer** with over a decade of experience, I’m expandi
 
 This repository is organized into distinct domains representing core skill areas:  
 
-| 📁 **Category** | 💡 **Focus Area** | 🔗 **Link** |
-|------------------|------------------|-------------|
-| **Network Security** | Palo Alto Networks, Firewalls, VPNs, NAT, and User-ID Integrations. | [Explore →](./network-security/) |
-| **Cybersecurity** | Governance, Risk Management, Compliance (GRC), threat analysis, and SOC practices. | [Explore →](./cybersecurity/) |
-| **Routing & Switching** | Cisco networking, VLANs, Spanning Tree, EIGRP, OSPF, and advanced Layer 2/3 concepts. | [Explore →](./routing-switching/) |
+## 📂 Portfolio Categories
+
+| 📁 **Category** | 💡 **Focus Area** | 🔗 **Explore** |
+|------------------|------------------|----------------|
+| **Network Security** | Palo Alto Networks, Firewalls, VPNs, NAT, and User-ID Integrations — enterprise-grade security labs demonstrating segmentation, encryption, and identity-based access control. | [Explore →](./network-security/) |
+| **Cybersecurity** | Governance, Risk Management, and Compliance (GRC), Incident Response, Threat Analysis, and SOC operational concepts — bridging security engineering with defensive strategy. | [Explore →](./cybersecurity/) |
+| **Networking** | Routing, Switching, VLANs, Spanning Tree, OSPF, and advanced Layer 2/3 designs — showcasing a strong Cisco and core networking foundation. | [Explore →](./networking/) |
+
 
 ---
 
