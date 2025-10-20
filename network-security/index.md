@@ -12,6 +12,7 @@ Each lab demonstrates real-world enterprise use cases and showcases practical sk
 | **DNAT Lab** | Configure **Destination NAT** to publish an internal web server (e.g., 10.3.0.1) to the internet via the untrust interface. | [View Lab →](./palo-alto-dnat-lab/) |
 | **L2 NAT Interface Lab** | Demonstrate **Layer 2 + Layer 3 + VWire** with **SNAT** and VLAN segmentation. | [View Lab →](./palo-alto-l2-nat-interface-lab/) |
 | **Site-to-Site VPN Lab** | Build a **site-to-site IPsec VPN** between two Palo Alto firewalls to securely connect remote networks. | [View Lab →](./palo-alto-site-to-site-vpn/) |
+| **Overlapping Subnets VPN Lab** | Build a **site-to-site VPN between identical subnets** using **NAT translation** to resolve overlapping networks. | [View Lab →](./palo-alto-overlapping-subnet-lab/) |
 | **User-ID Integration Lab** | Integrate Palo Alto with **Active Directory (WMI/LDAP)** for user-based policies and visibility. | [View Lab →](./palo-alto-user-id-lab/) |
 | **GlobalProtect VPN Lab** | Configure **GlobalProtect VPN** for secure remote access using certificate authentication. | [View Lab →](./palo-alto-globalprotect-lab/) |
 
