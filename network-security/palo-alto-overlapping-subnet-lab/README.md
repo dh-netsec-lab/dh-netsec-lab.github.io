@@ -11,19 +11,21 @@ By using **NAT translation**, each site maps its internal network to a unique su
 
 | Component | IP/Subnet | Description |
 |------------|------------|-------------|
-| **Site A LANs** | 10.1.1.0/24 and 10.2.2.0/24 | Local subnets |
+| **Site A LAN** | 10.2.2.0/24 | Local subnet (overlaps with Site B) |
 | **Site B LAN** | 10.2.2.0/24 | Overlapping subnet with Site A |
 | **Mapped Subnet (Site A)** | 10.4.4.0/24 | Used for traffic sent to Site B |
 | **Mapped Subnet (Site B)** | 10.3.3.0/24 | Used for traffic sent to Site A |
-| **WAN Router** | 203.0.113.0/24 ↔ 198.51.100.0/24 | Simulated public WAN connection |
-| **Management** | Site A: 192.168.118.140 <br> Site B: 192.168.118.141 | For firewall GUI/CLI access |
+| **Test Host (Site A)** | 10.2.2.8 | Used to generate traffic toward Site B |
+| **Test Host (Site B)** | 10.2.2.9 | Used to generate traffic toward Site A |
+| **WAN Router** | 203.0.113.0/24 ↔ 198.51.100.0/24 | Simulated public WAN |
+| **Management** | Site A 172.29.129.140                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <br> Site B 172.29.129.141 | For firewall GUI/CLI access |
 
 ---
 
 ## ⚙️ Configuration Steps
 
 ### 🔹 Step 1: IKE Gateway Configuration
-Configure an IKEv2 gateway on both firewalls.
+Configure IKEv2 gateways on both firewalls.
 
 | Setting | Site A | Site B |
 |----------|---------|--------|
@@ -38,7 +40,7 @@ Configure an IKEv2 gateway on both firewalls.
 
 ---
 
-### 🔹 Step 2: IPSec Tunnel
+### 🔹 Step 2: IPSec Tunnel Configuration
 Create an IPSec tunnel using the configured IKE Gateway.
 
 | Setting | Value |
@@ -62,7 +64,7 @@ Create an IPSec tunnel using the configured IKE Gateway.
 
 | Site | Source NAT | Destination NAT |
 |------|-------------|-----------------|
-| **Site A** | 10.1.1.0/24 → 10.4.4.0/24 | 10.3.3.0/24 → 10.2.2.0/24 |
+| **Site A** | 10.2.2.0/24 → 10.4.4.0/24 | 10.3.3.0/24 → 10.2.2.0/24 |
 | **Site B** | 10.2.2.0/24 → 10.3.3.0/24 | 10.4.4.0/24 → 10.2.2.0/24 |
 
 **Screenshot:**  
@@ -73,7 +75,7 @@ Create an IPSec tunnel using the configured IKE Gateway.
 
 ### 🔹 Step 4: Security Policies
 
-Add security rules to allow VPN traffic between the translated subnets.
+Add security policies to allow VPN traffic between translated subnets.
 
 | Source Zone | Destination Zone | Action |
 |--------------|------------------|---------|
@@ -87,7 +89,7 @@ Add security rules to allow VPN traffic between the translated subnets.
 
 ### 🔹 Step 5: Routing Configuration
 
-Add static routes for the translated subnets.
+Add static routes for translated subnets.
 
 | Site | Destination | Next Hop |
 |------|--------------|-----------|
@@ -121,6 +123,58 @@ Filter: `( interface eq tunnel.1 )`
 ---
 
 ### 🔸 Ping Verification
-From Site A:
+From Site A (Host 10.2.2.8 behind the firewall):
 
-|
+ping source 10.2.2.8 host 10.3.3.7
+**Screenshot:**  
+![Ping Success](screenshots/ping-success.png)
+
+---
+
+ping source 10.2.2.9 host 10.4.4.8
+**Screenshot:**  
+![Ping Success](screenshots/ping-success.png)
+
+---
+
+### 🔸 CLI Verification
+
+show vpn ipsec-sa
+
+
+**Screenshot:**  
+![VPN CLI Output](screenshots/show-vpn-cli.png)
+
+---
+
+## 🧠 Learning Objectives
+- Understand overlapping subnet challenges and NAT-based solutions.  
+- Configure dual NAT (source/destination) for VPNs.  
+- Validate and troubleshoot Phase 1/2 tunnel negotiation.  
+- Analyze translated traffic flow in Palo Alto firewalls.
+
+---
+
+## 🏁 Summary
+This lab demonstrates how **Palo Alto Networks** firewalls can connect two overlapping networks using **NAT-based translation across a site-to-site VPN**.  
+This configuration mirrors real-world enterprise scenarios such as mergers, acquisitions, or service-provider environments.
+
+---
+
+### 🧷 Badges
+![Palo Alto](https://img.shields.io/badge/Palo%20Alto-Firewall-blue?logo=paloaltonetworks)
+![VPN](https://img.shields.io/badge/Site--to--Site-VPN-green)
+![Advanced](https://img.shields.io/badge/Level-Advanced-orange)
+![NAT](https://img.shields.io/badge/Feature-NAT%20Overlap-yellow)
+
+---
+
+### 🧾 Footer
+**Lab:** Palo Alto Site-to-Site VPN with Overlapping Subnets  
+**Platform:** Palo Alto Networks PAN-OS 10.x  
+**Author:** dh-netsec-lab  
+**Category:** Network Security Labs  
+
+🔙 [Return to Palo Alto Network Lab Index](../README.md)
+
+
