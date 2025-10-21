@@ -48,9 +48,6 @@ Bind DN: svc-paloalto@4outof7.com
 Server: 10.1.0.100  
 Port: 389  
 
-✅ Test connectivity to confirm successful bind.
-
-
 ![LDAP Server Profile](screenshots/palo-user-id-ldap.png)
 
 ---
