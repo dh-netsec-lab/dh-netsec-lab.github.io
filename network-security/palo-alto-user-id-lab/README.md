@@ -6,15 +6,12 @@ The goal is to map network traffic to specific AD user identities for user-based
 
 ---
 
-## 🧩 Topology
-![User-ID Topology](screenshots/palo-user-id-topology.png)
-
-**Key Components**
-- **Firewall:** 10.1.0.254 (Trust) / 192.168.1.254 (Untrust) / 192.168.118.188 (Mgmt)
-- **Active Directory / Domain Controller:** 10.1.0.207 (AD, DNS, WMI)
+- **Firewall:** 10.1.0.254 (Trust) / 192.168.1.254 (Untrust) / 192.168.118.132 (Mgmt)
+- **Active Directory / Domain Controller:** 10.1.0.100 (AD, DNS, WMI)
 - **Domain:** 4OUTOF7.COM
-- **Service Account:** `svc-paloalto`
+- **Service Account:** svc-paloalto
 - **Objective:** Retrieve user mappings via WMI and monitor AD login events.
+
 
 ---
 
@@ -41,16 +38,18 @@ The goal is to map network traffic to specific AD user identities for user-based
 
 ---
 
-## 🔐 Step 3: Configure LDAP Server Profile
-1. On the Palo Alto Firewall:
-   - Go to **Device → Server Profiles → LDAP → Add**.
-   - Name: `LDAP-Profile`
-   - Type: `Active Directory`
-   - Base DN: `dc=4OUTOF7,dc=com`
-   - Bind DN: `svc-paloalto@4outof7.com`
-   - Server: `10.1.0.207`
-   - Port: `389`
-   - Test connectivity to confirm successful bind.
+On the Palo Alto Firewall:
+Go to Device → Server Profiles → LDAP → Add.
+
+Name: LDAP-Profile  
+Type: Active Directory  
+Base DN: dc=4OUTOF7,dc=com  
+Bind DN: svc-paloalto@4outof7.com  
+Server: 10.1.0.100  
+Port: 389  
+
+✅ Test connectivity to confirm successful bind.
+
 
 ![LDAP Server Profile](screenshots/palo-user-id-ldap.png)
 
@@ -66,14 +65,16 @@ The goal is to map network traffic to specific AD user identities for user-based
 
 ---
 
-## 🌐 Step 5: Enable User-ID on the Firewall
-1. Go to **Device → User Identification → User Mapping**.
-2. Check **Enable User Identification**.
-3. Add the server (AD):
-   - **Type:** WMI
-   - **Server:** 10.1.0.207  
-   - **Username:** 4OUTOF7\svc-paloalto
-4. Click **OK**, then **Commit**.
+Go to Device → User Identification → User Mapping.
+Check **Enable User Identification**.
+Add the server (AD):
+
+Type: WMI  
+Server: 10.1.0.100  
+Username: 4OUTOF7\svc-paloalto  
+
+Click OK, then Commit.
+
 
 ![Server Monitor Status](screenshots/palo-user-id-server-monitor.png)
 
