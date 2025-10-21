@@ -6,8 +6,8 @@ The goal is to map network traffic to specific AD user identities for user-based
 
 ---
 
-- **Firewall:** 10.1.0.254 (Trust) / 192.168.1.254 (Untrust) / 192.168.118.132 (Mgmt)
-- **Active Directory / Domain Controller:** 10.1.0.100 (AD, DNS, WMI)
+- **Firewall:** 10.0.1.254 (Trust) / 192.168.1.254 (Untrust) / 192.168.118.132 (Mgmt)
+- **Active Directory / Domain Controller:** 10.0.1.100 (AD, DNS, WMI)
 - **Domain:** 4OUTOF7.COM
 - **Service Account:** svc-paloalto
 - **Objective:** Retrieve user mappings via WMI and monitor AD login events.
@@ -45,7 +45,7 @@ Name: LDAP-Profile
 Type: Active Directory  
 Base DN: dc=4OUTOF7,dc=com  
 Bind DN: `svc-paloalto@4outof7.com`  
-Server: 10.1.0.100  
+Server: 10.0.1.100  
 Port: 389  
 
 ![LDAP Server Profile](screenshots/palo-user-id-ldap.png)
@@ -67,11 +67,8 @@ Check **Enable User Identification**.
 Add the server (AD):
 
 Type: WMI  
-Server: 10.1.0.100  
+Server: 10.0.1.100  
 Username: 4OUTOF7\svc-paloalto  
-
-Click OK, then Commit.
-
 
 ![Server Monitor Status](screenshots/palo-user-id-server-monitor.png)
 
