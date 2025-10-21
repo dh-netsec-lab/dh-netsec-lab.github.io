@@ -44,7 +44,7 @@ Go to Device → Server Profiles → LDAP → Add.
 Name: LDAP-Profile  
 Type: Active Directory  
 Base DN: dc=4OUTOF7,dc=com  
-Bind DN: svc-paloalto@4outof7.com  
+Bind DN: `svc-paloalto@4outof7.com`  
 Server: 10.1.0.100  
 Port: 389  
 
