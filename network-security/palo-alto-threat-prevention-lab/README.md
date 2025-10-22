@@ -38,43 +38,30 @@ The configuration also showcases the use of a **Security Profile Group** applied
 
 ---
 
-## ⚙️ Step 2: Create or Verify Security Profiles
-1. Go to **Objects → Security Profiles**.  
-2. Verify or clone the following profiles:
-   - **Antivirus:** `AV-Default`
-   - **Anti-Spyware:** `Spyware-Default`
-   - **Vulnerability Protection:** `Vuln-Default`
-   - **URL Filtering:** `URL-Filter`
-   - **File Blocking:** `File-Block`
+## ⚙️ Step 2: Create and Apply Threat Prevention Profiles and Group
+1. Go to **Objects → Security Profiles → Security Profile Group → Add**  
+2. Name the group: `Threat_Prevention_Group`
+3. Add the following profiles (using customized or cloned defaults):  
+   - **Antivirus:** `AV-Default`  
+   - **Anti-Spyware:** `Spyware-Default`  
+   - **Vulnerability Protection:** `Vuln-Default`  
+   - **URL Filtering:** `URL-Filter`  
+   - **File Blocking:** `File-Block`  
    - **WildFire Analysis:** `WildFire-Analysis`
-3. Customize as needed (e.g., block high-risk categories or file types).
-
-🖼 *Screenshot:* `screenshots/security-profiles.png`
-
----
-
-## ⚙️ Step 3: Create the Threat Prevention Group
-1. Go to **Objects → Security Profile Groups → Add**.  
-2. Name: `Threat_Prevention_Group`  
-3. Add the profiles listed above.
-
-🖼 *Screenshot:* `screenshots/threat-prevention-group.png`
-
----
-
-## ⚙️ Step 4: Apply the Group to Security Policies
-1. Go to **Policies → Security**.  
-2. Edit the following policies and attach the group:
+4. Under **Policies → Security**, edit the following rules to attach the group:
    - `Inside_To_Outside`
    - `LAN_To_VPN`
    - `VPN_To_LAN`
-3. Under the **Actions** tab → **Profile Setting**, select `Group Profile` → `Threat_Prevention_Group`.
+5. On the **Actions** tab → **Profile Setting**, select `Group Profile` → `Threat_Prevention_Group`.
+6. Click **Commit**.
 
-🖼 *Screenshot:* `screenshots/security-policy-threat-prevention.png`
+🖼 *Screenshots:*  
+`screenshots/threat-prevention-group.png` – Security Profile Group showing all profiles  
+`screenshots/security-policy-threat-prevention.png` – Security policy with the group applied
 
 ---
 
-## 🧪 Step 5: Testing and Validation
+## 🧪 Step 3: Testing and Validation
 
 ### **1️⃣ Antivirus Test**
 - From a LAN host (`10.0.1.100`), attempt to download the **EICAR test file**:  
@@ -103,11 +90,10 @@ The configuration also showcases the use of a **Security Profile Group** applied
 
 ---
 
-## ✅ Step 6: Verification & Monitoring
+## ✅ Step 4: Verification & Monitoring
 
 ### **CLI Validation**
 ```bash
 show running security-policy
 show threat id all
 show wildfire status
-
