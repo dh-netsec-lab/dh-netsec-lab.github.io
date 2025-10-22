@@ -87,20 +87,12 @@ The configuration also showcases the use of a **Security Profile Group** applied
 
 ---
 
-### **3️⃣ WildFire and File Blocking Test**
-- Attempt to upload a suspicious or compressed file.  
-- The file should be submitted to **WildFire** for analysis (if enabled).  
-- Confirm entries under **Monitor → WildFire Submissions**.
-
-![WildFire Submissions](screenshots/wildfire-submissions.png)  
-🖼 *Screenshot:* `screenshots/wildfire-submissions.png`
-
----
-
-## ✅ Step 4: Verification & Monitoring
+## ✅ Step 3: Verification & Monitoring
 
 ### **CLI Validation**
 ```bash
 show running security-policy
-show threat id all
+show threat id #
 show wildfire status
+show wilfire status channel public/private
+tail follow yes mp-log wildfire-upload-log
