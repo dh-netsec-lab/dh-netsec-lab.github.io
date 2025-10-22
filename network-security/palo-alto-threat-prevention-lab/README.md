@@ -9,7 +9,8 @@ The configuration also showcases the use of a **Security Profile Group** applied
 
 ## 🧩 Topology
 
-![Topology](screenshots/palo-threat-prevention-topology.png)
+![Topology](screenshots/palo-threat-prevention-topology.png)  
+🖼 *Screenshot:* `screenshots/palo-threat-prevention-topology.png`
 
 > **Description:**  
 > Outbound web and file traffic from the LAN (`10.0.1.0/24`) passes through the Palo Alto firewall’s **Trust (Inside)** zone, where the `Threat_Prevention_Group` security profiles inspect and filter malicious or restricted content before it reaches the **Untrust (Outside)** interface.
@@ -34,6 +35,7 @@ The configuration also showcases the use of a **Security Profile Group** applied
    - URL Filtering Database  
 3. Click **Check Now**, then **Download** and **Install** the latest versions.
 
+![Dynamic Updates](screenshots/dynamic-updates.png)  
 🖼 *Screenshot:* `screenshots/dynamic-updates.png`
 
 ---
@@ -55,9 +57,11 @@ The configuration also showcases the use of a **Security Profile Group** applied
 5. On the **Actions** tab → **Profile Setting**, select `Group Profile` → `Threat_Prevention_Group`.
 6. Click **Commit**.
 
-🖼 *Screenshots:*  
-`screenshots/threat-prevention-group.png` – Security Profile Group showing all profiles  
-`screenshots/security-policy-threat-prevention.png` – Security policy with the group applied
+![Threat Prevention Group](screenshots/threat-prevention-group.png)  
+🖼 *Screenshot:* `screenshots/threat-prevention-group.png`
+
+![Security Policy Group Applied](screenshots/security-policy-threat-prevention.png)  
+🖼 *Screenshot:* `screenshots/security-policy-threat-prevention.png`
 
 ---
 
@@ -68,6 +72,7 @@ The configuration also showcases the use of a **Security Profile Group** applied
   [https://secure.eicar.org/eicar.com](https://secure.eicar.org/eicar.com)  
 - The firewall should block the download, generating a **Threat Log** entry.
 
+![EICAR Block](screenshots/eicar-block.png)  
 🖼 *Screenshot:* `screenshots/eicar-block.png`
 
 ---
@@ -77,6 +82,7 @@ The configuration also showcases the use of a **Security Profile Group** applied
 - The browser should display a **block page**.  
 - Confirm entries under **Monitor → URL Filtering**.
 
+![URL Filter Block Page](screenshots/url-filter-block.png)  
 🖼 *Screenshot:* `screenshots/url-filter-block.png`
 
 ---
@@ -86,7 +92,8 @@ The configuration also showcases the use of a **Security Profile Group** applied
 - The file should be submitted to **WildFire** for analysis (if enabled).  
 - Confirm entries under **Monitor → WildFire Submissions**.
 
-🖼 *Screenshot:* `screenshots/wildfire-submission.png`
+![WildFire Submissions](screenshots/wildfire-submissions.png)  
+🖼 *Screenshot:* `screenshots/wildfire-submissions.png`
 
 ---
 
