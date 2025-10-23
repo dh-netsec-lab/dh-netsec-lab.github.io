@@ -51,8 +51,9 @@ Future versions will include an **EVE-NG variant** for consistency across the fu
 ### 🔁 Lab Navigation
 
 | ⬅ Previous | 🏠 Back to Index | Next ➡ |
-|-------------|-----------------|---------|
-| [← User-ID Integration Lab](../palo-alto-user-id-lab/) | [Network Security Labs](../index.md) | — |
+|------------|-----------------|---------|
+| [User-ID Integration Lab ←](/network-security/palo-alto-user-id-lab/) | [Network Security Labs](/network-security/index.md) | [SSL Decryption Lab →](/network-security/palo-alto-ssl-decryption-lab/) |
+
 
 
 
