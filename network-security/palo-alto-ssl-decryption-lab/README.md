@@ -133,9 +133,9 @@ These confirm that SSL traffic is being decrypted and inspected by Threat Preven
 ## 🧰 CLI Verification
 Run the following commands from the Palo Alto CLI:
 
-```bash
-> show session all filter ssl-decrypt yes
-> show running decryption-rule ```
+show session all filter ssl-decrypt yes
+show running decryption-rule
+
 
 ### 🔁 Lab Navigation
 
