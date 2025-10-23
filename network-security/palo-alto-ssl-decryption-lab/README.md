@@ -74,7 +74,7 @@ This ensures browsers trust re-signed certificates from the firewall.
 ---
 
 ### 2️⃣ Verify Policy List
-![Decryption Policy List](screenshots/decrcyption-policy-list.png)
+![Decryption Policy List](screenshots/decryption-policy-list.png)
 
 ---
 
@@ -102,7 +102,7 @@ The certificate should show **Issued by: Trusted_Local_Win_CA** and display a se
 Browse to `https://self-signed.badssl.com`.  
 The browser should display **Not Secure**, and the certificate should show **Issued by: Deny_Untrusted_Invalid_Cert**.
 
-![Untrusted Site Certificate](screenshots/browser-untrusted-cert-png)
+![Untrusted Site Certificate](screenshots/browser-untrusted-cert.png)
 
 ---
 
