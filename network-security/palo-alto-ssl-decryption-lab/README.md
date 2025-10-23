@@ -23,7 +23,7 @@ The goal is to inspect and secure outbound HTTPS traffic by re-signing trusted c
 - **Windows Server:** Active Directory Certificate Services (Enterprise CA)  
 - **Client Browser:** Edge or Chrome  
 - **Test Sites:**  
-  - `https://example.com` (trusted site)  
+  - `https://paloaltonetworks.com` (trusted site)  
   - `https://self-signed.badssl.com` (untrusted site)  
 
 ---
