@@ -1,6 +1,11 @@
-🌐 Network Engineering & Network Security Portfolio
+# 🌐 Network Engineering & Network Security Portfolio
 
-Welcome to my Network Engineering & Network Security Portfolio — a hands-on collection of labs and projects demonstrating real-world enterprise configurations in routing, switching, firewalls, VPNs, and secure network design. Building on years of professional experience, I’m continuously expanding into Network Security and Cyber Defense, bridging traditional infrastructure with modern security frameworks. These labs are a work in progress and will be regularly updated to reflect new challenges, tools, and best practices.
+Welcome to my Network Engineering & Network Security Portfolio, a hands-on collection of labs and projects demonstrating real-world enterprise configurations across routing, switching, firewalls, VPNs, and secure network design.
+
+As a Senior Network Engineer with over a decade of experience, I’m expanding deeper into Network Security and Cyber Defense — bridging traditional infrastructure with modern security frameworks and technologies.
+
+This repository is organized into distinct domains representing key focus areas in my professional journey:
+
 ---
 
 ## 📂 Portfolio Categories
