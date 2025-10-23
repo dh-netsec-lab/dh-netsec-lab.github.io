@@ -79,4 +79,67 @@ The following screenshot shows all device certificates installed on the Palo Alt
 - **`Win_IIS_Server_Cert`** supports **Inbound SSL Decryption** for the IIS server.  
 
 🧠 **Tip:**  
-When users browse to a site wi
+When users browse to a site with a broken certificate, the firewall substitutes that certificate with **`Deny_Untrusted_Invalid_Cert`**, ensuring browsers display an **“untrusted”** warning — preserving user security awareness.
+
+---
+
+## ⚙️ Firewall Configuration
+
+### 1. Create SSL/TLS Service Profile
+- **Device → Certificate Management → SSL/TLS Service Profile**
+- Assign the Forward Trust CA certificate (`Cert_For_132_Mgmt`).
+
+![SSL/TLS Profile](screenshots/fw-cert-list.png)
+
+---
+
+### 2. Configure Decryption Policy
+1. **Policies → Decryption → Add**
+   - **Name:** `SSL_Forward_Proxy`
+   - **Source Zone:** Inside  
+   - **Destination Zone:** Outside  
+   - **Service:** `service-https`  
+   - **Action:** `Decrypt`  
+   - **Decryption Type:** `SSL Forward Proxy`  
+   - **Certificate:** `Cert_For_132_Mgmt`
+
+![Decryption Policy Config](screenshots/decryption-policy-config.png)
+
+---
+
+### 3. Configure Decryption Exceptions
+- **Policies → Decryption → Add → Action: No Decrypt**
+- Add categories such as:
+  - `Financial Services`
+  - `Health`
+  - `Government`
+- Add pinned or HSTS sites (Google, Microsoft, etc.) to avoid breakage.
+
+![Decryption Exceptions](screenshots/decryption-exceptions.png)
+
+---
+
+## 🔍 Verification & Testing
+
+### 1. Browser Validation
+From `WIN-CLIENT`, browse to:
+- `https://example.com` → Should show **secure** lock icon.
+- Certificate should display **Issuer = Trusted_Local_Win_CA**.
+
+![Trusted Site Certificate](screenshots/browser-cert-inspect.png)
+
+---
+
+### 2. Untrusted Site Validation
+Visit:
+- `https://self-signed.badssl.com` → Should display **Not Secure**
+- Certificate should display **Issuer = Deny_Untrusted_Invalid_Cert**
+
+![Untrusted Site Certificate](screenshots/browser-untrusted-cert.png)
+
+---
+
+### 3. CLI Validation
+Run:
+```bash
+openssl s_client -connect example.com:443 -servername example.com -showcerts
