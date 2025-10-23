@@ -163,14 +163,6 @@ This configuration mirrors real-world enterprise scenarios such as mergers, acqu
 
 ---
 
-### 🧷 Badges
-![Palo Alto](https://img.shields.io/badge/Palo%20Alto-Firewall-blue?logo=paloaltonetworks)
-![VPN](https://img.shields.io/badge/Site--to--Site-VPN-green)
-![Advanced](https://img.shields.io/badge/Level-Advanced-orange)
-![NAT](https://img.shields.io/badge/Feature-NAT%20Overlap-yellow)
-
----
-
 ### 🧾 Footer
 **Lab:** Palo Alto Site-to-Site VPN with Overlapping Subnets  
 **Platform:** Palo Alto Networks PAN-OS 10.x  
