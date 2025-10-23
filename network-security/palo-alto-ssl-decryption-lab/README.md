@@ -35,7 +35,7 @@ It covers certificate creation/import, trust distribution, decryption policy con
   - **Device → Certificate Management → Certificates → Import**
 - Mark it as **Forward Trust Certificate**.
 
-🖼 *Screenshot:* `screenshots/fw-cert-list.png`
+🖼 *Screenshot:* screenshots/fw-cert-list.png
 
 ---
 
