@@ -105,15 +105,17 @@ Confirm that:
 ---
 
 ## 🖼️ Screenshot Summary
+
 | Section | Screenshot File |
-|----------|------------------|
-| Topology | `topology.png` 
-| NAT Policy | `nat-policy.png` |
-| Security Policy | `security-policy.png` |
-| Policy Verification | `policy-verification.png` |
-| Browser Test | `browser-test.png` |
-| Session Verification | `session-verify.png` |
-| Traffic Log | `traffic-log.png` |
+|---------|----------------|
+| Topology | [topology.png](topology.png) |
+| NAT Policy | [nat-policy.png](nat-policy.png) |
+| Security Policy | [security-policy.png](security-policy.png) |
+| Policy Verification | [policy-verification.png](policy-verification.png) |
+| Browser Test | [browser-test.png](browser-test.png) |
+| Session Verification | [session-verify.png](session-verify.png) |
+| Traffic Log | [traffic-log.png](traffic-log.png) |
+
 
 ---
 
