@@ -9,13 +9,12 @@ professional journey:
 
 ---
 
-## 📂 Portfolio Categories
-
 | 📁 **Category** | 💡 **Focus Area** | 🔗 **Explore** |
 |------------------|------------------|----------------|
-| **Network Security 🔒** | Hands-on labs with Palo Alto Networks and Fortinet, focusing on site-to-site VPN, overlapping subnets, User-ID, SSL decryption, and advanced firewall features. | [Explore →](./network-security/) |
-| **Networking 🌐 (in progress)** | Labs and exercises covering Routing, Switching, BGP, OSPF, and advanced Layer 2/3 infrastructure design. | Explore → |
-| **Cybersecurity 🛡️ (in progress)** | Future labs targeting Governance, Risk, and Compliance (GRC), Incident Response, SOC fundamentals, and core security operations. | Explore → |
+| **Network Security** | Vendors such as Palo Alto Networks and Fortinet covering skills such as site-to-site VPN, overlapping subnets, User-ID, SSL decryption, and more. | [Explore →](./network-security/index.md) |
+| **Networking (in progress)** | Labs and exercises covering Routing, Switching, BGP, OSPF, and advanced Layer2/3 infrastructure design. | Explore → |
+| **Cybersecurity (in progress)** | Future expansion into Governance, Risk Management, Compliance (GRC), Incident Response, and SOC fundamentals. | Explore → |
+
 
 
 ---
