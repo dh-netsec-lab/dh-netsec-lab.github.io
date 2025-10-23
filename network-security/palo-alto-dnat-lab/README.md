@@ -109,12 +109,12 @@ Confirm that:
 | Section | Screenshot File |
 |---------|----------------|
 | Topology | [topology.png](screenshots/topology.png) |
-| NAT Policy | [nat-policy.png](nat-policy.png) |
-| Security Policy | [security-policy.png](security-policy.png) |
-| Policy Verification | [policy-verification.png](policy-verification.png) |
-| Browser Test | [browser-test.png](browser-test.png) |
-| Session Verification | [session-verify.png](session-verify.png) |
-| Traffic Log | [traffic-log.png](traffic-log.png) |
+| NAT Policy | [nat-policy.png](screenshots/nat-policy.png) |
+| Security Policy | [security-policy.png](screenshots/security-policy.png) |
+| Policy Verification | [policy-verification.png](screenshots/policy-verification.png) |
+| Browser Test | [browser-test.png](screenshots/browser-test.png) |
+| Session Verification | [session-verify.png](screenshots/session-verify.png) |
+| Traffic Log | [traffic-log.png](screenshots/traffic-log.png) |
 
 
 ---
