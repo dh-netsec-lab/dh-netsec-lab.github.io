@@ -91,10 +91,14 @@ Create a **No Decrypt** rule for sensitive categories such as:
 ## 🔍 Verification & Testing
 
 ### 1️⃣ Trusted Site (Valid Certificate)
-Browse to `https://paloaltonetworks.com` or `https://example.com`.  
-The certificate should show **Issued by: Trusted_Local_Win_CA** and display a secure lock icon.
+Browse to `https://paloaltonetworks.com` or `https://example.com`.
 
-![Trusted Site Certificate](screenshots/browser-cert-inspect.png)
+- The browser should display a **secure** lock icon.
+- The certificate will show **Issued by: 132resign.4outof7.com** — this is the Forward Trust certificate used by the firewall to re-sign valid HTTPS sites.
+- The Forward Trust certificate is itself issued by the internal Root CA (**Trusted_Local_Win_CA**), which the client trusts.
+
+✅ This behavior confirms SSL Forward Proxy is functioning correctly — the firewall is decrypting and re-signing traffic using its Forward Trust certificate, and the client trusts it via the internal CA.
+
 
 ---
 
