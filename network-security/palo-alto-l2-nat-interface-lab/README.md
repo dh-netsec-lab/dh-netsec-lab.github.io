@@ -141,5 +141,6 @@ In this lab we demonstrated how to:
 
 | ⬅ Previous | 🏠 Back to Index | Next ➡ |
 |-------------|-----------------|---------|
-| [← DNAT Lab](../palo-alto-dnat-lab/) | [Network Security Labs](../index.md) | [Site-to-Site VPN Lab →](../palo-alto-site-to-site-vpn/) |
+| [DNAT Lab ←](../palo-alto-dnat-lab/index.md) | [Network Security Labs](../index.md) | [Site-to-Site VPN Lab →](../palo-alto-site-to-site-vpn/index.md) |
+
 
