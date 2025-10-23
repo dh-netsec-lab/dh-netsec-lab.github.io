@@ -44,7 +44,7 @@ It covers certificate creation/import, trust distribution, decryption policy con
   - `MMC → Certificates (Computer Account) → Trusted Root Certification Authorities`
 - Verify it appears in the Trusted Root list.
 
-🖼 *Screenshot:* screenshots/client-truststore.png
+🖼 *Screenshot:* /client-truststore.png
 
 ---
 
@@ -54,7 +54,7 @@ It covers certificate creation/import, trust distribution, decryption policy con
   - **SANs:** `iis.4outof7.com`, internal IP of the server
 - Export the `.pfx` (with private key) and import it into the Palo Alto firewall for use in **Inbound SSL Decryption**.
 
-🖼 *Screenshot:* screenshots/iis-server-cert.png
+🖼 *Screenshot:* /iis-server-cert.png
 
 ---
 
@@ -89,7 +89,7 @@ When users browse to a site with a broken certificate, the firewall substitutes 
 - **Device → Certificate Management → SSL/TLS Service Profile**
 - Assign the Forward Trust CA certificate (`Cert_For_132_Mgmt`).
 
-🖼 *Screenshot:* screenshots/fw-cert-list.png
+🖼 *Screenshot:* /fw-cert-list.png
 
 ---
 
@@ -103,7 +103,7 @@ When users browse to a site with a broken certificate, the firewall substitutes 
    - **Decryption Type:** `SSL Forward Proxy`  
    - **Certificate:** `Cert_For_132_Mgmt`
 
-🖼 *Screenshot:* screenshots/decryption-policy-config.png
+🖼 *Screenshot:* /decryption-policy-config.png
 
 ---
 
@@ -115,7 +115,7 @@ When users browse to a site with a broken certificate, the firewall substitutes 
   - `Government`
 - Add pinned or HSTS sites (Google, Microsoft, etc.) to avoid breakage.
 
-🖼 *Screenshot:* screenshots/decryption-exceptions.png
+🖼 *Screenshot:* /decryption-exceptions.png
 
 ---
 
@@ -126,7 +126,7 @@ From `WIN-CLIENT`, browse to:
 - `https://example.com` → Should show **secure** lock icon.
 - Certificate should display **Issuer = Trusted_Local_Win_CA**.
 
-🖼 *Screenshot:* screenshots/browser-cert-inspect.png
+🖼 *Screenshot:* /browser-cert-inspect.png
 
 ---
 
