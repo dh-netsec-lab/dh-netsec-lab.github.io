@@ -110,11 +110,14 @@ Confirm that:
 |---------|----------------|
 | Topology | [topology.png](screenshots/topology.png) |
 | NAT Policy | [nat-policy.png](screenshots/nat-policy.png) |
+| NAT Policy Verification | [nat-policy-verification.png](screenshots/nat-policy-verification.png) |
 | Security Policy | [security-policy.png](screenshots/security-policy.png) |
-| Policy Verification | [policy-verification.png](screenshots/policy-verification.png) |
+| Security Policy Verification | [security-policy-verification.png](screenshots/security-policy-verification.png) |
 | Browser Test | [browser-test.png](screenshots/browser-test.png) |
 | Session Verification | [session-verify.png](screenshots/session-verify.png) |
+| Session ID Check | [session-id.png](screenshots/session-id.png) |
 | Traffic Log | [traffic-log.png](screenshots/traffic-log.png) |
+
 
 
 ---
