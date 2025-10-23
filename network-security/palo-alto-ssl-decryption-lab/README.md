@@ -137,3 +137,10 @@ Run the following commands from the Palo Alto CLI:
 > show session all filter ssl-decrypt yes
 > show running decryption-rule
 
+### 🔁 Lab Navigation
+
+| ⬅ Previous | 🏠 Back to Index | Next ➡ |
+|------------|-----------------|---------|
+| [GlobalProtect VPN Lab ←](/network-security/palo-alto-globalprotect-lab/) | [Network Security Labs](/network-security/index.md) | — |
+
+
