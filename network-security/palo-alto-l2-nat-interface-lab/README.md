@@ -114,16 +114,18 @@ Use the Tap interface to mirror live packets.
 ---
 
 ## 🖼️ Screenshot Summary
+
 | Section | Screenshot File |
 |----------|----------------|
-| Topology | `topology.png` |
-| Interface Overview | `interfaces.png` |
-| Zone Configuration | `zones.png` |
-| NAT Policy | `nat-policy.png` |
-| Security Policy | `security-policy.png` |
-| Traffic Logs (Interzone) | `traffic-logs-l2-inter-zone.png` |
-| Traffic Logs (Intrazone) | `traffic-logs-l2-intra-zone.png` |
-| Tap Monitor | `tap-monitor.png` |
+| Topology | [topology.png](screenshots/topology.png) |
+| Interface Overview | [interfaces.png](screenshots/interfaces.png) |
+| Zone Configuration | [zones.png](screenshots/zones.png) |
+| NAT Policy | [nat-policy.png](screenshots/nat-policy.png) |
+| Security Policy | [security-policy.png](screenshots/security-policy.png) |
+| Traffic Logs (Interzone) | [traffic-logs-l2-inter-zone.png](screenshots/traffic-logs-l2-inter-zone.png) |
+| Traffic Logs (Intrazone) | [traffic-logs-l2-intra-zone.png](screenshots/traffic-logs-l2-intra-zone.png) |
+| Tap Monitor | [tap-monitor.png](screenshots/tap-monitor.png) |
+
 
 ---
 
