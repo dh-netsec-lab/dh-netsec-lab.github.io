@@ -108,7 +108,7 @@ Confirm that:
 
 | Section | Screenshot File |
 |---------|----------------|
-| Topology | [topology.png](topology.png) |
+| Topology | [topology.png](screenshots/topology.png) |
 | NAT Policy | [nat-policy.png](nat-policy.png) |
 | Security Policy | [security-policy.png](security-policy.png) |
 | Policy Verification | [policy-verification.png](policy-verification.png) |
