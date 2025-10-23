@@ -163,13 +163,12 @@ This configuration mirrors real-world enterprise scenarios such as mergers, acqu
 
 ---
 
-### 🧾 Footer
-**Lab:** Palo Alto Site-to-Site VPN with Overlapping Subnets  
-**Platform:** Palo Alto Networks PAN-OS 10.x  
-**Author:** dh-netsec-lab  
-**Category:** Network Security Labs  
+### 🔁 Lab Navigation
 
-🔙 [Return to Palo Alto Network Lab Index](../index.md)
+| ⬅ Previous | 🏠 Back to Index | Next ➡ |
+|------------|-----------------|---------|
+| [Site-to-Site VPN Lab ←](/network-security/palo-alto-site-to-site-vpn/) | [Network Security Labs](/network-security/index.md) | [User-ID Integration Lab →](/network-security/palo-alto-user-id-lab/) |
+
 
 
 
