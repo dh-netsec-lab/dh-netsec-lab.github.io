@@ -134,7 +134,8 @@ External users can successfully reach the internal server via the public IP `172
 
 | ⬅ Previous | 🏠 Back to Index | Next ➡ |
 |-------------|-----------------|---------|
-| [DNAT Lab →](/palo-alto-dnat-lab/) | [Network Security Labs](/network-security/) | [Site-to-Site VPN Lab →](/palo-alto-site-to-site-vpn/) |
+| — | [Network Security Labs](../index.md) | [L2 NAT Interface Lab →](../palo-alto-l2-nat-interface-lab/index.md) |
+
 
 
 
