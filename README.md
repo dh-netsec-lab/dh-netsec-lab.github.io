@@ -31,7 +31,6 @@ This repository is organized into distinct domains representing key focus areas 
 - **AWS Certified Solutions Architect**  
 - **Cisco CCNA / CCNP (expired)**  
 - **Palo Alto Networks Next-Generation Firewall Engineer (in progress)**  
-- **CISSP (target completion: Feb 2026)**  
 
 ---
 
