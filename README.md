@@ -12,9 +12,10 @@ This repository is organized into distinct domains representing key focus areas 
 
 | 📁 **Category** | 💡 **Focus Area** | 🔗 **Explore** |
 |------------------|------------------|----------------|
-| **Network Security** | Palo Alto Networks, Firewalls, VPNs, NAT, and User-ID Integrations — enterprise-grade labs demonstrating segmentation, encryption, and access control. | [Explore →](./network-security/) |
-| **Networking** | Routing, Switching, VLANs, Spanning Tree, OSPF, and advanced Layer 2/3 designs — showcasing a strong Cisco and infrastructure foundation. | [Explore →](./networking/) |
-| **Cybersecurity (in progress)** | Future expansion into Governance, Risk Management, and Compliance (GRC), Incident Response, and SOC fundamentals. | [Explore →](./cybersecurity/) |
+| **Network Security 🔒** | Hands-on labs with Palo Alto Networks and Fortinet, focusing on site-to-site VPN, overlapping subnets, User-ID, SSL decryption, and advanced firewall features. | [Explore →](./network-security/) |
+| **Networking 🌐 (in progress)** | Labs and exercises covering Routing, Switching, BGP, OSPF, and advanced Layer 2/3 infrastructure design. | Explore → |
+| **Cybersecurity 🛡️ (in progress)** | Future labs targeting Governance, Risk, and Compliance (GRC), Incident Response, SOC fundamentals, and core security operations. | Explore → |
+
 
 ---
 
