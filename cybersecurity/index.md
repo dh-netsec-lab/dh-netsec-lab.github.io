@@ -1,8 +1,9 @@
 # 🛡 Cybersecurity Labs
 
-This section will cover my cybersecurity projects and labs.  
-Labs coming soon such as:  
-- SIEM Log Analysis  
-- Threat Detection & Incident Response  
-- Risk Registers & Security Strategy  
-- SOC Analyst Workflows
+Welcome to my Cybersecurity lab collection — hands-on projects exploring GRC, SOC operations, threat analysis, and more.
+
+## Featured Lab
+- [**Enterprise Cybersecurity Lab (ECL)** →](./Enterprise-Cybersecurity-Lab/)
+  *Simulates an enterprise environment with Active Directory, firewalls, SIEM, and incident response workflows.*
+
+*(More labs coming soon — SIEM Log Analysis, Risk Registers, Threat Detection, etc.)*
