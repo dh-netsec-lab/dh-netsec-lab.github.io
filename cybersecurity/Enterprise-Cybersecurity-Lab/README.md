@@ -32,6 +32,8 @@ The purpose of the ECL is to provide a **centralized lab environment** where mul
 **OOB Management Subnet:** 192.168.118.0/24
 
 ---
+![Network Topology](screenshots/network_topology.png)
+
 
 ## Technology Stack
 
