@@ -1,8 +1,22 @@
 # 🧠 Enterprise Cybersecurity Lab (ECL)
 
-Welcome to the **Enterprise Cybersecurity Lab (ECL)** — a multi-vendor, enterprise-grade security environment designed to integrate **network engineering**, **cybersecurity operations**, and **SIEM visibility** into one evolving ecosystem.  
+Welcome to the **Enterprise Cybersecurity Lab (ECL)** — a multi-vendor, enterprise-grade network and security environment designed to integrate **network engineering**, **cybersecurity operations**, and **SIEM visibility** into one evolving ecosystem.  
 
-The lab mirrors how a modern SOC-enabled enterprise operates — combining **Fortinet**, **Palo Alto Networks**, **Windows Server**, **Linux (Rsyslog / Suricata / Zeek)**, and **Splunk** to explore end-to-end visibility, policy enforcement, and detection.
+This lab mirrors how a modern enterprise operates — combining **Fortinet**, **Palo Alto Networks**, **Windows Server**, **Linux (Rsyslog / Suricata / Zeek)**, and **Splunk** to explore end-to-end visibility, control, and detection.
+
+---
+
+## 🧭 Quick Navigation
+
+| Section | Description |
+|:--|:--|
+| [🚦 Lab Progress Overview](#-lab-progress-overview) | Track ECL phases and deliverables |
+| [🧩 Phase 1 – Network Connectivity](#-phase-1--network-connectivity-verification-) | Routing, NAT, and reachability validation |
+| [🔄 Phase 2 – Security Visibility](#-phase-2--security-visibility--telemetry-in-progress) | Sysmon, Rsyslog, and Splunk integration |
+| [🧱 Network Security Labs](../../network-security/) | Vendor-specific labs: Palo Alto & Fortinet |
+| [🌐 Networking Labs](../../networking/) | Routing, VLANs, static/dynamic protocols |
+| [📊 GRC & DR Initiatives](../../grc-dr/) | Risk, governance, and disaster recovery (planned) |
+| [🏠 Return to Portfolio Home](../../README.md) | Back to main portfolio index |
 
 ---
 
@@ -41,9 +55,9 @@ The lab mirrors how a modern SOC-enabled enterprise operates — combining **For
 
 ---
 
-## 📊 Phase Summaries
+## 🧩 Phase 1 — Network Connectivity Verification ✅
 
-### 🧩 Phase 1 — Network Connectivity Verification ✅
+### 🎯 Objective
 Establish baseline **routing, NAT, and reachability** across all lab devices.
 
 **Core Components**
@@ -53,12 +67,14 @@ Establish baseline **routing, NAT, and reachability** across all lab devices.
 - LAN Host — ICMP and web connectivity validation  
 
 **Deliverables**
-- [View Phase-1 Screenshots](./phase1-network-connectivity/)  
+- [View All Phase-1 Screenshots](./phase1-network-connectivity/)  
 - Verified routing table, NAT rules, and ping success from LAN hosts
 
 ---
 
-### 🧩 Phase 2 — Security Visibility & Telemetry (In Progress)
+## 🧩 Phase 2 — Security Visibility & Telemetry (In Progress)
+
+### 🎯 Objective
 Deploy and validate **Sysmon + Rsyslog + Splunk** to form a cross-platform visibility pipeline.
 
 **Goals**
@@ -72,7 +88,8 @@ Deploy and validate **Sysmon + Rsyslog + Splunk** to form a cross-platform visib
 
 ---
 
-### 🧩 Phase 3 — Secure Communication & VPNs (Planned)
+## 🧩 Phase 3 — Secure Communication & VPNs (Planned)
+
 Demonstrate **multi-vendor VPN interoperability** and redundancy.
 
 **Goals**
@@ -86,7 +103,8 @@ Demonstrate **multi-vendor VPN interoperability** and redundancy.
 
 ---
 
-### 🧩 Phase 4 — Identity & Trust Integration (Planned)
+## 🧩 Phase 4 — Identity & Trust Integration (Planned)
+
 Extend enterprise trust using AD, CA, and SSL inspection.
 
 **Goals**
@@ -100,7 +118,8 @@ Extend enterprise trust using AD, CA, and SSL inspection.
 
 ---
 
-### 🧩 Phase 5 — Security Management Platforms (Future)
+## 🧩 Phase 5 — Security Management Platforms (Future)
+
 Centralize configuration and visibility with management suites.
 
 **Goals**
@@ -110,7 +129,8 @@ Centralize configuration and visibility with management suites.
 
 ---
 
-### 🧩 Phase 6 — Disaster Recovery & Cloud Integration (Future)
+## 🧩 Phase 6 — Disaster Recovery & Cloud Integration (Future)
+
 Demonstrate resilience through cloud-based failover.
 
 **Goals**
@@ -120,24 +140,14 @@ Demonstrate resilience through cloud-based failover.
 
 ---
 
-### 🧩 Phase 7 — GRC, Automation & Hardening (Future)
+## 🧩 Phase 7 — GRC, Automation & Hardening (Future)
+
 Introduce a governance and automation layer to tie it all together.
 
 **Goals**
 - Build a mini-risk register and control map  
 - Use PowerShell/Ansible for policy enforcement  
 - Document compliance posture (NIST / CIS baseline)  
-
----
-
-## 🧭 Navigation
-
-| Section | Description |
-|:--|:--|
-| [🔐 Cybersecurity Labs](../) | View all security-focused projects including ECL |
-| [🧱 Network Security](../../network-security/) | Explore vendor-specific firewall labs |
-| [🌐 Networking](../../networking/) | View routing and switching foundational labs |
-| [🏠 Return to Home](../../README.md) | Back to main portfolio index |
 
 ---
 
