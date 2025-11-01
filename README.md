@@ -1,8 +1,21 @@
 # 🧠 Enterprise Cybersecurity Lab (ECL)
 
-Welcome to the **Enterprise Cybersecurity Lab (ECL)** — a continuously evolving, multi-vendor environment that brings together **network engineering**, **cybersecurity operations**, and **SIEM visibility** in one integrated ecosystem.  
+The **Enterprise Cybersecurity Lab (ECL)** is a continuously evolving, multi-vendor environment that unites **network engineering**, **cybersecurity operations**, and **SIEM visibility** into one integrated enterprise ecosystem.
 
-This lab simulates how a modern enterprise environment functions — combining **Fortinet**, **Palo Alto Networks**, **Windows Server**, **Linux (Rsyslog / Suricata / Zeek)**, and **Splunk** to demonstrate real-world concepts like segmentation, telemetry, detection, and governance.
+This lab demonstrates how real organizations combine **Fortinet**, **Palo Alto Networks**, **Windows Server**, **Linux (Rsyslog / Suricata / Zeek)**, and **Splunk** to achieve visibility, control, and resilience.
+
+---
+
+## 🎯 Lab Purpose
+
+The goal of the **ECL** is to simulate an end-to-end enterprise network — from firewalls and domain controllers to SIEM integration and governance controls — while continuously expanding in scope to include:
+- ✅ Multi-vendor security controls (Fortinet + Palo Alto)
+- ✅ End-to-end log visibility (Sysmon → Rsyslog → Splunk)
+- ✅ Identity, Trust, and Encryption (AD, CA, SSL, VPN)
+- ✅ Governance & Risk integration (GRC overlays)
+- ✅ Cloud continuity and DR simulations (AWS tunnels)
+
+This is a **long-term learning lab**, designed to grow over time as new technologies, controls, and lessons are added.
 
 ---
 
@@ -10,11 +23,11 @@ This lab simulates how a modern enterprise environment functions — combining *
 
 | Section | Description |
 |:--|:--|
-| [🔐 **Cybersecurity**](../../cybersecurity/) | Includes the Enterprise Cybersecurity Lab (ECL) and detection-focused projects |
-| [🧱 **Network Security**](../../network-security/) | Vendor-specific labs — [Palo Alto](../../network-security/palo-alto/) & [Fortinet](../../network-security/fortinet/) |
-| [🌐 **Networking Labs**](../../networking/) | Routing, VLANs, OSPF/BGP, and infrastructure connectivity |
+| [🔐 **Cybersecurity**](../../cybersecurity/) | Enterprise Security labs (ECL, Detection Engineering, etc.) |
+| [🧱 **Network Security**](../../network-security/) | [Palo Alto](../../network-security/palo-alto/) & [Fortinet](../../network-security/fortinet/) labs |
+| [🌐 **Networking Labs**](../../networking/) | Routing, VLANs, OSPF/BGP, and Layer-3 core design |
 | [📊 **GRC & DR Initiatives**](../../grc-dr/) | Governance, Risk, Compliance, and Disaster Recovery |
-| [🏠 **Return to Portfolio Home**](../../README.md) | Back to main portfolio index |
+| [🏠 **Return to Portfolio Home**](../../README.md) | Back to main portfolio overview |
 
 ---
 
@@ -30,7 +43,7 @@ This lab simulates how a modern enterprise environment functions — combining *
 
 | Phase | Title | Focus | Status | Key Deliverables |
 |:------|:------|:-------|:--------|:-----------------|
-| ✅ **Phase 1** | Network Connectivity Verification | Routing, NAT, Firewall reachability | **Complete** | [View Network Validation Screenshots](./phase1-network-connectivity/) |
+| ✅ **Phase 1** | Network Connectivity Verification | Routing, NAT, Firewall reachability | **Complete** | [View Connectivity Validation](./phase1-network-connectivity/) |
 | 🔄 **Phase 2** | Security Visibility & Telemetry | Sysmon, Rsyslog, Splunk data pipeline | **In Progress** | Endpoint log forwarding, correlation searches |
 | ⏳ **Phase 3** | Secure Communication & VPNs | Site-to-Site VPNs, Cross-Vendor Tunnels | **Planned** | Palo ↔ Fortinet VPN with backup tunnels |
 | ⏳ **Phase 4** | Identity & Trust Integration | AD, DNS, CA, Certificates, SSL Decryption | **Planned** | Domain authentication, SSL inspection |
@@ -44,24 +57,12 @@ This lab simulates how a modern enterprise environment functions — combining *
 
 | Category | Tool / Platform | Purpose |
 |:--|:--|:--|
-| **Network Edge** | Cisco / Layer-3 Router | Routing, VLAN segmentation |
+| **Network Edge** | Cisco / L3 Router | Routing, VLAN segmentation |
 | **Firewalls** | Fortinet (Bama) / Palo Alto (NY) | Security zones, NAT, IPS, VPN |
 | **Servers** | Windows Server 2022 | AD DS, DNS, CA, IIS |
 | **Endpoints** | Windows 10 / 11 Clients | Sysmon telemetry, Splunk UF |
 | **Linux Systems** | Ubuntu (Rsyslog / Suricata / Zeek) | Log collection, threat visibility |
-| **SIEM / Analytics** | Splunk Enterprise / Universal Forwarder | Data aggregation, detection logic |
-
----
-
-## 🧠 Lab Purpose
-
-The **Enterprise Cybersecurity Lab** serves as the foundation for a long-term initiative to:
-
-- Build a unified **multi-vendor security architecture**
-- Demonstrate **real-world SOC visibility** from endpoint → SIEM  
-- Integrate **GRC practices** (risk tracking, mitigation, and reporting)
-- Practice **disaster recovery and automation** workflows
-- Provide a **portfolio-ready showcase** of engineering and cybersecurity capability
+| **SIEM / Analytics** | Splunk Enterprise / UF | Data aggregation, detection logic |
 
 ---
 
@@ -70,8 +71,8 @@ The **Enterprise Cybersecurity Lab** serves as the foundation for a long-term in
 | Area | Example Challenge | Resolution |
 |:--|:--|:--|
 | Splunk Forwarder (DC) | Service encryption (AES-GCM) errors | Recreated certs, verified permissions |
-| Sysmon Deployment | Missing Event IDs in Splunk | Adjusted Winlogbeat & Rsyslog forwarding paths |
-| VPN Cross-Vendor | Tunnel negotiation mismatch | Adjusted Phase-1/Phase-2 proposals and PSKs |
+| Sysmon Deployment | Missing Event IDs in Splunk | Adjusted Winlogbeat & Rsyslog forwarding |
+| VPN Cross-Vendor | Tunnel negotiation mismatch | Adjusted Phase-1/Phase-2 proposals |
 | SSL Decryption | Untrusted CA in browsers | Imported internal CA into client trust store |
 
 ---
@@ -86,4 +87,4 @@ The **Enterprise Cybersecurity Lab** serves as the foundation for a long-term in
 
 ---
 
-🧩 *The ECL is an ongoing enterprise simulation — every phase builds on the last, creating a living cybersecurity ecosystem that grows in complexity, integration, and visibility.*
+🧩 *The ECL is an evolving enterprise simulation — each phase adds new layers of visibility, integration, and governance, bridging technical engineering with cybersecurity resilience.*
