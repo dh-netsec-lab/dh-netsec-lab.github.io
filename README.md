@@ -1,8 +1,8 @@
 # 🧠 Enterprise Cybersecurity Lab (ECL)
 
-Welcome to the **Enterprise Cybersecurity Lab (ECL)** — a multi-vendor, enterprise-grade network and security environment designed to integrate **network engineering**, **cybersecurity operations**, and **SIEM visibility** into one evolving ecosystem.  
+Welcome to the **Enterprise Cybersecurity Lab (ECL)** — a continuously evolving, multi-vendor environment that brings together **network engineering**, **cybersecurity operations**, and **SIEM visibility** in one integrated ecosystem.  
 
-This lab mirrors how a modern enterprise operates — combining **Fortinet**, **Palo Alto Networks**, **Windows Server**, **Linux (Rsyslog / Suricata / Zeek)**, and **Splunk** to explore end-to-end visibility, control, and detection.
+This lab simulates how a modern enterprise environment functions — combining **Fortinet**, **Palo Alto Networks**, **Windows Server**, **Linux (Rsyslog / Suricata / Zeek)**, and **Splunk** to demonstrate real-world concepts like segmentation, telemetry, detection, and governance.
 
 ---
 
@@ -10,13 +10,11 @@ This lab mirrors how a modern enterprise operates — combining **Fortinet**, **
 
 | Section | Description |
 |:--|:--|
-| [🚦 Lab Progress Overview](#-lab-progress-overview) | Track ECL phases and deliverables |
-| [🧩 Phase 1 – Network Connectivity](#-phase-1--network-connectivity-verification-) | Routing, NAT, and reachability validation |
-| [🔄 Phase 2 – Security Visibility](#-phase-2--security-visibility--telemetry-in-progress) | Sysmon, Rsyslog, and Splunk integration |
-| [🧱 Network Security Labs](../../network-security/) | Vendor-specific labs: Palo Alto & Fortinet |
-| [🌐 Networking Labs](../../networking/) | Routing, VLANs, static/dynamic protocols |
-| [📊 GRC & DR Initiatives](../../grc-dr/) | Risk, governance, and disaster recovery (planned) |
-| [🏠 Return to Portfolio Home](../../README.md) | Back to main portfolio index |
+| [🔐 **Cybersecurity**](../../cybersecurity/) | Includes the Enterprise Cybersecurity Lab (ECL) and detection-focused projects |
+| [🧱 **Network Security**](../../network-security/) | Vendor-specific labs — [Palo Alto](../../network-security/palo-alto/) & [Fortinet](../../network-security/fortinet/) |
+| [🌐 **Networking Labs**](../../networking/) | Routing, VLANs, OSPF/BGP, and infrastructure connectivity |
+| [📊 **GRC & DR Initiatives**](../../grc-dr/) | Governance, Risk, Compliance, and Disaster Recovery |
+| [🏠 **Return to Portfolio Home**](../../README.md) | Back to main portfolio index |
 
 ---
 
@@ -34,11 +32,11 @@ This lab mirrors how a modern enterprise operates — combining **Fortinet**, **
 |:------|:------|:-------|:--------|:-----------------|
 | ✅ **Phase 1** | Network Connectivity Verification | Routing, NAT, Firewall reachability | **Complete** | [View Network Validation Screenshots](./phase1-network-connectivity/) |
 | 🔄 **Phase 2** | Security Visibility & Telemetry | Sysmon, Rsyslog, Splunk data pipeline | **In Progress** | Endpoint log forwarding, correlation searches |
-| ⏳ **Phase 3** | Secure Communication & VPNs | Site-to-Site VPNs, Cross-Vendor Tunnels | **Planned** | [Palo ↔ Fortinet VPN Lab](../../network-security/palo-alto/palo-fortinet-vpn-lab/) |
-| ⏳ **Phase 4** | Identity & Trust Integration | AD, DNS, CA, Certificates, User-ID, SSL Decryption | **Planned** | [Palo Alto SSL Decryption Lab](../../network-security/palo-alto/ssl-decryption-lab/) |
-| ⏳ **Phase 5** | Security Management Platforms | Panorama, FortiManager, FortiAnalyzer | **Future** | Centralized management, log correlation |
-| ⏳ **Phase 6** | Disaster Recovery & Cloud Integration | AWS / Azure failover tunnels, remote logging | **Future** | Hybrid VPN, S3/Cloud storage integration |
-| ⏳ **Phase 7** | GRC, Automation & Hardening | Risk Register, PowerShell / Ansible, Policy controls | **Future** | GRC mini-framework, automated configuration |
+| ⏳ **Phase 3** | Secure Communication & VPNs | Site-to-Site VPNs, Cross-Vendor Tunnels | **Planned** | Palo ↔ Fortinet VPN with backup tunnels |
+| ⏳ **Phase 4** | Identity & Trust Integration | AD, DNS, CA, Certificates, SSL Decryption | **Planned** | Domain authentication, SSL inspection |
+| ⏳ **Phase 5** | Security Management Platforms | Panorama, FortiManager, FortiAnalyzer | **Future** | Centralized management & log analytics |
+| ⏳ **Phase 6** | Disaster Recovery & Cloud Integration | Cloud failover tunnels, remote log sync | **Future** | AWS/Azure hybrid VPN, DR testing |
+| ⏳ **Phase 7** | GRC, Automation & Hardening | Risk Register, Policy controls, IaC | **Future** | GRC baseline, PowerShell / Ansible integration |
 
 ---
 
@@ -49,114 +47,43 @@ This lab mirrors how a modern enterprise operates — combining **Fortinet**, **
 | **Network Edge** | Cisco / Layer-3 Router | Routing, VLAN segmentation |
 | **Firewalls** | Fortinet (Bama) / Palo Alto (NY) | Security zones, NAT, IPS, VPN |
 | **Servers** | Windows Server 2022 | AD DS, DNS, CA, IIS |
-| **Endpoints** | Windows 10 / 11 Clients | Sysmon visibility, Splunk UF |
-| **Linux Systems** | Ubuntu (Rsyslog / Suricata / Zeek) | Log collection, traffic analysis |
-| **SIEM / Analytics** | Splunk Enterprise / Universal Forwarder | Data aggregation and threat detection |
+| **Endpoints** | Windows 10 / 11 Clients | Sysmon telemetry, Splunk UF |
+| **Linux Systems** | Ubuntu (Rsyslog / Suricata / Zeek) | Log collection, threat visibility |
+| **SIEM / Analytics** | Splunk Enterprise / Universal Forwarder | Data aggregation, detection logic |
 
 ---
 
-## 🧩 Phase 1 — Network Connectivity Verification ✅
+## 🧠 Lab Purpose
 
-### 🎯 Objective
-Establish baseline **routing, NAT, and reachability** across all lab devices.
+The **Enterprise Cybersecurity Lab** serves as the foundation for a long-term initiative to:
 
-**Core Components**
-- Fortinet “Bama” Firewall — internal LAN gateway  
-- Palo Alto “NY” Firewall — remote VPN and inspection point  
-- Edge Router — static routes and WAN connectivity  
-- LAN Host — ICMP and web connectivity validation  
-
-**Deliverables**
-- [View All Phase-1 Screenshots](./phase1-network-connectivity/)  
-- Verified routing table, NAT rules, and ping success from LAN hosts
+- Build a unified **multi-vendor security architecture**
+- Demonstrate **real-world SOC visibility** from endpoint → SIEM  
+- Integrate **GRC practices** (risk tracking, mitigation, and reporting)
+- Practice **disaster recovery and automation** workflows
+- Provide a **portfolio-ready showcase** of engineering and cybersecurity capability
 
 ---
 
-## 🧩 Phase 2 — Security Visibility & Telemetry (In Progress)
+## 🧩 Lessons Learned & Troubleshooting (Ongoing)
 
-### 🎯 Objective
-Deploy and validate **Sysmon + Rsyslog + Splunk** to form a cross-platform visibility pipeline.
-
-**Goals**
-- Collect Windows and Linux logs  
-- Forward to Splunk for normalization  
-- Build searches for authentication failures (4625), process creation (4688), etc.
-
-**Related Labs**
-- [Sysmon Deployment on Windows Server & Clients](../../cybersecurity/sysmon-deployment/)
-- [Rsyslog to Splunk Forwarding](../../cybersecurity/rsyslog-forwarding/)
+| Area | Example Challenge | Resolution |
+|:--|:--|:--|
+| Splunk Forwarder (DC) | Service encryption (AES-GCM) errors | Recreated certs, verified permissions |
+| Sysmon Deployment | Missing Event IDs in Splunk | Adjusted Winlogbeat & Rsyslog forwarding paths |
+| VPN Cross-Vendor | Tunnel negotiation mismatch | Adjusted Phase-1/Phase-2 proposals and PSKs |
+| SSL Decryption | Untrusted CA in browsers | Imported internal CA into client trust store |
 
 ---
 
-## 🧩 Phase 3 — Secure Communication & VPNs (Planned)
+## 📚 Next Steps
 
-Demonstrate **multi-vendor VPN interoperability** and redundancy.
-
-**Goals**
-- Configure Fortinet ↔ Palo Alto Site-to-Site VPN  
-- Create Backup Tunnel for redundancy  
-- Validate encrypted communication and routing  
-
-**Related Labs**
-- [Palo Alto ↔ Fortinet VPN Lab](../../network-security/palo-alto/palo-fortinet-vpn-lab/)
-- [Fortinet VPN Lab](../../network-security/fortinet/vpn-lab/)
+- Finalize **Phase 2 Telemetry Pipeline** (Sysmon → Rsyslog → Splunk)
+- Begin **Phase 3 VPN & Secure Communication**
+- Document all screenshots into subfolders per phase
+- Develop a **GRC mini-template** (risk register + control tracking)
+- Expand **DR lab** — AWS or Azure-based failover
 
 ---
 
-## 🧩 Phase 4 — Identity & Trust Integration (Planned)
-
-Extend enterprise trust using AD, CA, and SSL inspection.
-
-**Goals**
-- Integrate AD / LDAP for authentication  
-- Issue internal certificates from CA  
-- Implement Palo Alto SSL Decryption and SSH Proxy  
-
-**Related Labs**
-- [Palo Alto SSL Decryption Lab](../../network-security/palo-alto/ssl-decryption-lab/)
-- [User-ID Integration](../../network-security/palo-alto/user-id-lab/)
-
----
-
-## 🧩 Phase 5 — Security Management Platforms (Future)
-
-Centralize configuration and visibility with management suites.
-
-**Goals**
-- Deploy Panorama for Palo Alto management  
-- Integrate FortiManager and FortiAnalyzer  
-- Push policies from central console  
-
----
-
-## 🧩 Phase 6 — Disaster Recovery & Cloud Integration (Future)
-
-Demonstrate resilience through cloud-based failover.
-
-**Goals**
-- Extend ECL topology into AWS/Azure  
-- Simulate DR failover tunnels  
-- Replicate Splunk or Rsyslog data to the cloud  
-
----
-
-## 🧩 Phase 7 — GRC, Automation & Hardening (Future)
-
-Introduce a governance and automation layer to tie it all together.
-
-**Goals**
-- Build a mini-risk register and control map  
-- Use PowerShell/Ansible for policy enforcement  
-- Document compliance posture (NIST / CIS baseline)  
-
----
-
-## 🧠 Next Steps
-- Complete **Phase 2 telemetry pipeline** and verify event ingestion  
-- Document Sysmon and Splunk visibility screenshots  
-- Begin **Phase 3 cross-vendor VPN implementation**  
-- Add GRC template for early documentation tracking  
-
----
-
-🧩 *This lab evolves continuously to mirror real-world enterprise environments. Each phase builds on the previous, emphasizing integration, visibility, and governance.*
+🧩 *The ECL is an ongoing enterprise simulation — every phase builds on the last, creating a living cybersecurity ecosystem that grows in complexity, integration, and visibility.*
