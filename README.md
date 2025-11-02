@@ -38,10 +38,3 @@ Each lab demonstrates a piece of the “big picture”:
 - Disaster Recovery (Cloud tunnels, remote failover)
 
 ---
-
-## 🧱 Structure Overview
-
-```text
-/cybersecurity/Enterprise-Cybersecurity-Lab   →  Main ECL project
-/network-security/                            →  Palo Alto & Fortinet lab series
-/grc-dr/                                      →  Governance, Risk, Compliance & Disaster Recovery
