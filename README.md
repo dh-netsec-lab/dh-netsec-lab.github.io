@@ -9,7 +9,7 @@ Welcome to my hands-on **Cybersecurity & Network Engineering Portfolio**, a coll
 | Category | Description | Link |
 |:----------|:-------------|:------|
 | 🧠 **Cybersecurity** | Explore enterprise labs focused on SOC visibility, SIEM, and endpoint telemetry. | [Enterprise Cybersecurity Lab (ECL) →](./cybersecurity/Enterprise-Cybersecurity-Lab) |
-| 🔐 **Network Security** | Vendor-specific labs using Palo Alto & Fortinet firewalls. | [Network Security Labs →](./network-security) |
+| 🔐 **Network Security** | Vendor-specific labs using Palo Alto & Fortinet firewalls. [Network Security Labs →](./network-security/README.md)
 | 🌐 **Networking Labs** | Routing, switching, and WAN design fundamentals. | [Routing & Switching →](./routing-switching) |
 | 📊 **GRC & DR Initiatives** | Track governance, risk, compliance, and disaster recovery documentation. | [GRC & DR Labs →](./grc-dr) |
 
