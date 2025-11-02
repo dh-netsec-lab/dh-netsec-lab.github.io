@@ -1,4 +1,3 @@
-📁 dh-netsec-lab.github.io
 # 🧠 DH NetSec Lab Portfolio
 
 Welcome to my **Network & Cybersecurity Engineering Portfolio** — a continuously evolving collection of labs designed to showcase end-to-end visibility, control, and defense across enterprise-class environments.
