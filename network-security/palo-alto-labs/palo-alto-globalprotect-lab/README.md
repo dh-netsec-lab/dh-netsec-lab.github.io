@@ -12,7 +12,7 @@ The lab covers:
 ---
 
 ## 📘 Full Lab Guide
-➡️ [Open the Full GlobalProtect Lab Guide](palo-alto-globalprotect-lab.md)
+➡️ [Open the Full GlobalProtect Lab Guide](../palo-alto-globalprotect-lab/)
 
 ---
 
