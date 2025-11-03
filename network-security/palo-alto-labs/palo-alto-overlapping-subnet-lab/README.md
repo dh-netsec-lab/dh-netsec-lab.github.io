@@ -166,8 +166,9 @@ This configuration mirrors real-world enterprise scenarios such as mergers, acqu
 ### 🔁 Lab Navigation
 
 | ⬅ Previous | 🏠 Back to Index | Next ➡ |
-|------------|-----------------|---------|
-| [Site-to-Site VPN Lab ←](/network-security/palo-alto-site-to-site-vpn/) | [Network Security Labs](/network-security/index.md) | [User-ID Integration Lab →](/network-security/palo-alto-user-id-lab/) |
+|-------------|-----------------|--------|
+| [⬅ Site-to-Site VPN Lab](../palo-alto-site-to-site-vpn/) | [🏠 Network Security Labs](../) | [User-ID Integration Lab →](../palo-alto-user-id-lab/) |
+
 
 
 
