@@ -9,7 +9,7 @@ Each lab demonstrates realistic network-security concepts such as **NAT**, **VPN
 
 | Category | Description | Link |
 |:----------|:-------------|:-----|
-| 🔒 **Palo Alto Labs** | Explore labs focused on Palo Alto Networks firewalls — covering NAT, VPN, GlobalProtect, User-ID, and SSL Decryption. | [View All Palo Alto Labs →](./palo-alto-labs/) |
+| 🔒 **Palo Alto Labs** | Explore labs focused on Palo Alto Networks firewalls — covering NAT, VPN, GlobalProtect, User-ID, and SSL Decryption. | [View All Palo Alto Labs →](./palo-alto-labs/README.md) |
 | 🛡️ **Fortinet Labs** | Upcoming section covering FortiGate, FortiManager, and FortiAnalyzer with NAT, VPN, and policy automation. | [View All Fortinet Labs →](./fortinet-labs/) |
 | 🔄 **Cross-Vendor Labs** | (Future) Explore interoperability between Palo Alto and Fortinet devices — site-to-site VPNs, Panorama ↔ FortiManager management, and hybrid security monitoring. | [Coming Soon](#) |
 
