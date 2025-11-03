@@ -133,13 +133,12 @@ External users can successfully reach the internal server via the public IP `172
 
 ---
 
----
-
 ### 🔁 Lab Navigation
 
 | ⬅ Previous | 🏠 Back to Index | Next ➡ |
-|------------|-----------------|---------|
-| — | [Network Security Labs](/network-security/index.md) | [L2 NAT Interface Lab →](/network-security/palo-alto-l2-nat-interface-lab/) |
+|-------------|-----------------|--------|
+| — | [🏠 Network Security Labs](../) | [L2 NAT Interface Lab →](../palo-alto-l2-nat-interface-lab/) |
+
 
 
 
