@@ -110,14 +110,12 @@ Use the following commands to verify the tunnel and routes:
 
 ---
 
----
-
----
 ### 🔁 Lab Navigation
 
 | ⬅ Previous | 🏠 Back to Index | Next ➡ |
-|------------|-----------------|---------|
-| [L2 NAT Interface Lab ←](/network-security/palo-alto-l2-nat-interface-lab/) | [Network Security Labs](/network-security/index.md) | [Overlapping Subnets VPN Lab →](/network-security/palo-alto-overlapping-subnet-lab/) |
+|-------------|-----------------|--------|
+| [⬅ L2 NAT Interface Lab](../palo-alto-l2-nat-interface-lab/) | [🏠 Network Security Labs](../) | [Overlapping Subnets VPN Lab →](../palo-alto-overlapping-subnet-lab/) |
+
 
 
 
