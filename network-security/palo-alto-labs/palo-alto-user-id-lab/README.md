@@ -87,8 +87,9 @@ show user ip-user-mapping all
 ### 🔁 Lab Navigation
 
 | ⬅ Previous | 🏠 Back to Index | Next ➡ |
-|-------------|-----------------|---------|
-| [← Site-to-Site VPN Lab](../palo-alto-site-to-site-vpn/) | [Network Security Labs](../index.md) | [GlobalProtect VPN Lab →](../palo-alto-globalprotect-lab/) |
+|-------------|-----------------|--------|
+| [⬅ Overlapping Subnets VPN Lab](../palo-alto-overlapping-subnet-lab/) | [🏠 Network Security Labs](../) | [GlobalProtect VPN Lab →](../palo-alto-globalprotect-lab/) |
+
 
 
 
