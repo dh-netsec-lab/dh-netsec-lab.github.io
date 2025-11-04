@@ -50,20 +50,22 @@ This phase focuses on:
 ---
 
 ### 🖼️ Screenshots
+
 | Screenshot | Description |
 |-------------|-------------|
-| `commit-success.png` | Panorama commit confirmation |
-| `fw188-interfaces.png` | FW188 interface configuration |
-| `fw189-interfaces.png` | FW189 interface configuration |
-| `firewall188-virtual-router.png` | FW188 routing overview |
-| `firewall189-virtual-router.png` | FW189 routing overview |
-| `show-vpn-ike-sa.png` | Phase 1 IKE SA validation |
-| `show-vpn-ipsec-sa.png` | Phase 2 IPSec SA validation |
-| `syslog-profile-global.png` | Global Syslog profile settings |
-| `panorama-managed-devices-summary-sync-status.png` | Device sync status |
-| `template-hierarchy.png` | Global vs Site Template hierarchy |
-| `template-stack-fw188.png` | FW188 Template Stack |
-| `template-stack-fw189.png` | FW189 Template Stack |
+| ![Commit Success](screenshots/commit-success.png) | Panorama commit confirmation |
+| ![FW188 Interfaces](screenshots/fw188-interfaces.png) | FW188 interface configuration |
+| ![FW189 Interfaces](screenshots/fw189-interfaces.png) | FW189 interface configuration |
+| ![FW188 Virtual Router](screenshots/firewall188-virtual-router.png) | FW188 routing overview |
+| ![FW189 Virtual Router](screenshots/firewall189-virtual-router.png) | FW189 routing overview |
+| ![IKE SA](screenshots/show-vpn-ike-sa.png) | Phase 1 IKE SA validation |
+| ![IPSec SA](screenshots/show-vpn-ipsec-sa.png) | Phase 2 IPSec SA validation |
+| ![Global Syslog](screenshots/syslog-profile-global.png) | Global Syslog profile settings |
+| ![Device Sync Status](screenshots/panorama-managed-devices-summary-sync-status.png) | Device sync status |
+| ![Template Hierarchy](screenshots/template-hierarchy.png) | Global vs Site Template hierarchy |
+| ![FW188 Template Stack](screenshots/template-stack-fw188.png) | FW188 Template Stack |
+| ![FW189 Template Stack](screenshots/template-stack-fw189.png) | FW189 Template Stack |
+
 
 ---
 
