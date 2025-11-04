@@ -11,9 +11,10 @@ The Panorama lab is structured into multiple phases that align with real enterpr
 ## 📘 Table of Contents
 
 - [Phase 1 – Template Creation & Device Onboarding](#phase-1--template-creation--device-onboarding)
-- [Phase 2 – Template Stack & VPN Validation](#phase-2--template-stack--vpn-validation-)
-- [Phase 3 – Device Groups & Centralized Policy Push](#phase-3--device-groups--centralized-policy-push-)
+- [Phase 2 – Template Stack & VPN Validation ✅](#phase-2--template-stack--vpn-validation-)
+- [Phase 3 – Device Groups & Centralized Policy Push ✅](#phase-3--device-groups--centralized-policy-push-)
 - [Next Phase – Log Forwarding & SIEM Integration](#-next-phase-phase-4--log-forwarding--siem-integration)
+
 
 ---
 
