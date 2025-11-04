@@ -137,5 +137,9 @@ Establish **centralized Security and NAT policy management** in Panorama using *
 - [x] Commit and Push successful  
 - [x] Policies verified via CLI  
 
-[⬆️ Back to Top](#top)
+---
+
+### 🔗 Return Links
+[⬆️ Back to Top](#top) | [← Back to Palo Alto Network Lab Index](../index.md) | [🏠 Return to Network-Security Portfolio](../../index.md)
+
 
