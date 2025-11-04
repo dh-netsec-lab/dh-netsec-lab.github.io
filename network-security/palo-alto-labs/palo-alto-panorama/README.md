@@ -1,136 +1,44 @@
-## 🍀 Phase 2 – Template Stack & VPN Validation ✅
+# 🧠 Palo Alto Panorama Centralized Management Lab
 
-### 🎯 Objective
-Establish a centralized configuration and control framework in **Panorama** for multiple Palo Alto firewalls, integrating global and site-specific templates for scalable management.
+### 🌐 Part of the *Enterprise Cybersecurity Lab (ECL)* Series
 
-This phase focuses on:
+This lab demonstrates **centralized management of multiple Palo Alto Networks firewalls** using **Panorama**, focusing on scalable configuration deployment, policy control, and VPN management across distributed sites.
 
-- Building and applying **Template & Template Stacks**
-- Deploying **Site-to-Site VPN** configurations via Panorama
-- Validating successful **commit**, **push**, and **tunnel establishment**
+The Panorama lab is structured into multiple phases that align with real enterprise workflows—from initial onboarding to full policy and logging integration.
 
 ---
 
-### 🧱 Configuration Overview
+## 📘 Table of Contents
+
+- [Phase 1 – Template Creation & Device Onboarding](#phase-1--template-creation--device-onboarding)
+- [Phase 2 – Template Stack & VPN Validation](#phase-2--template-stack--vpn-validation-)
+- [Phase 3 – Device Groups & Centralized Policy Push](#phase-3--device-groups--centralized-policy-push-)
+- [Next Phase – Log Forwarding & SIEM Integration](#-next-phase-phase-4--log-forwarding--siem-integration)
+
+---
+
+### 🧩 **Lab Overview**
+
 | Component | Description |
 |------------|-------------|
-| **Panorama Templates** | Centralized configuration objects (DNS, NTP, Syslog, Panorama Servers, etc.) applied globally |
-| **Device Templates** | Site-specific configurations (zones, interfaces, routes, VPN profiles) for each firewall |
-| **Template Stacks** | Combined global + site templates applied to the managed firewalls |
-| **Managed Devices** | FW188 and FW189 (Panorama-managed Palo Alto VM-Series Firewalls) |
+| **Platform** | Panorama 10.x managing VM-Series firewalls (**FW188**, **FW189**) |
+| **Managed Devices** | Two firewalls onboarded into Panorama representing separate enterprise sites |
+| **Management Network** | **192.168.118.0/24** – shared between Panorama and managed firewalls |
+| **Configuration Layers** | Templates → Template Stacks → Device Groups |
+| **Objective** | Demonstrate hierarchical configuration, centralized policy control, and VPN deployment from Panorama |
+| **Outcome** | Achieved centralized firewall management, consistent policy enforcement, and verified VPN & Internet connectivity |
 
 ---
 
-### 🧩 Implementation Steps
-1. **Create Global Template**
-   - Add DNS, NTP, Syslog, and Panorama Server profiles.  
-   - Confirm sync status ✔️ in **Panorama > Managed Devices**.
+### 🧭 **Lab Phases**
 
-2. **Create Site-Specific Templates**
-   - Configure **Zones**, **Interfaces**, **Virtual Routers**, and **VPN profiles** for FW188 and FW189.  
-   - Include static and default routes.
-
-3. **Build Template Stacks**
-   - Combine the **Global Template** with each site-specific template.  
-   - Verify **template hierarchy** is correct.
-
-4. **Push Configuration to Firewalls**
-   - Commit changes to Panorama.  
-   - Push configuration to FW188 and FW189.  
-   - Verify **commit-success** in logs.
-
-5. **Validate VPN Establishment**
-   - Use CLI:  
-     ```
-     show vpn ike-sa
-     show vpn ipsec-sa
-     ```
-   - Confirm both IKE and IPSec SAs are up ✅.
+| Phase | Focus | Deliverable |
+|--------|--------|-------------|
+| **Phase 1** | Create and apply Global + Site-Specific Templates | Managed device onboarding, DNS/NTP/Syslog configuration |
+| **Phase 2** | Build Template Stacks and deploy Site-to-Site VPN | Validated IKE/IPSec SAs and successful commit/push |
+| **Phase 3** | Configure Device Groups and Security/NAT policies | Centralized policy deployment to FW188/FW189 |
+| **Phase 4** *(up next)* | Log Forwarding & SIEM Integration | Forward logs to Rsyslog/Splunk for enterprise visibility |
 
 ---
 
-### 🖼️ Screenshots
-
-| Screenshot | Description |
-|-------------|-------------|
-| ![Commit Success](screenshots/commit-success.png) | Panorama commit confirmation |
-| ![FW188 Interfaces](screenshots/fw188-interfaces.png) | FW188 interface configuration |
-| ![FW189 Interfaces](screenshots/fw189-interfaces.png) | FW189 interface configuration |
-| ![FW188 Virtual Router](screenshots/fw188-virtual-router.png) | FW188 routing overview |
-| ![FW189 Virtual Router](screenshots/fw189-virtual-router.png) | FW189 routing overview |
-| ![IKE SA](screenshots/show-vpn-ike-sa.png) | Phase 1 IKE SA validation |
-| ![IPSec SA](screenshots/show-vpn-ipsec-sa.png) | Phase 2 IPSec SA validation |
-| ![Global Syslog](screenshots/syslog-profile-global.png) | Global Syslog profile settings |
-| ![Device Sync Status](screenshots/panorama-managed-devices-summary-sync-status.png) | Device sync status |
-| ![Template Hierarchy](screenshots/template-hierarchy.png) | Global vs Site Template hierarchy |
-| ![FW188 Template Stack](screenshots/template-stack-fw188.png) | FW188 Template Stack |
-| ![FW189 Template Stack](screenshots/template-stack-fw189.png) | FW189 Template Stack |
-
-
----
-
-### ✅ Verification Checklist
-- [x] Global Template created and applied  
-- [x] Site Templates created for FW188 and FW189  
-- [x] Template Stacks built and linked  
-- [x] Configuration committed and pushed successfully  
-- [x] IKE and IPSec SAs established  
-- [x] Syslog messages forwarded to Rsyslog/Splunk
-
----
-
-### 🔗 Return to Lab Index
-[← Back to Network-Security Portfolio Index](../../index.md)
-
-
----
-
-## 🧱 Phase 3 – Device Groups & Centralized Policy Push ✅
-
-### 🎯 Objective
-Establish centralized security and NAT policy management in **Panorama** by using **Device Groups** to deploy consistent rules and profiles across multiple firewalls (**FW188**, **FW189**).
-
----
-
-### 🧩 Configuration Summary
-| Category | Description |
-|-----------|-------------|
-| **Device Groups** | Global_Device_Group (shared), FW188_Device_Group, FW189_Device_Group |
-| **Policies** | `Trust_To_Untrust`, `Lan_To_VPN`, `VPN_To_Lan` |
-| **NAT** | Source NAT for outbound Internet access (Trust → Untrust) |
-| **Profiles** | Threat Prevention Group (Anti-Virus, Anti-Spyware, URL Filter, Wildfire) |
-| **Push Status** | ✅ Commit and Push successful to FW188 and FW189 after resolving sync warnings |
-
----
-
-### 🧠 Implementation Steps
-1. **Create Device Groups**
-   - *Panorama → Device Groups → Add*  
-   - `Global_Device_Group` (shared) → add FW188 and FW189.  
-   - Create `FW188_Device_Group` and `FW189_Device_Group` for local policies.
-
-2. **Create NAT Policy**
-   - *Source Zone:* Trust  
-   - *Destination Zone:* Untrust  
-   - *Translated Packet:* Dynamic IP and Port using interface address  
-   - Purpose: enable LAN to Internet access.
-
-3. **Create Security Policies**
-   - `Trust_To_Untrust` – LAN to Internet  
-   - `Lan_To_VPN` – Local LAN to Remote VPN subnet  
-   - `VPN_To_Lan` – Remote VPN subnet to Local LAN  
-
-4. **Attach Threat Prevention Profiles**
-   - Apply `Threat_Prevention_Group` to each rule.
-
-5. **Commit and Push**
-   - *Commit → Commit to Panorama*  
-   - *Commit → Push to Devices → Device Group Push*  
-   - Verify success under *Tasks* and *Job Status*.
-
-6. **Validate on Each Firewall**
-   ```bash
-   > show running security-policy
-   > show running nat-policy
-
-
+> 💡 *Each phase below includes configuration steps, verification commands, and screenshots demonstrating successful Panorama management operations.*
