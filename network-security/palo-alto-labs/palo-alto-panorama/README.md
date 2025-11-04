@@ -56,8 +56,8 @@ This phase focuses on:
 | ![Commit Success](screenshots/commit-success.png) | Panorama commit confirmation |
 | ![FW188 Interfaces](screenshots/fw188-interfaces.png) | FW188 interface configuration |
 | ![FW189 Interfaces](screenshots/fw189-interfaces.png) | FW189 interface configuration |
-| ![FW188 Virtual Router](screenshots/firewall188-virtual-router.png) | FW188 routing overview |
-| ![FW189 Virtual Router](screenshots/firewall189-virtual-router.png) | FW189 routing overview |
+| ![FW188 Virtual Router](screenshots/fw188-virtual-router.png) | FW188 routing overview |
+| ![FW189 Virtual Router](screenshots/fw189-virtual-router.png) | FW189 routing overview |
 | ![IKE SA](screenshots/show-vpn-ike-sa.png) | Phase 1 IKE SA validation |
 | ![IPSec SA](screenshots/show-vpn-ipsec-sa.png) | Phase 2 IPSec SA validation |
 | ![Global Syslog](screenshots/syslog-profile-global.png) | Global Syslog profile settings |
