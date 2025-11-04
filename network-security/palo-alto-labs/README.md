@@ -14,7 +14,7 @@ Each lab demonstrates real-world enterprise use cases and showcases practical sk
 | **User-ID Integration Lab** | Integrate Palo Alto with Active Directory (WMI/LDAP) for user-based policies and visibility. | [View Lab →](./palo-alto-user-id-lab/) |
 | **GlobalProtect VPN Lab** | Configure GlobalProtect VPN for secure remote access using certificate authentication. | [View Lab →](./palo-alto-globalprotect-lab/) |
 | **SSL Decryption Lab** | Inspect HTTPS traffic using SSL Forward/Inbound Decryption and manage certificates. | [View Lab →](./palo-alto-ssl-decryption-lab/) |
-| **Panorama Centralized Management Lab** | Centralize Palo Alto management with Templates, Template Stacks, and VPN configuration validation. | [View Lab →](./palo-alto-panorama-lab/) |
+| **Panorama Centralized Management Lab** | Centralize Palo Alto management with Templates, Template Stacks, and VPN configuration validation. | [View Lab →](./palo-alto-panorama/) |
 
 
 ---
