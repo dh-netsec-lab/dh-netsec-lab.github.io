@@ -1,8 +1,3 @@
----
-title: "Phase 2 – Template Stack & VPN Validation"
-layout: default
----
-
 ## 🍀 Phase 2 – Template Stack & VPN Validation ✅
 
 ### 🎯 Objective
