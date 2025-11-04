@@ -121,13 +121,14 @@ Establish **centralized Security and NAT policy management** in Panorama using *
 ### 🖼️ Screenshots
 | Screenshot | Description |
 |-------------|-------------|
-| ![Policy Summary](screenshots/phase3-device-groups/policy-summary-fw188dg.png) | Security policies pushed via Panorama |
-| ![Internet Access Rule](screenshots/phase3-device-groups/policy-trust-to-untrust.png) | Trust→Untrust Internet rule |
-| ![NAT Policy](screenshots/phase3-device-groups/nat-policy-trust-to-untrust.png) | SNAT configuration for Internet access |
-| ![Commit Success](screenshots/phase3-device-groups/policy-commit-success.png) | Commit to Panorama successful |
-| ![Push Success](screenshots/phase3-device-groups/policy-push-success.png) | Policy push to FW188 & FW189 succeeded |
-| ![CLI FW188](screenshots/phase3-device-groups/cli-show-running-security-policy-fw188.png) | CLI verification on FW188 |
-| ![CLI FW189](screenshots/phase3-device-groups/cli-show-running-security-policy-fw189.png) | CLI verification on FW189 |
+| ![Policy Summary](screenshots/policy-summary-fw188dg.png) | Security policies pushed via Panorama |
+| ![Internet Access Rule](screenshots/policy-trust-to-untrust.png) | Trust → Untrust Internet rule |
+| ![NAT Policy](screenshots/nat-policy-trust-to-untrust.png) | SNAT configuration for Internet access |
+| ![Commit Success](screenshots/policy-commit-success.png) | Commit to Panorama successful |
+| ![Push Success](screenshots/policy-push-success.png) | Policy push to FW188 & FW189 succeeded |
+| ![CLI FW188](screenshots/cli-show-running-security-policy-fw188.png) | CLI verification on FW188 |
+| ![CLI FW189](screenshots/cli-show-running-security-policy-fw189.png) | CLI verification on FW189 |
+
 
 ### ✅ Verification Checklist
 - [x] Device Groups created and assigned  
