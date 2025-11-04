@@ -82,3 +82,55 @@ This phase focuses on:
 ### 🔗 Return to Lab Index
 [← Back to Network-Security Portfolio Index](../../index.md)
 
+
+---
+
+## 🧱 Phase 3 – Device Groups & Centralized Policy Push ✅
+
+### 🎯 Objective
+Establish centralized security and NAT policy management in **Panorama** by using **Device Groups** to deploy consistent rules and profiles across multiple firewalls (**FW188**, **FW189**).
+
+---
+
+### 🧩 Configuration Summary
+| Category | Description |
+|-----------|-------------|
+| **Device Groups** | Global_Device_Group (shared), FW188_Device_Group, FW189_Device_Group |
+| **Policies** | `Trust_To_Untrust`, `Lan_To_VPN`, `VPN_To_Lan` |
+| **NAT** | Source NAT for outbound Internet access (Trust → Untrust) |
+| **Profiles** | Threat Prevention Group (Anti-Virus, Anti-Spyware, URL Filter, Wildfire) |
+| **Push Status** | ✅ Commit and Push successful to FW188 and FW189 after resolving sync warnings |
+
+---
+
+### 🧠 Implementation Steps
+1. **Create Device Groups**
+   - *Panorama → Device Groups → Add*  
+   - `Global_Device_Group` (shared) → add FW188 and FW189.  
+   - Create `FW188_Device_Group` and `FW189_Device_Group` for local policies.
+
+2. **Create NAT Policy**
+   - *Source Zone:* Trust  
+   - *Destination Zone:* Untrust  
+   - *Translated Packet:* Dynamic IP and Port using interface address  
+   - Purpose: enable LAN to Internet access.
+
+3. **Create Security Policies**
+   - `Trust_To_Untrust` – LAN to Internet  
+   - `Lan_To_VPN` – Local LAN to Remote VPN subnet  
+   - `VPN_To_Lan` – Remote VPN subnet to Local LAN  
+
+4. **Attach Threat Prevention Profiles**
+   - Apply `Threat_Prevention_Group` to each rule.
+
+5. **Commit and Push**
+   - *Commit → Commit to Panorama*  
+   - *Commit → Push to Devices → Device Group Push*  
+   - Verify success under *Tasks* and *Job Status*.
+
+6. **Validate on Each Firewall**
+   ```bash
+   > show running security-policy
+   > show running nat-policy
+
+
