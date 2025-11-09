@@ -6,7 +6,7 @@ This section focuses on **enterprise-grade security visibility, detection, and r
 
 ## 🧩 Featured Project — Enterprise Cybersecurity Lab (ECL)
 
-The **[Enterprise Cybersecurity Lab (ECL)](./ecl/)** is the flagship environment that demonstrates:
+The **[Enterprise Cybersecurity Lab (ECL)](./Enterprise-Cybersecurity-Lab/)** is the flagship environment that demonstrates:
 - Multi-vendor firewall integration (Fortinet + Palo Alto)
 - Windows Server 2022 with AD, DNS, IIS, and CA services  
 - Linux-based telemetry nodes (Rsyslog, Suricata, Zeek)  
@@ -18,25 +18,26 @@ ECL serves as a **realistic enterprise simulation** — evolving through defined
 | Phase | Title | Focus | Status |
 |:------|:------|:------|:------|
 | ✅ **Phase 1** | Network Connectivity Verification | Routing, NAT, and firewall reachability | ✅ Complete |
-| 🔄 **Phase 2** | Security Visibility & Telemetry | Sysmon + Rsyslog + Splunk data pipeline | ⚙️ In Progress |
-| ⏳ **Phase 3** | Identity & Trust Integration | AD, DNS, Certificates, SSL Decryption | 📅 Planned |
-| ⏳ **Phase 4** | Threat Detection & Response | SOC correlation and detections | 📅 Planned |
-| ⏳ **Phase 5** | Automation & GRC Overlays | PowerShell, Ansible, risk controls | 🌐 Future |
+| ⚙️ **Phase 2** | Security Visibility & Telemetry | Sysmon + Rsyslog + Splunk data pipeline | ⚙️ In Progress |
+| 🧩 **Phase 3** | Identity & Trust Integration | AD, DNS, Certificates, SSL Decryption | 📅 Planned |
+| 🧠 **Phase 4** | Threat Detection & Response | SOC correlation and detections | 📅 Planned |
+| 🧾 **Phase 5** | Automation & GRC Overlays | PowerShell, Ansible, risk controls | 🌐 Future |
 
-> 📁 [View the ECL Lab Folder →](./ecl/)
+> 📁 [View the ECL Lab Folder →](./Enterprise-Cybersecurity-Lab/)
 
 ---
 
-## 🧠 Supporting Security Labs (Planned)
+## 🧠 Supporting Security Labs
 
-Additional standalone cybersecurity projects will be organized here as independent modules complementing the ECL ecosystem.
+Additional standalone cybersecurity projects will be organized here as independent modules that complement the ECL ecosystem.
 
-| Lab | Description | Status |
-|:--|:--|:--|
-| SOC Detection & Correlation | Custom correlation searches in Splunk (e.g., Event ID 4688, 4625) | ⏳ Planned |
-| Log Ingestion Pipeline | Syslog, Winlogbeat, Rsyslog architecture comparison | ⏳ Planned |
-| MITRE ATT&CK Integration | Mapping detections and TTP visibility | ⏳ Planned |
-| GRC & Risk Register | Risk tracking and control alignment (linked to ECL phases) | 🚧 In Progress |
+| Lab | Description | Status | Link |
+|:--|:--|:--|:--|
+| 🪟 Splunk Universal Forwarder | Windows → Splunk Indexer log ingestion | ✅ Complete | [View Lab →](./Enterprise-Cybersecurity-Lab/siem/splunk-forwarder-lab/README.md) |
+| 🧰 Sysmon Integration | Endpoint visibility with granular event collection | 🔄 In Progress | *(Coming Soon)* |
+| 🧾 Rsyslog → Splunk | Linux log forwarding pipeline | 🔄 In Progress | *(Coming Soon)* |
+| 🧱 SOC Detection & Correlation | Splunk searches for Event ID 4625, 4688, 4698 | 🧠 Planned | *(Coming Soon)* |
+| 📋 GRC & Risk Register | Risk tracking, mitigation, and control mapping | 🚧 In Progress | *(Coming Soon)* |
 
 ---
 
@@ -53,12 +54,11 @@ These labs emphasize:
 
 ## 📈 Road Ahead
 
-- Expand Phase 2 telemetry with Sysmon and Rsyslog
-- Add GRC documentation for Phase 1–2  
-- Begin Splunk correlation dashboard design  
-- Develop SOC detection & incident response use cases  
+- Expand Phase 2 telemetry with Sysmon and Rsyslog  
+- Add GRC documentation for Phases 1–2  
+- Develop Splunk correlation dashboards  
+- Implement SOC playbooks and incident response examples  
 
 ---
 
 *Maintained by DH | [Back to Portfolio Home](../README.md)*  
-
