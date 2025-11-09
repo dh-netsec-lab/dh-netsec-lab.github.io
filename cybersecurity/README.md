@@ -33,7 +33,7 @@ Additional standalone cybersecurity projects will be organized here as independe
 
 | Lab | Description | Status | Link |
 |:--|:--|:--|:--|
-| 🪟 Splunk Universal Forwarder | Windows → Splunk Indexer log ingestion | ✅ Complete | [View Lab →](./Enterprise-Cybersecurity-Lab/siem/splunk-forwarder-lab/README.md) |
+| 🪟 Splunk Universal Forwarder | Windows → Splunk Indexer log ingestion | ✅ Complete | [View Lab →](./Enterprise-Cybersecurity-Lab/siem/splunk-forwarder-lab/)
 | 🧰 Sysmon Integration | Endpoint visibility with granular event collection | 🔄 In Progress | *(Coming Soon)* |
 | 🧾 Rsyslog → Splunk | Linux log forwarding pipeline | 🔄 In Progress | *(Coming Soon)* |
 | 🧱 SOC Detection & Correlation | Splunk searches for Event ID 4625, 4688, 4698 | 🧠 Planned | *(Coming Soon)* |
