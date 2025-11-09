@@ -7,20 +7,25 @@
 
 ---
 
-## 📚 **Table of Contents**
-- [🎯 Objective](#-objective)
-- [🧩 Topology Overview](#-topology-overview)
-- [⚙️ Lab Steps](#️-lab-steps)
-  - [1️⃣ Install the Splunk Universal Forwarder](#1️⃣-install-the-splunk-universal-forwarder)
-  - [2️⃣ Configure the Forwarder Outputs](#2️⃣-configure-the-forwarder-outputs)
-  - [3️⃣ Verify the Forwarder Service](#3️⃣-verify-the-forwarder-service)
-  - [4️⃣ Validate Connectivity to Indexer](#4️⃣-validate-connectivity-to-indexer)
-  - [5️⃣ Confirm Active Forwarder on Indexer](#5️⃣-confirm-active-forwarder-on-indexer)
-  - [6️⃣ Review Logs in Splunk](#6️⃣-review-logs-in-splunk)
-  - [7️⃣ Log File Verification](#7️⃣-log-file-verification)
-- [🧾 Verification Summary](#-verification-summary)
-- [🧭 Lessons Learned](#-lessons-learned)
-- [🔗 Return Links](#-return-links)
+## 🗂️ Splunk Universal Forwarder Lab Index
+
+Welcome to the **Splunk Universal Forwarder Log Ingestion Lab** — part of the ECL SIEM visibility phase.  
+This lab demonstrates Windows → Splunk Indexer integration for centralized event collection and monitoring.
+
+---
+
+| 🧩 Step | Description | 🔗 Link |
+|:--|:--|:--|
+| 1️⃣ Install the Splunk Universal Forwarder | Run the MSI installer and create admin credentials. | [View Section →](#1️⃣-install-the-splunk-universal-forwarder) |
+| 2️⃣ Configure the Forwarder Outputs | Specify deployment server, indexer IP, and port `9997`. | [View Section →](#2️⃣-configure-the-forwarder-outputs) |
+| 3️⃣ Verify the Forwarder Service | Confirm the SplunkForwarder service is running. | [View Section →](#3️⃣-verify-the-forwarder-service) |
+| 4️⃣ Validate Connectivity | Test TCP port 9997 and confirm communication. | [View Section →](#4️⃣-validate-connectivity-to-indexer) |
+| 5️⃣ Confirm Active Forwarder on Indexer | Verify active connections via CLI. | [View Section →](#5️⃣-confirm-active-forwarder-on-indexer) |
+| 6️⃣ Review Logs in Splunk | Search for Windows event logs in Splunk Web. | [View Section →](#6️⃣-review-logs-in-splunk) |
+| 7️⃣ Review Forwarder Log File | Validate successful forwarding in `splunkd.log`. | [View Section →](#7️⃣-log-file-verification) |
+| ✅ Verification Summary | Final checks and validation table. | [View Section →](#-verification-summary) |
+| 🧭 Lessons Learned | Key takeaways from this integration. | [View Section →](#-lessons-learned) |
+
 
 ---
 
