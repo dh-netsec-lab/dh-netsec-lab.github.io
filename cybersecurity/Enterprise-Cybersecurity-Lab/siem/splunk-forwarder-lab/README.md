@@ -1,66 +1,99 @@
 # 🧠 Splunk Universal Forwarder Log Ingestion Lab
 *Windows → Splunk Indexer via Universal Forwarder*
 
-![Splunk Badge](https://img.shields.io/badge/Splunk-Universal%20Forwarder-blue?logo=splunk&logoColor=white)
-![Windows Badge](https://img.shields.io/badge/Windows%20Server-Domain%20Controller-blue?logo=windows)
-![Category Badge](https://img.shields.io/badge/Lab%20Type-SIEM%20Integration-success)
-
 ---
 
 ## 🗂️ Lab Index
-
 | Step | Description | Link |
 |:--|:--|:--|
-| 1 | Install the Splunk Universal Forwarder | [View →](#step1) |
-| 2 | Configure the Forwarder Outputs | [View →](#step2) |
-| 3 | Verify the Forwarder Service | [View →](#step3) |
-| 4 | Validate Connectivity to Indexer | [View →](#step4) |
-| 5 | Confirm Active Forwarder on Indexer | [View →](#step5) |
-| 6 | Review Logs in Splunk Web | [View →](#step6) |
-| 7 | Review Forwarder Log File | [View →](#step7) |
-| ✅ | Verification Summary | [View →](#verification) |
-| 🧭 | Lessons Learned | [View →](#lessons) |
+| 1 | Install the Splunk Universal Forwarder | [View →](#step-1-install-the-splunk-universal-forwarder) |
+| 2 | Configure the Forwarder Outputs | [View →](#step-2-configure-the-forwarder-outputs) |
+| 3 | Verify the Forwarder Service | [View →](#step-3-verify-the-forwarder-service) |
+| 4 | Validate Connectivity to Indexer | [View →](#step-4-validate-connectivity-to-indexer) |
+| 5 | Confirm Active Forwarder on Indexer | [View →](#step-5-confirm-active-forwarder-on-indexer) |
+| 6 | Review Logs in Splunk Web | [View →](#step-6-review-logs-in-splunk-web) |
+| 7 | Review Forwarder Log File | [View →](#step-7-review-forwarder-log-file) |
+| ✅ | Verification Summary | [View →](#verification-summary) |
+| 🧭 | Lessons Learned | [View →](#lessons-learned) |
 
 ---
 
 ## 🎯 Objective
-Install, configure, and verify the **Splunk Universal Forwarder** on a **Windows Server (Domain Controller)** to forward **Windows Event Logs** to a **Splunk Indexer**.
+...
 
 ---
 
 ## 🧩 Topology Overview
-
-| Role | Hostname | IP | Description |
-|------|-----------|----|-------------|
-| 🖥️ DC | `ecl-dc01` | `192.168.118.123` | Universal Forwarder |
-| 📊 Indexer | `splunk` | `192.168.118.153` | Receives logs on `9997` |
+...
 
 ---
 
-<a id="step1"></a>
-## Step 1 — Install the Splunk Universal Forwarder
-Run the MSI installer on the Domain Controller, accept the license, and create an admin user.
+## Step 1 – Install the Splunk Universal Forwarder
+Run the MSI installer, accept the license, and create an admin user.
 
 🖼 **Screenshot — Forwarder Installation Success**  
 ![forwarder-install-success](screenshots/forwarder-install-success.png)
 
 ---
 
-<a id="step2"></a>
-## Step 2 — Configure the Forwarder Outputs
-During setup, specify:  
-- **Deployment Server:** *(optional)*  
-- **Receiving Indexer:** `192.168.118.153`  
-- **Port:** `9997`
+## Step 2 – Configure the Forwarder Outputs
+...
 
 🖼 **Screenshot — Forwarder Outputs Configuration**  
 ![forwarder-outputs-conf](screenshots/forwarder-outputs-conf.png)
 
 ---
 
-<a id="step3"></a>
-## Step 3 — Verify the Forwarder Service
-After installation, confirm the service status:
+## Step 3 – Verify the Forwarder Service
+...
 
-```powershell
-Get-Service splunkforwarder
+🖼 **Screenshot — Service Running**  
+![forwarder-service-running](screenshots/forwarder-service-running.png)
+
+🖼 **Screenshot — Service Stopped**  
+![forwarder-service-stopped](screenshots/forwarder-service-stopped.png)
+
+---
+
+## Step 4 – Validate Connectivity to Indexer
+...
+
+🖼 **Screenshot — Test-NetConnection 9997**  
+![forwarder-test-netconnection-9997](screenshots/forwarder-test-netconnection-9997.png)
+
+---
+
+## Step 5 – Confirm Active Forwarder on Indexer
+...
+
+🖼 **Screenshot — Indexer Active Forwarders**  
+![indexer-active-forwarders](screenshots/indexer-active-forwarders.png)
+
+🖼 **Screenshot — Indexer Port 9997 Listening**  
+![indexer-port-9997-listening](screenshots/indexer-port-9997-listening.png)
+
+---
+
+## Step 6 – Review Logs in Splunk Web
+...
+
+🖼 **Screenshot — Splunk Search Results**  
+![splunk-search-results](screenshots/splunk-search-results.png)
+
+---
+
+## Step 7 – Review Forwarder Log File
+...
+
+🖼 **Screenshot — Forwarder Connection Log**  
+![forwarder-connection-log](screenshots/forwarder-connection-log.png)
+
+---
+
+## Verification Summary
+...
+
+---
+
+## Lessons Learned
+...
