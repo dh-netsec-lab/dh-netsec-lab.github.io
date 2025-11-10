@@ -43,7 +43,7 @@ Demonstrate how to install, configure, and verify a **Windows Server Domain Cont
 
 Run the MSI installer on the Domain Controller, accept the license, and configure admin credentials.
 
-🖼 **Screenshot:** `forwarder-install-success.png`  
+🖼 **Screenshot:**   
 ![Forwarder Install Success](screenshots/forwarder-install-success.png)
 
 ---
