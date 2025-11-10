@@ -161,21 +161,4 @@ Get-Content "C:\Program Files\SplunkUniversalForwarder\var\log\splunk\splunkd.lo
 
 ---
 
-## 📸 Screenshot Summary  
-<a name="screenshots"></a>
-
-| # | Screenshot | Description |
-|:-:|-------------|-------------|
-| 1 | `forwarder-install-success.png` | Successful forwarder installation |
-| 2 | `forwarder-outputs-conf.png` | Forwarder output configuration (Indexer 192.168.118.153:9997) |
-| 3 | `forwarder-service-running.png` | SplunkForwarder service running |
-| 4 | `forwarder-service-stopped.png` | SplunkForwarder service stopped |
-| 5 | `forwarder-test-netconnection-9997.png` | TCP connection test to Indexer |
-| 6 | `indexer-active-forwarders.png` | Indexer showing active forwarders |
-| 7 | `indexer-port-9997-listening.png` | Indexer listening on port 9997 |
-| 8 | `splunk-search-results.png` | Events visible in Splunk Web |
-| 9 | `forwarder-connection-log.png` | Forwarder log showing connection success |
-
----
-
 *Return to:* [Cybersecurity Labs](../../README.md) • [Enterprise Cybersecurity Lab](../README.md)
