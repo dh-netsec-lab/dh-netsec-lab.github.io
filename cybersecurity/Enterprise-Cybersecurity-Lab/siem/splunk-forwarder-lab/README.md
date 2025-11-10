@@ -7,62 +7,57 @@
 
 ---
 
-## 🗂️ Lab Index
-
-| Step | Description | Link |
-|:--|:--|:--|
-| 1️⃣ | Install the Splunk Universal Forwarder | [View Section →](#step1) |
-| 2️⃣ | Configure the Forwarder Outputs | [View Section →](#step2) |
-| 3️⃣ | Verify the Forwarder Service | [View Section →](#step3) |
-| 4️⃣ | Validate Connectivity to Indexer | [View Section →](#step4) |
-| 5️⃣ | Confirm Active Forwarder on Indexer | [View Section →](#step5) |
-| 6️⃣ | Review Logs in Splunk Web | [View Section →](#step6) |
-| 7️⃣ | Review Forwarder Log File | [View Section →](#step7) |
-| ✅ | Verification Summary | [View Section →](#verification) |
-| 🧭 | Lessons Learned | [View Section →](#lessons) |
+## 🗂️ Quick Navigation
+- [Step 1: Install Splunk Universal Forwarder](#step1)
+- [Step 2: Configure Forwarder Outputs](#step2)
+- [Step 3: Verify Forwarder Service](#step3)
+- [Step 4: Validate Connectivity to Indexer](#step4)
+- [Step 5: Confirm Active Forwarder on Indexer](#step5)
+- [Step 6: Review Logs in Splunk](#step6)
+- [Step 7: Review Forwarder Log File](#step7)
+- [Step 8: Verification Summary](#step8)
 
 ---
 
-## 🎯 Objectives  
-Demonstrate how to install, configure, and verify a **Windows Server Domain Controller** forwarding **Windows Event Logs** to a **Splunk Indexer** using the **Splunk Universal Forwarder**.
+## 🎯 Objective
+Demonstrate how to install, configure, and verify the **Splunk Universal Forwarder** on a  
+**Windows Server (Domain Controller)** to forward **Windows Event Logs** to a **Splunk Indexer** for centralized visibility.
 
 ---
 
-## 🧩 Topology Overview  
-
+## 🧩 Topology Overview
 | Role | Hostname | IP Address | Description |
-|------|-----------|-------------|--------------|
+|:--|:--|:--|:--|
 | 🖥️ Windows DC | `ecl-dc01` | `192.168.118.123` | Splunk Universal Forwarder |
 | 📊 Splunk Indexer | `splunk` | `192.168.118.153` | Receives forwarded logs on port `9997` |
 
 ---
 
-## Step 1: Install the Splunk Universal Forwarder  
 <a name="step1"></a>
+## Step 1: Install the Splunk Universal Forwarder
+Run the MSI installer on the Domain Controller, accept the license, and create an admin user.
 
-Run the MSI installer on the Domain Controller, accept the license, and configure admin credentials.
-
-🖼 **Screenshot:**   
+🖼 **Screenshot:** `forwarder-install-success.png`  
+Shows successful completion of the Splunk Universal Forwarder installation.  
 ![Forwarder Install Success](screenshots/forwarder-install-success.png)
 
 ---
 
-## Step 2: Configure the Forwarder Outputs  
 <a name="step2"></a>
-
-During setup, specify:  
+## Step 2: Configure the Forwarder Outputs
+During setup, specify:
 - **Deployment Server:** *(optional – leave blank)*  
 - **Receiving Indexer:** `192.168.118.153`  
 - **Port:** `9997`
 
 🖼 **Screenshot:** `forwarder-outputs-conf.png`  
+Displays correct indexer IP and port configuration.  
 ![Forwarder Outputs Config](screenshots/forwarder-outputs-conf.png)
 
 ---
 
-## Step 3: Verify the Forwarder Service  
 <a name="step3"></a>
-
+## Step 3: Verify the Forwarder Service
 After installation, confirm the SplunkForwarder service status:
 
 ```powershell
@@ -70,94 +65,91 @@ Get-Service splunkforwarder
 ```
 
 🖼 **Screenshot:** `forwarder-service-running.png`  
+Service successfully running after installation.  
 ![Forwarder Service Running](screenshots/forwarder-service-running.png)
 
 🖼 **Screenshot:** `forwarder-service-stopped.png`  
+Service shown in stopped state for testing before restart.  
 ![Forwarder Service Stopped](screenshots/forwarder-service-stopped.png)
 
 ---
 
-## Step 4: Validate Connectivity to Indexer  
 <a name="step4"></a>
-
-Verify that TCP port 9997 is reachable from the Domain Controller to the Splunk Indexer:
+## Step 4: Validate Connectivity to Indexer
+Verify that TCP port `9997` is reachable from the Domain Controller to the Splunk Indexer:
 
 ```powershell
 Test-NetConnection 192.168.118.153 -Port 9997
 ```
 
 🖼 **Screenshot:** `forwarder-test-netconnection-9997.png`  
-![Forwarder Test-NetConnection 9997](screenshots/forwarder-test-netconnection-9997.png)
+Connectivity confirmed between forwarder and indexer on port 9997.  
+![Forwarder Test NetConnection 9997](screenshots/forwarder-test-netconnection-9997.png)
 
 ---
 
-## Step 5: Confirm Active Forwarder on Indexer  
 <a name="step5"></a>
-
-Check the Indexer to confirm active forwarder registration:
+## Step 5: Confirm Active Forwarder on Indexer
+On the Splunk Indexer, list forwarders:
 
 ```bash
 sudo /opt/splunk/bin/splunk list forward-server
-sudo netstat -tulnp | grep 9997
 ```
 
 🖼 **Screenshot:** `indexer-active-forwarders.png`  
+Indexer shows an active forwarder connection from the Windows DC.  
 ![Indexer Active Forwarders](screenshots/indexer-active-forwarders.png)
 
 🖼 **Screenshot:** `indexer-port-9997-listening.png`  
+Validates that the indexer is listening for forwarder traffic on port 9997.  
 ![Indexer Port 9997 Listening](screenshots/indexer-port-9997-listening.png)
 
 ---
 
-## Step 6: Review Logs in Splunk Web  
 <a name="step6"></a>
+## Step 6: Review Logs in Splunk
+In Splunk Web, search for the Windows DC host to verify event ingestion:
 
-Use Splunk Web to verify that logs are arriving from the Domain Controller:
-
-```bash
-index=win_events host=ecl-dc01
+```spl
+index=main host=ecl-dc01
 ```
 
 🖼 **Screenshot:** `splunk-search-results.png`  
+Displays Windows event logs from `ecl-dc01` successfully indexed in Splunk.  
 ![Splunk Search Results](screenshots/splunk-search-results.png)
 
 ---
 
-## Step 7: Review Forwarder Log File  
 <a name="step7"></a>
-
-Inspect the Forwarder’s internal log to ensure forwarding to 192.168.118.153:9997 is confirmed:
+## Step 7: Review Forwarder Log File
+Examine the forwarder’s internal log to validate forwarding activity:
 
 ```powershell
-Get-Content "C:\Program Files\SplunkUniversalForwarder\var\log\splunk\splunkd.log" -Tail 50 | findstr 9997
+Get-Content "C:\Program Files\SplunkUniversalForwarder\var\log\splunk\splunkd.log" -Tail 40 | findstr 9997
 ```
 
 🖼 **Screenshot:** `forwarder-connection-log.png`  
+Shows successful connections to the indexer from the forwarder.  
 ![Forwarder Connection Log](screenshots/forwarder-connection-log.png)
 
 ---
 
-## ✅ Verification Summary  
-<a name="verification"></a>
-
-| Check | Expected | Result |
+<a name="step8"></a>
+## ✅ Verification Summary
+| Check | Status | Result |
 |:--|:--|:--|
-| Forwarder Service | Running | ✅ |
-| Port 9997 | Open & reachable | ✅ |
-| Active Forwarder | Listed on Indexer | ✅ |
-| Events in Splunk | Visible under `index=win_events` | ✅ |
-| Forwarder Logs | `splunkd.log` shows connection success | ✅ |
+| Forwarder Installed | ✅ | Service operational on Windows DC |
+| Port 9997 Reachable | ✅ | Connectivity verified via `Test-NetConnection` |
+| Forwarder Active on Indexer | ✅ | Confirmed under `list forward-server` |
+| Logs Visible in Splunk | ✅ | Windows events indexed successfully |
 
 ---
 
-## 🧭 Lessons Learned  
-<a name="lessons"></a>
-
-- A clean reinstall can resolve broken forwarder connections.  
-- Always verify port 9997 reachability before Splunk troubleshooting.  
-- Review `splunkd.log` to confirm data transmission state.  
-- Visual confirmation in Splunk Web closes the verification loop.
+## 🧭 Lessons Learned
+- Splunk Universal Forwarder is lightweight yet essential for Windows event visibility.  
+- Verifying connectivity (`9997`) and service status resolves most forwarding issues.  
+- Always cross-check in Splunk Web and `splunkd.log` for confirmation.  
 
 ---
 
-*Return to:* [Cybersecurity Labs](../../README.md) • [Enterprise Cybersecurity Lab](../README.md)
+*Maintained by DH | [Back to Cybersecurity Index](../README.md)*
