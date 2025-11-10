@@ -20,7 +20,6 @@
 | 7️⃣ | Review Forwarder Log File | [View Section →](#step7) |
 | ✅ | Verification Summary | [View Section →](#verification) |
 | 🧭 | Lessons Learned | [View Section →](#lessons) |
-| 📸 | Screenshot Summary | [View Section →](#screenshots) |
 
 ---
 
