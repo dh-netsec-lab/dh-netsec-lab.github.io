@@ -14,12 +14,12 @@
 | 1️⃣ | Install the Splunk Universal Forwarder | [View Section →](#1️⃣-install-the-splunk-universal-forwarder) |
 | 2️⃣ | Configure the Forwarder Outputs | [View Section →](#2️⃣-configure-the-forwarder-outputs) |
 | 3️⃣ | Verify the Forwarder Service | [View Section →](#3️⃣-verify-the-forwarder-service) |
-| 4️⃣ | Validate Connectivity to Indexer | [View Section →](#4️⃣-validate-connectivity-to-indexer) |
-| 5️⃣ | Confirm Active Forwarder on Indexer | [View Section →](#5️⃣-confirm-active-forwarder-on-indexer) |
-| 6️⃣ | Review Logs in Splunk Web | [View Section →](#6️⃣-review-logs-in-splunk-web) |
-| 7️⃣ | Review Forwarder Log File | [View Section →](#7️⃣-review-forwarder-log-file) |
-| ✅ | Verification Summary | [View Section →](#✅-verification-summary) |
-| 🧭 | Lessons Learned | [View Section →](#🧭-lessons-learned) |
+| 4️⃣ | Validate Connectivity to Indexer | [View Section →](#step4) |
+| 5️⃣ | Confirm Active Forwarder on Indexer | [View Section →](#step5) |
+| 6️⃣ | Review Logs in Splunk Web | [View Section →](#step6) |
+| 7️⃣ | Review Forwarder Log File | [View Section →](#step7) |
+| ✅ | Verification Summary | [View Section →](#verification) |
+| 🧭 | Lessons Learned | [View Section →](#lessons) |
 
 > 💡 *Click any link above to jump directly to that section.*
 
