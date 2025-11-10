@@ -1,99 +1,68 @@
-# 🧠 Splunk Universal Forwarder Log Ingestion Lab
+# 🧠 Splunk Universal Forwarder Log Ingestion Lab  
 *Windows → Splunk Indexer via Universal Forwarder*
+
+![Splunk Badge](https://img.shields.io/badge/Splunk-Universal%20Forwarder-blue?logo=splunk&logoColor=white)
+![Windows Badge](https://img.shields.io/badge/Windows%20Server-Domain%20Controller-blue?logo=windows)
+![Category Badge](https://img.shields.io/badge/Lab%20Type-SIEM%20Integration-success)
 
 ---
 
 ## 🗂️ Lab Index
+
 | Step | Description | Link |
 |:--|:--|:--|
-| 1 | Install the Splunk Universal Forwarder | [View →](#step-1-install-the-splunk-universal-forwarder) |
-| 2 | Configure the Forwarder Outputs | [View →](#step-2-configure-the-forwarder-outputs) |
-| 3 | Verify the Forwarder Service | [View →](#step-3-verify-the-forwarder-service) |
-| 4 | Validate Connectivity to Indexer | [View →](#step-4-validate-connectivity-to-indexer) |
-| 5 | Confirm Active Forwarder on Indexer | [View →](#step-5-confirm-active-forwarder-on-indexer) |
-| 6 | Review Logs in Splunk Web | [View →](#step-6-review-logs-in-splunk-web) |
-| 7 | Review Forwarder Log File | [View →](#step-7-review-forwarder-log-file) |
-| ✅ | Verification Summary | [View →](#verification-summary) |
-| 🧭 | Lessons Learned | [View →](#lessons-learned) |
+| 1️⃣ | Install the Splunk Universal Forwarder | [View Section →](#1️⃣-install-the-splunk-universal-forwarder) |
+| 2️⃣ | Configure the Forwarder Outputs | [View Section →](#2️⃣-configure-the-forwarder-outputs) |
+| 3️⃣ | Verify the Forwarder Service | [View Section →](#3️⃣-verify-the-forwarder-service) |
+| 4️⃣ | Validate Connectivity to Indexer | [View Section →](#4️⃣-validate-connectivity-to-indexer) |
+| 5️⃣ | Confirm Active Forwarder on Indexer | [View Section →](#5️⃣-confirm-active-forwarder-on-indexer) |
+| 6️⃣ | Review Logs in Splunk Web | [View Section →](#6️⃣-review-logs-in-splunk-web) |
+| 7️⃣ | Review Forwarder Log File | [View Section →](#7️⃣-review-forwarder-log-file) |
+| ✅ | Verification Summary | [View Section →](#✅-verification-summary) |
+| 🧭 | Lessons Learned | [View Section →](#🧭-lessons-learned) |
+
+> 💡 *Click any link above to jump directly to that section.*
 
 ---
 
-## 🎯 Objective
-...
+## 🎯 Objectives  
+This lab demonstrates how to configure and verify a **Windows Server Domain Controller** to forward **Windows Security Events** to a Splunk Indexer using the **Splunk Universal Forwarder**.
 
 ---
 
-## 🧩 Topology Overview
-...
+## 🧩 Topology Overview  
+
+| Role | Hostname | IP Address | Description |
+|------|-----------|-------------|--------------|
+| 🖥️ Windows DC | `ecl-dc01` | `192.168.118.123` | Splunk Universal Forwarder |
+| 📊 Splunk Indexer | `splunk` | `192.168.118.153` | Receives forwarded logs on port `9997` |
 
 ---
 
-## Step 1 – Install the Splunk Universal Forwarder
-Run the MSI installer, accept the license, and create an admin user.
+## 1️⃣ Install the Splunk Universal Forwarder  
 
-🖼 **Screenshot — Forwarder Installation Success**  
-![forwarder-install-success](screenshots/forwarder-install-success.png)
+Run the MSI installer on the Domain Controller, accept the license, and configure admin credentials.  
 
----
-
-## Step 2 – Configure the Forwarder Outputs
-...
-
-🖼 **Screenshot — Forwarder Outputs Configuration**  
-![forwarder-outputs-conf](screenshots/forwarder-outputs-conf.png)
+🖼 **Screenshot:** `forwarder-install-success.png`  
+![Forwarder Install Success](screenshots/forwarder-install-success.png)
 
 ---
 
-## Step 3 – Verify the Forwarder Service
-...
+## 2️⃣ Configure the Forwarder Outputs  
 
-🖼 **Screenshot — Service Running**  
-![forwarder-service-running](screenshots/forwarder-service-running.png)
+During setup, specify:  
+- **Deployment Server:** *(optional – leave blank)*  
+- **Receiving Indexer:** `192.168.118.153`  
+- **Port:** `9997`  
 
-🖼 **Screenshot — Service Stopped**  
-![forwarder-service-stopped](screenshots/forwarder-service-stopped.png)
-
----
-
-## Step 4 – Validate Connectivity to Indexer
-...
-
-🖼 **Screenshot — Test-NetConnection 9997**  
-![forwarder-test-netconnection-9997](screenshots/forwarder-test-netconnection-9997.png)
+🖼 **Screenshot:** `forwarder-outputs-conf.png`  
+![Forwarder Outputs Config](screenshots/forwarder-outputs-conf.png)
 
 ---
 
-## Step 5 – Confirm Active Forwarder on Indexer
-...
+## 3️⃣ Verify the Forwarder Service  
 
-🖼 **Screenshot — Indexer Active Forwarders**  
-![indexer-active-forwarders](screenshots/indexer-active-forwarders.png)
+After installation, confirm the service status:  
 
-🖼 **Screenshot — Indexer Port 9997 Listening**  
-![indexer-port-9997-listening](screenshots/indexer-port-9997-listening.png)
-
----
-
-## Step 6 – Review Logs in Splunk Web
-...
-
-🖼 **Screenshot — Splunk Search Results**  
-![splunk-search-results](screenshots/splunk-search-results.png)
-
----
-
-## Step 7 – Review Forwarder Log File
-...
-
-🖼 **Screenshot — Forwarder Connection Log**  
-![forwarder-connection-log](screenshots/forwarder-connection-log.png)
-
----
-
-## Verification Summary
-...
-
----
-
-## Lessons Learned
-...
+```powershell
+Get-Service splunkforwarder
