@@ -136,18 +136,4 @@ On the DC, tail the forwarder log for connection lines to `192.168.118.153:9997`
 
 ---
 
-<a id="screenshots"></a>
-## 📸 Screenshot Summary (File Names)
-1. `forwarder-install-success.png`  
-2. `forwarder-outputs-conf.png`  
-3. `forwarder-service-running.png`  
-4. `forwarder-service-stopped.png` *(optional)*  
-5. `forwarder-test-netconnection-9997.png`  
-6. `indexer-port-9997-listening.png`  
-7. `indexer-active-forwarders.png`  
-8. `splunk-search-results.png`  
-9. `forwarder-connection-log.png`
-
----
-
 *Maintained by DH | [Back to Cybersecurity Index](../README.md)*
