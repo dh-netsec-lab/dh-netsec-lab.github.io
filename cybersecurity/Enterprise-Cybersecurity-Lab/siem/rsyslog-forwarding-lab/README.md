@@ -185,7 +185,7 @@ Schedule with cron:
 
 ---
 
-[🔙 Return to SIEM Lab Index](../README.md)
+[🔙 Return to SIEM Lab Index](../)
 
 ---
 🧩 Part of the **Enterprise Cybersecurity Lab Series**  
