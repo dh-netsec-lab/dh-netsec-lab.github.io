@@ -165,5 +165,3 @@ It collects detailed process creation, network connection, and registry modifica
 [🏠 Return to Enterprise Cybersecurity Lab Index](../../)
 
 ---
-
-
