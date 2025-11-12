@@ -135,36 +135,35 @@ index=fortinet earliest=-15m
 
 ## 🖼️ Screenshot Gallery
 
-### 1️⃣ Verified Active Ports (514, 1515, 1516)
-![Rsyslog Ports Listening](screenshots/rsyslog-ports-listening.png)
+### 1️⃣ Rsyslog UDP Listeners
+![Rsyslog UDP Listeners](screenshots/rsyslog-udp-listeners.png)
 
-### 2️⃣ Splunk Inputs Configuration
-![Splunk Inputs Configuration](screenshots/splunk-inputs-conf.png)
+### 2️⃣ Rsyslog UDP Listener (1515)
+![Rsyslog UDP Listener 1515](screenshots/rsyslog-udp-listener-1515.png)
 
-### 3️⃣ Incoming Palo Alto Logs
-![Palo Alto Logs](screenshots/tail-paloalto-log.png)
+### 3️⃣ Rsyslog Palo Config
+![Rsyslog Palo Config](screenshots/rsyslog-palo-config.png)
 
-### 4️⃣ Incoming Fortinet Logs
-![Fortinet Logs](screenshots/tail-fortinet-log.png)
+### 4️⃣ Rsyslog Fortinet Config
+![Rsyslog Fortinet Config](screenshots/rsyslog-fortinet-config.png)
 
-### 5️⃣ UDP Capture from Bama-FW
-![UDP Capture 1516](screenshots/tcpdump-1516.png)
+### 5️⃣ Rsyslog Forwarding to Splunk
+![Rsyslog Forwarding to Splunk](screenshots/rsyslog-forwarding-to-splunk.png)
 
-### 6️⃣ Syslog Events in Splunk
-![Syslog Events](screenshots/splunk-search-index-main.png)
+### 6️⃣ Rsyslog Forwarding Traffic
+![Rsyslog Forwarding Traffic](screenshots/rsyslog-forwarding-traffic.png)
 
-### 7️⃣ Palo Alto Logs in Splunk
-![Palo Alto Logs in Splunk](screenshots/splunk-search-index-paloalto.png)
+### 7️⃣ Palo Alto Log Local Receipt
+![Palo Alto Log Local Receipt](screenshots/paloalto-log-local-receipt.png)
 
-### 8️⃣ Fortinet Logs in Splunk
-![Fortinet Logs in Splunk](screenshots/splunk-search-index-fortinet.png)
+### 8️⃣ Splunk Palo Alto Logs
+![Splunk Palo Alto Logs](screenshots/splunk-paloalto-logs.png)
 
-### 9️⃣ Panorama Syslog Profile
-![Panorama Syslog Profile](screenshots/panorama-syslog-profile.png)
+### 9️⃣ Fortinet Live Logs
+![Fortinet Live Logs](screenshots/fortinet-live-logs.png)
 
-### 🔟 Rsyslog Configuration Summary
-![Rsyslog Configuration Summary](screenshots/rsyslog-config-file.png)
-
+### 🔟 Splunk Fortinet Index
+![Splunk Fortinet Index](screenshots/splunk-fortinet-index.png)
 
 ---
 
