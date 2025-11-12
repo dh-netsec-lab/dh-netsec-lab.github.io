@@ -136,4 +136,8 @@ On the DC, tail the forwarder log for connection lines to `192.168.118.153:9997`
 
 ---
 
-*Maintained by DH | [Back to Cybersecurity Index](../README.md)*
+[🔙 Return to SIEM Lab Index](../)  
+[🏠 Return to Enterprise Cybersecurity Lab Index](../../)
+
+---
+
