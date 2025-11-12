@@ -184,9 +184,11 @@ Schedule with cron:
 ```
 
 ---
+**Navigation:**  
+[⬅️ Phase 1 – Network Connectivity Verification](../../phase-1/) • [🏠 Back to ECL Home](../)
 
-[🔙 Return to SIEM Lab Index](../)  
-[🏠 Return to Enterprise Cybersecurity Lab Index](../../)
+_Last updated: 2025-11-12_
+
 
 ---
 🧩 Part of the **Enterprise Cybersecurity Lab Series**  
