@@ -24,9 +24,6 @@ ECL serves as a **realistic enterprise simulation** — evolving through defined
 | 🧾 **Phase 5** | Automation & GRC Overlays | PowerShell, Ansible, risk controls | 🌐 Future |
 
 
-![Progress](https://progress-bar.dev/40/?title=Phase+2+of+5+Completed)
-
-
 > 📁 [View the ECL Lab Folder →](./Enterprise-Cybersecurity-Lab/)
 
 ---
