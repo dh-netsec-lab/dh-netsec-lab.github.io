@@ -3,6 +3,7 @@
   <br>
   <h1>🌐 Enterprise Cybersecurity Lab (ECL)</h1>
   <em>“Building a living enterprise, one phase at a time.”</em>
+  <br><br>
 </p>
 
 ---
