@@ -135,18 +135,36 @@ index=fortinet earliest=-15m
 
 ## 🖼️ Screenshot Gallery
 
-| # | Screenshot | Description |
-|:-:|:--|:--|
-| 1️⃣ | `screenshots/rsyslog-ports-listening.png` | Verified active ports (514, 1515, 1516) |
-| 2️⃣ | `screenshots/splunk-inputs-conf.png` | Splunk configured listeners |
-| 3️⃣ | `screenshots/tail-paloalto-log.png` | Incoming Palo Alto logs on Rsyslog |
-| 4️⃣ | `screenshots/tail-fortinet-log.png` | Incoming Fortinet logs on Rsyslog |
-| 5️⃣ | `screenshots/tcpdump-1516.png` | UDP packets from Bama-FW captured on ens4 |
-| 6️⃣ | `screenshots/splunk-search-index-main.png` | Syslog events in Splunk |
-| 7️⃣ | `screenshots/splunk-search-index-paloalto.png` | Palo Alto logs verified in Splunk |
-| 8️⃣ | `screenshots/splunk-search-index-fortinet.png` | Fortinet logs verified in Splunk |
-| 9️⃣ | `screenshots/panorama-syslog-profile.png` | Panorama syslog forwarding config |
-| 🔟 | `screenshots/rsyslog-config-file.png` | Rsyslog forwarding configuration summary |
+### 1️⃣ Verified Active Ports (514, 1515, 1516)
+![Rsyslog Ports Listening](screenshots/rsyslog-ports-listening.png)
+
+### 2️⃣ Splunk Inputs Configuration
+![Splunk Inputs Configuration](screenshots/splunk-inputs-conf.png)
+
+### 3️⃣ Incoming Palo Alto Logs
+![Palo Alto Logs](screenshots/tail-paloalto-log.png)
+
+### 4️⃣ Incoming Fortinet Logs
+![Fortinet Logs](screenshots/tail-fortinet-log.png)
+
+### 5️⃣ UDP Capture from Bama-FW
+![UDP Capture 1516](screenshots/tcpdump-1516.png)
+
+### 6️⃣ Syslog Events in Splunk
+![Syslog Events](screenshots/splunk-search-index-main.png)
+
+### 7️⃣ Palo Alto Logs in Splunk
+![Palo Alto Logs in Splunk](screenshots/splunk-search-index-paloalto.png)
+
+### 8️⃣ Fortinet Logs in Splunk
+![Fortinet Logs in Splunk](screenshots/splunk-search-index-fortinet.png)
+
+### 9️⃣ Panorama Syslog Profile
+![Panorama Syslog Profile](screenshots/panorama-syslog-profile.png)
+
+### 🔟 Rsyslog Configuration Summary
+![Rsyslog Configuration Summary](screenshots/rsyslog-config-file.png)
+
 
 ---
 
