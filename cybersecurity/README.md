@@ -58,8 +58,12 @@ These labs emphasize:
 - Expand Phase 2 telemetry with Sysmon and Rsyslog  
 - Add GRC documentation for Phases 1–2  
 - Develop Splunk correlation dashboards  
-- Implement SOC playbooks and incident response examples  
+- Implement SOC playbooks and incident response examples 
 
+---
+### 🔗 Navigation
+➡️ **Continue to Phase 2 – Security Visibility & Telemetry**  
+[Go to Phase 2 →](../siem/rsyslog-forwarding-lab/)
 ---
 
 *Maintained by DH | [Back to Portfolio Home](../README.md)*  
