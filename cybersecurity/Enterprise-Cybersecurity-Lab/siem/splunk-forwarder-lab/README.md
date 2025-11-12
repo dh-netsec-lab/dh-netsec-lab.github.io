@@ -132,11 +132,10 @@ It collects detailed process creation, network connection, and registry modifica
 | **Forwarding Method** | Splunk Universal Forwarder input:<br>`wineventlog://Microsoft-Windows-Sysmon/Operational` |
 | **Destination Index** | `wineventlog` |
 
-### 🔍 Verification Steps
 1. **Verify Sysmon logging locally**
    ```powershell
    Get-WinEvent -LogName "Microsoft-Windows-Sysmon/Operational" -MaxEvents 5 | Format-Table TimeCreated, Id, Message
-
+   ```
 
 [🔙 Return to SIEM Lab Index](../)  
 [🏠 Return to Enterprise Cybersecurity Lab Index](../../)
