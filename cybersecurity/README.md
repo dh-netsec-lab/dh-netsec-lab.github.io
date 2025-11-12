@@ -33,7 +33,7 @@ Additional standalone cybersecurity projects are organized here as independent m
 
 | Lab | Description | Status | Link |
 |:----|:-------------|:--------|:------|
-| 🪟 **Splunk Universal Forwarder** | Windows → Splunk Indexer log ingestion | ✅ Complete | [View Lab →](siem/splunk-forwarder-lab/) |
+| 🪟 **Splunk Universal Forwarder** | Windows → Splunk Indexer log ingestion | ✅ Complete | [View Lab →](siem/splunk-universal-forwarder-lab/) |
 | ⚙️ **Sysmon Integration** | Endpoint visibility with granular process and registry telemetry | ✅ Complete | [View Lab →](siem/sysmon-integration-lab/) |
 | 🧾 **Rsyslog → Splunk** | Linux log forwarding pipeline (Ubuntu syslog server) | ✅ Complete | [View Lab →](siem/rsyslog-forwarding-lab/) |
 | 🧠 **Suricata IDS** | Network intrusion detection, alerting, and JSON log forwarding to Splunk | ⚙️ In Progress | (Coming Soon) |
