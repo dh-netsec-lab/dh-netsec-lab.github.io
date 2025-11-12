@@ -6,7 +6,7 @@
   <br><br>
 </p>
 
----
+
 
 ## 🧭 Vision & Purpose
 The **Enterprise Cybersecurity Lab (ECL)** is a continuously evolving simulation of a real-world enterprise.  
@@ -18,7 +18,7 @@ From routers and firewalls to identity, telemetry, detection, and governance, ea
 > There is no finish line — only continuous learning, experimentation, and growth.  
 > Each phase adds depth, realism, and perspective — one step closer to mastering the full enterprise cybersecurity landscape.
 
----
+
 
 ## ⚙️ Lab Overview
 The **Enterprise Cybersecurity Lab (ECL)** integrates multi-vendor firewalls, endpoints, servers, logging infrastructure, and security monitoring tools — allowing hands-on practice in **network security, SOC operations, incident response, and enterprise-level system administration**.
