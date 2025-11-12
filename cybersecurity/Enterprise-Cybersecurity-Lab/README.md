@@ -137,4 +137,12 @@ LAN → Firewall → Router → Internet.
 - Internet connectivity established from all LAN zones  
 - Foundation ready for **Phase 2 – Visibility & Detection** (Active Directory, Syslog, and SIEM integration)
 
+  ---
+
+**Navigation:**  
+[🏠 Back to Portfolio Home](../README.md) • [➡️ Phase 2 – Security Visibility & Telemetry](../siem/rsyslog-forwarding-labs/)
+
+_Last updated: 2025-11-12_
+
+
 
