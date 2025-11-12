@@ -184,8 +184,9 @@ Schedule with cron:
 ```
 
 ---
+
 **Navigation:**  
-[⬅️ Phase 1 – Network Connectivity Verification](../../phase-1/) • [🏠 Back to ECL Home](../../)
+[⬅️ Phase 1 – Network Connectivity Verification](../../#phase-1) • [➡️ Phase 3 – Identity & Trust Integration](../phase-3/)
 
 _Last updated: 2025-11-12_
 
