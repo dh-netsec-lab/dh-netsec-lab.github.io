@@ -18,10 +18,14 @@ ECL serves as a **realistic enterprise simulation** — evolving through defined
 | Phase | Title | Focus | Status |
 |:------|:------|:------|:------|
 | ✅ **Phase 1** | Network Connectivity Verification | Routing, NAT, and firewall reachability | ✅ Complete |
-| ⚙️ **Phase 2** | Security Visibility & Telemetry | Sysmon + Rsyslog + Splunk data pipeline | ⚙️ In Progress |
+| ✅ **Phase 2** | Security Visibility & Telemetry | Sysmon + Rsyslog + Splunk data pipeline | ✅ Complete |
 | 🧩 **Phase 3** | Identity & Trust Integration | AD, DNS, Certificates, SSL Decryption | 📅 Planned |
 | 🧠 **Phase 4** | Threat Detection & Response | SOC correlation and detections | 📅 Planned |
 | 🧾 **Phase 5** | Automation & GRC Overlays | PowerShell, Ansible, risk controls | 🌐 Future |
+
+
+![Progress](https://progress-bar.dev/40/?title=Phase+2+of+5+Completed)
+
 
 > 📁 [View the ECL Lab Folder →](./Enterprise-Cybersecurity-Lab/)
 
