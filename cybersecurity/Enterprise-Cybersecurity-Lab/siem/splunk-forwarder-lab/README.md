@@ -136,6 +136,29 @@ It collects detailed process creation, network connection, and registry modifica
    ```powershell
    Get-WinEvent -LogName "Microsoft-Windows-Sysmon/Operational" -MaxEvents 5 | Format-Table TimeCreated, Id, Message
    ```
+2. **Search Sysmon events in Splunk**
+   index=wineventlog source="WinEventLog:Microsoft-Windows-Sysmon/Operational"
+   
+4. **Validate key Event IDs**
+- **1** – Process Creation  
+- **3** – Network Connection  
+- **10** – Process Access  
+- **13** – Registry Modification  
+
+### 📸 Screenshots
+| Description | File |
+|:--|:--|
+| Sysmon Event ID 1 – Process Creation | `screenshots/sysmon-eventid1.png` |
+| Sysmon Event ID 3 – Network Connection | `screenshots/sysmon-eventid3.png` |
+| Sysmon Logs Indexed in Splunk | `screenshots/sysmon-splunk-index.png` |
+
+### 🧾 Notes
+- Sysmon extends standard Windows Event Logs by adding deep process and network visibility.  
+- This telemetry supports **Phase 4 – Threat Detection & Response**, helping identify behaviors like PowerShell abuse, credential theft, and lateral movement.
+
+---
+
+
 
 [🔙 Return to SIEM Lab Index](../)  
 [🏠 Return to Enterprise Cybersecurity Lab Index](../../)
