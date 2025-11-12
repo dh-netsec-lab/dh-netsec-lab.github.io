@@ -140,7 +140,7 @@ LAN → Firewall → Router → Internet.
   ---
 
 **Navigation:**  
-[🏠 Back to Portfolio Home](../README.md) • [➡️ Phase 2 – Security Visibility & Telemetry](../siem/rsyslog-forwarding-labs/)
+[🏠 Back to Portfolio Home](../README.md) • [➡️ Phase 2 – Security Visibility & Telemetry](/siem/rsyslog-forwarding-labs/)
 
 _Last updated: 2025-11-12_
 
