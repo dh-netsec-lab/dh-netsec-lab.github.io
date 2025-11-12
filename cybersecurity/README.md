@@ -33,9 +33,9 @@ Additional standalone cybersecurity projects are organized here as independent m
 
 | Lab | Description | Status | Link |
 |:----|:-------------|:--------|:------|
-| 🪟 **Splunk Universal Forwarder** | Windows → Splunk Indexer log ingestion | ✅ Complete | [View Lab →](siem/splunk-universal-forwarder-lab/) |
-| ⚙️ **Sysmon Integration** | Endpoint visibility with granular process and registry telemetry | ✅ Complete | [View Lab →](siem/sysmon-integration-lab/) |
-| 🧾 **Rsyslog → Splunk** | Linux log forwarding pipeline (Ubuntu syslog server) | ✅ Complete | [View Lab →](siem/rsyslog-forwarding-lab/) |
+| 🪟 **Splunk Universal Forwarder** | Windows → Splunk Indexer log ingestion | ✅ Complete | [View Lab →](./siem/splunk-forwarder-lab/) |
+| ⚙️ **Sysmon Integration** | Endpoint visibility with granular process and registry telemetry | 🧩 In Progress | (Coming Soon) |
+| 🧾 **Rsyslog → Splunk** | Linux log forwarding pipeline (Ubuntu syslog server) | ✅ Complete | [View Lab →](./siem/rsyslog-forwarding-lab/) |
 | 🧠 **Suricata IDS** | Network intrusion detection, alerting, and JSON log forwarding to Splunk | ⚙️ In Progress | (Coming Soon) |
 | 🌐 **Zeek (Bro)** | Network metadata analysis — connection, DNS, and HTTP logging | ⚙️ In Progress | (Coming Soon) |
 | 🧩 **SOC Detection & Correlation** | Splunk searches and detections for Event IDs 4625, 4688, 4698 | 📅 Planned | (Coming Soon) |
