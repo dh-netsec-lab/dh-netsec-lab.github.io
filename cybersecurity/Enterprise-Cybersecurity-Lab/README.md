@@ -1,16 +1,31 @@
-<p align="center"><img src="screenshots/ecl-banner.png" alt="Enterprise Cybersecurity Lab Banner" width="100%"><br><h1>🌐 Enterprise Cybersecurity Lab (ECL)</h1><em>“Building a living enterprise, one phase at a time.”</em></p>
+<p align="center">
+  <img src="screenshots/ecl-banner.png" alt="Enterprise Cybersecurity Lab Banner" width="100%">
+  <br>
+  <h1>🌐 Enterprise Cybersecurity Lab (ECL)</h1>
+  <em>“Building a living enterprise, one phase at a time.”</em>
+</p>
 
 ---
 
-## 🧭 Overview
-The **Enterprise Cybersecurity Lab (ECL)** is a multi-site, full-spectrum security lab designed to simulate a real-world enterprise network environment.  
-It integrates multi-vendor firewalls, endpoints, servers, logging infrastructure, and security monitoring tools — allowing hands-on practice in **network security, SOC operations, incident response, and enterprise-level system administration**.
+## 🧭 Vision & Purpose
+The **Enterprise Cybersecurity Lab (ECL)** is a continuously evolving simulation of a real-world enterprise.  
+It’s more than a technical lab — it’s a **living environment** designed to explore how organizations **design, secure, monitor, and govern** their IT infrastructures.
+
+The goal of the ECL is to **learn by building** — to understand not only *how* systems connect, but *why* engineers, architects, and security leaders make the decisions they do.  
+From routers and firewalls to identity, telemetry, detection, and governance, each phase reflects a new level of maturity in the cybersecurity lifecycle.
+
+> There is no finish line — only continuous learning, experimentation, and growth.  
+> Each phase adds depth, realism, and perspective — one step closer to mastering the full enterprise cybersecurity landscape.
+
+---
+
+## ⚙️ Lab Overview
+The **Enterprise Cybersecurity Lab (ECL)** integrates multi-vendor firewalls, endpoints, servers, logging infrastructure, and security monitoring tools — allowing hands-on practice in **network security, SOC operations, incident response, and enterprise-level system administration**.
 
 **Virtualization Platforms:** EVE-NG and VMware  
 **Firewalls:** FortiGate and Palo Alto Networks  
 **Lab Focus:** Full Spectrum Security Engineer (Network + SOC + Detection + Logging)
 
----
 
 ## 🎯 Lab Purpose
 The purpose of the ECL is to provide a **centralized lab environment** where multiple security and network technologies can be practiced together without rebuilding separate labs.  
