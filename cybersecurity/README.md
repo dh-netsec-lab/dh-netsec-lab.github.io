@@ -61,9 +61,9 @@ These labs emphasize:
 - Implement SOC playbooks and incident response examples 
 
 ---
-### 🔗 Navigation
-➡️ **Continue to Phase 2 – Security Visibility & Telemetry**  
-[Go to Phase 2 →](../siem/rsyslog-forwarding-lab/)
----
 
-*Maintained by DH | [Back to Portfolio Home](../README.md)*  
+**Navigation:**  
+[🏠 Back to Portfolio Home](../../README.md) • [➡️ Phase 2 – Security Visibility & Telemetry](../phase-2/README.md)
+
+_Last updated: 2025-11-12_
+
