@@ -136,8 +136,11 @@ It collects detailed process creation, network connection, and registry modifica
    ```powershell
    Get-WinEvent -LogName "Microsoft-Windows-Sysmon/Operational" -MaxEvents 5 | Format-Table TimeCreated, Id, Message
    ```
-2. **Search Sysmon events in Splunk**
+2. **Search Sysmon events in Splunk and validate key Event IDs**
+   ```spl
    index=wineventlog source="WinEventLog:Microsoft-Windows-Sysmon/Operational"
+   | stats count by EventCode
+
    
 4. **Validate key Event IDs**
 - **1** – Process Creation  
