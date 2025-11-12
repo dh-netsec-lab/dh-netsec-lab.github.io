@@ -20,24 +20,6 @@ Install, configure, and verify the **Splunk Universal Forwarder** on a **Windows
 
 ---
 
-## 🗂️ Quick Navigation
-| Step | Description | Link |
-|:----:|:--|:--|
-| 1️⃣ | Install the Splunk Universal Forwarder | [Go →](#step1) |
-| 2️⃣ | Configure the Forwarder Outputs | [Go →](#step2) |
-| 3️⃣ | Verify the Forwarder Service | [Go →](#step3) |
-| 4️⃣ | Validate Connectivity to Indexer | [Go →](#step4) |
-| 5️⃣ | Confirm Active Forwarder on Indexer | [Go →](#step5) |
-| 6️⃣ | Review Logs in Splunk Web | [Go →](#step6) |
-| 7️⃣ | Review Forwarder Log File | [Go →](#step7) |
-| ✅ | Verification Summary | [Go →](#verification) |
-| 🧭 | Lessons Learned | [Go →](#lessons) |
-| 📸 | Screenshot Summary | [Go →](#screenshots) |
-
-> 📁 **Screenshots folder:** `./screenshots/`  
-
----
-
 <a id="step1"></a>
 ## Step 1: Install the Splunk Universal Forwarder
 Run the MSI installer on the Domain Controller, accept the license, and create an admin user.  
@@ -135,6 +117,26 @@ On the DC, tail the forwarder log for connection lines to `192.168.118.153:9997`
 - Capture before/after screenshots for each validation step.
 
 ---
+## 🧩 Sysmon Integration (Windows Telemetry)
+
+Sysmon was deployed on Windows endpoints to enrich visibility beyond standard event logs.  
+It collects detailed process creation, network connection, and registry modification events — all of which are forwarded to **Splunk** through the existing **Universal Forwarder**.
+
+### 🧱 Configuration Summary
+| Component | Details |
+|:--|:--|
+| **Hosts** | Windows Domain Controller (`ecl-dc01`) and Windows 10 Client |
+| **Sysmon Version** | Sysinternals Sysmon v15+ |
+| **Configuration File** | `sysmonconfig-export.xml` *(based on SwiftOnSecurity baseline)* |
+| **Log Location** | `Applications and Services Logs / Microsoft / Windows / Sysmon / Operational` |
+| **Forwarding Method** | Splunk Universal Forwarder input:<br>`wineventlog://Microsoft-Windows-Sysmon/Operational` |
+| **Destination Index** | `wineventlog` |
+
+### 🔍 Verification Steps
+1. **Verify Sysmon logging locally**
+   ```powershell
+   Get-WinEvent -LogName "Microsoft-Windows-Sysmon/Operational" -MaxEvents 5 | Format-Table TimeCreated, Id, Message
+
 
 [🔙 Return to SIEM Lab Index](../)  
 [🏠 Return to Enterprise Cybersecurity Lab Index](../../)
