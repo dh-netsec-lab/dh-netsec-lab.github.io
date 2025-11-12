@@ -19,7 +19,7 @@ ECL serves as a **realistic enterprise simulation** — evolving through defined
 |:------|:------|:------|:------|
 | ✅ **Phase 1** | Network Connectivity Verification | Routing, NAT, and firewall reachability | ✅ Complete |
 | ✅ **Phase 2** | Security Visibility & Telemetry | Sysmon + Rsyslog + Splunk data pipeline | ✅ Complete |
-| 🧩 **Phase 3** | Identity & Trust Integration | AD, DNS, Certificates, SSL Decryption | 📅 Planned |
+| 🧩 **Phase 3** | Identity & Trust Integration | AD, ClearPass, Certificates, TACACS+ | ⚙️ In Progress |
 | 🧠 **Phase 4** | Threat Detection & Response | SOC correlation and detections | 📅 Planned |
 | 🧾 **Phase 5** | Automation & GRC Overlays | PowerShell, Ansible, risk controls | 🌐 Future |
 
