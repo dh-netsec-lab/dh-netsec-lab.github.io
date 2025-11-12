@@ -63,7 +63,9 @@ These labs emphasize:
 ---
 
 **Navigation:**  
-[🏠 Back to Portfolio Home](../../README.md) • [➡️ Phase 2 – Security Visibility & Telemetry](../phase-2/README.md)
+[🏠 Back to Portfolio Home](../../README.md) • [➡️ Phase 2 – Security Visibility & Telemetry](../siem/rsyslog-forwarding-lab/README.md)
 
 _Last updated: 2025-11-12_
+
+
 
