@@ -95,7 +95,8 @@ Get-Service Sysmon64
 You should see **Status: Running**.
 
 Screenshot:  
-🖼 `sysmon-service-status.png`
+![Sysmon Service Status](screenshots/sysmon-service-status.png)
+
 
 Screenshot:  
 🖼 `sysmon-service-details.png`
