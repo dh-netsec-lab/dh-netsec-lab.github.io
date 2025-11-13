@@ -99,7 +99,8 @@ Screenshot:
 
 
 Screenshot:  
-🖼 `sysmon-service-details.png`
+![Sysmon Service Details](screenshots/sysmon-service-details.png)
+
 
 ---
 
@@ -118,7 +119,8 @@ sysmon64.exe -c sysmon-config.xml
 ```
 
 Screenshot reference:  
-🖼 `sysmon-config.png`
+![Sysmon Config](screenshots/sysmon-config.png)
+
 
 ---
 
@@ -132,7 +134,7 @@ You should see events such as:
 - Event ID 22 (DNS Query)
 
 Screenshot reference:  
-🖼 `sysmon-eventviewer-operational.png`
+![Sysmon Event Viewer Operational Log](screenshots/sysmon-eventviewer-operational.png)
 
 ---
 
@@ -163,7 +165,7 @@ host = ecl-dc01
 source="WinEventLog:Microsoft-Windows-Sysmon/Operational"
 ```
 Screenshot:  
-🖼 `splunk-sysmon-events.png`
+![Splunk Sysmon Events](screenshots/splunk-sysmon-events.png)
 
 ---
 
@@ -181,7 +183,7 @@ powershell.exe
 ```
 
 Screenshot:  
-🖼 `splunk-process-creation.png`
+![Splunk Sysmon Process Creation Events](screenshots/splunk-process-creation.png)
 
 ---
 
@@ -198,7 +200,8 @@ nslookup github.com
 ```
 
 Screenshot:  
-🖼 `splunk-dns-events.png`
+![Splunk Sysmon DNS Events](screenshots/splunk-dns-events.png)
+
 
 ---
 
