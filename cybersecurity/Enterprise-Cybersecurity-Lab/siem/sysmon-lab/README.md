@@ -1,79 +1,77 @@
-
 # 🛡️ Sysmon Visibility Lab  
 **Enterprise Cybersecurity Lab – Phase 2: Security Visibility & Telemetry**
 
-This lab implements **Windows Sysmon** to provide deep endpoint telemetry and forward all Sysmon logs to your **Rsyslog collector**, which then forwards logs to **Splunk**.
+This lab implements **Windows Sysmon** to collect deep endpoint telemetry and forward those logs to **Splunk** through your existing SIEM pipeline.
 
 ```
-Windows → Sysmon → Rsyslog → Splunk
+Windows → Sysmon → Splunk Forwarder → Splunk Indexer
 ```
+
+This README is built specifically for your environment and aligned with the rest of your ECL Phase‑2 labs.
 
 ---
 
 ## 📘 Table of Contents
-- Overview
-- Lab Topology
-- Objectives
-- Requirements
-- Sysmon Installation
-- Sysmon Configuration XML
-- Forwarding Sysmon Logs to Rsyslog
-- Rsyslog → Splunk Configuration
-- Splunk Verification Queries
-- Screenshots
-- Navigation
+- Overview  
+- Lab Topology  
+- Objectives  
+- Requirements  
+- Sysmon Installation  
+- Apply Sysmon Configuration  
+- Verify Sysmon Logging  
+- Splunk Integration  
+- Verification Queries  
+- Screenshots  
+- Navigation  
 
 ---
 
 ## 🔎 Overview
-Sysmon enhances Windows logging by capturing:
-- Process creation  
-- Network connections  
-- DNS queries (Event ID 22)  
-- Registry modifications  
-- File creation timestamps  
-- WMI events  
+Sysmon (System Monitor) is part of the Sysinternals Suite and provides enhanced Windows endpoint visibility by logging:
 
-This lab shows how to install Sysmon, apply a config file, forward Sysmon logs to Rsyslog, and confirm visibility in Splunk.
+- Process Creation (Event ID 1)  
+- Network Connections (Event ID 3)  
+- Registry Modifications  
+- File Creation Timestamps  
+- DNS Queries (Event ID 22)  
+- Process Access  
+- WMI Activity  
+
+In this lab, Sysmon logs are forwarded to Splunk using the Splunk Universal Forwarder via the `WinEventLog://Microsoft-Windows-Sysmon/Operational` input.
 
 ---
 
 ## 🖥️ Lab Topology
-
 ```
-+---------------------------+
-| Windows 10/11 / Server    |
-|  Sysmon Installed         |
-+-------------+-------------+
-              |
-              v
-+---------------------------+
-|         Rsyslog           |
-| Ubuntu 22.04 Collector    |
-+-------------+-------------+
-              |
-              v
-+---------------------------+
-|          Splunk           |
-+---------------------------+
++-----------------------------+
+| Windows Server (ecl-dc01)   |
+| Sysmon + Splunk Forwarder   |
++--------------+--------------+
+               |
+               v
++-----------------------------+
+| Splunk Indexer (192.168.x) |
++-----------------------------+
 ```
 
 ---
 
 ## 🎯 Objectives
 - Install Sysmon  
-- Apply Sysmon XML configuration  
-- Forward Sysmon logs to Rsyslog  
-- Forward from Rsyslog to Splunk  
-- Validate data ingestion in Splunk  
+- Apply Sysmon configuration  
+- Confirm Sysmon is generating events  
+- Forward Sysmon logs to Splunk  
+- Validate Process Creation & DNS Query events  
+- Capture screenshots for GitHub documentation  
 
 ---
 
 ## 📦 Requirements
-- Windows 10/11 or Server 2019/2022  
-- Sysmon + configuration XML  
-- Rsyslog server (already built in Phase 2)  
-- Splunk indexer (port 9997 open)  
+- Windows Server 2019/2022 or Windows 10/11  
+- Sysmon  
+- Sysmon configuration XML  
+- Splunk Universal Forwarder installed and configured  
+- Splunk Indexer  
 
 ---
 
@@ -84,132 +82,154 @@ This lab shows how to install Sysmon, apply a config file, forward Sysmon logs t
 Invoke-WebRequest -Uri "https://live.sysinternals.com/Sysmon64.exe" -OutFile "C:\Tools\Sysmon64.exe"
 ```
 
-### 2️⃣ Install with configuration
+### 2️⃣ Install Sysmon with configuration
 ```powershell
 sysmon64.exe -accepteula -i sysmon-config.xml
 ```
 
-Verify:
+### 3️⃣ Verify Sysmon service
 ```powershell
-Get-WinEvent -LogName "Microsoft-Windows-Sysmon/Operational" -MaxEvents 10
+Get-Service Sysmon64
+```
+
+You should see **Status: Running**.
+
+Screenshot:  
+🖼 `sysmon-service-status.png`
+
+Screenshot:  
+🖼 `sysmon-service-details.png`
+
+---
+
+## 📄 Apply Sysmon Configuration
+
+Place your Sysmon configuration file at:
+
+```
+C:\Tools\sysmon-config.xml
+```
+
+To update configuration later:
+
+```powershell
+sysmon64.exe -c sysmon-config.xml
+```
+
+Screenshot reference:  
+🖼 `sysmon-config.png`
+
+---
+
+## 📊 Verify Sysmon Logging in Windows
+
+### Event Viewer:
+**Applications and Services Logs → Microsoft → Windows → Sysmon → Operational**
+
+You should see events such as:
+- Event ID 1 (Process Create)  
+- Event ID 22 (DNS Query)
+
+Screenshot reference:  
+🖼 `sysmon-eventviewer-operational.png`
+
+---
+
+## 🔁 Splunk Integration
+
+Your working inputs.conf:
+
+```
+[WinEventLog://Microsoft-Windows-Sysmon/Operational]
+disabled = 0
+index = wineventlog
+renderXml = true
+sourcetype = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
+```
+
+Splunk confirmed logs arriving with:
+```
+source = WinEventLog:Microsoft-Windows-Sysmon/Operational
+host = ecl-dc01
 ```
 
 ---
 
-## 📄 Sysmon Configuration XML (Basic)
+## 📡 Verification Searches (Splunk)
 
-Create a file named **sysmon-config.xml**:
-
-```xml
-<Sysmon schemaversion="4.82">
-  <EventFiltering>
-    <ProcessCreate onmatch="include" />
-    <NetworkConnect onmatch="include" />
-    <DnsQuery onmatch="include" />
-    <FileCreateTime onmatch="include" />
-    <ProcessAccess onmatch="include" />
-  </EventFiltering>
-</Sysmon>
+### ✔️ 1. All Sysmon Events  
 ```
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational"
+```
+Screenshot:  
+🖼 `splunk-sysmon-events.png`
 
 ---
 
-## 📤 Forwarding Sysmon Logs to Rsyslog
-Use **nxlog** on Windows for clean forwarding.
-
-Example `nxlog.conf`:
-
+### ✔️ 2. Process Creation Events (Event ID 1)  
 ```
-<Input sysmon>
-  Module im_msvistalog
-  Query <QueryList><Query Id="0"><Select Path="Microsoft-Windows-Sysmon/Operational">*</Select></Query></QueryList>
-</Input>
-
-<Output out>
-  Module om_udp
-  Host 10.0.4.42
-  Port 514
-</Output>
-
-<Route r1>
-  Path sysmon => out
-</Route>
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1
 ```
 
-Restart nxlog after saving.
+Trigger new events:
+```powershell
+notepad.exe
+calc.exe
+cmd.exe
+powershell.exe
+```
+
+Screenshot:  
+🖼 `splunk-process-creation.png`
 
 ---
 
-## 🔁 Rsyslog → Splunk Configuration
-
-Create file:
+### ✔️ 3. DNS Query Events (Event ID 22)  
 ```
-/etc/rsyslog.d/60-sysmon.conf
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=22
 ```
 
-Add:
-
-```
-module(load="imudp")
-input(type="imudp" port="514")
-
-if $programname == "Sysmon" then {
-    action(type="omfwd" target="192.168.118.153" port="9997" protocol="tcp")
-    stop
-}
+Trigger new DNS lookups:
+```powershell
+nslookup google.com
+nslookup microsoft.com
+nslookup github.com
 ```
 
-Restart Rsyslog:
-
-```bash
-sudo systemctl restart rsyslog
-```
-
----
-
-## 📊 Splunk Verification Queries
-
-### Process Creation
-```
-index=sysmon EventCode=1 | table _time Computer Image CommandLine
-```
-
-### Network Connections
-```
-index=sysmon EventCode=3 | table _time Computer SourceIp DestinationIp DestinationPort
-```
-
-### DNS Queries
-```
-index=sysmon EventCode=22 | table _time QueryName Image ProcessId
-```
+Screenshot:  
+🖼 `splunk-dns-events.png`
 
 ---
 
 ## 📸 Screenshots
 
-Recommended screenshots:
-- sysmon-installed.png  
-- sysmon-events-eventviewer.png  
-- nxlog-running.png  
-- rsyslog-receiving.png  
-- splunk-sysmon-events.png  
-
-Store them under:
+Store all screenshots under:
 
 ```
-/sysmon-lab/screenshots/
+enterprise-cybersecurity-lab/siem/sysmon-lab/screenshots/
 ```
+
+Include these 7 screenshots:
+
+1. `sysmon-config.png`  
+2. `sysmon-service-status.png`  
+3. `sysmon-service-details.png`  
+4. `sysmon-eventviewer-operational.png`  
+5. `splunk-sysmon-events.png`  
+6. `splunk-process-creation.png`  
+7. `splunk-dns-events.png`  
 
 ---
 
 ## 🔗 Navigation
-**↩️ Back to SIEM Folder**  
+
+**↩ Back to SIEM Folder**  
 `../`
 
-**↩️ Back to Portfolio Home**  
+**↩ Back to ECL Home**  
 `../../README.md`
 
 ---
 
-This completes the Sysmon → Rsyslog → Splunk lab module.
+This completes the Sysmon → Splunk visibility lab.
+
