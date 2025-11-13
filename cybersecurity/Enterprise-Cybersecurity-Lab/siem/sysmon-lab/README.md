@@ -1,7 +1,7 @@
 # 🛡️ Sysmon Visibility Lab
 **Enterprise Cybersecurity Lab – Phase 2: Security Visibility & Telemetry**
 
-This lab implements **Windows Sysmon** to collect deep endpoint telemetry and forward those logs to **Splunk** using the Splunk Universal Forwarder.
+This lab implements **Windows Sysmon** to collect endpoint telemetry and forward those logs to Splunk using the Splunk Universal Forwarder.
 
 ```
 Windows → Sysmon → Splunk Forwarder → Splunk Indexer
