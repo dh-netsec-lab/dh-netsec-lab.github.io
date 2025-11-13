@@ -1,13 +1,13 @@
-# 🛡️ Sysmon Visibility Lab  
+# 🛡️ Sysmon Visibility Lab
 **Enterprise Cybersecurity Lab – Phase 2: Security Visibility & Telemetry**
 
-This lab implements **Windows Sysmon** to collect deep endpoint telemetry and forward those logs to **Splunk** through your existing SIEM pipeline.
+This lab implements **Windows Sysmon** to collect deep endpoint telemetry and forward those logs to **Splunk** using the Splunk Universal Forwarder.
 
 ```
 Windows → Sysmon → Splunk Forwarder → Splunk Indexer
 ```
 
-This README is built specifically for your environment and aligned with the rest of your ECL Phase‑2 labs.
+This lab demonstrates endpoint visibility, process monitoring, DNS telemetry, and event enrichment.
 
 ---
 
@@ -20,28 +20,29 @@ This README is built specifically for your environment and aligned with the rest
 - Apply Sysmon Configuration  
 - Verify Sysmon Logging  
 - Splunk Integration  
-- Verification Queries  
+- Verification Searches  
 - Screenshots  
 - Navigation  
 
 ---
 
 ## 🔎 Overview
-Sysmon (System Monitor) is part of the Sysinternals Suite and provides enhanced Windows endpoint visibility by logging:
+Sysmon (System Monitor) is part of Microsoft Sysinternals and provides deep endpoint telemetry such as:
 
-- Process Creation (Event ID 1)  
-- Network Connections (Event ID 3)  
-- Registry Modifications  
-- File Creation Timestamps  
-- DNS Queries (Event ID 22)  
-- Process Access  
-- WMI Activity  
+- Process creation (Event ID 1)  
+- Network connections  
+- DNS queries (Event ID 22)  
+- File creation timestamps  
+- Registry monitoring  
+- Process access  
+- WMI monitoring  
 
-In this lab, Sysmon logs are forwarded to Splunk using the Splunk Universal Forwarder via the `WinEventLog://Microsoft-Windows-Sysmon/Operational` input.
+This lab shows how to install Sysmon, apply a Sysmon config, and forward logs to Splunk.
 
 ---
 
 ## 🖥️ Lab Topology
+
 ```
 +-----------------------------+
 | Windows Server (ecl-dc01)   |
@@ -50,7 +51,7 @@ In this lab, Sysmon logs are forwarded to Splunk using the Splunk Universal Forw
                |
                v
 +-----------------------------+
-| Splunk Indexer (192.168.x) |
+|     Splunk Indexer          |
 +-----------------------------+
 ```
 
@@ -58,89 +59,84 @@ In this lab, Sysmon logs are forwarded to Splunk using the Splunk Universal Forw
 
 ## 🎯 Objectives
 - Install Sysmon  
-- Apply Sysmon configuration  
-- Confirm Sysmon is generating events  
+- Apply Sysmon configuration XML  
+- Validate Sysmon event generation  
 - Forward Sysmon logs to Splunk  
-- Validate Process Creation & DNS Query events  
-- Capture screenshots for GitHub documentation  
+- Validate Process Creation + DNS Query visibility  
+- Capture screenshots for your ECL portfolio  
 
 ---
 
 ## 📦 Requirements
 - Windows Server 2019/2022 or Windows 10/11  
-- Sysmon  
+- Sysmon64.exe  
 - Sysmon configuration XML  
-- Splunk Universal Forwarder installed and configured  
-- Splunk Indexer  
+- Splunk Universal Forwarder installed  
+- Connective path to Splunk Indexer  
 
 ---
 
 ## ⚙️ Sysmon Installation
 
 ### 1️⃣ Download Sysmon
+
 ```powershell
 Invoke-WebRequest -Uri "https://live.sysinternals.com/Sysmon64.exe" -OutFile "C:\Tools\Sysmon64.exe"
 ```
 
-### 2️⃣ Install Sysmon with configuration
+### 2️⃣ Install with configuration
+
 ```powershell
 sysmon64.exe -accepteula -i sysmon-config.xml
 ```
 
-### 3️⃣ Verify Sysmon service
+### 3️⃣ Verify service status
+
 ```powershell
 Get-Service Sysmon64
 ```
 
-You should see **Status: Running**.
-
-Screenshot:  
+**Screenshot:**  
 ![Sysmon Service Status](screenshots/sysmon-service-status.png)
 
-
-Screenshot:  
+**Service Details:**  
 ![Sysmon Service Details](screenshots/sysmon-service-details.png)
-
 
 ---
 
 ## 📄 Apply Sysmon Configuration
 
-Place your Sysmon configuration file at:
-
-```
-C:\Tools\sysmon-config.xml
-```
-
-To update configuration later:
+To update Sysmon config:
 
 ```powershell
 sysmon64.exe -c sysmon-config.xml
 ```
 
-Screenshot reference:  
+**Screenshot:**  
 ![Sysmon Config](screenshots/sysmon-config.png)
-
 
 ---
 
-## 📊 Verify Sysmon Logging in Windows
+## 📊 Verify Sysmon Logging
 
-### Event Viewer:
-**Applications and Services Logs → Microsoft → Windows → Sysmon → Operational**
+Open:
 
-You should see events such as:
+**Event Viewer → Applications and Services Logs → Microsoft → Windows → Sysmon → Operational**
+
+You should see:
+
 - Event ID 1 (Process Create)  
-- Event ID 22 (DNS Query)
+- Event ID 22 (DNS Query)  
+- Event ID 3 (Network Connect)
 
-Screenshot reference:  
-![Sysmon Event Viewer Operational Log](screenshots/sysmon-eventviewer-operational.png)
+**Screenshot:**  
+![Sysmon Operational Log](screenshots/sysmon-eventviewer-operational.png)
 
 ---
 
 ## 🔁 Splunk Integration
 
-Your working inputs.conf:
+Your working `inputs.conf`:
 
 ```
 [WinEventLog://Microsoft-Windows-Sysmon/Operational]
@@ -150,31 +146,35 @@ renderXml = true
 sourcetype = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
 ```
 
-Splunk confirmed logs arriving with:
+Splunk confirmed logs arriving using:
+
 ```
-source = WinEventLog:Microsoft-Windows-Sysmon/Operational
-host = ecl-dc01
+source="WinEventLog:Microsoft-Windows-Sysmon/Operational"
 ```
 
 ---
 
-## 📡 Verification Searches (Splunk)
+## 📡 Verification Searches
 
 ### ✔️ 1. All Sysmon Events  
+
 ```
 source="WinEventLog:Microsoft-Windows-Sysmon/Operational"
 ```
-Screenshot:  
+
+**Screenshot:**  
 ![Splunk Sysmon Events](screenshots/splunk-sysmon-events.png)
 
 ---
 
-### ✔️ 2. Process Creation Events (Event ID 1)  
+### ✔️ 2. Process Creation Events (Event ID 1)
+
 ```
 source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1
 ```
 
-Trigger new events:
+Trigger events:
+
 ```powershell
 notepad.exe
 calc.exe
@@ -182,58 +182,58 @@ cmd.exe
 powershell.exe
 ```
 
-Screenshot:  
-![Splunk Sysmon Process Creation Events](screenshots/splunk-process-creation.png)
+**Screenshot:**  
+![Splunk Process Creation](screenshots/splunk-process-creation.png)
 
 ---
 
-### ✔️ 3. DNS Query Events (Event ID 22)  
+### ✔️ 3. DNS Query Events (Event ID 22)
+
 ```
-source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=22
+source="WinEventLog:Microsoft-WWindows-Sysmon/Operational" EventCode=22
 ```
 
-Trigger new DNS lookups:
+Generate DNS traffic:
+
 ```powershell
 nslookup google.com
-nslookup microsoft.com
 nslookup github.com
+nslookup microsoft.com
 ```
 
-Screenshot:  
-![Splunk Sysmon DNS Events](screenshots/splunk-dns-events.png)
-
+**Screenshot:**  
+![Splunk DNS Events](screenshots/splunk-dns-events.png)
 
 ---
 
 ## 📸 Screenshots
 
-Store all screenshots under:
+Store all images in:
 
 ```
-enterprise-cybersecurity-lab/siem/sysmon-lab/screenshots/
+sysmon-lab/screenshots/
 ```
 
-Include these 7 screenshots:
+Screenshots included:
 
-1. `sysmon-config.png`  
-2. `sysmon-service-status.png`  
-3. `sysmon-service-details.png`  
-4. `sysmon-eventviewer-operational.png`  
-5. `splunk-sysmon-events.png`  
-6. `splunk-process-creation.png`  
-7. `splunk-dns-events.png`  
+- `sysmon-config.png`  
+- `sysmon-eventviewer-operational.png`  
+- `sysmon-service-status.png`  
+- `sysmon-service-details.png`  
+- `splunk-sysmon-events.png`  
+- `splunk-process-creation.png`  
+- `splunk-dns-events.png`  
 
 ---
 
 ## 🔗 Navigation
 
-**↩ Back to SIEM Folder**  
+**⬅ Back to SIEM Folder**  
 `../`
 
-**↩ Back to ECL Home**  
+**⬅ Back to ECL Home**  
 `../../README.md`
 
 ---
 
 This completes the Sysmon → Splunk visibility lab.
-
