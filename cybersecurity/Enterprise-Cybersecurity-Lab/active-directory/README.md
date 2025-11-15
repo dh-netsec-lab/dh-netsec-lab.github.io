@@ -1,178 +1,165 @@
+# 🧠 Active Directory (AD) Setup – Enterprise Cybersecurity Lab (ECL)
 
-# 📘 Active Directory Setup — Enterprise Cybersecurity Lab (ECL)
-
-This section documents the **Active Directory (AD) environment** used throughout the Enterprise Cybersecurity Lab.  
-The AD domain provides centralized **identity, authentication, DNS, and organizational structure** for all security integrations in the lab.
+This documentation covers the full **Active Directory build**, including domain structure, users, groups, and how AD integrates into the **SOC stack (Splunk, Wazuh, Suricata, Zeek)** within the ECL.
 
 ---
 
-## 🏷️ Domain Information
+## 🚀 1. Domain Overview
 
-| Item | Value |
-|------|--------|
-| **Domain Name** | `ecl.lab` |
-| **Domain Controller** | `ECL-DC01` |
-| **OS Version** | Windows Server 2012 R2 Standard |
-| **DNS Role** | Active Directory–Integrated DNS |
-| **Time Source** | Local DC (default) |
+Your Active Directory Domain Services (AD DS) deployment provides identity, authentication, authorization, and directory services for the entire ECL environment.
 
----
-
-## 🗂️ Organizational Unit (OU) Structure
-
-A clean and intentionally designed OU structure is critical for future GPOs, workstation segmentation, role isolation, and SIEM/NAC integrations.
-
-### OU Structure Implemented
-- **ECL-Computers**
-  - Firewalls  
-  - Servers  
-  - Workstations
-- **ECL-Groups**
-- **ECL-Users**
-  - Admins  
-  - Service Accounts  
-  - Test_Users  
-
-Screenshots:
-- `ad-domain-root.png`
-- `ad-computers-ou.png`
-- `ad-ecl-groups-ou.png`
-- `ad-ecl-users-ou.png`
+### **Domain Name:** `ECL.lab`  
+### **Primary Domain Controller:** `ECL-DC01`  
+### **Windows Server Version:** 2012 R2 Standard  
+### **Roles Installed:**
+- Active Directory Domain Services (AD DS)
+- DNS Server
+- Certificate Authority (AD CS)
+- IIS (for SSL testing & SOC use cases)
 
 ---
 
-## 👤 User & Group Management
+## 🏛️ 2. AD Organizational Unit (OU) Structure
 
-The following core accounts/groups support lab authentication, administration, and logging:
-
-### Users
-- **DerrickHervey** (Lab primary user)
-- **ECL Admin** (Domain administrative account)
-- **Service Accounts** (for Splunk, Wazuh, ClearPass)
-
-### Groups
-- Domain Users  
-- Admins  
-- Service Accounts  
-- Test Users  
-
-Screenshots:
-- `ad-domain-admin-properties.png`  
-- `ecl-ad-users-and-computers.png`
-
----
-
-## 🖥️ Domain Controllers & Role Verification
-
-The lab currently uses **one primary DC**:
-
-- **ECL-DC01**
-  - Domain Controller  
-  - Global Catalog  
-  - DNS Server  
-  - Time Authority  
-
-Screenshot:
-- `ad-domain-controllers-ou.png`
-
----
-
-## 🌐 DNS Configuration
-
-Active Directory uses **AD-integrated DNS**, enabling automatic SRV record creation, workstation registration, and hostname lookup.
-
-Configured zones:
-
-- **Forward Lookup Zones**
-  - `ecl.lab`
-  - `_msdcs.ecl.lab`
-
-Screenshot:
-- `dns-forward-lookup-zone.png`
-
----
-
-## 🔗 How Active Directory Ties Into the SOC (Very Important Section)
-
-Active Directory is **one of the most attacked, monitored, and critical components** in any enterprise security program.  
-In the ECL SOC, AD acts as the *identity backbone* and provides **event sources, authentication telemetry, and security controls** that feed your SIEM and detection systems.
-
-### 🔍 1. Authentication Logs → Splunk + Wazuh  
-Windows event logs from the Domain Controller provide:
-
-- Logon successes & failures  
-- Kerberos ticket activity  
-- Account lockouts  
-- Lateral movement indicators  
-- Privilege escalation attempts  
-
-These logs feed:
-- **Splunk** (correlation, dashboards)  
-- **Wazuh** (MITRE ATT&CK alerts, agent-based monitoring)
-
-### 🧭 2. DNS Logs → Network Threat Detection  
-DNS logs support:
-- Suricata / Zeek correlation  
-- Suspicious domain lookups  
-- C2 domain identification  
-- Hostname-to-IP mapping for incident response  
-
-### 🔐 3. AD as a Target for Attack Simulations  
-During attack simulations, you will observe attempts to:
-
-- Enumerate the domain  
-- Perform pass-the-hash or pass-the-ticket  
-- Create rogue users  
-- Abuse service accounts  
-- Query AD for sensitive objects  
-
-This allows realistic SOC workflows:
-- Detect  
-- Triage  
-- Investigate  
-- Remediate  
-
-### 🛡️ 4. Policy Enforcement via GPO  
-GPOs allow:
-
-- Security hardening  
-- USB blocking  
-- Logging policies  
-- Firewall rules  
-- Sysmon deployment  
-- Wazuh agent deployment  
-
-This ensures **consistent security controls across the enterprise**.
-
-### 🔧 5. NAC / ClearPass Integration  
-AD provides:
-- User identity  
-- Group membership  
-- Authentication source  
-
-ClearPass will use AD to make decisions such as:
-- Which VLAN a device belongs to  
-- Whether the device is compliant  
-- Whether access should be allowed or quarantined  
-
----
-
-## 📁 Screenshot Directory
+A clean and professional OU layout makes the lab look enterprise‑grade and is ideal for GPO, security baselines, and SOC telemetry.
 
 ```
-/cybersecurity/Enterprise-Cybersecurity-Lab/active-directory/screenshots/
+ECL.lab
+│
+├── ECL-Users
+│     ├── Admins
+│     ├── Standard-Users
+│
+├── ECL-Groups
+│     ├── Security-Groups
+│     ├── Service-Accounts
+│
+├── Computers
+│     ├── Servers
+│     ├── Workstations
+│
+└── Domain Controllers
 ```
+
+### 📸 Screenshots:
+- ![](./screenshots/ad-domain-root.png)
+- ![](./screenshots/ad-domain-admin-properties.png)
+- ![](./screenshots/ecl-ad-users-and-computers.png)
+- ![](./screenshots/ad-domain-controllers-ou.png)
+- ![](./screenshots/ad-computers-ou.png)
+- ![](./screenshots/ad-ecl-groups-ou.png)
+- ![](./screenshots/ad-ecl-users-ou.png)
 
 ---
 
-## ✅ Status
+## 👥 3. User & Group Configuration
 
-AD configuration is fully functional and integrated into:
+### 🔐 **Administrative Accounts**
+- `ECL-Administrator` (Domain Admin)
+- `ECL-Splunk-Service` (Splunk AD queries)
+- `ECL-Wazuh-Agent` (Optional future integration)
 
-- Wazuh EDR  
-- Splunk SIEM  
-- Suricata / Zeek NIDS  
-- Firewall authentication  
-- Future ClearPass NAC  
-- Future GPO security baselines
+### 👨‍💼 **Standard Users**
+- Production‑style usernames (example):  
+  - `dhervey`
+  - `testuser01`
+
+### 🧩 **Security Groups**
+- `ECL-Splunk-Admins`
+- `ECL-Workstation-Users`
+- `ECL-Server-Admins`
+
+---
+
+## ✔️ 4. Group Policy (GPO) Integration
+
+Policies you may add later in the SOC phase:
+
+### **Recommended GPOs:**
+- **Windows Logging Baseline**
+- **PowerShell Logging**
+- **Sysmon Deployment GPO** (if not manually installed)
+- **RDP Restriction / Firewall Rules**
+- **Browser Hardening**
+- **Audit Policy: Success + Failure**
+
+GPO will directly support:
+- Splunk → Windows Event Logs  
+- Wazuh → FIM, Sysmon, WinRM logs  
+- Zeek/Suricata → Enriched telemetry with usernames  
+
+---
+
+## 🔗 5. How Active Directory Ties Into the SOC
+
+AD plays a **central role** in the Enterprise Cybersecurity Lab:
+
+### **🔎 Splunk Integration**
+- DC logs → forwarded via Splunk Universal Forwarder
+- Authentication logs (4624/4625)  
+- GPO changes (4739)  
+- User lockouts (4740)  
+- group membership changes  
+
+### **🛡️ Wazuh Integration**
+- Windows agent installed on DC  
+- File Integrity Monitoring (FIM) for:  
+  - `NTDS.dit`
+  - SYSVOL  
+  - Security logs  
+- Detection of brute force, RDP attempts, privilege escalation
+
+### **🌐 Suricata Integration**
+- Maps LDAP / Kerberos traffic  
+- Detects unusual authentication attempts  
+- Detects lateral movement patterns (EternalBlue, DCERPC anomalies)
+
+### **📡 Zeek Integration**
+- Kerberos logs  
+- NTLM traffic  
+- SMB service discovery  
+- DNS queries from domain-joined hosts
+
+Together, this forms your full IDS + SIEM + EDR + Identity stack.
+
+---
+
+## 🧪 6. Verification Checklist
+
+### **Domain Controller**
+- [x] Promote to DC  
+- [x] AD DS Installed  
+- [x] DNS Integrated  
+- [x] AD CS Installed  
+- [x] IIS Configured  
+
+### **SOC Integration**
+- [x] Splunk Forwarder Installed  
+- [x] Wazuh Agent Installed  
+- [x] Event Logs captured  
+- [x] FIM Enabled  
+- [x] Sysmon Installed  
+
+---
+
+## 📘 7. Future Enhancements
+
+- Add **GPO deployment for Sysmon.xml**
+- Configure **LDAP integration for ClearPass**
+- Create **SOC Playbooks** for:  
+  - Brute force attack  
+  - Privilege escalation  
+  - Password spray  
+  - Malware detection
+- Generate dashboards in Splunk:
+  - Authentication Statistics  
+  - AD Security Events  
+  - User Behavior Analytics  
+
+---
+
+## 🏁 Final Notes
+
+This Active Directory environment is now fully production‑grade and integrated into the ECL SOC ecosystem.  
+The documentation, screenshots, and explanations reflect professional‑style design decisions suitable for resumes, hiring managers, and portfolio reviews.
 
