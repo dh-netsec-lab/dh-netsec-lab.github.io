@@ -160,6 +160,6 @@ Together, this forms your full IDS + SIEM + EDR + Identity stack.
 
 ## 🏁 Final Notes
 
-This Active Directory environment is now fully production‑grade and integrated into the ECL SOC ecosystem.  
-The documentation, screenshots, and explanations reflect professional‑style design decisions suitable for resumes, hiring managers, and portfolio reviews.
+This Active Directory environment is now fully integrated into the ECL architecture.
+The documentation, screenshots, and explanations reflect clear, structured technical design suitable for internal reference, knowledge sharing, and professional development.
 
