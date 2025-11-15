@@ -8,10 +8,11 @@ This documentation covers the full **Active Directory build**, including domain 
 
 Your Active Directory Domain Services (AD DS) deployment provides identity, authentication, authorization, and directory services for the entire ECL environment.
 
-### **Domain Name:** `ECL.lab`  
-### **Primary Domain Controller:** `ECL-DC01`  
-### **Windows Server Version:** 2012 R2 Standard  
-### **Roles Installed:**
+**Domain Name:** ECL.lab  
+**Primary Domain Controller:** ECL-DC01  
+**Windows Server Version:** Windows Server 2012 R2 Standard  
+**Roles Installed:** AD DS, DNS, CA, IIS  
+
 - Active Directory Domain Services (AD DS)
 - DNS Server
 - Certificate Authority (AD CS)
