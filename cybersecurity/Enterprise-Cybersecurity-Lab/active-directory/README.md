@@ -96,7 +96,7 @@ This Active Directory environment forms the backbone of the **ECL SOC ecosystem*
 - Secure authentication for servers and firewalls  
 - Future integrations (ClearPass, Suricata, Zeek, Wazuh, Splunk)
 
-This layout reflects a **professional, enterprise‑grade AD deployment**, appropriate for engineering work and portfolio documentation — while remaining neutral for current employer visibility.
+This layout reflects a **professional, enterprise‑grade AD deployment**, appropriate for engineering work and portfolio documentation
 
 ---
 
