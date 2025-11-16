@@ -5,7 +5,7 @@ It includes domain structure, OU design, users/groups, DNS configuration, and th
 
 ---
 
- **Domain Overview**
+# **Domain Overview**
 
 | Key Component | Value |
 |---------------|-------|
