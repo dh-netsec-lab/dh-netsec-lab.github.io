@@ -1,110 +1,185 @@
-# Active Directory Setup (ECL Lab)
+# 🧩 Active Directory & Core Infrastructure – Enterprise Cybersecurity Lab (ECL)
 
-## Overview
-This document provides detailed documentation of the Active Directory (AD), Certificate Authority (CA), and IIS Web Server configuration in the Enterprise Cybersecurity Lab (ECL). It includes architecture, roles, screenshots, and how AD integrates with SOC tooling such as Splunk, Wazuh, Suricata, and Zeek.
-
----
-
-## AD Domain Configuration
-
-**Domain Name:** ECL.lab  
-**Primary Domain Controller:** ECL-DC01  
-**Windows Server Version:** Windows Server 2012 R2 Standard  
-**Roles Installed:**  
-- Active Directory Domain Services (AD DS)  
-- DNS Server  
-- Certificate Authority (AD CS)  
-- IIS Web Server (for Software Center hosting)
+This document provides full documentation of the **Active Directory (AD)**, **Certificate Authority (CA)**, and **IIS Web Services** used inside the Enterprise Cybersecurity Lab (ECL).  
+It includes architecture, screenshots, verification steps, and how AD integrates into the SOC ecosystem (Splunk, Wazuh, Suricata/Zeek, and identity‑based security controls).
 
 ---
 
-## AD Organizational Structure
+# 🏛️ 1. Active Directory Overview
 
-### Domain Root  
-[ad-domain-root.png](./screenshots/ad-domain-root.png)
+### **Domain Information**
+- **Domain Name:** `ECL.lab`  
+- **Primary Domain Controller:** `ECL-DC01`  
+- **Windows Server OS:** 2012 R2 Standard  
+- **Server Roles Installed:**  
+  - Active Directory Domain Services (AD DS)  
+  - DNS  
+  - Certificate Authority (AD CS)  
+  - IIS Web Server (used internally for Software Center / file distribution)
 
-### Domain Controllers OU  
-[ad-domain-controllers-ou.png](./screenshots/ad-domain-controllers-ou.png)
-
-### Computers OU  
-[ad-computers-ou.png](./screenshots/ad-computers-ou.png)
-
-### ECL Groups OU  
-[ad-ecl-groups-ou.png](./screenshots/ad-ecl-groups-ou.png)
-
-### ECL Users OU  
-[ad-ecl-users-ou.png](./screenshots/ad-ecl-users-ou.png)
-
-### Domain Admins Properties  
-[ad-domain-admin-properties.png](./screenshots/ad-domain-admin-properties.png)
-
-### AD Users & Computers (Tree View)  
-[ecl-ad-users-and-computers.png](./screenshots/ecl-ad-users-and-computers.png)
+### **Functional Goal**
+The AD domain provides:
+- Central identity management for all lab users  
+- Computer account lifecycle control  
+- Authentication backend for firewalls, SIEM, and NAC integrations  
+- Certificate issuance for Palo Alto / Fortinet / Win endpoints  
+- Internal software delivery via IIS  
 
 ---
 
-## Certificate Authority (CA)
+# 🗂️ 2. Organizational Unit (OU) Structure
 
-The Domain Controller also functions as the **Enterprise Root Certificate Authority**.  
-The CA issues certificates for:  
-- Workstations  
-- Servers  
-- Splunk  
-- Palo Alto & Fortinet firewalls  
-- Future ClearPass integrations  
-- SSL inspection labs  
-- Secure RADIUS/EAP authentication
+The OU structure was built following a clean, enterprise‑ready model.
 
-### CA Role Installed  
-[dc-ca-role-installed.png](./screenshots/dc-ca-role-installed.png)
-
-### CA Console  
-[dc-ca-console.png](./screenshots/dc-ca-console.png)
+### Screenshots  
+- `ad-domain-root.png`  
+- `ad-domain-controllers-ou.png`  
+- `ad-computers-ou.png`  
+- `ad-ecl-users-ou.png`  
+- `ad-ecl-groups-ou.png`  
 
 ---
 
-## IIS Web Server
+# 👥 3. Users & Groups
 
-IIS is installed on the domain controller to support internal application delivery, such as the **Software Center** repository for agents and tools.
+Users and groups aligned to security best practices:
 
-### IIS Role Installed  
-[iss-role-installed.png](./screenshots/iss-role-installed.png)
+### Users  
+- Domain Admin  
+- Standard user accounts  
+- Service accounts for integration  
 
-### Default Web Site  
-[iis-default-website.png](./screenshots/iis-default-website.png)
+### Groups  
+- ECL_Admins  
+- ECL_Security  
+- ECL_Users  
+- Firewall_Auth (used for Panorama/Palo auth)  
+- SIEM_Readers  
 
-### Software Center Folder  
-[iis-software-center-folder.png](./screenshots/iis-software-center-folder.png)
-
-### IIS Tools Menu  
-[iss-tools-menu.png](./screenshots/iss-tools-menu.png)
-
----
-
-## How AD Integrates Into the SOC
-
-Active Directory is the backbone of identity in the ECL SOC:
-
-### 🔐 Identity & Access  
-- AD accounts are used for workstation authentication  
-- Domain Admin credentials protect privileged SOC functions  
-- Multi‑tier OU structure models enterprise identity design  
-
-### 🧩 SOC Telemetry  
-- DC logs flow to Wazuh (File Integrity Monitoring, Authentication, Syscheck)  
-- Sysmon logs → forwarded into Splunk  
-- DNS logs → monitored via Zeek  
-- Certificate issuance audited via Windows Event Logs  
-
-### 🛡️ Zero Trust Foundations  
-- CA enables mutual‑TLS, SSL inspection, and endpoint cert enrollment  
-- GPOs enforce consistent workstation policy  
-- IIS hosts trusted internal tools  
+### Screenshots  
+- `ad-domain-admin-properties.png`  
+- `ecl-ad-users-and-computers.png`
 
 ---
 
-## Final Notes
+# 🌐 4. DNS Configuration
 
-This documentation reflects a realistic enterprise-grade AD environment fully integrated into the ECL SOC.  
-It demonstrates identity management, certificate trust, auditing, server roles, and secure application hosting.
+DNS runs on the Domain Controller.
+
+- Internal zone: `ECL.lab`  
+- A/PTR records created automatically for joined devices  
+- Supports reverse DNS for firewall/User-ID lookups  
+- Ensures Splunk, Wazuh, Suricata, Sysmon machines resolve correctly
+
+### Screenshot  
+- `dc-dns-console.png`
+
+---
+
+# 🔐 5. Certificate Authority (AD CS)
+
+The Domain Controller acts as the **Enterprise Root Certificate Authority**.
+
+### Purpose in the ECL
+- Issues certificates for:
+  - Palo Alto firewalls  
+  - Fortinet firewalls  
+  - Windows OS / Sysmon  
+  - Suricata/Zeek (Trust Store)  
+  - Internal IIS web sites  
+- Enables SSL Decryption labs  
+- Supports internal HTTPS services  
+
+### Screenshots  
+- `dc-ca-role-installed.png`  
+- `dc-ca-console.png`
+
+---
+
+# 🌐 6. IIS Web Server (Internal Software Center)
+
+IIS is used for:
+- Hosting an internal **Software Center**  
+- Distribution of Sysmon config  
+- Hosting documentation or scripts  
+- Supporting future ECL endpoints (Zero Trust, NAC, automation)
+
+### Screenshots  
+- `dc-iis-role-installed.png`  
+- `dc-iis-console.png`  
+- `dc-iis-default-site.png`  
+- `dc-iis-software-center.png`
+
+---
+
+# 🧩 7. How Active Directory Integrates With the SOC
+
+Active Directory directly supports multiple SOC components:
+
+### **Wazuh**
+- DC sends Windows Event Logs → Wazuh Agent  
+- Wazuh performs:
+  - File integrity monitoring  
+  - Logon/logoff analysis  
+  - Process monitoring  
+  - Service changes / privilege escalations  
+
+### **Splunk**
+- DC also forwards logs to Splunk for:
+  - Authentication dashboards  
+  - Sysmon analysis  
+  - Lateral movement detections  
+
+### **Suricata / Zeek**
+- AD workstation traffic is monitored by IDS/NSM  
+- User identity (from AD) + network events = full visibility  
+
+### **Palo Alto / Fortinet**
+- Trusted CA issues firewall certificates  
+- Firewalls authenticate admins via AD groups  
+- VPN & SSL Decryption rely on AD-issued certificates  
+
+### **ClearPass NAC (future integration)**
+- AD provides:
+  - Identity source  
+  - Group-based policies  
+  - Machine authentication  
+
+This creates a fully integrated enterprise‑grade SOC and Zero Trust identity model.
+
+---
+
+# 🖼️ 8. Screenshot Index (for GitHub README linking)
+
+```
+/active-directory/screenshots/
+│
+├── ad-domain-root.png
+├── ad-domain-controllers-ou.png
+├── ad-computers-ou.png
+├── ad-ecl-users-ou.png
+├── ad-ecl-groups-ou.png
+├── ad-domain-admin-properties.png
+├── ecl-ad-users-and-computers.png
+├── dc-dns-console.png
+├── dc-ca-role-installed.png
+├── dc-ca-console.png
+├── dc-iis-role-installed.png
+├── dc-iis-console.png
+├── dc-iis-default-site.png
+└── dc-iis-software-center.png
+```
+
+---
+
+# 🏁 Final Notes
+
+This AD environment is now:
+
+✔ Enterprise‑ready  
+✔ Cleanly structured  
+✔ Fully integrated into the SOC pipeline  
+✔ Documented with professional, portfolio‑quality screenshots  
+
+This README replaces the previous file and is now the **official AD documentation** for the Enterprise Cybersecurity Lab.
 
