@@ -38,7 +38,7 @@ It includes domain structure, OU design, users/groups, DNS configuration, and th
 
 ---
 
-# 🧑‍💼 **Domain Admin Properties**
+#  **Domain Admin Properties**
 ![Domain Admin Properties](screenshots/ad-domain-admin-properties.png)
 
 ---
