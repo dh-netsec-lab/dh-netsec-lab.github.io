@@ -227,15 +227,17 @@ Screenshots included:
 ---
 
 ## 🔄 Phase 2 – Security Visibility & Telemetry
-
-**Previous Lab:**  
-◀️ [Suricata IDS Lab](../suricata-lab/README.md)
-
-**Next Lab:**  
-👉 [Zeek Network Metadata Lab](../zeek-lab/README.md)
-
-**🏠 Back to Phase 2 Home:**  
-[Return to SIEM Overview](../README.md)
-
+---
 
 This completes the Sysmon → Splunk visibility lab.
+---
+
+### Phase 2 SIEM Flow Navigation
+
+⬅️ Previous: [Suricata IDS Lab](../suricata-lab/)  
+➡️ Next: [Wazuh SIEM Lab →](../wazuh-lab/)
+
+[⬅ Back to Phase 2 Overview](../README.md)
+
+
+
