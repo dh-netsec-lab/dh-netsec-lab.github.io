@@ -4,7 +4,7 @@ I’m a Senior Network Engineer with a growing focus on network security and cyb
 ---
 
 # Portfolio Summary
-This portfolio showcases a multi-phase Enterprise Cybersecurity Lab (ECL) combining networking, firewalls, IDS/NSM, SIEM pipelines, identity systems, and governance practices.  
+This portfolio showcases a multi-phase Enterprise Cybersecurity Lab (ECL) combining networking, firewalls, IDS/NSM, SIEM pipelines, identity systems, and governance practices.
 It demonstrates how real-world security components integrate to form an enterprise workflow — from packet flow to threat detection to policy enforcement.
 
 ---
@@ -30,24 +30,24 @@ User groups, trust relationships, certificates, and foundations for Zero Trust.
 
 # Quick Navigation
 
-| Category           | Description                                                            | Link                                                   |
-|--------------------|------------------------------------------------------------------------|--------------------------------------------------------|
-| Cybersecurity      | Labs focused on SOC visibility, SIEM, telemetry.                       | ./cybersecurity/Enterprise-Cybersecurity-Lab          |
-| Network Security   | Labs using Palo Alto and Fortinet firewalls.                           | ./network-security/README.md                          |
-| Networking Labs    | Routing, switching, and WAN fundamentals.                              | ./routing-switching/README.md                         |
-| GRC & DR           | Governance, risk, compliance, and DR documentation.                    | ./grc-dr/README.md                                    |
+Below are the primary lab sections currently available:
+
+| Category               | Description                                                                                   | Link                                                           |
+|------------------------|-----------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| Cybersecurity (ECL)    | Multi-phase enterprise cybersecurity lab: SOC visibility, SIEM telemetry, identity, detection | /cybersecurity/Enterprise-Cybersecurity-Lab/                  |
+| Network Security       | Palo Alto and Fortinet focused labs including Panorama, VPNs, and segmentation               | /network-security/                                            |
 
 ---
 
 # Lab Progress Overview
 
-| Phase | Title                         | Focus                                      | Status        |
-|-------|------------------------------|--------------------------------------------|--------------|
-| 1     | Network Connectivity          | Routing, NAT, Firewalls, WAN reachability  | Complete      |
-| 2     | Security Visibility           | Sysmon, Rsyslog, Splunk ingestion          | In Progress   |
-| 3     | Identity & Trust              | AD, DNS, CA, Decryption                    | Planned       |
-| 4     | Threat Detection              | Suricata, Zeek, Splunk detections          | In Progress   |
-| 5     | Hardening & Automation        | IaC, Config Backups, GRC overlays          | Future        |
+| Phase | Title                | Focus                                      | Status        |
+|-------|----------------------|--------------------------------------------|--------------|
+| 1     | Network Connectivity | Routing, NAT, Firewalls, WAN reachability  | Complete      |
+| 2     | Security Visibility  | Sysmon, Rsyslog, Splunk ingestion          | In Progress   |
+| 3     | Identity & Trust     | AD, DNS, CA, Decryption                    | In Progress   |
+| 4     | Threat Detection     | Suricata, Zeek, Splunk detections          | In Progress   |
+| 5     | Automation & Hardening | IaC, Config Backups, GRC overlays        | Future        |
 
 ---
 
