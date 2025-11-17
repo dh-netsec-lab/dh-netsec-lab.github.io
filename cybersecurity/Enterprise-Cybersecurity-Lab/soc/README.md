@@ -1,122 +1,63 @@
+# 📘 **Phase 4 -- Threat Detection & Response**
 
-# 🛡️ Enterprise Cybersecurity Lab – Phase 4
-## Threat Detection & Response  
-### Detection Lab #1 — Nmap Port Scan Reconnaissance
+> **Enterprise Cybersecurity Lab (ECL)**\
+> This phase demonstrates end‑to‑end **SOC visibility**, **threat
+> detection**, and **attack simulation** using Suricata, Zeek, Rsyslog,
+> Splunk, and Windows/Linux telemetry.
 
-## 📌 Overview
-This mini-lab demonstrates how an adversary performing **internal network reconnaissance** using **Nmap** is detected across:
+------------------------------------------------------------------------
 
-- **Suricata IDS (SPAN-based visibility)**
-- **Zeek Network Security Monitor**
-- **Splunk SIEM Correlation**
+# 🧭 Phase Navigation
 
-A Kali machine inside the **User VLAN (VLAN 20)** simulates a compromised workstation conducting lateral reconnaissance against another internal system.
+  ---------------------------------------------------------------------------------------------
+  Phase             Description                          Link
+  ----------------- ------------------------------------ --------------------------------------
+  🧩 **Phase 1**    Network Connectivity                 ../../network-connectivity/README.md
 
----
+  🛡️ **Phase 2**    Security Visibility & Telemetry      ../../siem/README.md
 
-## 🧩 Lab Topology Context
-- **Attacker:** Kali Linux (10.0.2.23 – VLAN 20)  
-- **Target Host:** Internal endpoint (10.0.2.22 – VLAN 20)  
-- **IDS/NSM Sensor:** Suricata + Zeek (Ubuntu121 w/ SPAN feed)  
-- **SIEM:** Splunk Enterprise  
+  🔐 **Phase 3**    Identity & Trust Integration         ../../identity-trust/README.md
 
-Suricata and Zeek passively inspect all mirrored VLAN 20 traffic from the Bama Switch.
+  🔥 **Phase 4**    Threat Detection & Response          ./README.md
 
----
+  🧾 **Phase 5**    Governance, Risk & Compliance        ../../grc/README.md
+  ---------------------------------------------------------------------------------------------
 
-## ⚔️ Phase 1 — Attack Execution (Kali 10.0.2.23)
+------------------------------------------------------------------------
 
-### 1. Basic SYN Scan
-```
-sudo nmap -sS 10.0.2.22
-```
+# 🎯 **Phase 4 Objectives**
 
-### 2. Version + OS Detection
-```
-sudo nmap -sS -sV -O 10.0.2.22
-```
+-   Generate realistic attacker activity\
+-   Detect with Suricata & Zeek sensors\
+-   Forward logs via Rsyslog → Splunk\
+-   Build detection dashboards\
+-   Validate correlation across firewall, endpoint, and IDS telemetry
 
-### 3. Aggressive Full Scan
-```
-sudo nmap -A 10.0.2.22
-```
+------------------------------------------------------------------------
 
----
+# 🔍 **Threat Detection Labs**
 
-## 🔎 Phase 2 — Suricata Detection (Ubuntu121)
+## ✅ **1. Nmap Port Scan Detection Lab**
 
-### Suricata Alerts
-```
-sudo tail -n 25 /var/log/suricata/fast.log
-```
+Simulate reconnaissance and validate detections across Suricata, Zeek,
+and Splunk.
 
-![Suricata Alerts](./screenshots/suricata-nmap-alerts.png)
+➡️ **[Open Nmap Port Scan Detection
+Lab](threat-detection/nmap-port-scan-lab/README.md)**
 
----
+------------------------------------------------------------------------
 
-## 📡 Phase 3 — Zeek NSM Detection
+# 🧩 **Upcoming Labs**
 
-### Zeek conn.log – Attacker View
-```
-sudo grep "10.0.2.23" /opt/zeek/spool/zeek/conn.log | head -n 15
-```
+-   Suricata Alert Validation\
+-   Zeek Log Analysis\
+-   Sysmon Threat Events\
+-   Brute-force & Credential Attacks\
+-   Firewall Threat Log Analysis
 
-![Zeek connlog attacker](./screenshots/zeek-connlog-attacker-nmap.png)
+------------------------------------------------------------------------
 
----
+# 🔗 Navigation
 
-### Zeek conn.log – Target View
-```
-sudo grep "10.0.2.22" /opt/zeek/spool/zeek/conn.log | head -n 15
-```
-
-![Zeek connlog target](./screenshots/zeek-connlog-target-nmap.png)
-
----
-
-### Zeek weird.log – Packet Anomalies
-```
-sudo grep "10.0.2.23" /opt/zeek/spool/zeek/weird.log
-```
-
-![Zeek weirdlog](./screenshots/zeek-weirdlog-nmap.png)
-
----
-
-## 📊 Phase 4 — Splunk SIEM Correlation
-
-### Suricata-related search
-```
-index=* ("ET SCAN" OR nmap OR portscan)
-```
-
-![Splunk Suricata](./screenshots/splunk-suricata-nmap.png)
-
----
-
-## 📁 Screenshots Folder Structure
-```
-nmap-port-scan-lab/
-└── screenshots/
-    ├── suricata-nmap-alerts.png
-    ├── zeek-connlog-attacker-nmap.png
-    ├── zeek-connlog-target-nmap.png
-    ├── zeek-weirdlog-nmap.png
-    ├── splunk-suricata-nmap.png
-```
-
----
-
-## 📝 Analyst Summary
-This lab demonstrates:
-- Internal recon behavior
-- IDS/NSM visibility from a SPAN port
-- Suricata packet anomaly detection
-- Zeek protocol-level scan visibility
-- Splunk ingestion and search capability
-
----
-
-## 🔙 Navigation
-- [Back to Phase 4 Overview](../../README.md)
-- [ECL Home](../../../README.md)
+-   ← **[Back to SOC Overview](../README.md)**\
+-   ← **[Back to Portfolio Home](../../README.md)**
