@@ -1,4 +1,4 @@
-# 📘 **Phase 4 -- Threat Detection & Response**
+# **Phase 4 -- Threat Detection & Response**
 
 Welcome to **Phase 4** of the *Enterprise Cybersecurity Lab (ECL)*.\
 This phase focuses on demonstrating **SOC visibility**, **threat
@@ -7,7 +7,7 @@ Splunk, and Windows/Linux telemetry.
 
 ------------------------------------------------------------------------
 
-## 🎯 Phase 4 Objectives
+##  Phase 4 Objectives
 
 -   Generate realistic attacker activity\
 -   Detect reconnaissance, enumeration, and suspicious traffic\
@@ -20,7 +20,7 @@ Splunk, and Windows/Linux telemetry.
 
 # 🔍 Threat Detection Labs
 
-## ✅ **1. Nmap Port Scan Detection Lab**
+##  **1. Nmap Port Scan Detection Lab**
 
 Simulate reconnaissance activity using Nmap and validate detections
 across Suricata, Zeek, and Splunk.
@@ -34,31 +34,31 @@ Lab](threat-detection/nmap-port-scan-lab/README.md)**
 
 These will be added as screenshots and detections are collected.
 
-### 🔥 Suricata Alert Validation
+###  Suricata Alert Validation
 
 -   ICMP alerting\
 -   TCP/UDP scan detection\
 -   Suspicious protocol identification
 
-### 🔥 Zeek Log Analysis
+###  Zeek Log Analysis
 
 -   Conn logs\
 -   Notice logs\
 -   Weird events\
 -   DNS/HTTP enumeration
 
-### 🔥 Sysmon Threat Events
+###  Sysmon Threat Events
 
 -   Process creation anomalies\
 -   Suspicious PowerShell activity\
 -   File creation & persistence
 
-### 🔥 Credential & Authentication Threats
+###  Credential & Authentication Threats
 
 -   AD brute-force detection\
 -   Kerberos anomalies
 
-### 🔥 Firewall Threat Visibility
+###  Firewall Threat Visibility
 
 -   Palo Alto threat logs\
 -   Fortinet UTM events\
