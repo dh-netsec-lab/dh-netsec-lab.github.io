@@ -9,22 +9,38 @@ It demonstrates how real-world security components integrate to form an enterpri
 
 ---
 
-# 🔎 Featured Labs
+## 🔎 Featured Labs
 
-### [Palo Alto Panorama Enterprise Deployment](/network-security/palo-panorama/README.md)
-Template stacks, onboarding, VPN, syslog, and centralized management across multiple firewalls.
+---
 
-### [Palo Alto Overlapping Subnets S2S VPN](/network-security/palo-overlapping-subnets/README.md)
-Two Palo Alto firewalls (FW188 and FW189) configured with overlapping subnets, NAT, and validated IPsec tunnels.
+#### 🔐 Palo Alto Panorama Enterprise Deployment  
+*Template stacks, onboarding, VPN, syslog, and centralized management across multiple firewalls.*  
+**→ [Open Lab](/network-security/palo-panorama/README.md)**
 
-### [Suricata & Zeek Network Security Monitoring](/cybersecurity/Enterprise-Cybersecurity-Lab/suricata-zeek-integration/README.md)
-Span-port sensor, alert generation, packet analysis, and full Rsyslog → Splunk ingestion pipeline.
+---
 
-### [Splunk SIEM Visibility Pipeline](/cybersecurity/Enterprise-Cybersecurity-Lab/splunk-forwarder-lab/README.md)
-End-to-end telemetry from Windows, Linux, Suricata, Zeek, Palo Alto, and (soon) Fortinet.
+#### 🌉 Palo Alto Overlapping Subnets S2S VPN  
+*Two Palo Alto firewalls (FW188 & FW189) configured with overlapping subnets and validated IPsec tunnels.*  
+**→ [Open Lab](/network-security/palo-overlapping-subnets/README.md)**
 
-### [Active Directory & PKI Integration](/cybersecurity/Enterprise-Cybersecurity-Lab/identity-trust/active-directory/README.md)
-User groups, trust relationships, certificates, and foundations for Zero Trust.
+---
+
+#### 🛡️ Suricata & Zeek Network Security Monitoring  
+*Span-port sensor, alert generation, packet analysis, full Rsyslog → Splunk pipeline.*  
+**→ [Open Lab](/cybersecurity/Enterprise-Cybersecurity-Lab/suricata-zeek-integration/README.md)**
+
+---
+
+#### 📊 Splunk SIEM Visibility Pipeline  
+*Cross-platform telemetry from Windows, Linux, Suricata, Zeek, Palo Alto, and more.*  
+**→ [Open Lab](/cybersecurity/Enterprise-Cybersecurity-Lab/splunk-forwarder-lab/README.md)**
+
+---
+
+#### 🧩 Active Directory & PKI Integration  
+*User groups, trust relationships, certificates, and Zero Trust foundations.*  
+**→ [Open Lab](/cybersecurity/Enterprise-Cybersecurity-Lab/identity-trust/active-directory/README.md)**
+
 
 ---
 
