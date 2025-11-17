@@ -227,7 +227,6 @@ Screenshots included:
 ---
 
 ## 🔄 Phase 2 – Security Visibility & Telemetry
----
 
 This completes the Sysmon → Splunk visibility lab.
 ---
