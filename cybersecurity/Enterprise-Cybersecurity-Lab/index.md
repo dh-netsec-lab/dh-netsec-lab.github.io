@@ -30,12 +30,12 @@ Foundational routing, switching, IP scheme, and connectivity validation.
 
 Log forwarding and telemetry pipeline integrating:
 
-- rsyslog
-- Suricata
-- Zeek
-- Sysmon
-- Wazuh
-- Splunk
+- rsyslog  
+- Suricata  
+- Zeek  
+- Sysmon  
+- Wazuh  
+- Splunk  
 
 ---
 
@@ -50,21 +50,13 @@ Active Directory, DNS, certificates, and ClearPass integration.
 
 ### 🔹 [Phase 4 — Threat Detection & SOC Pipeline](soc/)
 
-Rule tuning, threat simulation (Nmap, test malware), and detection workflows using the SOC pipeline.
+Rule tuning, threat simulation (Nmap, malware tests), and detection workflows.
 
 ---
 
 ### 🔹 Phase 5 — GRC & Reporting (Upcoming)
 
 Risk management, reporting dashboards, and compliance tracking.
-
----
-
-## 📂 Additional ECL Components
-
-- [Firewall Telemetry (Fortinet)](fortinet/)
-- [Palo Alto Telemetry / Security](palo-alto/)
-- [Topology & Architecture](topology/)
 
 ---
 
