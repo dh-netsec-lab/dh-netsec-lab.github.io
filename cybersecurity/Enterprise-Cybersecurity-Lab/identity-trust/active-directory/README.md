@@ -1,15 +1,25 @@
-# 🧠 Active Directory & Core Windows Services Setup
+# Phase 3.1 – Active Directory, DNS, Certificate Services & IIS
+## Enterprise Identity & Trust Foundation
 
-This document details the full **Active Directory**, **Certificate Authority**, and **IIS Web Server** configuration used in the **Enterprise Cybersecurity Lab (ECL)**.
+This README merges your **original Active Directory documentation** with the **structured Phase 3 lab format**, giving you a clean, professional, step-by-step identity foundation for the ECL.
 
 ---
 
-## 📁 Domain Overview
+# 🧩 Lab Objectives
+- Deploy Active Directory Domain Services (AD DS)
+- Configure DNS Forward Lookup Zones & Records
+- Build Organizational Units and Group Structure
+- Deploy Certificate Authority (AD CS)
+- Install & Configure IIS for internal services
+- Provide identity and trust foundations for ClearPass, User-ID, SSL decryption, and authentication
 
-- **Domain Name:** `ECL.lab`
-- **Primary Domain Controller:** `ECL-DC01`
+---
+
+# 🏛️ Domain Overview
+- **Domain:** `ECL.lab`
+- **Primary DC:** `ECL-DC01`
 - **Windows Server Version:** *2012 R2 Standard*
-- **Core Roles Installed:**
+- **Installed Roles:**
   - Active Directory Domain Services (AD DS)
   - DNS Server
   - Active Directory Certificate Services (AD CS)
@@ -17,87 +27,108 @@ This document details the full **Active Directory**, **Certificate Authority**, 
 
 ---
 
-# 🏛️ Active Directory Structure
-
-## 1. Domain Root  
-![AD Domain Root](./screenshots/ad-domain-root.png)
-
-## 2. Domain Controllers OU  
-![Domain Controllers OU](./screenshots/ad-domain-controllers-ou.png)
-
-## 3. Computers OU  
-![Computers OU](./screenshots/ad-computers-ou.png)
-
-## 4. ECL-Groups OU  
-![ECL Groups OU](./screenshots/ad-ecl-groups-ou.png)
-
-## 5. ECL-Users OU  
-![ECL Users OU](./screenshots/ad-ecl-users-ou.png)
-
-## 6. Domain Admin Properties  
-![Domain Admin Properties](./screenshots/ad-domain-admin-properties.png)
-
-## 7. AD Users & Computers (Tree View)  
-![AD Users & Computers Tree](./screenshots/ecl-ad-users-and-computers.png)
+# 🏗️ Step 1 — AD DS Installation & Promotion
+### Screenshots
+- `ad-domain-root.png`
+- `ecl-ad-users-and-computers.png`
 
 ---
 
-# 🔐 Certificate Authority (AD CS)
+# 🗂️ Step 2 — Organizational Unit Structure
+### OU Structure Implemented
+- **ECL-Users**
+- **ECL-Groups**
+- **ECL-Computers**
+- **Domain Controllers**
 
-The CA provides certificates for:
-- Internal servers  
-- Workstations  
-- Firewall integrations (Palo Alto & Fortinet)  
-- Future secure services: SSL inspection, NPS, ClearPass, etc.
-
-## CA Role Installed  
-![CA Role Installed](./screenshots/dc-ca-role-installed.png)
-
-## CA Console  
-![CA Console](./screenshots/dc-ca-console.png)
-
----
-
-# 🌐 IIS Web Server (Installed on DC)
-
-Used for internal services such as:
-- Software distribution  
-- Hosting internal landing/testing pages  
-- Certificate enrollment pages  
-
-## IIS Role Installed  
-![IIS Role Installed](./screenshots/iis-role-installed.png)
-
-## Default Web Site  
-![IIS Default Website](./screenshots/iis-default-website.png)
-
-## IIS Software Center Folder  
-![Software Center](./screenshots/iis-software-center-folder.png)
-
-## IIS Tools Menu  
-![IIS Tools Menu](./screenshots/iis-tools-menu.png)
+### Screenshots
+- `ad-ecl-users-ou.png`
+- `ad-ecl-groups-ou.png`
+- `ad-computers-ou.png`
+- `ad-domain-controllers-ou.png`
 
 ---
 
-# 🔄 DNS Configuration
+# 👤 Step 3 — Users, Groups & Permissions
+### Notes
+- Standard user accounts created
+- Admin memberships validated
 
-## Forward Lookup Zone  
-![DNS Forward Lookup Zone](./screenshots/dns-forward-lookup-zone.png)
-
----
-
-# 🏁 Final Notes
-
-This Active Directory environment forms the backbone of the **ECL SOC ecosystem**, supporting:
-
-- Identity management  
-- Certificate deployment  
-- Log forwarding and visibility  
-- Secure authentication for servers and firewalls  
-- Future integrations (ClearPass, Suricata, Zeek, Wazuh, Splunk)
-
-This layout reflects a **professional, enterprise‑grade AD deployment**, appropriate for engineering work and portfolio documentation
+### Screenshot
+- `ad-domain-admin-properties.png`
 
 ---
 
-*Last updated: November 2025*
+# 🌐 Step 4 — DNS Configuration
+### Work Completed
+- Forward Lookup Zone created: **ECL.lab**
+- DNS validated against core services
+
+### Screenshot
+- `dns-forward-lookup-zone.png`
+
+---
+
+# 🔐 Step 5 — Certificate Authority (AD CS)
+### Purpose
+This CA supports:
+- Internal servers
+- Workstations
+- Palo Alto & Fortinet integrations
+- SSL Inspection
+- ClearPass / RADIUS trust
+
+### Screenshots
+- `dc-ca-role-installed.png`
+- `dc-ca-console.png`
+
+---
+
+# 🌐 Step 6 — IIS Internal Web Server
+### Purpose
+- Hosts internal software distribution
+- Certificate enrollment pages
+- Internal testing pages
+
+### Screenshots
+- `iis-role-installed.png`
+- `iis-default-website.png`
+- `iis-tools-menu.png`
+- `iis-software-center-folder.png`
+
+---
+
+# 🔍 Step 7 — Verification
+- AD tree validated
+- DNS resolving internal hosts
+- CA issuing certificates
+- IIS reachable internally
+
+---
+
+# 📁 Folder Structure (GitHub)
+```
+identity-trust/
+│
+├── active-directory/
+│   ├── README.md (this file)
+│   └── screenshots/
+│       ├── ad-domain-root.png
+│       ├── ad-ecl-users-ou.png
+│       ├── ad-ecl-groups-ou.png
+│       ├── ad-computers-ou.png
+│       ├── ad-domain-admin-properties.png
+│       ├── dns-forward-lookup-zone.png
+│       ├── dc-ca-role-installed.png
+│       ├── dc-ca-console.png
+│       ├── iis-role-installed.png
+│       ├── iis-default-website.png
+│       └── iis-tools-menu.png
+```
+
+---
+
+# 🔄 Navigation
+- **⬅️ Back to Phase 3 Overview**
+- **➡️ ClearPass Integration (Phase 3.2)**
+- **🏠 Back to ECL Portfolio Home**
