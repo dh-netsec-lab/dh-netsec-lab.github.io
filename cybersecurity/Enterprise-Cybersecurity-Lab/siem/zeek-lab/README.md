@@ -1,50 +1,80 @@
-# Wazuh SIEM Lab
+# Zeek Network Security Monitoring Lab – Enterprise Cybersecurity Lab (ECL)
 
-## 1. Wazuh Agent Enrollment
+This lab documents the setup, verification, and SIEM integration of **Zeek** inside the Enterprise Cybersecurity Lab (ECL).  
+These screenshots demonstrate correct installation, ZeekControl status, startup behavior, log generation, and metadata parsing for network security visibility.
 
-Shows that the Linux host is enrolled and communicating.
+---
 
-![Active Agents](screenshots/wazuh-active-agents.png)
+## 1. Zeek Version  
+This confirms the installed Zeek binary version.
 
-## 2. Agent Info
+**Command Used:**
+```
+/opt/zeek/bin/zeek --version
+```
 
-Displays agent metadata, IP, status, and last connection.
+![Zeek Version](screenshots/zeek-version.png)
 
-![Agent Info](screenshots/wazuh-agent-info.png)
+---
 
-## 3. Wazuh Manager Status
+## 2. Zeek Service Status (ZeekControl)  
+ZeekControl manages Zeek as a standalone node.  
+This screenshot verifies the service is running and stable.
 
-Validation that the manager services are active.
+**Command Used:**
+```
+/opt/zeek/bin/zeekctl status
+```
 
-![Manager Status](screenshots/wazuh-manager-status.png)
+![Zeek Status](screenshots/zeek-status.png)
 
-## 4. Wazuh Logtest Validation
+---
 
-Demonstrates decoding and rule triggering using wazuh-logtest.
+## 3. Zeek Deployment / Startup Confirmation  
+Restarting or deploying via ZeekControl validates script installation, configuration checks, and Zeek initialization.
 
-![Logtest](screenshots/wazuh-logtest.png)
+**Command Used:**
+```
+/opt/zeek/bin/zeekctl deploy
+```
 
-## 5. Splunk Forwarded Events
+![Zeek Start](screenshots/zeek-start.png)
 
-Shows Wazuh alerts arriving successfully in Splunk.
+---
 
-![Splunk Events](screenshots/wazuh-splunk-events.png)
+## 4. Zeek Log Directory  
+Zeek writes structured logs to `/opt/zeek/logs/current/`.  
+This screenshot verifies correct log generation and rotation.
 
-## 6. Architecture Diagram (Text-Based)
+**Command Used:**
+```
+ls -lah /opt/zeek/logs/current/
+```
 
-            [Linux Hosts / Endpoints]
-                     |
-                Wazuh Agent
-                     |
-            --------------------
-            |   Wazuh Manager  |
-            --------------------
-                     |
-            Forwarded Alerts
-                     |
-                  Splunk
+![Zeek Log Directory](screenshots/zeek-log-directory.png)
 
-## Summary
+---
 
-This lab demonstrates full Wazuh agent enrollment, alert generation,
-rule matching, and forwarding to Splunk for SOC investigation workflows.
+## 5. Zeek Metadata Log Sample (conn.log)  
+This screenshot demonstrates Zeek’s core functionality: extracting connection metadata from mirrored network traffic.
+
+**Command Used:**
+```
+head /opt/zeek/logs/current/conn.log
+```
+
+![Zeek Conn Log](screenshots/zeek-conn-log.png)
+
+---
+
+# Summary  
+Your Zeek deployment is fully operational and integrated within the ECL environment:
+
+- Zeek installed successfully  
+- Managed via **ZeekControl**  
+- Running as a **standalone** node  
+- Logs written to `/opt/zeek/logs/current/`  
+- Connection metadata successfully parsed  
+- Ready for SIEM ingestion (Splunk, Wazuh, ELK)
+
+Zeek provides deep network visibility in **Phase 2: Security Visibility & Telemetry** of the Enterprise Cybersecurity Lab.
