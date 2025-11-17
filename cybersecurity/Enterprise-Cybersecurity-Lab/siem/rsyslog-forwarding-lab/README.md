@@ -190,8 +190,7 @@ Schedule with cron:
 **Next Lab:**  
 👉 [Splunk Forwarder Lab](../splunk-forwarder-lab/README.md)
 
-**🏠 Back to Phase 2 Home:**  
-[Return to SIEM Overview](../README.md)
+🏠 Back to Phase 2 Overview](/cybersecurity/Enterprise-Cybersecurity-Lab/siem/)
 
 
 ---
