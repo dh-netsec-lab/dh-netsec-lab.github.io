@@ -51,8 +51,10 @@ centralized SIEM visibility.
 
 Shows that the Linux host is enrolled and communicating.
 
-📸 *Screenshot:*\
-screenshots/wazuh-active-agents.png
+## 🧪 Screenshot Test
+
+![Active Agents](./screenshots/wazuh-active-agents.png)
+
 
 ------------------------------------------------------------------------
 
