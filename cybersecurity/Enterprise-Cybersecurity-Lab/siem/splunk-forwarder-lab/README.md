@@ -161,7 +161,16 @@ It collects detailed process creation, network connection, and registry modifica
 
 ---
 
-[🔙 Return to SIEM Lab Index](../)  
-[🏠 Return to Enterprise Cybersecurity Lab Index](../../)
+## 🔄 Phase 2 – Security Visibility & Telemetry
+
+**Previous Lab:**  
+◀️ [Rsyslog Forwarding Lab](../rsyslog-forwarding-lab/README.md)
+
+**Next Lab:**  
+👉 [Suricata IDS Lab](../suricata-lab/README.md)
+
+**🏠 Back to Phase 2 Home:**  
+[Return to SIEM Overview](../README.md)
+
 
 ---
