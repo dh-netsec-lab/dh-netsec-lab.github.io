@@ -28,17 +28,17 @@ Validation that the manager services are active.
 
 ---
 
-## 4. Wazuh Logtest Validation  
-Demonstrates decoding and rule triggering using `wazuh-logtest`.
+## 4. Wazuh Logtest Validation
 
-![Logtest](screenshots/wazuh-logtest.png)
+Demonstrates decoding and rule triggering using wazuh-logtest.
 
----
+![Logtest](screenshots/wazuh-agent-log.png)
 
-## 5. Splunk Forwarded Events  
+## 5. Splunk Forwarded Events
+
 Shows Wazuh alerts arriving successfully in Splunk.
 
-![Splunk Events](screenshots/wazuh-splunk-forwarded-events.png)
+![Splunk Events](screenshots/wazuh-to-splunk-alerts.png)
 
 ---
 
