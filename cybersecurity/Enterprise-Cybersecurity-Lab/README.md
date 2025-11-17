@@ -82,7 +82,7 @@ Key objectives include:
 | ✅ **Phase 2** | Security Visibility & Telemetry | Sysmon + Rsyslog + Splunk data pipeline | [View Lab →](siem/) |
 | 🔄 **Phase 3** | Identity & Trust Integration | AD, DNS, Certificates, ClearPass | [View Lab →](identity-trust/) |
 | 🟡 **Phase 4** | Threat Detection & Response | SOC detections, Suricata & Zeek correlation | [View Lab →](soc/) |
-| 📅 **Phase 5** | Governance, Risk & Compliance (GRC) | Risk registers, controls mapping | [View Lab →](risk-management/) |
+| 📅 **Phase 5** | Governance, Risk & Compliance (GRC) | Risk registers, controls mapping | 📅 *Planned* |
 
 ---
 **Navigation:**  
