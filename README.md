@@ -1,34 +1,34 @@
-# About Me
+# 👤 About Me
 I’m a Senior Network Engineer with a growing focus on network security and cybersecurity. I’m passionate about understanding the bigger picture — how firewalls, identity, telemetry, and threat detection all work together in a real enterprise environment. This portfolio reflects my hands-on approach to learning, improving, and building a stronger security mindset.
 
 ---
 
-# Portfolio Summary
-This portfolio showcases a multi-phase Enterprise Cybersecurity Lab (ECL) combining networking, firewalls, IDS/NSM, SIEM pipelines, identity systems, and governance practices.
+# 📘 Portfolio Summary
+This portfolio showcases a multi-phase Enterprise Cybersecurity Lab (ECL) combining networking, firewalls, IDS/NSM, SIEM pipelines, identity systems, and governance practices.  
 It demonstrates how real-world security components integrate to form an enterprise workflow — from packet flow to threat detection to policy enforcement.
 
 ---
 
-# Featured Labs
+# 🔎 Featured Labs
 
-### Palo Alto Panorama Enterprise Deployment
+### [Palo Alto Panorama Enterprise Deployment](/network-security/palo-panorama/README.md)
 Template stacks, onboarding, VPN, syslog, and centralized management across multiple firewalls.
 
-### Palo Alto Overlapping Subnets S2S VPN
+### [Palo Alto Overlapping Subnets S2S VPN](/network-security/palo-overlapping-subnets/README.md)
 Two Palo Alto firewalls (FW188 and FW189) configured with overlapping subnets, NAT, and validated IPsec tunnels.
 
-### Suricata & Zeek Network Security Monitoring
+### [Suricata & Zeek Network Security Monitoring](/cybersecurity/Enterprise-Cybersecurity-Lab/suricata-zeek-integration/README.md)
 Span-port sensor, alert generation, packet analysis, and full Rsyslog → Splunk ingestion pipeline.
 
-### Splunk SIEM Visibility Pipeline
+### [Splunk SIEM Visibility Pipeline](/cybersecurity/Enterprise-Cybersecurity-Lab/splunk-forwarder-lab/README.md)
 End-to-end telemetry from Windows, Linux, Suricata, Zeek, Palo Alto, and (soon) Fortinet.
 
-### Active Directory & PKI Integration
+### [Active Directory & PKI Integration](/cybersecurity/Enterprise-Cybersecurity-Lab/identity-trust/active-directory/README.md)
 User groups, trust relationships, certificates, and foundations for Zero Trust.
 
 ---
 
-# Quick Navigation
+# 🧭 Quick Navigation
 
 Below are the primary lab sections currently available:
 
@@ -39,7 +39,7 @@ Below are the primary lab sections currently available:
 
 ---
 
-# Lab Progress Overview
+# 📈 Lab Progress Overview
 
 | Phase | Title                | Focus                                      | Status        |
 |-------|----------------------|--------------------------------------------|--------------|
@@ -51,7 +51,7 @@ Below are the primary lab sections currently available:
 
 ---
 
-# Lab Purpose
+# 🧩 Lab Purpose
 The goal of this portfolio is to simulate enterprise-grade environments that evolve over time — blending network engineering, cybersecurity, and GRC/DR strategy into one cohesive learning platform.
 
 Each lab demonstrates a piece of the bigger picture:
