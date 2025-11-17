@@ -1,34 +1,143 @@
-# 👋 Welcome to My Professional Portfolio
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DH NetSec Lab – Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background: #0d1117;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.4rem;
+        }
+        h2 {
+            margin-top: 40px;
+            margin-bottom: 10px;
+            font-size: 1.6rem;
+            color: #0d1117;
+        }
+        p {
+            line-height: 1.6;
+        }
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: auto;
+            padding-bottom: 60px;
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 5px solid #0d6efd;
+        }
+        .card h3 {
+            margin-top: 0;
+        }
+        a.button {
+            display: inline-block;
+            padding: 10px 16px;
+            margin-top: 10px;
+            background: #0d6efd;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: #e9ecef;
+        }
+    </style>
+</head>
 
-I’m a Senior Network Engineer with a passion for **Networking**, **Network Security**, and **Cybersecurity**.  
-This portfolio highlights my **hands-on labs**, technical projects, and real-world configurations across these disciplines.
+<body>
 
----
+<header>
+    <h1>DH NetSec Lab – Professional Portfolio</h1>
+    <p>Networking • Network Security • Cybersecurity</p>
+</header>
 
-## 🌐 Networking
-🚧 *Coming Soon*  
-> Routing, Switching, and LAN/WAN design labs will be added soon.
+<div class="container">
 
----
+    <!-- Featured Labs Section -->
+    <h2>⭐ Featured Labs</h2>
+    <div class="card-grid">
 
-## 🔐 Network Security
-🧱 Explore my **Palo Alto Networks Lab Series** — covering real-world firewall deployments, VPNs, and user-based policies.
+        <div class="card">
+            <h3>Palo Alto Networks Lab Series</h3>
+            <p>End-to-end enterprise firewall deployment with Panorama, VPN, User-ID, logging, and security profiles.</p>
+            <a class="button" href="network-security/index.md">View Labs</a>
+        </div>
 
-👉 [**View Network Security Labs →**](network-security/index.md)
+        <div class="card">
+            <h3>Enterprise Cybersecurity Lab (ECL)</h3>
+            <p>Full multi-vendor SOC environment with Suricata, Zeek, Wazuh, Splunk, Windows AD, and more.</p>
+            <a class="button" href="cybersecurity/ecl/index.md">Enter ECL</a>
+        </div>
 
----
+        <div class="card">
+            <h3>Identity & Trust Integration</h3>
+            <p>Active Directory, DNS, certificates, and future ClearPass integrations.</p>
+            <a class="button" href="cybersecurity/identity-trust/index.md">View Identity Labs</a>
+        </div>
 
-## 🛡 Cybersecurity
-🚧 *Coming Soon*  
-> SOC monitoring, Wazuh, and Security Onion projects are under development.
+    </div>
 
----
+    <!-- Quick Navigation -->
+    <h2>🚀 Quick Navigation</h2>
+    <ul>
+        <li><a href="network-security/index.md">Network Security Labs</a></li>
+        <li><a href="cybersecurity/ecl/index.md">Enterprise Cybersecurity Lab (SOC)</a></li>
+        <li><a href="cybersecurity/index.md">Cybersecurity Home</a></li>
+        <li><a href="routing-switching/index.md">Routing & Switching</a></li>
+        <li><a href="grc-dr/index.md">GRC & Disaster Recovery</a></li>
+    </ul>
 
-## 📫 Contact
-- **Email:** dh-netsec-lab@gmail.com  
-- **LinkedIn:** *(add your LinkedIn link here)*
+    <!-- Networking Section -->
+    <h2>🌐 Networking</h2>
+    <p>Routing, Switching, VLANs, WAN design, and more — coming soon.</p>
 
----
+    <!-- Network Security Section -->
+    <h2>🔐 Network Security</h2>
+    <p>Dive into my Palo Alto Networks lab series, including S2S VPN, Panorama template stacks, logging, and real-world enterprise deployments.</p>
+    <a class="button" href="network-security/index.md">Explore Network Security</a>
 
-⭐ *This portfolio is actively being updated — check back soon for new labs and walkthroughs!*
+    <!-- Cybersecurity Section -->
+    <h2>🛡 Cybersecurity</h2>
+    <p>Hands-on SOC monitoring using Wazuh, Suricata, Zeek, Sysmon, and Splunk.</p>
+    <a class="button" href="cybersecurity/ecl/index.md">Enter SOC Lab</a>
 
+    <!-- Contact -->
+    <h2>📫 Contact</h2>
+    <p>Email: <strong>dh-netsec-lab@gmail.com</strong><br>
+       LinkedIn: <em>(Add your LinkedIn link here)</em></p>
+
+</div>
+
+<footer>
+    <p>© 2025 DH NetSec Lab — Portfolio</p>
+</footer>
+
+</body>
+</html>
