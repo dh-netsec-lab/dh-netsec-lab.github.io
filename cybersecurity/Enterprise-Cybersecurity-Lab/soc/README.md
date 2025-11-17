@@ -1,59 +1,68 @@
 # 📘 **Phase 4 -- Threat Detection & Response**
 
-> **Enterprise Cybersecurity Lab (ECL)**\
-> This phase demonstrates end‑to‑end **SOC visibility**, **threat
-> detection**, and **attack simulation** using Suricata, Zeek, Rsyslog,
-> Splunk, and Windows/Linux telemetry.
+Welcome to **Phase 4** of the *Enterprise Cybersecurity Lab (ECL)*.\
+This phase focuses on demonstrating **SOC visibility**, **threat
+detection**, and **attack simulation** using Suricata, Zeek, Rsyslog,
+Splunk, and Windows/Linux telemetry.
 
 ------------------------------------------------------------------------
 
-# 🧭 Phase Navigation
-
-  ---------------------------------------------------------------------------------------------
-  Phase             Description                          Link
-  ----------------- ------------------------------------ --------------------------------------
-  🧩 **Phase 1**    Network Connectivity                 ../../network-connectivity/README.md
-
-  🛡️ **Phase 2**    Security Visibility & Telemetry      ../../siem/README.md
-
-  🔐 **Phase 3**    Identity & Trust Integration         ../../identity-trust/README.md
-
-  🔥 **Phase 4**    Threat Detection & Response          ./README.md
-
-  🧾 **Phase 5**    Governance, Risk & Compliance        ../../grc/README.md
-  ---------------------------------------------------------------------------------------------
-
-------------------------------------------------------------------------
-
-# 🎯 **Phase 4 Objectives**
+## 🎯 Phase 4 Objectives
 
 -   Generate realistic attacker activity\
--   Detect with Suricata & Zeek sensors\
--   Forward logs via Rsyslog → Splunk\
--   Build detection dashboards\
--   Validate correlation across firewall, endpoint, and IDS telemetry
+-   Detect reconnaissance, enumeration, and suspicious traffic\
+-   Validate Suricata & Zeek alerts\
+-   Forward logs through Rsyslog → Splunk\
+-   Build actionable detection dashboards\
+-   Correlate firewall, endpoint, and IDS telemetry
 
 ------------------------------------------------------------------------
 
-# 🔍 **Threat Detection Labs**
+# 🔍 Threat Detection Labs
 
 ## ✅ **1. Nmap Port Scan Detection Lab**
 
-Simulate reconnaissance and validate detections across Suricata, Zeek,
-and Splunk.
+Simulate reconnaissance activity using Nmap and validate detections
+across Suricata, Zeek, and Splunk.
 
 ➡️ **[Open Nmap Port Scan Detection
 Lab](threat-detection/nmap-port-scan-lab/README.md)**
 
 ------------------------------------------------------------------------
 
-# 🧩 **Upcoming Labs**
+# 🧩 Upcoming Threat Labs
 
--   Suricata Alert Validation\
--   Zeek Log Analysis\
--   Sysmon Threat Events\
--   Brute-force & Credential Attacks\
--   Firewall Threat Log Analysis
+These will be added as screenshots and detections are collected.
+
+### 🔥 Suricata Alert Validation
+
+-   ICMP alerting\
+-   TCP/UDP scan detection\
+-   Suspicious protocol identification
+
+### 🔥 Zeek Log Analysis
+
+-   Conn logs\
+-   Notice logs\
+-   Weird events\
+-   DNS/HTTP enumeration
+
+### 🔥 Sysmon Threat Events
+
+-   Process creation anomalies\
+-   Suspicious PowerShell activity\
+-   File creation & persistence
+
+### 🔥 Credential & Authentication Threats
+
+-   AD brute-force detection\
+-   Kerberos anomalies
+
+### 🔥 Firewall Threat Visibility
+
+-   Palo Alto threat logs\
+-   Fortinet UTM events\
+-   Policy-denied traffic analysis
 
 ------------------------------------------------------------------------
 
