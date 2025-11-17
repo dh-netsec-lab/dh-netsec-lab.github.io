@@ -84,6 +84,6 @@ Zeek provides deep network visibility in **Phase 2: Security Visibility & Teleme
 
 ⬅️ Previous: [Wazuh SIEM Lab](../wazuh-lab/)
 
-[🏠 Back to Phase 2 Overview](../README.md)
+[🏠 Back to Phase 2 Overview](./README.md)
 
 
