@@ -185,10 +185,14 @@ Schedule with cron:
 
 ---
 
-**Navigation:**  
-[⬅️ Phase 1 – Network Connectivity Verification](../../#phase-1) • [➡️ Phase 3 – Identity & Trust Integration](../phase-3/)
+## 🔄 Phase 2 – Security Visibility & Telemetry
 
-_Last updated: 2025-11-12_
+**Next Lab:**  
+👉 [Splunk Forwarder Lab](../splunk-forwarder-lab/README.md)
+
+**🏠 Back to Phase 2 Home:**  
+[Return to SIEM Overview](../README.md)
+
 
 ---
 🧩 Part of the **Enterprise Cybersecurity Lab Series**  
