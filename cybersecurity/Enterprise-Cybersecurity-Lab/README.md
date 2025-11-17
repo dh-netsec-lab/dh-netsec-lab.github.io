@@ -80,9 +80,9 @@ Key objectives include:
 |:------|:------|:------|:------|
 | ✅ **Phase 1** | Network Connectivity Verification | Routing, NAT, and firewall reachability | [View Lab →](phase1/) |
 | ✅ **Phase 2** | Security Visibility & Telemetry | Sysmon + Rsyslog + Splunk data pipeline | [View Lab →](siem/) |
-| 🔄 **Phase 3** | Identity & Trust Integration | AD, DNS, Certificates, SSL Decryption | 🚧 *In Progress* |
-| 🧠 **Phase 4** | Threat Detection & Response | SOC correlation and detections | 📅 Planned *(SIEM pipeline ready)* |
-| 🧾 **Phase 5** | Governance, Risk & Compliance (GRC) | Risk registers, controls mapping | 📅 Planned |
+| 🔄 **Phase 3** | Identity & Trust Integration | AD, DNS, Certificates, ClearPass | [View Lab →](identity-trust/) |
+| 🟡 **Phase 4** | Threat Detection & Response | SOC detections, Suricata & Zeek correlation | [View Lab →](soc/) |
+| 📅 **Phase 5** | Governance, Risk & Compliance (GRC) | Risk registers, controls mapping | [View Lab →](risk-management/) |
 
 ---
 **Navigation:**  
