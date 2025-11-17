@@ -29,8 +29,9 @@ This README merges your **original Active Directory documentation** with the **s
 
 # 🏗️ Step 1 — AD DS Installation & Promotion
 ### Screenshots
-- `ad-domain-root.png`
-- `ecl-ad-users-and-computers.png`
+![AD Domain Root](./screenshots/ad-domain-root.png)
+![AD Tree View](./screenshots/ecl-ad-users-and-computers.png)
+
 
 ---
 
