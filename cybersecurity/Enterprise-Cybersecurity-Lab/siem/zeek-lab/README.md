@@ -78,3 +78,12 @@ Your Zeek deployment is fully operational and integrated within the ECL environm
 - Ready for SIEM ingestion (Splunk, Wazuh, ELK)
 
 Zeek provides deep network visibility in **Phase 2: Security Visibility & Telemetry** of the Enterprise Cybersecurity Lab.
+
+---
+
+### Phase 2 SIEM Flow Navigation
+
+⬅️ Previous: [Wazuh SIEM Lab](../wazuh-lab/)
+
+[⬅ Back to Phase 2 Overview](../README.md)
+
