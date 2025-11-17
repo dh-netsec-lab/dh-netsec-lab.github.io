@@ -44,14 +44,15 @@ It demonstrates how real-world security components integrate to form an enterpri
 
 ---
 
-# 🧭 Quick Navigation
+## 🧭 Quick Navigation
 
 Below are the primary lab sections currently available:
 
 | Category               | Description                                                                                   | Link                                                           |
 |------------------------|-----------------------------------------------------------------------------------------------|----------------------------------------------------------------|
-| Cybersecurity (ECL)    | Multi-phase enterprise cybersecurity lab: SOC visibility, SIEM telemetry, identity, detection | /cybersecurity/Enterprise-Cybersecurity-Lab/                  |
-| Network Security       | Palo Alto and Fortinet focused labs including Panorama, VPNs, and segmentation               | /network-security/                                            |
+| Cybersecurity (ECL)    | Multi-phase enterprise cybersecurity lab: SOC visibility, SIEM telemetry, identity, detection | [Open ECL →](/cybersecurity/Enterprise-Cybersecurity-Lab/)    |
+| Network Security       | Palo Alto and Fortinet focused labs including Panorama, VPNs, and segmentation               | [Open Network Security →](/network-security/)                 |
+
 
 ---
 
