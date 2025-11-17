@@ -17,33 +17,54 @@ This lab integrates:
 
 ## 🧩 ECL Lab Phases
 
-The ECL is organized into multiple phases, each adding new layers of visibility, identity, and detection.
+The ECL is organized into multiple phases, each adding new layers of visibility, identity, and detection.  
+Click a phase below to jump into its labs.
 
-### **Phase 1 — Network Connectivity**
+### 🔹 [Phase 1 — Network Connectivity](phase1/)
+
 Foundational routing, switching, IP scheme, and connectivity validation.
 
-### **Phase 2 — Security Visibility & Telemetry**
-Log forwarding, Wazuh, Suricata, Zeek, Sysmon, Splunk ingestion pipeline.
+---
 
-### **Phase 3 — Identity & Trust**
-Active Directory, DNS, certificates, ClearPass integration.
+### 🔹 [Phase 2 — Security Visibility & Telemetry (SIEM Pipeline)](siem/)
 
-👉 [Open Identity & Trust Labs](identity-trust/)
+Log forwarding and telemetry pipeline integrating:
 
-### **Phase 4 — Threat Detection & SOC Pipeline**
-Rule tuning, correlation, threat simulation (Nmap, malware tests), detection pipelines.
+- rsyslog
+- Suricata
+- Zeek
+- Sysmon
+- Wazuh
+- Splunk
 
-### **Phase 5 — GRC & Reporting (Upcoming)**
-Risk management, reporting dashboards, compliance tracking.
+---
+
+### 🔹 [Phase 3 — Identity & Trust](identity-trust/)
+
+Active Directory, DNS, certificates, and ClearPass integration.
+
+> 👉 Open the Identity & Trust landing page:  
+> [Open Identity & Trust Labs](identity-trust/)
+
+---
+
+### 🔹 [Phase 4 — Threat Detection & SOC Pipeline](soc/)
+
+Rule tuning, threat simulation (Nmap, test malware), and detection workflows using the SOC pipeline.
+
+---
+
+### 🔹 Phase 5 — GRC & Reporting (Upcoming)
+
+Risk management, reporting dashboards, and compliance tracking.
 
 ---
 
 ## 📂 Additional ECL Components
 
-- [Firewall Telemetry Configuration](fortinet/)
+- [Firewall Telemetry (Fortinet)](fortinet/)
+- [Palo Alto Telemetry / Security](palo-alto/)
 - [Topology & Architecture](topology/)
-- [SOC Pipeline Labs](soc/)
-- [SIEM Configuration](siem/)
 
 ---
 
