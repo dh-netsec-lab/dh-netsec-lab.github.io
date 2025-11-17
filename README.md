@@ -1,128 +1,62 @@
-# 👤 About Me
+# About Me
+I’m a Senior Network Engineer with a growing focus on network security and cybersecurity. I’m passionate about understanding the bigger picture — how firewalls, identity, telemetry, and threat detection all work together in a real enterprise environment. This portfolio reflects my hands-on approach to learning, improving, and building a stronger security mindset.
 
-I'm a Senior Network Engineer with a growing focus on network security
-and cybersecurity. I'm passionate about understanding the bigger picture
---- how firewalls, identity, telemetry, and threat detection all work
-together in a real enterprise environment. This portfolio reflects my
-hands-on approach to learning, improving, and building a stronger
-security mindset.
+---
 
-------------------------------------------------------------------------
+# Portfolio Summary
+This portfolio showcases a multi-phase Enterprise Cybersecurity Lab (ECL) combining networking, firewalls, IDS/NSM, SIEM pipelines, identity systems, and governance practices.  
+It demonstrates how real-world security components integrate to form an enterprise workflow — from packet flow to threat detection to policy enforcement.
 
-# 🎯 Portfolio Summary
+---
 
-This portfolio showcases a multi-phase **Enterprise Cybersecurity Lab
-(ECL)** combining networking, firewalls, IDS/NSM, SIEM pipelines,
-identity systems, and governance practices.\
-It demonstrates how real-world security components integrate to form an
-enterprise workflow --- from packet flow to threat detection to policy
-enforcement.
+# Featured Labs
 
-------------------------------------------------------------------------
+### Palo Alto Panorama Enterprise Deployment
+Template stacks, onboarding, VPN, syslog, and centralized management across multiple firewalls.
 
-# ⭐ Featured Labs
+### Palo Alto Overlapping Subnets S2S VPN
+Two Palo Alto firewalls (FW188 and FW189) configured with overlapping subnets, NAT, and validated IPsec tunnels.
 
-These are some of the most impactful labs in the portfolio:
+### Suricata & Zeek Network Security Monitoring
+Span-port sensor, alert generation, packet analysis, and full Rsyslog → Splunk ingestion pipeline.
 
-### 🔐 **Palo Alto Panorama Enterprise Deployment**
+### Splunk SIEM Visibility Pipeline
+End-to-end telemetry from Windows, Linux, Suricata, Zeek, Palo Alto, and (soon) Fortinet.
 
-Template stacks, onboarding, VPN, syslog, and centralized management
-across multiple firewalls.
+### Active Directory & PKI Integration
+User groups, trust relationships, certificates, and foundations for Zero Trust.
 
-### 🌉 **Palo Alto Overlapping Subnets S2S VPN**
+---
 
-Two Palo Alto firewalls (FW188 ↔ FW189) configured with overlapping
-subnets, NAT, and validated IKE/IPsec tunnels.
+# Quick Navigation
 
-### 🛡️ **Suricata + Zeek Network Security Monitoring**
+| Category           | Description                                                            | Link                                                   |
+|--------------------|------------------------------------------------------------------------|--------------------------------------------------------|
+| Cybersecurity      | Labs focused on SOC visibility, SIEM, telemetry.                       | ./cybersecurity/Enterprise-Cybersecurity-Lab          |
+| Network Security   | Labs using Palo Alto and Fortinet firewalls.                           | ./network-security/README.md                          |
+| Networking Labs    | Routing, switching, and WAN fundamentals.                              | ./routing-switching/README.md                         |
+| GRC & DR           | Governance, risk, compliance, and DR documentation.                    | ./grc-dr/README.md                                    |
 
-Span-port sensor, alert generation, packet analysis, and full Rsyslog →
-Splunk ingestion pipeline.
+---
 
-### 📊 **Splunk SIEM Visibility Pipeline**
+# Lab Progress Overview
 
-End-to-end telemetry from Windows, Linux, Suricata, Zeek, Palo Alto, and
-Fortinet (Fortinet telemetry labs coming next).
+| Phase | Title                         | Focus                                      | Status        |
+|-------|------------------------------|--------------------------------------------|--------------|
+| 1     | Network Connectivity          | Routing, NAT, Firewalls, WAN reachability  | Complete      |
+| 2     | Security Visibility           | Sysmon, Rsyslog, Splunk ingestion          | In Progress   |
+| 3     | Identity & Trust              | AD, DNS, CA, Decryption                    | Planned       |
+| 4     | Threat Detection              | Suricata, Zeek, Splunk detections          | In Progress   |
+| 5     | Hardening & Automation        | IaC, Config Backups, GRC overlays          | Future        |
 
-### 🔧 **Active Directory + PKI + Identity Integration**
+---
 
-User groups, trust relationships, certificates, and foundations for Zero
-Trust.
+# Lab Purpose
+The goal of this portfolio is to simulate enterprise-grade environments that evolve over time — blending network engineering, cybersecurity, and GRC/DR strategy into one cohesive learning platform.
 
-------------------------------------------------------------------------
-
-# 🧠 DH NetSec Portfolio
-
-Welcome to my hands-on **Cybersecurity & Network Engineering
-Portfolio**, a collection of multi-vendor labs and enterprise-grade
-designs built to demonstrate real-world integrations across
-**networking**, **firewalls**, **SIEM**, **GRC**, and **cloud
-security**.
-
-------------------------------------------------------------------------
-
-## 🚀 Quick Navigation
-
-  -----------------------------------------------------------------------------------------------------------
-  Category                 Description                     Link
-  ------------------------ ------------------------------- --------------------------------------------------
-  🧠 **Cybersecurity**     Explore enterprise labs focused [Enterprise Cybersecurity Lab (ECL)
-                           on SOC visibility, SIEM, and    →](./cybersecurity/Enterprise-Cybersecurity-Lab)
-                           endpoint telemetry.             
-
-  🔐 **Network Security**  Vendor-specific labs using Palo [Network Security Labs
-                           Alto & Fortinet firewalls.      →](./network-security/README.md)
-
-  🌐 **Networking Labs**   Routing, switching, and WAN     [Routing & Switching
-                           design fundamentals.            →](./routing-switching/README.md)
-
-  📊 **GRC & DR            Track governance, risk,         [GRC & DR Labs →](./grc-dr/README.md)
-  Initiatives**            compliance, and disaster        
-                           recovery documentation.         
-  -----------------------------------------------------------------------------------------------------------
-
-------------------------------------------------------------------------
-
-## 🧭 Lab Progress Overview
-
-  ----------------------------------------------------------------------------------
-  Phase      Title          Focus          Status         Key Deliverables
-  ---------- -------------- -------------- -------------- --------------------------
-  ✅ **Phase Network        Routing, NAT,  **Complete**   
-  1**        Connectivity   Firewalls,                    
-             Verification   LAN/WAN                       
-                            reachability                  
-
-  🔄 **Phase Security       Sysmon,        **In           
-  2**        Visibility &   Rsyslog,       Progress**     
-             Telemetry      Splunk data                   
-                            pipeline                      
-
-  ⏳ **Phase Identity &     AD, DNS, CA,   **Planned**    
-  3**        Trust          User-ID, HTTPS                
-             Integration    Decryption                    
-
-  ⏳ **Phase Threat         Sysmon         **In           
-  4**        Detection &    detections,    Progress**     
-             Response       Splunk                        
-                            correlation                   
-
-  ⏳ **Phase Automation &   IaC, Config    **Future**     
-  5**        Hardening      Backups, GRC                  
-                            Overlays                      
-  ----------------------------------------------------------------------------------
-
-------------------------------------------------------------------------
-
-## 🧩 Lab Purpose
-
-The goal of this portfolio is to simulate **enterprise-grade
-environments** that evolve over time --- blending **network
-engineering**, **cybersecurity**, and **GRC/DR strategy** into one
-cohesive learning platform.
-
-Each lab demonstrates a piece of the "big picture": - Firewalls (Palo
-Alto, Fortinet) - Windows & Linux telemetry (Sysmon, rsyslog,
-Suricata) - SIEM visibility (Splunk, FortiAnalyzer) - Governance (Risk
-Register, Business Impact Analysis) - Disaster Recovery (Cloud tunnels,
-remote failover)
+Each lab demonstrates a piece of the bigger picture:
+- Firewalls (Palo Alto, Fortinet)
+- Windows & Linux telemetry (Sysmon, rsyslog, Suricata)
+- SIEM visibility (Splunk, FortiAnalyzer)
+- Governance (risk register, BIA)
+- Disaster recovery (cloud tunnels, remote failover)
