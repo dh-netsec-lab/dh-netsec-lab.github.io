@@ -30,7 +30,7 @@ Lab](threat-detection/nmap-port-scan-lab/README.md)**
 
 ------------------------------------------------------------------------
 
-# 🧩 Upcoming Threat Labs
+#  Upcoming Threat Labs
 
 These will be added as screenshots and detections are collected.
 
