@@ -1,145 +1,51 @@
-# 🛡️ Wazuh SIEM Integration Lab
+# 🛡️ Wazuh Lab – Host Intrusion Detection & Alert Forwarding to Splunk
 
-**Enterprise Cybersecurity Lab --- Phase 2: Security Visibility &
-Telemetry**
+This lab demonstrates how Wazuh Manager and a Wazuh Agent were deployed inside the Enterprise Cybersecurity Lab (ECL) to forward security alerts into **Splunk Enterprise**, completing the SIEM ingestion pipeline.
 
-Wazuh provides host-based intrusion detection (HIDS), file integrity
-monitoring (FIM), log collection, rootcheck scanning, and threat
-detection.\
-This lab demonstrates a full deployment of **Wazuh Manager + Wazuh
-Agent**, with alerts successfully forwarded into **Splunk** for
-centralized SIEM visibility.
+---
 
-------------------------------------------------------------------------
+## 🧩 Architecture Overview
 
-## 📌 **Lab Objectives**
+Wazuh Agent → Wazuh Manager → alerts.json → Splunk Enterprise (index=ossec)
 
--   Deploy Wazuh Manager on Linux\
--   Enroll and validate the Wazuh Agent\
--   Verify FIM, syscheck, and rootcheck telemetry\
--   Enable alert forwarding into Splunk\
--   Confirm events appear in Splunk under the `ossec` index\
--   Capture SOC-style validation evidence
+---
 
-------------------------------------------------------------------------
+## 📁 File Structure
 
-## 📡 **Architecture Overview**
+wazuh-lab/
+├── screenshots/
+│   ├── wazuh-active-agents.png
+│   ├── wazuh-agent-info.png
+│   ├── wazuh-agent-log.png
+│   ├── wazuh-agent-status.png
+│   ├── wazuh-manager-status.png
+│   ├── wazuh-to-splunk-alerts.png
+└── README.md
 
-    [Wazuh Agent] → [Wazuh Manager] → alerts.json → [Splunk Enterprise] → index=ossec
+---
 
-------------------------------------------------------------------------
+# ✅ Verification Steps & Screenshots
 
-## 📁 **File Structure**
+## ✔️ 1. Active Agents
+![Active Agents](screenshots/wazuh-active-agents.png)
 
-    wazuh-lab/
-    │
-    ├── screenshots/
-    │   ├── wazuh-active-agents.png
-    │   ├── wazuh-agent-info.png
-    │   ├── wazuh-agent-log.png
-    │   ├── wazuh-agent-status.png
-    │   ├── wazuh-manager-status.png
-    │   └── wazuh-to-splunk-alerts.png
-    │
-    └── README.md
+## ✔️ 2. Agent Info
+![Agent Info](screenshots/wazuh-agent-info.png)
 
-------------------------------------------------------------------------
+## ✔️ 3. Agent Log Output
+![Agent Log Output](screenshots/wazuh-agent-log.png)
 
-## 🏗️ **1. Wazuh Agent Enrollment**
+## ✔️ 4. Agent Status
+![Agent Status](screenshots/wazuh-agent-status.png)
 
-### ✔️ Active Agents
+## ✔️ 5. Wazuh Manager Status
+![Wazuh Manager Status](screenshots/wazuh-manager-status.png)
 
-Shows that the Linux host is enrolled and communicating.
+## ✔️ 6. Wazuh → Splunk Alert Forwarding (Success)
+![Wazuh to Splunk Alerts](screenshots/wazuh-to-splunk-alerts.png)
 
-## 🧪 Screenshot Test
+---
 
-![Active Agents](./screenshots/wazuh-active-agents.png)
+# 🎉 Lab Complete
 
-
-------------------------------------------------------------------------
-
-### ✔️ Agent Info
-
-Displays agent metadata, IP, status, and last connection.
-
-📸 *Screenshot:*\
-screenshots/wazuh-agent-info.png
-
-------------------------------------------------------------------------
-
-### ✔️ Agent Log Output
-
-Confirms the agent has connected and sent initial telemetry.
-
-📸 *Screenshot:*\
-screenshots/wazuh-agent-log.png
-
-------------------------------------------------------------------------
-
-### ✔️ Agent Status
-
-Shows running modules: syscollector, syscheck, logcollector,
-wazuh-modulesd, etc.
-
-📸 *Screenshot:*\
-screenshots/wazuh-agent-status.png
-
-------------------------------------------------------------------------
-
-## 🛠️ **2. Wazuh Manager Verification**
-
-Wazuh Manager is running with all core daemons active.
-
-📸 *Screenshot:*\
-screenshots/wazuh-manager-status.png
-
-------------------------------------------------------------------------
-
-## 🔄 **3. Splunk Integration (File Monitoring)**
-
-Splunk monitors Wazuh's alert output file:
-
-    /var/ossec/logs/alerts/alerts.json
-
-Example inputs.conf:
-
-    [monitor:///var/ossec/logs/alerts/alerts.json]
-    index = ossec
-    sourcetype = wazuh-alerts
-    disabled = false
-
-------------------------------------------------------------------------
-
-## 📊 **4. Validation --- Wazuh Alerts in Splunk**
-
-All alerts appear in Splunk under:
-
-    index=ossec sourcetype=wazuh-alerts
-
-📸 *Screenshot:*\
-screenshots/wazuh-to-splunk-alerts.png
-
-------------------------------------------------------------------------
-
-## 🚀 **5. SOC Verification Workflow**
-
-Example test: Invalid SSH Login Attempt
-
-1.  Trigger:
-
-        ssh invaliduser@localhost
-
-2.  Wazuh detects rule 5710\
-
-3.  Splunk receives alert with MITRE metadata
-
-------------------------------------------------------------------------
-
-## 🧭 Navigation
-
-🔙 [Back to SIEM Labs](../)\
-🔝 [Back to Portfolio Home](../../../)
-
-------------------------------------------------------------------------
-
-## ✅ Lab Status: **Completed**
+You now have a working Host-IDS → SIEM pipeline.
