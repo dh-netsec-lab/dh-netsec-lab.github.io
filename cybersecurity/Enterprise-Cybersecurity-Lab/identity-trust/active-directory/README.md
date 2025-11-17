@@ -43,10 +43,11 @@ This README merges your **original Active Directory documentation** with the **s
 - **Domain Controllers**
 
 ### Screenshots
-- `ad-ecl-users-ou.png`
-- `ad-ecl-groups-ou.png`
-- `ad-computers-ou.png`
-- `ad-domain-controllers-ou.png`
+![ECL Users OU](./screenshots/ad-ecl-users-ou.png)
+![ECL Groups OU](./screenshots/ad-ecl-groups-ou.png)
+![Computers OU](./screenshots/ad-computers-ou.png)
+![Domain Controllers OU](./screenshots/ad-domain-controllers-ou.png)
+
 
 ---
 
@@ -56,7 +57,7 @@ This README merges your **original Active Directory documentation** with the **s
 - Admin memberships validated
 
 ### Screenshot
-- `ad-domain-admin-properties.png`
+![Domain Admin Properties](./screenshots/ad-domain-admin-properties.png)
 
 ---
 
@@ -66,7 +67,7 @@ This README merges your **original Active Directory documentation** with the **s
 - DNS validated against core services
 
 ### Screenshot
-- `dns-forward-lookup-zone.png`
+![DNS Forward Lookup Zone](./screenshots/dns-forward-lookup-zone.png)
 
 ---
 
@@ -80,8 +81,8 @@ This CA supports:
 - ClearPass / RADIUS trust
 
 ### Screenshots
-- `dc-ca-role-installed.png`
-- `dc-ca-console.png`
+![CA Role Installed](./screenshots/dc-ca-role-installed.png)
+![CA Console](./screenshots/dc-ca-console.png)
 
 ---
 
@@ -92,10 +93,10 @@ This CA supports:
 - Internal testing pages
 
 ### Screenshots
-- `iis-role-installed.png`
-- `iis-default-website.png`
-- `iis-tools-menu.png`
-- `iis-software-center-folder.png`
+![IIS Role Installed](./screenshots/iis-role-installed.png)
+![IIS Default Website](./screenshots/iis-default-website.png)
+![IIS Tools Menu](./screenshots/iis-tools-menu.png)
+![Software Center Folder](./screenshots/iis-software-center-folder.png)
 
 ---
 
