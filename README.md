@@ -55,15 +55,16 @@ Below are the primary lab sections currently available:
 
 ---
 
-# 📈 Lab Progress Overview
+## 📈 Lab Progress Overview
 
 | Phase | Title                | Focus                                      | Status        |
 |-------|----------------------|--------------------------------------------|--------------|
 | 1     | Network Connectivity | Routing, NAT, Firewalls, WAN reachability  | Complete      |
-| 2     | Security Visibility  | Sysmon, Rsyslog, Splunk ingestion          | In Progress   |
+| 2     | Security Visibility  | Sysmon, Rsyslog, Splunk ingestion          | Complete      |
 | 3     | Identity & Trust     | AD, DNS, CA, Decryption                    | In Progress   |
 | 4     | Threat Detection     | Suricata, Zeek, Splunk detections          | In Progress   |
 | 5     | Automation & Hardening | IaC, Config Backups, GRC overlays        | Future        |
+
 
 ---
 
