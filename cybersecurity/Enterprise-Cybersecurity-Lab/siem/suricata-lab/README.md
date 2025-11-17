@@ -78,3 +78,17 @@ This lab verifies the full Suricata pipeline:
 
 Suricata is now fully operational within the Enterprise Cybersecurity Lab (Phase 2: Security Visibility & Telemetry).
 
+---
+
+## 🔄 Phase 2 – Security Visibility & Telemetry
+
+**Previous Lab:**  
+◀️ [Splunk Forwarder Lab](../splunk-forwarder-lab/README.md)
+
+**Next Lab:**  
+👉 [Sysmon Endpoint Lab](../sysmon-lab/README.md)
+
+**🏠 Back to Phase 2 Home:**  
+[Return to SIEM Overview](../README.md)
+
+
