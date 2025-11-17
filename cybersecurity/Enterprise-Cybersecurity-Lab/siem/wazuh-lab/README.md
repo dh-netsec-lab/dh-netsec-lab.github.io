@@ -99,3 +99,13 @@ This lab demonstrates full Wazuh-to-Splunk integration inside the Enterprise Cyb
 - SOC-ready detection and investigation workflow  
 
 Wazuh now serves as a core SIEM component within your ECL environment — powering host telemetry, alerting, and threat detection for further labs such as detection engineering, threat hunting, and incident response.
+
+---
+
+### Phase 2 SIEM Flow Navigation
+
+⬅️ Previous: [Sysmon Endpoint Lab](../sysmon-lab/)  
+➡️ Next: [Zeek Network Metadata Lab →](../zeek-lab/)
+
+[⬅ Back to Phase 2 Overview](../README.md)
+
