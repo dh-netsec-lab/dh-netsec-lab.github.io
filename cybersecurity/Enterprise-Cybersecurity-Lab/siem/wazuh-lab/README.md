@@ -141,4 +141,3 @@ Example test: Invalid SSH Login Attempt
 ------------------------------------------------------------------------
 
 ## ✅ Lab Status: **Completed**
-
