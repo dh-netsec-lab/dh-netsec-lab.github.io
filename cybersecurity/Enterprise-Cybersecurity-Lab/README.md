@@ -72,22 +72,19 @@ Key objectives include:
 - Logging & SIEM pipelines (Sysmon → Rsyslog → Splunk)  
 - Detection & response (Suricata alerts, Splunk correlation)  
 - Systems administration (Windows AD, Linux services)  
-- Automation & backup workflows for enterprise environments  
+- Automation & backup workflows for enterprise environments
 
 ---
-
-## 🚀 ECL Project Phases
 
 | Phase | Title | Focus | View |
 |:------|:------|:------|:------|
 | ✅ **Phase 1** | Network Connectivity Verification | Routing, NAT, and firewall reachability | [View Lab →](phase1/) |
-| ✅ **Phase 2** | Security Visibility & Telemetry | Sysmon + Rsyslog + Splunk data pipeline | [View Lab →](siem/rsyslog-forwarding-lab/) |
-| 🧩 **Phase 3** | Identity & Trust Integration | AD, DNS, Certificates, SSL Decryption | 📅 Planned |
-| 🧠 **Phase 4** | Threat Detection & Response | SOC correlation and detections | 📅 Planned |
+| ✅ **Phase 2** | Security Visibility & Telemetry | Sysmon + Rsyslog + Splunk data pipeline | [View Lab →](siem/) |
+| 🔄 **Phase 3** | Identity & Trust Integration | AD, DNS, Certificates, SSL Decryption | 🚧 *In Progress* |
+| 🧠 **Phase 4** | Threat Detection & Response | SOC correlation and detections | 📅 Planned *(SIEM pipeline ready)* |
 | 🧾 **Phase 5** | Governance, Risk & Compliance (GRC) | Risk registers, controls mapping | 📅 Planned |
 
 ---
-
 **Navigation:**  
 [🏠 Back to Portfolio Home](../README.md)
 
