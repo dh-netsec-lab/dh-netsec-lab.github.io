@@ -48,7 +48,8 @@ Command used:
 
 ### 📸 Screenshot
 
-![tcpdump SYN scan capture](./screenshots/tcpdump-syn-scan-capture.png)
+![tcpdump syn scan](./screenshots/tcpdump-syn-scan-capture.png)
+
 
 ------------------------------------------------------------------------
 
@@ -60,7 +61,8 @@ Command used:
 
 ### 📸 Screenshot
 
-![Suricata + Zeek tcpdump context](./screenshots/suricata-zeek-synscan-tcpdump.png)
+![Suricata + Zeek tcpdump](./screenshots/suricata-zeek-synscan-tcpdump.png)
+
 
 ------------------------------------------------------------------------
 
