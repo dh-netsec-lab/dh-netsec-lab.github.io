@@ -35,7 +35,7 @@ Command used:
 
 ### 📸 Screenshot
 
-`module3-suricata-synscan-evejson.png`
+![Suricata eve.json SYN scan flows](./screenshots/module3-suricata-synscan-evejson.png)
 
 ------------------------------------------------------------------------
 
@@ -47,7 +47,7 @@ Command used:
 
 ### 📸 Screenshot
 
-`tcpdump-syn-scan-capture.png`
+![tcpdump SYN scan capture](./screenshots/tcpdump-syn-scan-capture.png)
 
 ------------------------------------------------------------------------
 
@@ -59,7 +59,7 @@ Command used:
 
 ### 📸 Screenshot
 
-`suricata-zeek-synscan-tcpdump.png`
+![Suricata + Zeek tcpdump context](./screenshots/suricata-zeek-synscan-tcpdump.png)
 
 ------------------------------------------------------------------------
 
