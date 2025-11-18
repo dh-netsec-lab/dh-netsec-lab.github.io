@@ -35,7 +35,7 @@ Command used:
 
 ### 📸 Screenshot
 
-![Suricata eve.json SYN scan flows](./screenshots/module3-suricata-synscan-evejson.png)
+![Suricata eve.json SYN scan](../../module_3-nmap-port-scanning/screenshots/module3-suricata-synscan-evejson.png)
 
 ------------------------------------------------------------------------
 
