@@ -1,7 +1,7 @@
 # Module 4 – AD Credential Enumeration Detection Lab
 
 This module focuses on detecting **Active Directory credential enumeration** using Suricata, Zeek, and Splunk.  
-Screenshots must be placed in the `screenshots/` directory inside this module.
+All screenshots referenced below are included in the screenshots/ folder (see links below).
 
 ---
 
