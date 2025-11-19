@@ -68,6 +68,6 @@ This demonstrates full visibility across:
 - Authentication layer
 - Endpoint/SIEM ingestion layer
 
-## 🔙 Navigation
-- ← Back to Phase 4 Overview
-- ← Back to Enterprise Cybersecurity Lab Home
+← Back to Phase 4 Overview
+← Back to Enterprise Cybersecurity Lab Home
+
