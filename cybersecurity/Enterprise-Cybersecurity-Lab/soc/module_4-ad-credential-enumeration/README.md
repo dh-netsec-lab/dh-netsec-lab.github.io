@@ -1,73 +1,73 @@
-# Module 4 – AD Credential Enumeration Detection Lab
+# 🛡️ Enterprise Cybersecurity Lab – Phase 4, Module 4
+# Active Directory Credential Enumeration & Detection
 
-This module focuses on detecting **Active Directory credential enumeration** using Suricata, Zeek, and Splunk.  
-All screenshots referenced below are included in the screenshots/ folder (see links below).
-
----
+This module demonstrates how adversaries enumerate Active Directory accounts using common offensive techniques, and how enterprise security controls (Suricata, Zeek, Windows Event Logs, Wazuh) detect the activity.
 
 ## 📁 Folder Structure
 ```
 module_4-ad-credential-enumeration/
-│
-├── README.md
+│── README.md
 └── screenshots/
-      ├── ad-enum-suricata-alert.png
-      ├── ad-enum-zeek-connlog.png
-      ├── ad-enum-zeek-kerberos.png
-      ├── ad-enum-splunk-search.png
-      └── ad-enum-splunk-dashboard.png
+    ├── asrep-enum.png
+    ├── enum4linux-users.png
+    ├── kerbrute-user-enum.png
+    ├── ldapsearch-enum.png
+    ├── suricata-dns.png
+    ├── zeek-dns.png
+    ├── windows-detection-4625-4768.png
+    └── wazuh-auth-events.PNG
 ```
-
----
 
 ## 📸 Screenshots (Click to View)
 
-### 1. Suricata Alert – Credential Enumeration  
-[![Suricata Alert](./screenshots/ad-enum-suricata-alert.png)](./screenshots/ad-enum-suricata-alert.png)
+### 1. Kerbrute – User Enumeration
+![Kerbrute](./screenshots/kerbrute-user-enum.png)
 
-### 2. Zeek conn.log – LDAP / Kerberos Enumeration  
-[![Zeek Connlog](./screenshots/ad-enum-zeek-connlog.png)](./screenshots/ad-enum-zeek-connlog.png)
+### 2. AS-REP Roasting Enumeration
+![ASREP](./screenshots/asrep-enum.png)
 
-### 3. Zeek kerberos.log – Suspicious Requests  
-[![Zeek Kerberos](./screenshots/ad-enum-zeek-kerberos.png)](./screenshots/ad-enum-zeek-kerberos.png)
+### 3. Enum4Linux – User Enumeration
+![Enum4Linux](./screenshots/enum4linux-users.png)
 
-### 4. Splunk Search – AD Enumeration Query  
-[![Splunk Search](./screenshots/ad-enum-splunk-search.png)](./screenshots/ad-enum-splunk-search.png)
+### 4. LDAP Anonymous Enumeration
+![LDAP](./screenshots/ldapsearch-enum.png)
 
-### 5. Splunk Dashboard Panel – Enumeration Activity  
-[![Splunk Dashboard](./screenshots/ad-enum-splunk-dashboard.png)](./screenshots/ad-enum-splunk-dashboard.png)
+### 5. Suricata – DNS Reconnaissance Visibility
+![Suricata DNS](./screenshots/suricata-dns.png)
 
----
+### 6. Zeek – DNS / Directory Resolution Logs
+![Zeek DNS](./screenshots/zeek-dns.png)
 
-## 🧪 Detection Summary
+### 7. Windows Security Logs – Failed & Kerberos Logons (4625, 4768)
+![Windows Logons](./screenshots/windows-detection-4625-4768.png)
 
-Credential enumeration is a common precursor to lateral movement and privilege escalation.  
-This module demonstrates:
+### 8. Wazuh – Windows Authentication Events Ingestion
+![Wazuh Auth](./screenshots/wazuh-auth-events.PNG)
 
-### ✔ Suricata  
-- Detecting LDAP bind attempts  
-- Kerberos anomalies  
-- Excessive authentication attempts  
+## 🧩 MITRE ATT&CK Mapping
+| Technique | ID | Description |
+|----------|------|-------------|
+| Account Discovery | T1087 | Enumerating users & groups via Kerbrute, Enum4Linux, LDAP |
+| Brute Force | T1110 | High-volume Kerberos authentication attempts |
+| Kerberos Pre-Auth | T1558.004 | AS-REP roasting |
+| Credential Access | TA0006 | Enumeration & pre-auth bypass behavior |
+| Initial Access | T1078 | Wazuh-mapped authentication events |
 
-### ✔ Zeek  
-- Logging LDAP/Kerberos activity  
-- Identifying enumeration-style queries  
-- Detecting unusual authentication patterns  
+## 📝 Analyst Summary
+During this module, the attacker workstation executed multiple AD enumeration techniques commonly used during penetration testing and adversarial reconnaissance.
 
-### ✔ Splunk  
-- Correlating Suricata + Zeek logs  
-- Highlighting enumeration behavior  
-- Providing a workflow for SOC triage  
+The SOC visibility stack successfully revealed:
+- DNS reconnaissance (Suricata + Zeek)
+- Kerberos authentication attempts (Windows 4768)
+- Failed logon attempts (Windows 4625)
+- Host-based detection telemetry (Wazuh)
 
----
+This demonstrates full visibility across:
+- Network layer
+- Protocol layer
+- Authentication layer
+- Endpoint/SIEM ingestion layer
 
-## 📝 Notes
-- Replace screenshot filenames with your real ones after upload  
-- Ensure the folder is named exactly:  
-  `module_4-ad-credential-enumeration`
-
----
-
-## 🔗 Navigation
-[← Back to Phase 4 Overview](../README.md)
-
+## 🔙 Navigation
+- ← Back to Phase 4 Overview
+- ← Back to Enterprise Cybersecurity Lab Home
