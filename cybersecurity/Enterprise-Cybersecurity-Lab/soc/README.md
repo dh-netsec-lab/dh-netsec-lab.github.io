@@ -62,10 +62,6 @@ Simulate beacon-style periodic outbound traffic and analyze with Suricata, Zeek,
 
 ---
 
-# 🔭 Upcoming Deep-Dive Threat Labs
-
-These will be added as data is collected.
-
 ### Suricata Alert Validation  
 - ICMP alerting  
 - TCP/UDP scan detection  
