@@ -54,11 +54,11 @@ Detect LDAP, SMB, NTLM, and AD-related credential probing activity.
 
 ---
 
-## ▶️ **Module 5 — Command & Control Beaconing**
-
+### ▶️ Module 5 — Command & Control Beaconing
 Simulate beacon-style periodic outbound traffic and analyze with Suricata, Zeek, and Splunk.
 
-🔗 **[Open Module 5 — C2 Beaconing](./module_5-c2-beaconing/README.md)**
+*Module 5 materials are currently being prepared and will be published soon.*
+
 
 ---
 
