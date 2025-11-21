@@ -86,54 +86,51 @@ title: DH NetSec Lab – Professional Portfolio
 
 <div class="card-grid">
 
-  <div class="card">
-      <h3>Palo Alto Networks Lab Series</h3>
-      <p>Enterprise firewall deployment with Panorama, VPN, logging, and security profiles.</p>
-      <a class="button" href="/network-security/palo-alto-labs/">View Palo Alto Labs</a>
-  </div>
+<div class="card">
+    <h3>Palo Alto Networks Lab Series</h3>
+    <p>Enterprise firewall deployment with Panorama, VPN, logging, and security profiles.</p>
+    <a class="button" href="/network-security/palo-alto-labs/">View Palo Alto Labs</a>
+</div>
 
-  <div class="card">
-      <h3>Enterprise Cybersecurity Lab (ECL)</h3>
-      <p>Full enterprise environment including AD, PKI, ClearPass, Fortinet, Palo Alto, Suricata, Zeek, Wazuh, Sysmon, Splunk, and SOC workflows.</p>
-      <a class="button" href="/cybersecurity/Enterprise-Cybersecurity-Lab/">Enter ECL</a>
-  </div>
+<div class="card">
+    <h3>Enterprise Cybersecurity Lab (ECL)</h3>
+    <p>Full enterprise environment including AD, PKI, ClearPass, Fortinet, Palo Alto, Suricata, Zeek, Wazuh, Sysmon, Splunk, and SOC workflows.</p>
+    <a class="button" href="/cybersecurity/Enterprise-Cybersecurity-Lab/">Enter ECL</a>
+</div>
 
-  <div class="card">
-      <h3>SOC & SIEM Platform</h3>
-      <p>Threat detection using Suricata, Zeek, Wazuh, Sysmon, correlated into Splunk dashboards and alerts.</p>
-      <a class="button" href="/cybersecurity/">View SOC Labs</a>
-  </div>
+<div class="card">
+    <h3>SOC & SIEM Platform</h3>
+    <p>Threat detection using Suricata, Zeek, Wazuh, Sysmon, correlated into Splunk dashboards and alerts.</p>
+    <a class="button" href="/cybersecurity/">View SOC Labs</a>
+</div>
 
 </div>
 
 ---
 
 ## 🚀 Quick Navigation
-<ul>
-    <li><a href="/network-security/">Network Security Labs</a></li>
-    <li><a href="/cybersecurity/Enterprise-Cybersecurity-Lab/">Enterprise Cybersecurity Lab</a></li>
-    <li><a href="/cybersecurity/">Cybersecurity Home</a></li>
-</ul>
+- [Network Security Labs](/network-security/)
+- [Enterprise Cybersecurity Lab](/cybersecurity/Enterprise-Cybersecurity-Lab/)
+- [Cybersecurity Home](/cybersecurity/)
 
 ---
 
 ## 🔐 Network Security
-<p>Palo Alto & Fortinet labs including S2S VPN, Panorama templates, NAT, SSL Decryption, User-ID, and more.</p>
+Palo Alto & Fortinet labs including S2S VPN, Panorama templates, NAT, SSL Decryption, User-ID, and more.
+
 <a class="button" href="/network-security/">Explore Network Security</a>
 
 ## 🛡 Cybersecurity
-<p>SOC pipeline with Wazuh, Suricata, Zeek, Sysmon, and Splunk.</p>
+SOC pipeline with Wazuh, Suricata, Zeek, Sysmon, and Splunk.
+
 <a class="button" href="/cybersecurity/Enterprise-Cybersecurity-Lab/">Enter SOC Lab</a>
 
 ## 📫 Contact
-<p>
-Email: <strong>dh-netsec-lab@gmail.com</strong><br>
-LinkedIn: <em>Your LinkedIn link</em>
-</p>
+Email: **dh-netsec-lab@gmail.com**  
+LinkedIn: *(Add your link)*
 
 </div>
 
 <footer>
     <p>© 2025 DH NetSec Lab — Portfolio</p>
 </footer>
-
