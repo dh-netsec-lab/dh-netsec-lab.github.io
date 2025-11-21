@@ -124,5 +124,4 @@ ping source <NY-inside-interface> 10.0.3.31
 # 🏠 Back to Network Security  
 [← Network Security](../../)
 
-# 🌐 View on GitHub  
-https://github.com/dh-netsec-lab/dh-netsec-lab.github.io/tree/main/network-security/cross-vendor-vpn-labs/hub-and-spoke
+
