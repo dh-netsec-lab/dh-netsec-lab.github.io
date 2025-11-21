@@ -118,9 +118,6 @@ ping source <NY-inside-interface> 10.0.3.31
 
 ---
 
-# 🔙 Back to Cross-Vendor VPN Labs  
-[← Cross-Vendor VPN Labs](../)
-
 # 🏠 Back to Network Security  
 [← Network Security](../../)
 
