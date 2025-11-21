@@ -154,7 +154,7 @@ set dhcp-relay-ip <DC Address>
 
 ---
 
-# 💼 **7. Hiring Manager Summary**
+# 💼 **7. Skills Demonstrated in This Lab**
 
 This case study demonstrates hands-on experience with:
 
