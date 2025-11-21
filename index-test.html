@@ -66,6 +66,9 @@
         a.button:hover {
             background: #0b5cd6;
         }
+        .btn-row a {
+            margin-right: 10px;
+        }
         ul li a {
             color: #0d6efd;
         }
@@ -74,6 +77,13 @@
             margin-top: 40px;
             padding: 20px;
             background: #e9ecef;
+        }
+        .topology-img {
+            width: 100%;
+            max-width: 900px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            margin: 20px 0;
         }
     </style>
 </head>
@@ -99,16 +109,15 @@
 
         <div class="card">
             <h3>Enterprise Cybersecurity Lab (ECL)</h3>
-            <p>Full SOC environment with Suricata, Zeek, Wazuh, Splunk, Windows AD, and more.</p>
+            <p>Full SOC environment with Suricata, Zeek, Wazuh, Splunk, Windows AD, ClearPass, and more.</p>
             <a class="button" href="/cybersecurity/Enterprise-Cybersecurity-Lab/">Enter ECL</a>
         </div>
 
-       <div class="card">
-           <h3>SOC & SIEM Platform</h3>
-           <p>Threat detection using Suricata, Zeek, Wazuh, Sysmon, correlated into Splunk dashboards and alerts.</p>
-           <a class="button" href="/cybersecurity/Enterprise-Cybersecurity-Lab/siem/">View SOC Labs</a>
-       </div>
-
+        <div class="card">
+            <h3>SOC & SIEM Platform</h3>
+            <p>Threat detection using Suricata, Zeek, Wazuh, Sysmon, correlated into Splunk dashboards and alerts.</p>
+            <a class="button" href="/cybersecurity/Enterprise-Cybersecurity-Lab/siem/">View SOC Labs</a>
+        </div>
 
     </div>
 
@@ -119,13 +128,23 @@
         <li><a href="/cybersecurity/">Cybersecurity Home</a></li>
     </ul>
 
-    <h2>🔐 Network Security</h2>
-    <p>Palo Alto & Fortinet labs including S2S VPN, Panorama templates, NAT, SSL Decryption, User-ID, and more.</p>
-    <a class="button" href="/network-security/">Explore Network Security</a>
+    <!-- ⭐ NEW ECL OVERVIEW SECTION ⭐ -->
+    <h2>🏢 Enterprise Cybersecurity Lab (ECL) Overview</h2>
 
-    <h2>🛡 Cybersecurity</h2>
-    <p>SOC pipeline with Wazuh, Suricata, Zeek, Sysmon, and Splunk.</p>
-    <a class="button" href="/cybersecurity/Enterprise-Cybersecurity-Lab/">Enter SOC Lab</a>
+    <p>
+        The Enterprise Cybersecurity Lab (ECL) is a fully integrated, multi-vendor environment designed to simulate real-world enterprise security architecture. 
+        It brings together Identity & Access (AD, PKI, ClearPass), Network Security (Palo Alto, Fortinet, VeloCloud), and a complete SOC detection pipeline 
+        (Suricata, Zeek, Wazuh, Sysmon, Splunk) into a single, cohesive cybersecurity ecosystem.
+    </p>
+
+    <!-- Topology Placeholder -->
+    <img src="/cybersecurity/Enterprise-Cybersecurity-Lab/diagrams/ecl-topology.png" 
+         alt="ECL Topology Diagram" class="topology-img">
+
+    <div class="btn-row">
+        <a class="button" href="/cybersecurity/Enterprise-Cybersecurity-Lab/diagrams/">View ECL Topology</a>
+        <a class="button" href="/cybersecurity/Enterprise-Cybersecurity-Lab/">Enter ECL Lab</a>
+    </div>
 
     <h2>📫 Contact</h2>
     <p>Email: <strong>dh-netsec-lab@gmail.com</strong><br>
