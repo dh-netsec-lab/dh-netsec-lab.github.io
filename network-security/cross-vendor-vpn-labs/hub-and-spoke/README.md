@@ -35,7 +35,30 @@ This structure mirrors real enterprise hybrid topologies where:
 # 🖼️ **2. Topology Diagram**
 
 ```
-<diagram omitted for brevity>
+                         ┌───────────────────────────────┐
+                         │     Bama Hub – Fortinet        │
+                         │   --------------------------    │
+                         │   Role: Central Hub             │
+                         │   Networks:                     │
+                         │      • 10.0.2.0/24 (Users)      │
+                         │      • 10.0.3.0/24 (Servers/DC) │
+                         └───────────────────────────────┘
+                                      /        \
+                                     /          \
+                                    /            \
+                                   /              \
+                                  /                \
+                                 /                  \
+                                /                    \
+                               /                      \
+              ┌────────────────────────┐     ┌────────────────────────┐
+              │   NY Spoke – Palo Alto │     │ Cali Spoke – Fortinet  │
+              │  --------------------- │     │ ----------------------- │
+              │  Role: Spoke           │     │ Role: Spoke            │
+              │  Network:              │     │ Network:               │
+              │    • 10.0.33.0/24      │     │   • 10.0.64.0/24       │
+              └────────────────────────┘     └────────────────────────┘
+
 ```
 
 ---
