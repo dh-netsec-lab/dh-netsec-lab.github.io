@@ -18,6 +18,8 @@ ClearPass acts as the central policy engine for authentication,
 authorization, and device control across all network equipment in the
 lab.
 
+------------------------------------------------------------------------
+
 ## Key Capabilities Demonstrated
 
 ### RADIUS Authentication
@@ -41,19 +43,16 @@ Used for secure 802.1X authentication and future EAP-TLS deployment.
 
 ## ClearPass Services Used in the Lab
 
-  ------------------------------------------------------------------------
-  Service            Purpose              Status             Link
-  ------------------ -------------------- ------------------ -------------
-  RADIUS_TEST        Windows 11 802.1X &  Working            Coming Soon
-                     switch                                  
-                     authentication                          
+  --------------------------------------------------------------------------
+  Service        Purpose                               Status    Link
+  -------------- ------------------------------------- --------- -----------
+  RADIUS_TEST    Windows 11 802.1X & switch            Working   Coming Soon
+                 authentication                                  
 
-  ECL_TACACS         TACACS+ admin login  Working            Coming Soon
-                     for switches                            
+  ECL_TACACS     TACACS+ admin login for switches      Working   Coming Soon
 
-  RADIUS (Generic)   Backup/fallback      Working            Coming Soon
-                     service                                 
-  ------------------------------------------------------------------------
+  RADIUS Generic Backup / fallback service             Working   Coming Soon
+  --------------------------------------------------------------------------
 
 ------------------------------------------------------------------------
 
@@ -92,7 +91,7 @@ Used for secure 802.1X authentication and future EAP-TLS deployment.
 
 ## Troubleshooting Documentation
 
-Common issues documented in the lab:
+Common issues documented in the lab include:
 
 -   "User not found in Local User Repository"
 -   Incorrect NAS-IP-Address
