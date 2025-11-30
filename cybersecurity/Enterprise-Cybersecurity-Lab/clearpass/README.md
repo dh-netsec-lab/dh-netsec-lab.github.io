@@ -119,6 +119,15 @@ Used for secure 802.1X authentication and future EAP-TLS deployment.
   </tbody>
 </table>
 
+<h2>Validation & Testing</h2>
+<table>...</table>
+
+<!-- INSERT THE 802.1X BLOCK HERE -->
+
+<h2>Troubleshooting Documentation</h2>
+...
+
+
 <hr>
 
 <h2>Troubleshooting Documentation</h2>
