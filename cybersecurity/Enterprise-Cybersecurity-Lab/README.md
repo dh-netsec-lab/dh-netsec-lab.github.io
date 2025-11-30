@@ -50,7 +50,7 @@ Key objectives include:
 
 **OOB Management Subnet:** 192.168.118.0/24  
 
-![Network Topology](screenshots/network_topology.png)
+![Enterprise Topology](screenshots/network_topology_v2.png)
 
 ---
 
