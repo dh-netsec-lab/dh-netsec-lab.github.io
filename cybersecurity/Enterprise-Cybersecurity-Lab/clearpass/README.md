@@ -65,31 +65,6 @@ Used for secure 802.1X authentication and future EAP-TLS deployment.
 
 <hr>
 
-<h2>Configuration Areas</h2>
-
-<h3>Authentication Sources</h3>
-<ul>
-  <li>Active Directory (ECL.lab)</li>
-  <li>Local User Repository</li>
-</ul>
-
-<h3>Enforcement Profiles</h3>
-<ul>
-  <li>TACACS+ Allow</li>
-  <li>TACACS+ Deny</li>
-  <li>RADIUS Basic Allow</li>
-  <li>RADIUS VLAN Assignment (future)</li>
-</ul>
-
-<h3>Device Groups</h3>
-<ul>
-  <li>Cisco Switches</li>
-  <li>Firewalls</li>
-  <li>Test endpoints</li>
-</ul>
-
-<hr>
-
 <h2>Validation & Testing</h2>
 
 <table>
@@ -105,11 +80,11 @@ Used for secure 802.1X authentication and future EAP-TLS deployment.
       <td>Success</td>
     </tr>
     <tr>
-      <td>Windows 11 RADIUS authentication</td>
+      <td>Windows 11 RADIUS authentication (PEAP-MSCHAPv2)</td>
       <td>Success</td>
     </tr>
     <tr>
-      <td>802.1X EAP testing</td>
+      <td>802.1X EAP-TLS testing</td>
       <td>Pending</td>
     </tr>
     <tr>
@@ -119,14 +94,23 @@ Used for secure 802.1X authentication and future EAP-TLS deployment.
   </tbody>
 </table>
 
-<h2>Validation & Testing</h2>
-<table>...</table>
+<hr>
 
-<!-- INSERT THE 802.1X BLOCK HERE -->
+<h2>802.1X Authentication – Validation</h2>
 
-<h2>Troubleshooting Documentation</h2>
-...
+<p>This screenshot shows a successful 802.1X authentication event in ClearPass.  
+It confirms that:</p>
 
+<ul>
+  <li>The Cisco switch correctly forwarded the 802.1X PEAP-MSCHAPv2 request</li>
+  <li>ClearPass classified the authentication under the correct service</li>
+  <li>The user <code>ECL\dhervey</code> authenticated via Active Directory</li>
+  <li>ClearPass returned an Access-Accept authorization result</li>
+</ul>
+
+<p><b>ClearPass Access Tracker – Authentication Result:</b></p>
+
+<img src="screenshots/8021x_auth_accept.png" alt="ClearPass 802.1X Access-Accept Result" style="border: 1px solid #ccc; max-width: 900px;">
 
 <hr>
 
