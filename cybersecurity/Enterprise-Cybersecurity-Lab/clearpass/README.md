@@ -18,8 +18,6 @@ ClearPass acts as the central policy engine for authentication,
 authorization, and device control across all network equipment in the
 lab.
 
-------------------------------------------------------------------------
-
 ## Key Capabilities Demonstrated
 
 ### RADIUS Authentication
