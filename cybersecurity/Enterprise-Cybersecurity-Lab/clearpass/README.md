@@ -43,6 +43,7 @@ Used for secure 802.1X authentication and future EAP-TLS deployment.
 
 ## ClearPass Services Used in the Lab
 
+::: {style="overflow-x: auto"}
   --------------------------------------------------------------------------
   Service        Purpose                               Status    Link
   -------------- ------------------------------------- --------- -----------
@@ -53,6 +54,7 @@ Used for secure 802.1X authentication and future EAP-TLS deployment.
 
   RADIUS Generic Backup / fallback service             Working   Coming Soon
   --------------------------------------------------------------------------
+:::
 
 ------------------------------------------------------------------------
 
