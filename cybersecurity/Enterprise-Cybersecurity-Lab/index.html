@@ -4,94 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enterprise Cybersecurity Lab (ECL)</title>
-
     <style>
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.6;
             background: #f5f7fa;
             color: #222;
+            line-height: 1.6;
         }
-
         header {
             background: #0d1117;
-            color: white;
-            padding: 35px 20px;
+            color: #fff;
+            padding: 40px 20px;
             text-align: center;
         }
-
         header img {
             max-width: 900px;
             width: 95%;
         }
-
         h1 {
             margin-top: 15px;
             font-size: 2.4rem;
-            font-weight: 600;
         }
-
         h2 {
             margin-top: 45px;
-            font-size: 1.7rem;
-            font-weight: 600;
             border-bottom: 2px solid #ccc;
             padding-bottom: 8px;
         }
-
-        h3 {
-            margin-top: 28px;
-            font-size: 1.3rem;
-            font-weight: 600;
-        }
-
         .section {
-            padding: 25px 40px;
+            padding: 20px 40px;
+            max-width: 1400px;
+            margin: auto;
         }
-
-        p {
-            max-width: 1000px;
-        }
-
-        .topology-img {
+        img.topology {
             width: 100%;
             max-width: 1400px;
-            border: 1px solid #ddd;
+            border: 1px solid #ccc;
             border-radius: 6px;
             margin-top: 15px;
         }
-
         table {
             width: 100%;
+            margin-top: 20px;
             border-collapse: collapse;
-            margin-top: 15px;
         }
-
-        table th, table td {
-            border: 1px solid #ddd;
+        th, td {
+            border: 1px solid #ccc;
             padding: 10px;
         }
-
-        table th {
-            background: #eaeaea;
-            font-weight: 700;
+        th {
+            background: #eee;
         }
-
-        .phase-link {
-            background: #0070ff;
-            color: white;
-            padding: 7px 12px;
+        a.button {
             display: inline-block;
-            margin-top: 6px;
+            background: #0066ff;
+            color: white;
+            padding: 6px 12px;
             border-radius: 6px;
             text-decoration: none;
         }
-
-        .phase-link:hover {
-            background: #005cd1;
-        }
-
         footer {
             background: #e5e8ec;
             padding: 20px 40px;
@@ -99,73 +70,27 @@
         }
     </style>
 </head>
-
 <body>
 
 <header>
-    <img src="../screenshots/ecl-banner.png" alt="Enterprise Cybersecurity Lab Banner">
+    <img src="screenshots/ecl-banner.png" alt="Enterprise Cybersecurity Lab Banner">
     <h1>Enterprise Cybersecurity Lab (ECL)</h1>
     <p>“Building a living enterprise, one phase at a time.”</p>
 </header>
 
 <div class="section">
 
-    <!-- Vision -->
     <h2>Vision & Purpose</h2>
     <p>
-        The Enterprise Cybersecurity Lab (ECL) is a continuously evolving simulation of a real-world enterprise environment.
-        It is designed to help engineers and architects explore how organizations design, secure, monitor, and govern complex infrastructures.
-        Every phase introduces new layers of visibility, identity, detection, and governance.
+        The Enterprise Cybersecurity Lab is a fully built real-world simulation of an enterprise network,
+        integrating firewalls, identity services, SIEM telemetry, AWS connectivity, NAC, IDS/IPS,
+        and vulnerable applications — designed to demonstrate real engineering capability.
     </p>
 
-    <p>
-        The ECL emphasizes <strong>practical, real-world engineering</strong> by integrating multi-vendor firewalls,
-        identity platforms, telemetry pipelines, logging systems, and enterprise architecture concepts.
-        Nothing is theoretical — everything is fully implemented, validated, and documented.
-    </p>
-
-    <!-- Lab Overview -->
-    <h2>Lab Overview</h2>
-    <p>
-        The ECL integrates full-stack network security, SOC engineering, and enterprise IT infrastructure. It includes:
-    </p>
-    <ul>
-        <li>Multi-site routed network (Bama • New York • Cali)</li>
-        <li>Palo Alto & Fortinet firewalls</li>
-        <li>ClearPass NAC (802.1X / TACACS+)</li>
-        <li>Suricata IDS & Zeek NTA</li>
-        <li>Windows AD, DNS, DHCP, PKI</li>
-        <li>Splunk SIEM, Sysmon, Rsyslog pipeline</li>
-        <li>AWS S2S VPN & Zscaler ZIA representation</li>
-        <li>Vulnerable apps (bWAPP, Metasploitable, PHP Auction)</li>
-    </ul>
-
-    <!-- Topology -->
     <h2>Network Topology</h2>
-    <p>
-        Below is the full network topology (v2), including AWS cloud, Zscaler, multi-site architecture, VLANs,
-        firewalls, NAC, servers, and monitoring stack:
-    </p>
+    <img class="topology" src="screenshots/network_topology_v2.png" alt="Enterprise Cybersecurity Lab Topology v2">
 
-    <img src="../screenshots/network_topology_v2.png" class="topology-img" alt="Enterprise Cybersecurity Lab Topology v2">
-
-    <!-- Technology Stack -->
-    <h2>Technology Stack</h2>
-
-    <table>
-        <tr><th>Category</th><th>Technologies</th><th>Purpose</th></tr>
-        <tr><td>Firewalls</td><td>Palo Alto, Fortinet</td><td>Segmentation, perimeter, VPN, Zero Trust enforcement</td></tr>
-        <tr><td>NAC</td><td>ClearPass</td><td>802.1X, TACACS+, identity enforcement</td></tr>
-        <tr><td>SIEM & Logging</td><td>Splunk, Sysmon, Rsyslog</td><td>Log analysis, detection, correlation</td></tr>
-        <tr><td>IDS/NTA</td><td>Suricata, Zeek</td><td>Threat detection & protocol analysis</td></tr>
-        <tr><td>Enterprise Infra</td><td>AD, DNS, DHCP, PKI</td><td>Identity & trust foundation</td></tr>
-        <tr><td>Cloud</td><td>AWS S2S VPN</td><td>Hybrid cloud connectivity</td></tr>
-        <tr><td>SaaS</td><td>Zscaler ZIA</td><td>Secure web gateway / proxy path simulation</td></tr>
-    </table>
-
-    <!-- Lab Phases -->
     <h2>ECL Lab Phases</h2>
-
     <table>
         <tr>
             <th>Phase</th>
@@ -177,40 +102,39 @@
             <td>1</td>
             <td>Network Connectivity</td>
             <td>Routing, NAT, inter-site reachability</td>
-            <td><a class="phase-link" href="../phase1/">Open Phase 1</a></td>
+            <td><a class="button" href="phase1/">Open Phase 1</a></td>
         </tr>
         <tr>
             <td>2</td>
             <td>Security Visibility & Telemetry</td>
             <td>Rsyslog → Splunk pipeline, Sysmon, Suricata, Zeek</td>
-            <td><a class="phase-link" href="../siem/">Open SIEM Pipeline</a></td>
+            <td><a class="button" href="siem/">Open SIEM Pipeline</a></td>
         </tr>
         <tr>
             <td>3</td>
             <td>Identity & Trust</td>
             <td>AD, DNS, PKI, ClearPass 802.1X + TACACS+</td>
-            <td><a class="phase-link" href="../identity-trust/">Open Identity Labs</a></td>
+            <td><a class="button" href="identity-trust/">Open Identity Labs</a></td>
         </tr>
         <tr>
             <td>4</td>
             <td>Threat Detection & SOC Engineering</td>
             <td>Correlations, detections, red/blue workflows</td>
-            <td><a class="phase-link" href="../soc/">Open SOC</a></td>
+            <td><a class="button" href="soc/">Open SOC</a></td>
         </tr>
         <tr>
             <td>5</td>
             <td>Governance, Risk & Compliance</td>
             <td>Risk modeling, controls mapping</td>
-            <td><span style="opacity: 0.4;">Coming Soon</span></td>
+            <td><span style="opacity: 0.5;">Coming Soon</span></td>
         </tr>
     </table>
 
 </div>
 
 <footer>
-    <p><strong>Back to Site Home:</strong> <a href="/index.html">dh-netsec-lab.github.io</a></p>
+    <a href="/index.html">← Back to Portfolio Home</a>
 </footer>
 
 </body>
 </html>
-
