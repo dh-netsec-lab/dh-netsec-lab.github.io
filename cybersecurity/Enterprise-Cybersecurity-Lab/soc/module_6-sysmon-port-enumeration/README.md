@@ -22,20 +22,17 @@ Identify suspicious port enumeration behavior by analyzing:
 - Sequential destination ports
 - Scanning-related processes
 
-## Walkthrough
-## Walkthrough
-
 ### 1. Verify Sysmon Logging
 Confirm Sysmon is installed and generating EventCode 3 network events.
 
-📸 [01-sysmon-verification.png](/cybersecurity/Enterprise-Cybersecurity-Lab/soc/module_6-sysmon-port-enumeration/screenshots/01-sysmon-verification.png)
+<img src="/cybersecurity/Enterprise-Cybersecurity-Lab/soc/module_6-sysmon-port-enumeration/screenshots/01-sysmon-verification.png" width="900"/>
 
 ---
 
 ### 2. Execute Nmap Scan
 Run an Nmap scan from the Jumpbox to generate enumeration traffic.
 
-📸 [02-nmap-scan-execution.png](/cybersecurity/Enterprise-Cybersecurity-Lab/soc/module_6-sysmon-port-enumeration/screenshots/02-nmap-scan-execution.png)
+<img src="/cybersecurity/Enterprise-Cybersecurity-Lab/soc/module_6-sysmon-port-enumeration/screenshots/02-nmap-scan-execution.png" width="900"/>
 
 ---
 
@@ -43,24 +40,21 @@ Run an Nmap scan from the Jumpbox to generate enumeration traffic.
 Sysmon records each outbound connection attempt, including destination
 IP, destination port, and process name.
 
-📸 [03-sysmon-eventcode3-nessus-scan.png](/cybersecurity/Enterprise-Cybersecurity-Lab/soc/module_6-sysmon-port-enumeration/screenshots/03-sysmon-eventcode3-nessus-scan.png)
+<img src="/cybersecurity/Enterprise-Cybersecurity-Lab/soc/module_6-sysmon-port-enumeration/screenshots/03-sysmon-eventcode3-nessus-scan.png" width="900"/>
 
 ---
 
 ### 4. Detect Enumeration in Splunk
 Use Splunk to identify high-volume EventCode 3 activity.
 
-📸 [04-sysmon-enumeration-detection.png](/cybersecurity/Enterprise-Cybersecurity-Lab/soc/module_6-sysmon-port-enumeration/screenshots/04-sysmon-enumeration-detection.png)
+<img src="/cybersecurity/Enterprise-Cybersecurity-Lab/soc/module_6-sysmon-port-enumeration/screenshots/04-sysmon-enumeration-detection.png" width="900"/>
 
 ---
 
 ### 5. SOC Investigation
 Review timing, volume, and affected ports to confirm scanning behavior.
 
-📸 [05-investigatio]()
-
-
-
+<img src="/cybersecurity/Enterprise-Cybersecurity-Lab/soc/module_6-sysmon-port-enumeration/screenshots/05-investigation-view-sysmon-eventcode3.png" width="900"/>
 
 ## MITRE ATT&CK Mapping
 - T1046 – Network Service Scanning
