@@ -26,21 +26,17 @@ Identify suspicious port enumeration behavior by analyzing:
 - Sequential destination ports
 - Scanning-related processes
 
----
-
-## Walkthrough
-
 ### 1. Verify Sysmon Logging
 Confirm Sysmon is installed and generating EventCode 3 network events.
 
-Screenshot: 01-sysmon-verification.png
+📸 [01-sysmon-verification.png](screenshots/01-sysmon-verification.png)
 
 ---
 
 ### 2. Execute Nmap Scan
 Run an Nmap scan from the Jumpbox to generate enumeration traffic.
 
-Screenshot: 02-nmap-scan-execution.png
+📸 [02-nmap-scan-execution.png](screenshots/02-nmap-scan-execution.png)
 
 ---
 
@@ -48,29 +44,22 @@ Screenshot: 02-nmap-scan-execution.png
 Sysmon records each outbound connection attempt, including destination
 IP, destination port, and process name.
 
-Screenshot: 03-sysmon-eventcode3-nessus-scan.png
+📸 [03-sysmon-eventcode3-nessus-scan.png](screenshots/03-sysmon-eventcode3-nessus-scan.png)
 
 ---
 
 ### 4. Detect Enumeration in Splunk
 Use Splunk to identify high-volume EventCode 3 activity.
 
-Splunk Query:
-```
-index=* host=ECL-JUMPBOX-01 EventCode=3
-| table _time SourceIp DestinationIp DestinationPort ProcessName
-```
-
-Screenshot: 04-sysmon-enumeration-detection.png
+📸 [04-sysmon-enumeration-detection.png](screenshots/04-sysmon-enumeration-detection.png)
 
 ---
 
 ### 5. SOC Investigation
 Review timing, volume, and affected ports to confirm scanning behavior.
 
-Screenshot: 05-investigation-view-sysmon-eventcode3.png
+📸 [05-investigation-view-sysmon-eventcode3.png](screenshots/05-investigation-view-sysmon-eventcode3.png)
 
----
 
 ## MITRE ATT&CK Mapping
 - T1046 – Network Service Scanning
