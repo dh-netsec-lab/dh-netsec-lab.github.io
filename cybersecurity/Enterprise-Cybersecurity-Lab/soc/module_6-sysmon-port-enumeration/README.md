@@ -63,14 +63,12 @@ Review timing, volume, and affected ports to confirm scanning behavior.
 ## MITRE ATT&CK Mapping
 - T1046 – Network Service Scanning
 
----
 
 ## Analyst Takeaways
 - Port scanning produces repetitive, high-volume network events
 - Sysmon provides host-level network visibility
 - SIEM correlation enables rapid investigation and response
 
----
 
 ## Conclusion
 Sysmon EventCode 3 is an effective detection source for identifying
