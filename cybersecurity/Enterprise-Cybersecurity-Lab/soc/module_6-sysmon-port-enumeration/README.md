@@ -22,7 +22,6 @@ Identify suspicious port enumeration behavior by analyzing:
 - Sequential destination ports
 - Scanning-related processes
 
----
 ## Walkthrough
 
 ### 1. Verify Sysmon Logging
