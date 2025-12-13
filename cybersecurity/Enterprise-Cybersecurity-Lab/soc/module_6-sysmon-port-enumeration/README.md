@@ -9,8 +9,6 @@ The scenario simulates an internal host performing a network scan using
 Nmap, generating high-volume outbound connections captured by Sysmon
 and forwarded to Splunk.
 
----
-
 ## Lab Environment
 - Endpoint: ECL-JUMPBOX-01 (Windows Server 2022)
 - Telemetry: Sysmon (EventCode 3 – Network Connection)
