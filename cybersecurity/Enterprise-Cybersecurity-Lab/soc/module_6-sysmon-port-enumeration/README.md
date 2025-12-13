@@ -15,8 +15,6 @@ and forwarded to Splunk.
 - SIEM: Splunk
 - Attack Tool: Nmap
 
----
-
 ## Detection Objective
 Identify suspicious port enumeration behavior by analyzing:
 - High-frequency outbound connections
