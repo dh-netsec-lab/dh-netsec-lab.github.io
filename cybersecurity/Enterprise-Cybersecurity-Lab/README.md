@@ -50,6 +50,8 @@ Key objectives include:
 
 **OOB Management Subnet:** 192.168.118.0/24  
 
+The diagram below represents the **logical security architecture** of the Enterprise Cybersecurity Lab, illustrating trust zones, security controls, and telemetry flows — not a flat network.
+
 ![Enterprise Topology](screenshots/network_topology_v2.png)
 
 ---
