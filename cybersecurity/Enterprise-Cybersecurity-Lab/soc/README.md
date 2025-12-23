@@ -68,7 +68,7 @@ and the investigation process used to validate the alert.
 Detect endpoint-initiated network reconnaissance using **Sysmon EventCode 3**
 and analyze suspicious outbound connection patterns in Splunk.
 
-🔗 **[Open Module 1 — Sysmon Network Reconnaissance](./module_1-sysmon-network-recon/README.md)**
+🔗 **[Open Module 1 — Sysmon Network Reconnaissance](./module_6-sysmon-port-enumeration/README.md)**
 
 <!-- Additional SOC-101 modules will be added incrementally once validated -->
 
