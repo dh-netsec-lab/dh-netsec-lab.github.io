@@ -1,26 +1,16 @@
-# SOC-101 — Threat Detection & Triage Fundamentals
+### Telemetry Scope (SOC-101)
 
-Welcome to the **SOC-101** section of the *Enterprise Cybersecurity Lab (ECL)*.
+SOC-101 intentionally focuses on deterministic endpoint telemetry to
+build strong detection and triage fundamentals.
 
-This directory focuses on **foundational Security Operations Center (SOC) capabilities**:
-how suspicious activity is detected, validated, and triaged using **endpoint telemetry**
-and a SIEM, before escalation to advanced detection engineering or incident response.
+Other detection and security capabilities exist elsewhere in the ECL
+and are introduced in later phases, including:
 
-This section is intentionally scoped to prioritize **clarity, explainability, and signal fidelity**.
+- Network detection (Zeek, Suricata)
+- Firewall and NAC telemetry
+- Vulnerability scanning and risk context
+- Threat hunting and hypothesis-driven analysis
 
----
-
-## 🎯 Purpose of This Section
-
-The goal of SOC-101 is to demonstrate the ability to:
-
-- Generate realistic attacker activity
-- Detect suspicious endpoint behavior
-- Analyze telemetry in a SIEM
-- Perform structured triage and investigation
-- Understand how detections translate into response actions
-
-This mirrors the responsibilities of **Tier 1–2 SOC analysts and SOC engineers**.
 
 ---
 
