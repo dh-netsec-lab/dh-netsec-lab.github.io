@@ -1,98 +1,94 @@
-# **Phase 4 — Threat Detection & Response**
+# SOC-101 — Threat Detection & Triage Fundamentals
 
-Welcome to **Phase 4** of the *Enterprise Cybersecurity Lab (ECL)*.  
-This phase demonstrates **SOC visibility**, **threat detection**, and **risk-informed response**
-using network, endpoint, identity, firewall, and vulnerability telemetry to model real-world
-SOC investigation workflows.
+Welcome to the **SOC-101** section of the *Enterprise Cybersecurity Lab (ECL)*.
 
----
+This directory focuses on **foundational Security Operations Center (SOC) capabilities**:
+how suspicious activity is detected, validated, and triaged using **endpoint telemetry**
+and a SIEM, before escalation to advanced detection engineering or incident response.
 
-## ⚡ Phase 4 Objectives
-
-- Generate realistic attacker activity  
-- Detect reconnaissance, enumeration, and suspicious behavior  
-- Analyze network and endpoint telemetry in Splunk  
-- Correlate detections with asset risk and vulnerability context  
-- Support informed response and prioritization decisions  
+This section is intentionally scoped to prioritize **clarity, explainability, and signal fidelity**.
 
 ---
 
-# 🔍 Threat Detection Lab Modules
+## 🎯 Purpose of This Section
 
-Below are the structured lab modules for Phase 4. Each module includes
-attack simulation, telemetry validation, screenshots, and analysis workflows.
+The goal of SOC-101 is to demonstrate the ability to:
 
----
+- Generate realistic attacker activity
+- Detect suspicious endpoint behavior
+- Analyze telemetry in a SIEM
+- Perform structured triage and investigation
+- Understand how detections translate into response actions
 
-## ▶️ **Module 1 — ICMP Baseline Visibility**
-
-Establish a clean baseline using ICMP traffic and verify Suricata and Zeek
-capture and log expected behavior.
-
-🔗 **[Open Module 1 — ICMP Baseline](./module_1-icmp-baseline/README.md)**
+This mirrors the responsibilities of **Tier 1–2 SOC analysts and SOC engineers**.
 
 ---
 
-## ▶️ **Module 2 — Nmap Host Discovery Scan**
+## 🧩 Telemetry Scope (Intentional)
 
-Detect ICMP, ARP, and TCP-based host discovery scanning from an attacker system.
+SOC-101 focuses on **deterministic endpoint telemetry**, which provides
+high-confidence, explainable detections.
 
-🔗 **[Open Module 2 — Nmap Host Discovery](./module_2-nmap-host-discovery/README.md)**
+### Primary Telemetry Sources
+- **Endpoint telemetry:** Sysmon & Windows Event Logs
+- **SIEM & analysis:** Splunk
+- **Identity context:** Active Directory (contextual only)
+- **Attack simulation:** Kali Linux
 
----
+### Explicitly Out of Scope for SOC-101
+The following technologies are integrated elsewhere in the ECL
+but are **not used in this section by design**:
 
-## ▶️ **Module 3 — Nmap Port Scanning**
+- Network detection (Zeek, Suricata)
+- Firewalls and NAC platforms
+- Vulnerability scanning and risk management
+- Threat hunting and hypothesis-driven analysis
 
-Detect SYN, CONNECT, FIN, XMAS, and NULL scans using Suricata, Zeek, and Splunk.
-
-🔗 **[Open Module 3 — Nmap Port Scanning](./module_3-nmap-port-scanning/README.md)**
-
----
-
-## ▶️ **Module 4 — Active Directory Credential Enumeration**
-
-Detect LDAP, SMB, NTLM, and Active Directory credential probing activity.
-
-🔗 **[Open Module 4 — AD Credential Enumeration](./module_4-ad-credential-enumeration/README.md)**
-
----
-
-## ▶️ **Module 6 — Sysmon Port Enumeration Detection**
-
-Detect endpoint-level port enumeration using Sysmon EventCode 3 and analyze
-suspicious outbound connection patterns in Splunk.
-
-🔗 **[Open Module 6 — Sysmon Port Enumeration](./module_6-sysmon-port-enumeration/README.md)**
+These capabilities are introduced in **later ECL phases**.
 
 ---
 
-## ▶️ **Module 7 — Vulnerability Management with Nessus**
+## 🔍 SOC-101 Detection Modules
 
-Establish vulnerability context for enterprise assets and demonstrate how
-attack surface and configuration weaknesses inform detection priority
-and response decisions.
+Each module demonstrates **one attacker behavior**, the **telemetry it generates**,
+and the **investigation workflow** used to validate it.
 
-🔗 **[Open Module 7 — Vulnerability Management](./module_7-vulnerability-management/README.md)**
+### ▶️ Module 1 — Endpoint Network Reconnaissance (Sysmon)
+Detect endpoint-initiated network reconnaissance using Sysmon EventCode 3
+and analyze suspicious outbound connections in Splunk.
+
+🔗 [Open Module 1 — Sysmon Network Reconnaissance](./module_1-sysmon-network-recon/README.md)
+
+<!-- Future SOC-101 modules will be added incrementally once validated -->
 
 ---
 
-## 🔭 Phase 4 Telemetry Coverage
+## 🛡️ Incident Triage Context
 
-Phase 4 integrates multiple security telemetry sources to support
-threat detection and response workflows, including:
+SOC-101 supports **initial incident triage**, not full incident response
+program design.
 
-- **Network-based detection:** Suricata and Zeek  
-- **Endpoint-based detection:** Sysmon and Windows event logs  
-- **Identity telemetry:** Active Directory authentication events  
-- **Firewall telemetry:** Palo Alto and Fortinet threat and traffic logs  
-- **Vulnerability context:** Nessus vulnerability assessment data  
+A high-level triage workflow is documented here:
 
-Each telemetry source is analyzed within the context of the associated
-lab modules to demonstrate realistic SOC investigation and decision-making.
+🔗 [SOC Incident Triage Workflow](./incident-response.md)
+
+---
+
+## 🧭 How This Fits Into the ECL
+
+SOC-101 represents the **foundational detection layer** of the Enterprise Cybersecurity Lab.
+
+Additional detection disciplines are intentionally separated:
+
+- **Detection Engineering:** Advanced network and multi-signal detections
+- **Vulnerability Management:** Exposure and risk context
+- **Threat Hunting:** Hypothesis-driven analysis
+
+This separation reflects how security teams operate in real enterprise environments.
 
 ---
 
 ## 🔗 Navigation
 
-- ← **[Back to SOC Overview](../README.md)**  
-- ← **[Back to Portfolio Home](../../README.md)**  
+- ← [Back to Enterprise Cybersecurity Lab](../README.md)
+- ← [Back to Portfolio Home](../../README.md)
