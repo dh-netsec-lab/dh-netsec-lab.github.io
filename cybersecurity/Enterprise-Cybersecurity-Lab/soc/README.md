@@ -1,55 +1,76 @@
-### Telemetry Scope (SOC-101)
+# SOC-101 — Threat Detection & Triage Fundamentals
 
-SOC-101 intentionally focuses on deterministic endpoint telemetry to
-build strong detection and triage fundamentals.
+Welcome to the **SOC-101** section of the *Enterprise Cybersecurity Lab (ECL)*.
 
-Other detection and security capabilities exist elsewhere in the ECL
-and are introduced in later phases, including:
+This directory demonstrates **foundational Security Operations Center (SOC) capabilities**:
+how suspicious activity is detected, validated, and triaged using **endpoint telemetry**
+and a SIEM before escalation to advanced detection engineering, threat hunting,
+or incident response functions.
 
-- Network detection (Zeek, Suricata)
+This section is **intentionally scoped** to prioritize clarity, explainability,
+and strong detection fundamentals.
+
+---
+
+## 🎯 Purpose of SOC-101
+
+SOC-101 focuses on demonstrating the ability to:
+
+- Generate realistic attacker activity in a controlled environment
+- Detect suspicious endpoint behavior
+- Analyze telemetry using a SIEM
+- Perform structured alert triage and investigation
+- Understand how detections inform response decisions
+
+These workflows align with **Tier 1–2 SOC analyst and SOC engineer responsibilities**
+in real enterprise environments.
+
+---
+
+## 🧩 Telemetry Scope (SOC-101)
+
+SOC-101 intentionally emphasizes **deterministic endpoint telemetry**, which provides
+high-confidence, explainable detections suitable for foundational SOC work.
+
+### Primary Telemetry Sources
+- **Endpoint telemetry:** Sysmon and Windows Event Logs  
+- **SIEM & analysis:** Splunk  
+- **Identity context:** Active Directory (contextual use only)  
+- **Attack simulation:** Kali Linux  
+
+This telemetry stack allows detections to be traced cleanly from
+**attacker action → log generation → alert → investigation**.
+
+---
+
+### Additional Detection Capabilities in the ECL
+
+The Enterprise Cybersecurity Lab includes additional security capabilities
+that are **integrated elsewhere** and introduced in later phases, including:
+
+- Network detection and visibility (Zeek, Suricata)
 - Firewall and NAC telemetry
 - Vulnerability scanning and risk context
 - Threat hunting and hypothesis-driven analysis
 
-
----
-
-## 🧩 Telemetry Scope (Intentional)
-
-SOC-101 focuses on **deterministic endpoint telemetry**, which provides
-high-confidence, explainable detections.
-
-### Primary Telemetry Sources
-- **Endpoint telemetry:** Sysmon & Windows Event Logs
-- **SIEM & analysis:** Splunk
-- **Identity context:** Active Directory (contextual only)
-- **Attack simulation:** Kali Linux
-
-### Explicitly Out of Scope for SOC-101
-The following technologies are integrated elsewhere in the ECL
-but are **not used in this section by design**:
-
-- Network detection (Zeek, Suricata)
-- Firewalls and NAC platforms
-- Vulnerability scanning and risk management
-- Threat hunting and hypothesis-driven analysis
-
-These capabilities are introduced in **later ECL phases**.
+These capabilities are deliberately separated to reflect
+how security teams operate across specialized disciplines.
 
 ---
 
 ## 🔍 SOC-101 Detection Modules
 
-Each module demonstrates **one attacker behavior**, the **telemetry it generates**,
-and the **investigation workflow** used to validate it.
+Each SOC-101 module demonstrates **one attacker behavior**, the telemetry it generates,
+and the investigation process used to validate the alert.
 
 ### ▶️ Module 1 — Endpoint Network Reconnaissance (Sysmon)
-Detect endpoint-initiated network reconnaissance using Sysmon EventCode 3
-and analyze suspicious outbound connections in Splunk.
 
-🔗 [Open Module 1 — Sysmon Network Reconnaissance](./module_1-sysmon-network-recon/README.md)
+Detect endpoint-initiated network reconnaissance using **Sysmon EventCode 3**
+and analyze suspicious outbound connection patterns in Splunk.
 
-<!-- Future SOC-101 modules will be added incrementally once validated -->
+🔗 **[Open Module 1 — Sysmon Network Reconnaissance](./module_1-sysmon-network-recon/README.md)**
+
+<!-- Additional SOC-101 modules will be added incrementally once validated -->
 
 ---
 
@@ -58,27 +79,31 @@ and analyze suspicious outbound connections in Splunk.
 SOC-101 supports **initial incident triage**, not full incident response
 program design.
 
-A high-level triage workflow is documented here:
+A high-level SOC triage workflow is documented here:
 
-🔗 [SOC Incident Triage Workflow](./incident-response.md)
+🔗 **[SOC Incident Triage Workflow](./incident-response.md)**
 
 ---
 
-## 🧭 How This Fits Into the ECL
+## 🧭 How SOC-101 Fits Into the ECL
 
-SOC-101 represents the **foundational detection layer** of the Enterprise Cybersecurity Lab.
+SOC-101 represents the **foundational detection layer** of the
+Enterprise Cybersecurity Lab.
 
-Additional detection disciplines are intentionally separated:
+Other security disciplines are intentionally organized as peer sections
+within the ECL, including:
 
-- **Detection Engineering:** Advanced network and multi-signal detections
-- **Vulnerability Management:** Exposure and risk context
-- **Threat Hunting:** Hypothesis-driven analysis
+- Detection Engineering (advanced and network-based detection)
+- Vulnerability Management (exposure and risk context)
+- Threat Hunting (hypothesis-driven analysis)
+- Security Engineering and Architecture
 
-This separation reflects how security teams operate in real enterprise environments.
+This separation mirrors real enterprise security team structures
+and progression paths.
 
 ---
 
 ## 🔗 Navigation
 
-- ← [Back to Enterprise Cybersecurity Lab](../README.md)
-- ← [Back to Portfolio Home](../../README.md)
+- ← **[Back to Enterprise Cybersecurity Lab](../README.md)**
+- ← **[Back to Portfolio Home](../../README.md)**
