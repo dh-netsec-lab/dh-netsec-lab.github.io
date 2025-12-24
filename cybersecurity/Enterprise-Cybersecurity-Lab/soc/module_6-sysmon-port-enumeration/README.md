@@ -1,126 +1,72 @@
-# Module 6 — Endpoint Network Reconnaissance with Sysmon EventCode 3
+# Module 6 — Detecting Port Enumeration with Sysmon EventCode 3
 
 ## Overview
-This module demonstrates how **Sysmon EventCode 3 (NetworkConnect)** can be
-used to detect and investigate **endpoint-initiated network reconnaissance**
-activity. The focus is on **high-confidence, explainable detections**
-appropriate for SOC-101 workflows.
+This module demonstrates how Sysmon EventCode 3 (Network Connection)
+can be used to detect and investigate suspicious outbound network
+activity indicative of internal reconnaissance.
 
-Rather than relying on noisy, large-scale scans, this lab highlights how
-controlled endpoint activity still produces reliable telemetry that a
-SOC analyst can validate and triage using Splunk.
+The scenario simulates a host generating outbound connections using
+PowerShell, with telemetry collected by Sysmon and analyzed in Splunk.
 
 ---
 
 ## Lab Environment
-- **Endpoint:** ECL-JUMPBOX-01 (Windows Server 2022)
-- **Telemetry:** Sysmon — EventCode 3 (NetworkConnect)
-- **SIEM:** Splunk
-- **Activity Source:** PowerShell-initiated network connections
-
-> Sysmon events are ingested using XML rendering (`XmlWinEventLog`),
-> preserving full event context for investigation.
+- Endpoint: ECL-JUMPBOX-01 (Windows Server 2022)
+- Telemetry: Sysmon (EventCode 3 – Network Connection)
+- SIEM: Splunk
+- Suspicious Process: PowerShell
 
 ---
 
 ## Detection Objective
-Identify suspicious endpoint network reconnaissance behavior by analyzing:
-- Outbound network connections initiated by user-level processes
+Identify potential reconnaissance activity by analyzing:
+- Outbound network connections
 - Destination IP and port usage
-- Process attribution (PowerShell vs background services)
-- Initiated vs non-initiated connections
+- Initiating process
+- Connection timing patterns
 
 ---
 
-## 1. Verify Sysmon Network Telemetry
-Confirm that Sysmon is generating **EventCode 3** network connection events
-and that they are successfully ingested into Splunk.
+## 1. Sysmon EventCode 3 Evidence
+Sysmon records outbound network connections including destination
+address, port, protocol, and initiating process.
 
-```spl
-index=wineventlog
-host=ECL-JUMPBOX-01
-sourcetype=XmlWinEventLog
-source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"
-EventCode=3
-| sort - _time
-| head 10
-```
+This view confirms that PowerShell is generating network connections
+from the endpoint.
 
-<img src="./screenshots/01-sysmon-verification.png" width="900"/>
+<img src="screenshots/01-sysmon-eventcode3-evidence.png" width="900"/>
 
 ---
 
-## 2. Generate Endpoint Network Activity
-Controlled outbound network connections are generated from the endpoint
-using PowerShell-based commands. These actions create **initiated**
-network events suitable for SOC analysis.
+## 2. Detection via Port Activity Analysis
+Aggregating EventCode 3 data highlights destination port activity
+over time, enabling analysts to identify suspicious patterns.
 
-<img src="./screenshots/02-endpoint-activity.png" width="900"/>
-
----
-
-## 3. Observe Sysmon EventCode 3 Details
-Each network connection is recorded by Sysmon, including:
-- Process image
-- Destination IP
-- Destination port
-- Protocol
-- Initiation status
-
-```spl
-index=wineventlog
-host=ECL-JUMPBOX-01
-sourcetype=XmlWinEventLog
-source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"
-EventCode=3
-| table _time Image DestinationIp DestinationPort Protocol Initiated
-```
-
-<img src="./screenshots/03-sysmon-eventcode3-detail.png" width="900"/>
+<img src="screenshots/02-sysmon-port-activity-detection.png" width="900"/>
 
 ---
 
-## 4. Detect Suspicious Activity in Splunk
-Splunk is used to differentiate intentional user-initiated activity from
-background system noise by filtering on specific processes.
+## 3. SOC Investigation Drill-Down
+A detailed event review confirms the initiating process, destination
+host, destination port, and protocol, validating analyst findings.
 
-```spl
-index=wineventlog
-host=ECL-JUMPBOX-01
-sourcetype=XmlWinEventLog
-source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"
-EventCode=3
-Image="C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
-```
-
-<img src="./screenshots/04-sysmon-detection.png" width="900"/>
-
----
-
-## 5. SOC Investigation
-The SOC analyst reviews timing, destination context, and process attribution
-to determine whether the observed behavior represents benign administration
-or suspicious reconnaissance.
-
-<img src="./screenshots/05-investigation-view.png" width="900"/>
+<img src="screenshots/03-sysmon-eventcode3-investigation.png" width="900"/>
 
 ---
 
 ## MITRE ATT&CK Mapping
-- **T1046 — Network Service Scanning**
-- **T1059.001 — Command and Scripting Interpreter: PowerShell**
+- **T1046** – Network Service Scanning
 
 ---
 
 ## Analyst Takeaways
-- Endpoint telemetry provides high-fidelity network visibility
-- Process attribution is critical for effective triage
-- Not all reconnaissance is noisy; low-volume activity still leaves artifacts
-- Sysmon EventCode 3 enables explainable SOC detections
+- Sysmon provides high-fidelity host-level network telemetry
+- Process-based network connections enable rapid attribution
+- Aggregation and drill-down are critical for validation
 
 ---
 
 ## Conclusion
-This module demonstrates how **endpoint-based network telemetry**
-supports SOC-101 detection and triage workflows, forming the foundation
-for more advanced detection engineering and threat hunting.
+Sysmon EventCode 3 is an effective detection and investigation source
+for identifying suspicious internal reconnaissance when paired with
+SIEM analytics.
