@@ -34,8 +34,7 @@ address, port, protocol, and initiating process.
 This view confirms that PowerShell is generating network connections
 from the endpoint.
 
-<img src="/cybersecurity/Enterprise-Cybersecurity-Lab/soc/module_1-sysmon-host-network-telemetry/screenshots/01-sysmon-eventcode3-evidence.png" width="900"/>
-
+<img src="screenshots/01-sysmon-eventcode3-evidence.png" width="900"/>
 ---
 
 ## 2. Detection via Port Activity Analysis
