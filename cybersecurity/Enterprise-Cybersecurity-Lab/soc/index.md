@@ -1,7 +1,3 @@
----
-title: SOC Threat Detection Lab
----
-
 # SOC Threat Detection Lab
 
 ## Modules
@@ -13,4 +9,3 @@ title: SOC Threat Detection Lab
 - [Module 6 — Sysmon Port Enumeration](./module_6-sysmon-port-enumeration/)
 - [Module 7 — Vulnerability Management](./module_7-vulnerability-management/)
 - [Incident Response](./incident-response.md)
-
