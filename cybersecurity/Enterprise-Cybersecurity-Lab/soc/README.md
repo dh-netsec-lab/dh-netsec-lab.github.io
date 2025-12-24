@@ -1,109 +1,93 @@
-# SOC-101 — Threat Detection & Triage Fundamentals
+# Module 6 — Detecting Port Enumeration with Sysmon EventCode 3
 
-Welcome to the **SOC-101** section of the *Enterprise Cybersecurity Lab (ECL)*.
+## Overview
+This module demonstrates how Sysmon EventCode 3 (Network Connection)
+can be used to detect suspicious outbound network activity from an
+endpoint and how a SOC analyst investigates that activity using Splunk.
 
-This directory demonstrates **foundational Security Operations Center (SOC) capabilities**:
-how suspicious activity is detected, validated, and triaged using **endpoint telemetry**
-and a SIEM before escalation to advanced detection engineering, threat hunting,
-or incident response functions.
-
-This section is **intentionally scoped** to prioritize clarity, explainability,
-and strong detection fundamentals.
+The focus of this lab is **endpoint-based telemetry and triage**, aligned
+to SOC-101 fundamentals.
 
 ---
 
-## 🎯 Purpose of SOC-101
-
-SOC-101 focuses on demonstrating the ability to:
-
-- Generate realistic attacker activity in a controlled environment
-- Detect suspicious endpoint behavior
-- Analyze telemetry using a SIEM
-- Perform structured alert triage and investigation
-- Understand how detections inform response decisions
-
-These workflows align with **Tier 1–2 SOC analyst and SOC engineer responsibilities**
-in real enterprise environments.
+## Lab Environment
+- **Endpoint:** ECL-JUMPBOX-01 (Windows Server 2022)
+- **Telemetry Source:** Sysmon (EventCode 3 – Network Connection)
+- **SIEM:** Splunk
+- **Data Source:** Windows Sysmon Operational Log
 
 ---
 
-## 🧩 Telemetry Scope (SOC-101)
+## Detection Objective
+Identify potentially suspicious outbound connections by analyzing:
+- Initiating process
+- Destination IP and port
+- Connection frequency
+- Analyst investigation pivots
 
-SOC-101 intentionally emphasizes **deterministic endpoint telemetry**, which provides
-high-confidence, explainable detections suitable for foundational SOC work.
-
-### Primary Telemetry Sources
-- **Endpoint telemetry:** Sysmon and Windows Event Logs  
-- **SIEM & analysis:** Splunk  
-- **Identity context:** Active Directory (contextual use only)  
-- **Attack simulation:** Kali Linux  
-
-This telemetry stack allows detections to be traced cleanly from
-**attacker action → log generation → alert → investigation**.
+This module does **not** assume malware or compromise. The goal is to
+demonstrate **detection and triage**, not attribution.
 
 ---
 
-### Additional Detection Capabilities in the ECL
+## 1. Validate Sysmon Network Telemetry
+Sysmon EventCode 3 confirms that the endpoint is generating network
+connection telemetry, including process name, destination IP, and port.
 
-The Enterprise Cybersecurity Lab includes additional security capabilities
-that are **integrated elsewhere** and introduced in later phases, including:
+<img src="./screenshots/01-sysmon-eventcode3-telemetry.png" width="900"/>
 
-- Network detection and visibility (Zeek, Suricata)
-- Firewall and NAC telemetry
-- Vulnerability scanning and risk context
-- Threat hunting and hypothesis-driven analysis
-
-These capabilities are deliberately separated to reflect
-how security teams operate across specialized disciplines.
-
----
-
-## 🔍 SOC-101 Detection Modules
-
-Each SOC-101 module demonstrates **one attacker behavior**, the telemetry it generates,
-and the investigation process used to validate the alert.
-
-### ▶️ Module 1 — Endpoint Network Reconnaissance (Sysmon)
-
-Detect endpoint-initiated network reconnaissance using **Sysmon EventCode 3**
-and analyze suspicious outbound connection patterns in Splunk.
-
-🔗 **[Open Module 1 — Sysmon Network Reconnaissance](./module_6-sysmon-port-enumeration/README.md)**
-
-<!-- Additional SOC-101 modules will be added incrementally once validated -->
+**Key fields observed:**
+- Image
+- DestinationIp
+- DestinationPort
+- Protocol
+- Initiated
 
 ---
 
-## 🛡️ Incident Triage Context
+## 2. Detection in Splunk
+The analyst aggregates EventCode 3 activity to identify repeated
+outbound connections that may warrant further investigation.
 
-SOC-101 supports **initial incident triage**, not full incident response
-program design.
+<img src="./screenshots/02-sysmon-eventcode3-detection.png" width="900"/>
 
-A high-level SOC triage workflow is documented here:
-
-🔗 **[SOC Incident Triage Workflow](./incident-response.md)**
-
----
-
-## 🧭 How SOC-101 Fits Into the ECL
-
-SOC-101 represents the **foundational detection layer** of the
-Enterprise Cybersecurity Lab.
-
-Other security disciplines are intentionally organized as peer sections
-within the ECL, including:
-
-- Detection Engineering (advanced and network-based detection)
-- Vulnerability Management (exposure and risk context)
-- Threat Hunting (hypothesis-driven analysis)
-- Security Engineering and Architecture
-
-This separation mirrors real enterprise security team structures
-and progression paths.
+This view supports detection logic by highlighting:
+- Repeated destination ports
+- Common destination IPs
+- Processes responsible for the connections
 
 ---
 
-## 🔗 Navigation
+## 3. SOC Investigation Pivot
+The analyst pivots into process-specific activity to understand
+context and intent behind the network connections.
 
-- ← **[Back to Enterprise Cybersecurity Lab](../README.md)**
-- ← **[Back to Portfolio Home](../../README.md)**
+<img src="./screenshots/03-sysmon-eventcode3-investigation.png" width="900"/>
+
+This investigation step ties together:
+- Process execution
+- Network behavior
+- Potential risk context
+
+---
+
+## MITRE ATT&CK Mapping
+- **T1046 – Network Service Scanning**
+
+---
+
+## Analyst Takeaways
+- Sysmon provides deterministic, high-fidelity endpoint network telemetry
+- EventCode 3 enables early detection of reconnaissance activity
+- Splunk supports efficient triage and investigation workflows
+- Clear scoping prevents over-alerting and false assumptions
+
+---
+
+## Conclusion
+Sysmon EventCode 3 is an effective foundational telemetry source for
+SOC analysts to detect and investigate suspicious outbound network
+activity when paired with SIEM analytics.
+
+This module demonstrates **SOC-101–level detection and triage** using
+real endpoint telemetry and defensible investigation steps.
