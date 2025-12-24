@@ -23,7 +23,7 @@ This section is published incrementally — **only validated modules are shown**
 - Port activity detection in Splunk
 - Analyst investigation and validation
 
-👉 **[Open Module 1](./module_6-sysmon-port-enumeration/)**
+👉 **[Open Module 1](./module_1-sysmon-host-network-telemetry/)**
 
 ---
 
