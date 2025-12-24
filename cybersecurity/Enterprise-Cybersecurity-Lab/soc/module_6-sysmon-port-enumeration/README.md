@@ -11,7 +11,7 @@ PowerShell, with telemetry collected by Sysmon and analyzed in Splunk.
 ---
 
 ## Lab Environment
-- Endpoint: ECL-JUMPBOX-01 (Windows Server 2022)
+- Endpoint: ECL-JUMPBOX-01 (Windows 11)
 - Telemetry: Sysmon (EventCode 3 – Network Connection)
 - SIEM: Splunk
 - Suspicious Process: PowerShell
