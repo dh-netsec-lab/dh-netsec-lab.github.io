@@ -1,73 +1,126 @@
-# Module 6 — Detecting Port Enumeration with Sysmon EventCode 3
+# Module 6 — Endpoint Network Reconnaissance with Sysmon EventCode 3
 
 ## Overview
-This module demonstrates how Sysmon EventCode 3 can be used to detect
-network port enumeration activity and how a SOC analyst investigates
-that activity using Splunk.
+This module demonstrates how **Sysmon EventCode 3 (NetworkConnect)** can be
+used to detect and investigate **endpoint-initiated network reconnaissance**
+activity. The focus is on **high-confidence, explainable detections**
+appropriate for SOC-101 workflows.
 
-The scenario simulates an internal host performing a network scan using
-Nmap, generating high-volume outbound connections captured by Sysmon
-and forwarded to Splunk.
+Rather than relying on noisy, large-scale scans, this lab highlights how
+controlled endpoint activity still produces reliable telemetry that a
+SOC analyst can validate and triage using Splunk.
+
+---
 
 ## Lab Environment
-- Endpoint: ECL-JUMPBOX-01 (Windows Server 2022)
-- Telemetry: Sysmon (EventCode 3 – Network Connection)
-- SIEM: Splunk
-- Attack Tool: Nmap
+- **Endpoint:** ECL-JUMPBOX-01 (Windows Server 2022)
+- **Telemetry:** Sysmon — EventCode 3 (NetworkConnect)
+- **SIEM:** Splunk
+- **Activity Source:** PowerShell-initiated network connections
+
+> Sysmon events are ingested using XML rendering (`XmlWinEventLog`),
+> preserving full event context for investigation.
+
+---
 
 ## Detection Objective
-Identify suspicious port enumeration behavior by analyzing:
-- High-frequency outbound connections
-- Repeated destination IPs
-- Sequential destination ports
-- Scanning-related processes
-
-### 1. Verify Sysmon Logging
-Confirm Sysmon is installed and generating EventCode 3 network events.
-
-<img src="/cybersecurity/Enterprise-Cybersecurity-Lab/soc/module_6-sysmon-port-enumeration/screenshots/01-sysmon-verification.png" width="900"/>
+Identify suspicious endpoint network reconnaissance behavior by analyzing:
+- Outbound network connections initiated by user-level processes
+- Destination IP and port usage
+- Process attribution (PowerShell vs background services)
+- Initiated vs non-initiated connections
 
 ---
 
-### 2. Execute Nmap Scan
-Run an Nmap scan from the Jumpbox to generate enumeration traffic.
+## 1. Verify Sysmon Network Telemetry
+Confirm that Sysmon is generating **EventCode 3** network connection events
+and that they are successfully ingested into Splunk.
 
-<img src="/cybersecurity/Enterprise-Cybersecurity-Lab/soc/module_6-sysmon-port-enumeration/screenshots/02-nmap-scan-execution.png" width="900"/>
+```spl
+index=wineventlog
+host=ECL-JUMPBOX-01
+sourcetype=XmlWinEventLog
+source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"
+EventCode=3
+| sort - _time
+| head 10
+```
 
----
-
-### 3. Observe Sysmon Network Events
-Sysmon records each outbound connection attempt, including destination
-IP, destination port, and process name.
-
-<img src="/cybersecurity/Enterprise-Cybersecurity-Lab/soc/module_6-sysmon-port-enumeration/screenshots/03-sysmon-eventcode3-nessus-scan.png" width="900"/>
-
----
-
-### 4. Detect Enumeration in Splunk
-Use Splunk to identify high-volume EventCode 3 activity.
-
-<img src="/cybersecurity/Enterprise-Cybersecurity-Lab/soc/module_6-sysmon-port-enumeration/screenshots/04-sysmon-enumeration-detection.png" width="900"/>
+<img src="./screenshots/01-sysmon-verification.png" width="900"/>
 
 ---
 
-### 5. SOC Investigation
-Review timing, volume, and affected ports to confirm scanning behavior.
+## 2. Generate Endpoint Network Activity
+Controlled outbound network connections are generated from the endpoint
+using PowerShell-based commands. These actions create **initiated**
+network events suitable for SOC analysis.
 
-<img src="/cybersecurity/Enterprise-Cybersecurity-Lab/soc/module_6-sysmon-port-enumeration/screenshots/05-investigation-view-sysmon-eventcode3.png" width="900"/>
+<img src="./screenshots/02-endpoint-activity.png" width="900"/>
+
+---
+
+## 3. Observe Sysmon EventCode 3 Details
+Each network connection is recorded by Sysmon, including:
+- Process image
+- Destination IP
+- Destination port
+- Protocol
+- Initiation status
+
+```spl
+index=wineventlog
+host=ECL-JUMPBOX-01
+sourcetype=XmlWinEventLog
+source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"
+EventCode=3
+| table _time Image DestinationIp DestinationPort Protocol Initiated
+```
+
+<img src="./screenshots/03-sysmon-eventcode3-detail.png" width="900"/>
+
+---
+
+## 4. Detect Suspicious Activity in Splunk
+Splunk is used to differentiate intentional user-initiated activity from
+background system noise by filtering on specific processes.
+
+```spl
+index=wineventlog
+host=ECL-JUMPBOX-01
+sourcetype=XmlWinEventLog
+source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"
+EventCode=3
+Image="C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+```
+
+<img src="./screenshots/04-sysmon-detection.png" width="900"/>
+
+---
+
+## 5. SOC Investigation
+The SOC analyst reviews timing, destination context, and process attribution
+to determine whether the observed behavior represents benign administration
+or suspicious reconnaissance.
+
+<img src="./screenshots/05-investigation-view.png" width="900"/>
+
+---
 
 ## MITRE ATT&CK Mapping
-- T1046 – Network Service Scanning
+- **T1046 — Network Service Scanning**
+- **T1059.001 — Command and Scripting Interpreter: PowerShell**
 
+---
 
 ## Analyst Takeaways
-- Port scanning produces repetitive, high-volume network events
-- Sysmon provides host-level network visibility
-- SIEM correlation enables rapid investigation and response
+- Endpoint telemetry provides high-fidelity network visibility
+- Process attribution is critical for effective triage
+- Not all reconnaissance is noisy; low-volume activity still leaves artifacts
+- Sysmon EventCode 3 enables explainable SOC detections
 
+---
 
 ## Conclusion
-Sysmon EventCode 3 is an effective detection source for identifying
-internal reconnaissance and port enumeration activity when paired
-with SIEM analytics.
-
+This module demonstrates how **endpoint-based network telemetry**
+supports SOC-101 detection and triage workflows, forming the foundation
+for more advanced detection engineering and threat hunting.
