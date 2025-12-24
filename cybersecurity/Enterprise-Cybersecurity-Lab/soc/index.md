@@ -24,6 +24,8 @@ This section is published incrementally — **only validated modules are shown**
 - Analyst investigation and validation
 
 👉 **[Open Module 1](./module_1-sysmon-host-network-telemetry/)**
+- [Module 2 — PowerShell Execution Visibility (Event ID 1)](module_2-powershell-execution-visibility/)
+
 
 ---
 
