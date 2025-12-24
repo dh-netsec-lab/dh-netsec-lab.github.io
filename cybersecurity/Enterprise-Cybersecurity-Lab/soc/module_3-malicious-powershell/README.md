@@ -51,10 +51,10 @@ Splunk validation:
 index=wineventlog source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" EventID=1 "powershell.exe"
 ```
 
-Screenshot:
-```
-01-sysmon-powershell-expected.png
-```
+**Screenshot – Expected PowerShell Execution**
+
+![Expected PowerShell Execution](screenshots/01-sysmon-powershell-expected.png)
+
 
 SOC assessment:
 PowerShell execution observed with clear command-line arguments and no signs of obfuscation.
@@ -83,10 +83,10 @@ Splunk validation:
 index=wineventlog source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" EventID=1 "-EncodedCommand"
 ```
 
-Screenshot:
-```
-02-sysmon-powershell-encoded.png
-```
+**Screenshot – Encoded / Suspicious PowerShell Execution**
+
+![Suspicious PowerShell Execution](screenshots/02-sysmon-powershell-encoded.png)
+
 
 SOC assessment:
 PowerShell executed with encoded commands and hidden window style, consistent with obfuscation and defense evasion techniques commonly observed in malicious activity.
