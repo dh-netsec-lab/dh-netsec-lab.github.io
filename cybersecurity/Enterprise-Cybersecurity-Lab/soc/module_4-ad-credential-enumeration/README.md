@@ -1,131 +1,157 @@
-# 🟡 Module 3 — Detecting Malicious PowerShell Activity (Expected vs Unexpected)
+# 🔴 SOC-101 Module 4 — Active Directory Credential Enumeration (Final)
 
-## Overview
-This module demonstrates how a SOC analyst differentiates legitimate administrative PowerShell usage from suspicious, obfuscated PowerShell execution using Sysmon process creation telemetry and Splunk SIEM analysis.
+## 🎯 Objective
+This module demonstrates how a Security Operations Center (SOC) detects, investigates, and validates **Active Directory (AD) credential enumeration** activity — a critical precursor to credential theft, lateral movement, and domain compromise.
 
-Rather than treating all PowerShell activity as malicious, this module focuses on contextual analysis of command-line behavior, which is critical for reducing false positives in real SOC environments.
-
----
-
-## Objective
-Validate the analyst’s ability to:
-- Confirm PowerShell process creation telemetry
-- Distinguish expected vs unexpected PowerShell execution
-- Identify obfuscation and evasion techniques
-- Make a defensible SOC triage decision based on evidence
+The focus of this module is **detection and analyst decision-making**, not exploitation.
 
 ---
 
-## Telemetry Source
-- Endpoint Telemetry: Sysmon
-- Event Type: Process Create
-- Sysmon Event ID: 1
-- SIEM: Splunk
-- Index: wineventlog
-- Source: XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
+## 🧠 Threat Scenario
+After gaining initial access, attackers commonly perform **Active Directory enumeration** to:
+- Identify valid domain users
+- Discover service accounts
+- Assess authentication weaknesses
+- Prepare for credential abuse (Kerberoasting, AS-REP roasting, brute force)
+
+In this lab, a simulated attacker executes common AD enumeration techniques from a **non-privileged workstation**, while the SOC monitors enterprise telemetry.
 
 ---
 
-## Scenario Summary
-Two PowerShell executions were observed on a Windows endpoint:
+## ⚔️ Attack Simulation (What Was Done)
+The following enumeration techniques were executed against the domain:
 
-1. A benign, expected PowerShell execution consistent with administrative activity.
-2. A suspicious PowerShell execution using encoded commands and hidden execution.
+- **Kerbrute** — Kerberos-based user enumeration
+- **AS-REP Roasting** — Identifying users without Kerberos pre-authentication
+- **Enum4Linux** — SMB-based user enumeration
+- **LDAP Anonymous Enumeration** — Directory queries without authentication
 
-The analyst must determine which activity requires escalation.
-
----
-
-## Detection and Investigation
-
-### Expected PowerShell Execution (Benign)
-
-Observed characteristics:
-- Process: powershell.exe
-- Command line is readable and unobfuscated
-- No attempt to hide execution
-- No encoding or evasion flags present
-
-Splunk validation:
-```
-index=wineventlog source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" EventID=1 "powershell.exe"
-```
-
-Screenshot:
-```
-01-sysmon-powershell-expected.png
-```
-
-SOC assessment:
-PowerShell execution observed with clear command-line arguments and no signs of obfuscation.
-Activity is consistent with normal administrative or scripting behavior.
-
-Disposition:
-- Severity: Low
-- Action: No escalation required
-- Classification: Expected behavior
+These techniques intentionally generate **authentication anomalies and reconnaissance patterns** observable by SOC tooling.
 
 ---
 
-### Unexpected PowerShell Execution (Suspicious)
+## 📡 Telemetry Sources Observed
 
-Observed characteristics:
-- Process: powershell.exe
-- Command line includes:
-  - -EncodedCommand
-  - -WindowStyle Hidden
-  - -NoProfile
-- Execution hidden from user visibility
-- Encoded payload used to obscure intent
+| Layer | Tooling | Purpose |
+|-----|--------|--------|
+| Network | Suricata | DNS and reconnaissance traffic |
+| Network | Zeek | DNS queries and directory resolution |
+| Host | Windows Security Logs | Authentication activity |
+| Endpoint / SIEM | Wazuh | Centralized auth event visibility |
 
-Splunk validation:
-```
-index=wineventlog source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" EventID=1 "-EncodedCommand"
-```
-
-Screenshot:
-```
-02-sysmon-powershell-encoded.png
-```
-
-SOC assessment:
-PowerShell executed with encoded commands and hidden window style, consistent with obfuscation and defense evasion techniques commonly observed in malicious activity.
-
-Disposition:
-- Severity: High
-- Action: Escalate for investigation
-- Classification: Suspicious behavior
+This reflects a **real enterprise SOC model** where multiple telemetry layers are required for confidence.
 
 ---
 
-## Analyst Decision Summary
+## 🔍 Detection & Investigation
 
-| Execution Type                 | Classification | Action    |
-|--------------------------------|----------------|-----------|
-| Plain-text PowerShell          | Expected       | No action |
-| Encoded and hidden PowerShell  | Suspicious     | Escalate |
+### 1️⃣ Network Reconnaissance Visibility
+Suricata and Zeek revealed **abnormal DNS and directory resolution activity** consistent with reconnaissance behavior.
 
----
+**Evidence:**
+- suricata-dns.png
+- zeek-dns.png
 
-## Key Takeaways
-- PowerShell usage alone is not inherently malicious
-- Command-line context is critical for accurate detection
-- Encoded commands and hidden execution are strong indicators of suspicious activity
-- Short-lived processes are often more reliably analyzed in a SIEM than in local event viewers
-- Effective SOC analysis focuses on behavior, not just tooling
+Indicators observed:
+- Repeated DNS queries related to AD services
+- Enumeration-style query frequency
+- Activity originating from a non-admin workstation
 
 ---
 
-## Why This Matters
-This module reflects real-world SOC workflows where analysts must:
-- Avoid alert fatigue
-- Reduce false positives
-- Identify true attacker tradecraft
-- Justify decisions with clear evidence
+### 2️⃣ Authentication Anomalies
+Windows Security Event Logs captured abnormal authentication behavior:
 
-The focus on expected vs unexpected behavior mirrors how mature SOC teams handle PowerShell activity at scale.
+- **EventCode 4625** — Failed logon attempts
+- **EventCode 4768** — Kerberos authentication ticket requests
+
+**Evidence:**
+- windows-detection-4625-4768.png
+
+Indicators observed:
+- High-volume authentication attempts
+- Requests from a single source host
+- Patterns inconsistent with normal user behavior
 
 ---
 
-## Module Status
-🟢 Complete
+### 3️⃣ Endpoint & SIEM Correlation
+Wazuh aggregated Windows authentication events and correlated them across time and source host.
+
+**Evidence:**
+- wazuh-auth-events.PNG
+
+This confirmed:
+- Centralized visibility of enumeration activity
+- Correlation between network reconnaissance and authentication anomalies
+
+---
+
+## ⚖️ Expected vs Malicious Behavior
+
+| Behavior | SOC Assessment |
+|-------|----------------|
+| Normal user logons during business hours | ✅ Expected |
+| Occasional authentication failures | ✅ Expected |
+| Repeated Kerberos auth attempts from workstation | 🚨 Suspicious |
+| Enumeration across multiple protocols | 🚨 Malicious |
+| Recon activity without admin context | 🚨 High Risk |
+
+---
+
+## 🧭 SOC Analyst Investigation Flow
+1. Alert triggered — authentication anomalies observed  
+2. Source validation — activity traced to non-privileged workstation  
+3. Telemetry correlation — network and authentication logs aligned  
+4. Behavior analysis — enumeration patterns confirmed  
+5. Risk assessment — credential harvesting suspected  
+6. SOC decision — incident escalation and containment recommended  
+
+---
+
+## 🚨 SOC Analyst Verdict
+> “Multiple authentication and directory enumeration techniques were observed originating from a non-privileged workstation. The activity is consistent with Active Directory credential enumeration and represents a high-risk precursor to credential abuse.”
+
+**Severity:** High
+
+**Recommended Actions:**
+- Isolate the source host
+- Reset potentially exposed credentials
+- Investigate for lateral movement attempts
+
+---
+
+## 🧬 MITRE ATT&CK Mapping
+
+| Technique | ID | Description |
+|--------|----|------------|
+| Account Discovery | T1087 | User and group enumeration |
+| Brute Force | T1110 | High-volume authentication attempts |
+| Kerberos Pre-Auth Abuse | T1558.004 | AS-REP roasting behavior |
+| Credential Access | TA0006 | Enumeration leading to credential theft |
+| Valid Accounts | T1078 | Abuse of legitimate credentials |
+
+---
+
+## 📸 Evidence & Artifacts
+
+screenshots/
+- asrep-enum.png
+- enum4linux-users.png
+- kerbrute-user-enum.png
+- ldapsearch-enum.png
+- suricata-dns.png
+- zeek-dns.png
+- windows-detection-4625-4768.png
+- wazuh-auth-events.PNG
+
+---
+
+## 🏁 Module Outcome
+This module demonstrates:
+- Enterprise-grade AD visibility
+- Detection of credential enumeration activity
+- SOC investigation methodology
+- Analyst decision-making and escalation
+
+✅ **SOC-101 Module 4 Complete**
