@@ -1,73 +1,131 @@
-# 🛡️ Enterprise Cybersecurity Lab – Phase 4, Module 4
-# Active Directory Credential Enumeration & Detection
+# 🟡 Module 3 — Detecting Malicious PowerShell Activity (Expected vs Unexpected)
 
-This module demonstrates how adversaries enumerate Active Directory accounts using common offensive techniques, and how enterprise security controls (Suricata, Zeek, Windows Event Logs, Wazuh) detect the activity.
+## Overview
+This module demonstrates how a SOC analyst differentiates legitimate administrative PowerShell usage from suspicious, obfuscated PowerShell execution using Sysmon process creation telemetry and Splunk SIEM analysis.
 
-## 📁 Folder Structure
+Rather than treating all PowerShell activity as malicious, this module focuses on contextual analysis of command-line behavior, which is critical for reducing false positives in real SOC environments.
+
+---
+
+## Objective
+Validate the analyst’s ability to:
+- Confirm PowerShell process creation telemetry
+- Distinguish expected vs unexpected PowerShell execution
+- Identify obfuscation and evasion techniques
+- Make a defensible SOC triage decision based on evidence
+
+---
+
+## Telemetry Source
+- Endpoint Telemetry: Sysmon
+- Event Type: Process Create
+- Sysmon Event ID: 1
+- SIEM: Splunk
+- Index: wineventlog
+- Source: XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
+
+---
+
+## Scenario Summary
+Two PowerShell executions were observed on a Windows endpoint:
+
+1. A benign, expected PowerShell execution consistent with administrative activity.
+2. A suspicious PowerShell execution using encoded commands and hidden execution.
+
+The analyst must determine which activity requires escalation.
+
+---
+
+## Detection and Investigation
+
+### Expected PowerShell Execution (Benign)
+
+Observed characteristics:
+- Process: powershell.exe
+- Command line is readable and unobfuscated
+- No attempt to hide execution
+- No encoding or evasion flags present
+
+Splunk validation:
 ```
-module_4-ad-credential-enumeration/
-│── README.md
-└── screenshots/
-    ├── asrep-enum.png
-    ├── enum4linux-users.png
-    ├── kerbrute-user-enum.png
-    ├── ldapsearch-enum.png
-    ├── suricata-dns.png
-    ├── zeek-dns.png
-    ├── windows-detection-4625-4768.png
-    └── wazuh-auth-events.PNG
+index=wineventlog source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" EventID=1 "powershell.exe"
 ```
 
-## 📸 Screenshots (Click to View)
+Screenshot:
+```
+01-sysmon-powershell-expected.png
+```
 
-### 1. Kerbrute – User Enumeration
-![Kerbrute](./screenshots/kerbrute-user-enum.png)
+SOC assessment:
+PowerShell execution observed with clear command-line arguments and no signs of obfuscation.
+Activity is consistent with normal administrative or scripting behavior.
 
-### 2. AS-REP Roasting Enumeration
-![ASREP](./screenshots/asrep-enum.png)
+Disposition:
+- Severity: Low
+- Action: No escalation required
+- Classification: Expected behavior
 
-### 3. Enum4Linux – User Enumeration
-![Enum4Linux](./screenshots/enum4linux-users.png)
+---
 
-### 4. LDAP Anonymous Enumeration
-![LDAP](./screenshots/ldapsearch-enum.png)
+### Unexpected PowerShell Execution (Suspicious)
 
-### 5. Suricata – DNS Reconnaissance Visibility
-![Suricata DNS](./screenshots/suricata-dns.png)
+Observed characteristics:
+- Process: powershell.exe
+- Command line includes:
+  - -EncodedCommand
+  - -WindowStyle Hidden
+  - -NoProfile
+- Execution hidden from user visibility
+- Encoded payload used to obscure intent
 
-### 6. Zeek – DNS / Directory Resolution Logs
-![Zeek DNS](./screenshots/zeek-dns.png)
+Splunk validation:
+```
+index=wineventlog source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" EventID=1 "-EncodedCommand"
+```
 
-### 7. Windows Security Logs – Failed & Kerberos Logons (4625, 4768)
-![Windows Logons](./screenshots/windows-detection-4625-4768.png)
+Screenshot:
+```
+02-sysmon-powershell-encoded.png
+```
 
-### 8. Wazuh – Windows Authentication Events Ingestion
-![Wazuh Auth](./screenshots/wazuh-auth-events.PNG)
+SOC assessment:
+PowerShell executed with encoded commands and hidden window style, consistent with obfuscation and defense evasion techniques commonly observed in malicious activity.
 
-## 🧩 MITRE ATT&CK Mapping
-| Technique | ID | Description |
-|----------|------|-------------|
-| Account Discovery | T1087 | Enumerating users & groups via Kerbrute, Enum4Linux, LDAP |
-| Brute Force | T1110 | High-volume Kerberos authentication attempts |
-| Kerberos Pre-Auth | T1558.004 | AS-REP roasting |
-| Credential Access | TA0006 | Enumeration & pre-auth bypass behavior |
-| Initial Access | T1078 | Wazuh-mapped authentication events |
+Disposition:
+- Severity: High
+- Action: Escalate for investigation
+- Classification: Suspicious behavior
 
-## 📝 Analyst Summary
-During this module, the attacker workstation executed multiple AD enumeration techniques commonly used during penetration testing and adversarial reconnaissance.
+---
 
-The SOC visibility stack successfully revealed:
-- DNS reconnaissance (Suricata + Zeek)
-- Kerberos authentication attempts (Windows 4768)
-- Failed logon attempts (Windows 4625)
-- Host-based detection telemetry (Wazuh)
+## Analyst Decision Summary
 
-This demonstrates full visibility across:
-- Network layer
-- Protocol layer
-- Authentication layer
-- Endpoint/SIEM ingestion layer
+| Execution Type                 | Classification | Action    |
+|--------------------------------|----------------|-----------|
+| Plain-text PowerShell          | Expected       | No action |
+| Encoded and hidden PowerShell  | Suspicious     | Escalate |
 
-← Back to Phase 4 Overview
-← Back to Enterprise Cybersecurity Lab Home
+---
 
+## Key Takeaways
+- PowerShell usage alone is not inherently malicious
+- Command-line context is critical for accurate detection
+- Encoded commands and hidden execution are strong indicators of suspicious activity
+- Short-lived processes are often more reliably analyzed in a SIEM than in local event viewers
+- Effective SOC analysis focuses on behavior, not just tooling
+
+---
+
+## Why This Matters
+This module reflects real-world SOC workflows where analysts must:
+- Avoid alert fatigue
+- Reduce false positives
+- Identify true attacker tradecraft
+- Justify decisions with clear evidence
+
+The focus on expected vs unexpected behavior mirrors how mature SOC teams handle PowerShell activity at scale.
+
+---
+
+## Module Status
+🟢 Complete
