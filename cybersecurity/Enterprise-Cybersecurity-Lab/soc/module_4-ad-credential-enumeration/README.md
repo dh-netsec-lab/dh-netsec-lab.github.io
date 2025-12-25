@@ -1,4 +1,4 @@
-# 🔴 SOC-101 Module 4 — Active Directory Credential Enumeration (Final)
+# SOC-101 Module 4 — Active Directory Credential Enumeration (Final)
 
 ## 🎯 Objective
 This module demonstrates how a Security Operations Center (SOC) detects, investigates, and validates **Active Directory (AD) credential enumeration** activity — a critical precursor to credential theft, lateral movement, and domain compromise.
