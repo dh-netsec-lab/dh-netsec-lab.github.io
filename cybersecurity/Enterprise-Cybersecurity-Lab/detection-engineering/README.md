@@ -98,6 +98,7 @@ SOC-102 is where the mindset shifts from *responding* to **engineering security 
 
 ---
 
-← Back to Enterprise Cybersecurity Lab  
-← Continue to Detection Engineering Scenarios
+← **[Back to Enterprise Cybersecurity Lab](../)**  
+→ **[Continue to Detection Engineering Scenarios](./)**  
+
 
