@@ -7,7 +7,7 @@ The focus of this module is **detection and analyst decision-making**, not explo
 
 ---
 
-## 🧠 Threat Scenario
+##  Threat Scenario
 After gaining initial access, attackers commonly perform **Active Directory enumeration** to:
 - Identify valid domain users
 - Discover service accounts
@@ -18,7 +18,7 @@ In this lab, a simulated attacker executes common AD enumeration techniques from
 
 ---
 
-## ⚔️ Attack Simulation (What Was Done)
+##  Attack Simulation (What Was Done)
 The following enumeration techniques were executed against the domain:
 
 - **Kerbrute** — Kerberos-based user enumeration
@@ -30,7 +30,7 @@ These techniques intentionally generate **authentication anomalies and reconnais
 
 ---
 
-## 📡 Telemetry Sources Observed
+##  Telemetry Sources Observed
 
 | Layer | Tooling | Purpose |
 |-----|--------|--------|
@@ -41,7 +41,7 @@ These techniques intentionally generate **authentication anomalies and reconnais
 
 ---
 
-## 🔍 Detection & Investigation
+##  Detection & Investigation
 
 ### 1️⃣ Network Reconnaissance Visibility
 Suricata and Zeek revealed **abnormal DNS and directory resolution activity** consistent with reconnaissance behavior.
@@ -75,7 +75,7 @@ Wazuh aggregated Windows authentication events and correlated them across time a
 
 ---
 
-## ⚖️ Expected vs Malicious Behavior
+##  Expected vs Malicious Behavior
 
 | Behavior | SOC Assessment |
 |-------|----------------|
@@ -87,7 +87,7 @@ Wazuh aggregated Windows authentication events and correlated them across time a
 
 ---
 
-## 🧭 SOC Analyst Investigation Flow
+##  SOC Analyst Investigation Flow
 1. Alert triggered — authentication anomalies observed  
 2. Source validation — activity traced to non-privileged workstation  
 3. Telemetry correlation — network and authentication logs aligned  
@@ -97,7 +97,7 @@ Wazuh aggregated Windows authentication events and correlated them across time a
 
 ---
 
-## 🚨 SOC Analyst Verdict
+##  SOC Analyst Verdict
 > “Multiple authentication and directory enumeration techniques were observed originating from a non-privileged workstation. The activity is consistent with Active Directory credential enumeration and represents a high-risk precursor to credential abuse.”
 
 **Severity:** High
@@ -109,7 +109,7 @@ Wazuh aggregated Windows authentication events and correlated them across time a
 
 ---
 
-## 🧬 MITRE ATT&CK Mapping
+##  MITRE ATT&CK Mapping
 
 | Technique | ID | Description |
 |--------|----|------------|
@@ -121,7 +121,7 @@ Wazuh aggregated Windows authentication events and correlated them across time a
 
 ---
 
-## 📸 Additional Enumeration Artifacts
+##  Additional Enumeration Artifacts
 
 ![Kerbrute Enumeration](screenshots/kerbrute-user-enum.png)
 
@@ -133,7 +133,7 @@ Wazuh aggregated Windows authentication events and correlated them across time a
 
 ---
 
-## 🏁 Module Outcome
+##  Module Outcome
 This module demonstrates:
 - Enterprise-grade AD visibility  
 - Detection of credential enumeration activity  
