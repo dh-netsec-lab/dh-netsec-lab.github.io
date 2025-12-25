@@ -82,7 +82,7 @@ By completing SOC-102 detection engineering scenarios, this lab demonstrates:
 - Security telemetry correlation
 - Architectural awareness of monitoring blind spots
 
-These scenarios build on foundational SOC skills and progress toward detection engineering responsibilities through practical, real-world telemetry analysis.**.
+These scenarios build on foundational SOC skills and progress toward detection engineering responsibilities through practical, real-world telemetry analysis.
 
 ---
 
