@@ -19,9 +19,25 @@
 👉 **[Open Module 2](./module_2-powershell-execution-visibility/)**
 
 ---
-## 🟡 Module 3 — Detecting Malicious PowerShell Activity
 
-This module demonstrates how to distinguish expected PowerShell usage from suspicious, obfuscated execution using Sysmon process creation telemetry and Splunk.
+### 🟡 Module 3 — Detecting Malicious PowerShell Activity
+**Focus**
+- Expected vs suspicious PowerShell behavior
+- Encoded and obfuscated PowerShell patterns
+- Investigation workflow in Splunk
 
-👉 [Open Module 3](module_3-malicious-powershell/)
+👉 **[Open Module 3](./module_3-malicious-powershell/)**
+
+---
+
+### 🔴 Module 4 — AD Credential Enumeration (Final)
+**Focus**
+- Active Directory credential enumeration techniques
+- Authentication anomaly detection (EventCodes 4625 / 4768)
+- Correlation across Suricata, Zeek, and Wazuh
+- SOC investigation flow and analyst verdict
+
+👉 **[Open Module 4](./module_4-ad-credential-enumeration/)**
+
+---
 
