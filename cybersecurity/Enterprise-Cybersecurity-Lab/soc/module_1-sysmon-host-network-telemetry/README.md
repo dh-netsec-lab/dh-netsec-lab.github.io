@@ -1,4 +1,4 @@
-# Module 6 — Detecting Port Enumeration with Sysmon EventCode 3
+# Module 1 — Sysmon-Host-Network-Telemetry
 
 ## Overview
 This module demonstrates how Sysmon EventCode 3 (Network Connection)
