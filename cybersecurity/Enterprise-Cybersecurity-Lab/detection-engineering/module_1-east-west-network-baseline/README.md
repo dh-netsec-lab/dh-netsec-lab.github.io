@@ -81,6 +81,9 @@ This telemetry represents the **raw substrate** used later for detection logic a
 ### 3️⃣ tcpdump — ICMP Ground Truth (Pending Replacement)
 `tcpdump` is used to validate that ICMP traffic is occurring as expected at the packet level.
 
+⚠️ **Note:**  
+The current capture shows *unreachable responses* and will be **replaced** with a successful ICMP echo request / reply example to accurately represent baseline-normal behavior.
+
 ![tcpdump ICMP Capture](./screenshots/tcpdump-icmp-capture-01.png)
 
 ---
@@ -127,3 +130,26 @@ All future detections will be measured **against this established baseline**.
 ---
 
 ## 📁 Artifacts
+```
+screenshots/
+├── suricata-fastlog-icmp-03.png
+├── suricata-icmp-eve-flow-02.png
+├── tcpdump-icmp-capture-01.png   (to be replaced with successful ICMP)
+└── zeek-connlog-icmp-04.png
+```
+
+---
+
+## 🏁 Module Outcome
+By completing this module, you have:
+- Established a defensible East/West network baseline
+- Validated ICMP as expected internal behavior
+- Confirmed visibility across Suricata, Zeek, and tcpdump
+- Created a foundation for detection engineering decisions
+
+This module intentionally avoids alerting and focuses on **understanding normal behavior first**.
+
+---
+
+← **[Back to Detection Engineering](../)**  
+→ **[Next: Network Reconnaissance & Scanning Detection](../module_2-network-reconnaissance/)**
