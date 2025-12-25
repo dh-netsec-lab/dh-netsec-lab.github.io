@@ -52,46 +52,39 @@ All telemetry is derived from **internal (East/West) traffic only**.
 
 ## 🔍 Observed Reconnaissance Behaviors
 
-### 1️⃣ Zeek — One-to-Many Internal Host Discovery
-Zeek connection logs reveal a single internal host initiating ICMP probes to multiple internal IP addresses over a short time window.
+### 1️⃣ Zeek — Port Spread Across Internal Hosts
+Zeek connection logs reveal a single internal host initiating repeated short-lived TCP connections to **multiple destination ports** across internal systems.
 
-This behavior deviates from the baseline established in Module 1 and indicates **internal host discovery activity**.
+This behavior deviates from the stable, predictable communication patterns established in Module 1 and is indicative of **internal service enumeration** rather than normal application traffic.
 
-📸 *Screenshot:* Zeek `conn.log` showing ICMP sweep behavior
-
----
-
-### 2️⃣ Zeek — Port Spread Across Internal Hosts
-Connection records show repeated short-lived TCP connections from one source to **multiple ports**, indicating service enumeration rather than normal application behavior.
-
-Key indicators:
+Key indicators include:
 - High number of unique destination ports
 - Minimal connection duration
 - Lack of full session establishment
 
-📸 *Screenshot:* Zeek `conn.log` highlighting port spread
+📸 *Screenshot:* Zeek `conn.log` highlighting internal port spread
 
 ---
 
-### 3️⃣ Suricata — SYN-Only Flow States
+### 2️⃣ Suricata — SYN-Only Flow States
 Suricata flow metadata confirms reconnaissance behavior by identifying:
-- TCP SYN packets
-- Limited or absent handshake completion
+- TCP SYN packets without completed handshakes
 - Elevated connection attempts without data exchange
+- Repeated timeout-based flows
 
-Suricata acts as **confirmatory telemetry**, reinforcing behavioral findings from Zeek.
+Suricata serves as **confirmatory telemetry**, reinforcing the behavioral signal observed in Zeek rather than acting as the primary detection source.
 
 📸 *Screenshot:* Suricata `eve.json` showing SYN-only flows
 
 ---
 
-### 4️⃣ tcpdump — Packet-Level Validation
+### 3️⃣ tcpdump — Packet-Level Validation
 A targeted tcpdump capture validates reconnaissance behavior at the packet level, confirming:
-- Repeated SYN packets
-- ICMP echo requests to multiple internal hosts
+- Repeated TCP SYN packets
+- Multiple destination ports contacted in rapid succession
 - Lack of sustained bidirectional communication
 
-This capture is used strictly for **ground truth validation**, not primary detection.
+This capture is used strictly for **ground-truth validation**, not as a primary detection mechanism.
 
 📸 *Screenshot:* tcpdump capture showing internal reconnaissance traffic
 
