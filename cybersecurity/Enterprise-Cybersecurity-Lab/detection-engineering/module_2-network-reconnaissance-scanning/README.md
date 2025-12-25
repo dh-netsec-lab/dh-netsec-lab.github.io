@@ -62,7 +62,7 @@ Key indicators include:
 - Minimal connection duration
 - Lack of full session establishment
 
-📸 *Screenshot:* Zeek `conn.log` highlighting internal port spread
+![Zeek conn.log — Internal Port Spread](./screenshots/zeek-connlog-port-spread.png)
 
 ---
 
@@ -74,7 +74,7 @@ Suricata flow metadata confirms reconnaissance behavior by identifying:
 
 Suricata serves as **confirmatory telemetry**, reinforcing the behavioral signal observed in Zeek rather than acting as the primary detection source.
 
-📸 *Screenshot:* Suricata `eve.json` showing SYN-only flows
+![Suricata eve.json — SYN-only flows](./screenshots/suricata-syn-flows.png)
 
 ---
 
@@ -86,7 +86,7 @@ A targeted tcpdump capture validates reconnaissance behavior at the packet level
 
 This capture is used strictly for **ground-truth validation**, not as a primary detection mechanism.
 
-📸 *Screenshot:* tcpdump capture showing internal reconnaissance traffic
+![tcpdump — Internal Reconnaissance Traffic](./screenshots/tcpdump-internal-recon.png)
 
 ---
 
