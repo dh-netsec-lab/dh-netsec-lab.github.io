@@ -39,8 +39,6 @@ These techniques intentionally generate **authentication anomalies and reconnais
 | Host | Windows Security Logs | Authentication activity |
 | Endpoint / SIEM | Wazuh | Centralized auth event visibility |
 
-This reflects a **real enterprise SOC model** where multiple telemetry layers are required for confidence.
-
 ---
 
 ## 🔍 Detection & Investigation
@@ -49,29 +47,22 @@ This reflects a **real enterprise SOC model** where multiple telemetry layers ar
 Suricata and Zeek revealed **abnormal DNS and directory resolution activity** consistent with reconnaissance behavior.
 
 **Evidence:**
-- suricata-dns.png
-- zeek-dns.png
 
-Indicators observed:
-- Repeated DNS queries related to AD services
-- Enumeration-style query frequency
-- Activity originating from a non-admin workstation
+![Suricata DNS Evidence](screenshots/suricata-dns.png)
+
+![Zeek DNS Evidence](screenshots/zeek-dns.png)
 
 ---
 
 ### 2️⃣ Authentication Anomalies
 Windows Security Event Logs captured abnormal authentication behavior:
 
-- **EventCode 4625** — Failed logon attempts
-- **EventCode 4768** — Kerberos authentication ticket requests
+- **EventCode 4625** — Failed logon attempts  
+- **EventCode 4768** — Kerberos authentication ticket requests  
 
 **Evidence:**
-- windows-detection-4625-4768.png
 
-Indicators observed:
-- High-volume authentication attempts
-- Requests from a single source host
-- Patterns inconsistent with normal user behavior
+![Windows Authentication Evidence](screenshots/windows-detection-4625-4768.png)
 
 ---
 
@@ -79,11 +70,8 @@ Indicators observed:
 Wazuh aggregated Windows authentication events and correlated them across time and source host.
 
 **Evidence:**
-- wazuh-auth-events.PNG
 
-This confirmed:
-- Centralized visibility of enumeration activity
-- Correlation between network reconnaissance and authentication anomalies
+![Wazuh Authentication Events](screenshots/wazuh-auth-events.PNG)
 
 ---
 
@@ -133,25 +121,23 @@ This confirmed:
 
 ---
 
-## 📸 Evidence & Artifacts
+## 📸 Additional Enumeration Artifacts
 
-screenshots/
-- asrep-enum.png
-- enum4linux-users.png
-- kerbrute-user-enum.png
-- ldapsearch-enum.png
-- suricata-dns.png
-- zeek-dns.png
-- windows-detection-4625-4768.png
-- wazuh-auth-events.PNG
+![Kerbrute Enumeration](screenshots/kerbrute-user-enum.png)
+
+![AS-REP Enumeration](screenshots/asrep-enum.png)
+
+![Enum4Linux Users](screenshots/enum4linux-users.png)
+
+![LDAP Enumeration](screenshots/ldapsearch-enum.png)
 
 ---
 
 ## 🏁 Module Outcome
 This module demonstrates:
-- Enterprise-grade AD visibility
-- Detection of credential enumeration activity
-- SOC investigation methodology
-- Analyst decision-making and escalation
+- Enterprise-grade AD visibility  
+- Detection of credential enumeration activity  
+- SOC investigation methodology  
+- Analyst decision-making and escalation  
 
 ✅ **SOC-101 Module 4 Complete**
