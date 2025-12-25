@@ -81,9 +81,6 @@ This telemetry represents the **raw substrate** used later for detection logic a
 ### 3️⃣ tcpdump — ICMP Ground Truth (Pending Replacement)
 `tcpdump` is used to validate that ICMP traffic is occurring as expected at the packet level.
 
-⚠️ **Note:**  
-The current capture shows *unreachable responses* and will be **replaced** with a successful ICMP echo request / reply example to accurately represent baseline-normal behavior.
-
 ![tcpdump ICMP Capture](./screenshots/tcpdump-icmp-capture-01.png)
 
 ---
