@@ -17,3 +17,11 @@
 - Distinguishing legitimate vs notable activity
 
 👉 **[Open Module 2](./module_2-powershell-execution-visibility/)**
+
+---
+## 🟡 Module 3 — Detecting Malicious PowerShell Activity
+
+This module demonstrates how to distinguish expected PowerShell usage from suspicious, obfuscated execution using Sysmon process creation telemetry and Splunk.
+
+👉 [Open Module 3](module_3-malicious-powershell/)
+
