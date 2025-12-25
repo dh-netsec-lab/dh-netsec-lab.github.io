@@ -1,4 +1,4 @@
-# 🧠 Detection Engineering (SOC-102)
+#  Detection Engineering (SOC-102)
 
 ## Overview
 The **Detection Engineering** section of the Enterprise Cybersecurity Lab represents **SOC-102** — the transition from alert triage to **designing, validating, and tuning detections**.
@@ -11,7 +11,7 @@ This section demonstrates how security telemetry is transformed into **reliable,
 
 ---
 
-## 🎯 Purpose
+##  Purpose
 Detection engineering sits at the intersection of:
 - Network visibility
 - Security analytics
@@ -26,7 +26,7 @@ The goal is to move beyond reactive alerting and toward:
 
 ---
 
-## 🔄 SOC-101 vs SOC-102
+##  SOC-101 vs SOC-102
 
 | SOC-101 (Analyst) | SOC-102 (Detection Engineering) |
 |-----------------|--------------------------------|
@@ -40,7 +40,7 @@ SOC-102 builds on SOC-101 but requires a **different mindset**: engineering reli
 
 ---
 
-## 🧰 Core Telemetry & Tooling
+##  Core Telemetry & Tooling
 Detection engineering scenarios in this section leverage:
 
 - **Zeek** — Behavioral network analysis and protocol metadata  
@@ -54,7 +54,7 @@ These tools are used to **reason about behavior**, not simply generate alerts.
 
 ---
 
-## 🧩 Detection Engineering Scenarios
+##  Detection Engineering Scenarios
 Rather than traditional “labs,” SOC-102 is organized into **Detection Engineering Scenarios**, each focused on a specific capability:
 
 - Establishing **network baselines**
@@ -72,7 +72,7 @@ Each scenario answers:
 
 ---
 
-## 🏗️ Skills Demonstrated
+##  Skills Demonstrated
 By completing SOC-102 detection engineering scenarios, this lab demonstrates:
 
 - Network behavior analysis
@@ -86,7 +86,7 @@ These are **mid-to-senior level SOC and security engineering skills**.
 
 ---
 
-## 🧭 What Comes Next
+##  What Comes Next
 SOC-102 bridges the gap between SOC operations and advanced security practice.
 
 From here, the lab expands into:
