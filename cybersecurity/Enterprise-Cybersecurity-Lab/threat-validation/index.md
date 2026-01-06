@@ -1,6 +1,3 @@
----
-title: Threat Validation & Containment
----
 
 # Threat Validation & Containment
 
