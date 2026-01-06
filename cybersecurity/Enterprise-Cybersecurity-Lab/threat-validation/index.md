@@ -4,37 +4,36 @@ title: Threat Validation & Containment
 
 # Threat Validation & Containment
 
-This section demonstrates how enterprise security controls are **validated end-to-end** — from exposure identification, through detection, and into containment.
+This section demonstrates how enterprise security controls are validated end-to-end — from exposure identification, through detection, and into containment.
 
-The labs below follow a realistic threat lifecycle used by enterprise security and SOC teams.
+These case studies reflect real-world SOC and security engineering workflows.
 
 ---
 
 ## 🔍 Threat Validation Case Studies
 
 ### 1️⃣ Exposure Validation
-**Goal:** Identify what internal services and systems are reachable prior to enforcement.
+**Objective:** Identify internal services and systems reachable prior to enforcement.
 
-📁 lab-01-exposure-validation
+👉 [View Lab 01 — Exposure Validation](lab-01-exposure-validation/)
 
 ---
 
 ### 2️⃣ East-West Lateral Movement Validation
-**Goal:** Validate how an internal attacker can move laterally across network segments.
+**Objective:** Validate how an internal attacker can move laterally across network segments.
 
-📁 lab-02-east-west-lateral-movement-validation
+👉 [View Lab 02 — East-West Lateral Movement Validation](lab-02-east-west-lateral-movement-validation/)
 
 ---
 
 ### 3️⃣ Detection Engineering
-**Goal:** Detect reconnaissance and lateral movement using network telemetry (Zeek / Suricata / Splunk).
+**Objective:** Detect reconnaissance and lateral movement using network telemetry.
 
-📁 lab-03-detection-engineering
+👉 [View Lab 03 — Detection Engineering](lab-03-detection-engineering/)
 
 ---
 
 ## 🔒 Next Phase — Containment & Microsegmentation (In Progress)
 
-The next phase introduces **policy-based containment** using Palo Alto Networks microsegmentation to prevent lateral movement and validate enforcement via firewall telemetry.
-
+The next phase introduces policy-based containment using Palo Alto Networks microsegmentation to prevent lateral movement and validate enforcement via firewall telemetry.
 
