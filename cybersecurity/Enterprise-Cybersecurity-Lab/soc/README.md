@@ -47,7 +47,8 @@ Detection alone is not sufficient without verifying that security controls actua
 
 The next phase validates that detected threats are effectively contained using segmentation, firewall enforcement, and identity controls.
 
-👉 **[Continue to Threat Validation & Containment](/cybersecurity/Enterprise-Cybersecurity-Lab/threat-validation/)**
+👉 **[Continue to Threat Validation & Containment](https://dh-netsec-lab.github.io/cybersecurity/Enterprise-Cybersecurity-Lab/threat-validation/)**
+
 
 
 
