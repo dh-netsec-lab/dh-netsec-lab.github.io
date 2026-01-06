@@ -1,6 +1,6 @@
----
-title: Threat Validation & Containment
----
+-
+
+# Threat Validation & Containment
 
 This section demonstrates how enterprise security controls are validated end-to-end — from exposure identification, through detection, and into containment.
 
