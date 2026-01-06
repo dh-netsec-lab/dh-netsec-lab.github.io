@@ -41,3 +41,14 @@
 
 ---
 
+---
+
+## From Detection to Validation
+
+Detection alone is not sufficient without verifying that security controls actually prevent or contain malicious activity.
+
+The next phase validates that detected threats are effectively contained using segmentation, firewall enforcement, and identity controls.
+
+👉 **[Continue to Threat Validation & Containment](../threat-validation/)**
+
+
