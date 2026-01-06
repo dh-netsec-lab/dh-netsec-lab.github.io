@@ -1,4 +1,3 @@
--
 
 # Threat Validation & Containment
 
