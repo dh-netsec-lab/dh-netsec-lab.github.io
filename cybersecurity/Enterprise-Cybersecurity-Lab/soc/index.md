@@ -40,3 +40,10 @@
 👉 **[Open Module 4](./module_4-ad-credential-enumeration/)**
 
 ---
+
+## Next: Threat Validation & Containment
+
+Detection is only valuable if controls are validated and enforcement is confirmed through telemetry.
+
+👉 **[Continue to Threat Validation & Containment](https://dh-netsec-lab.github.io/cybersecurity/Enterprise-Cybersecurity-Lab/threat-validation/)**
+
