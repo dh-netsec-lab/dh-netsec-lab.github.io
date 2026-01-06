@@ -41,8 +41,6 @@
 
 ---
 
----
-
 ## From Detection to Validation
 
 Detection alone is not sufficient without verifying that security controls actually prevent or contain malicious activity.
