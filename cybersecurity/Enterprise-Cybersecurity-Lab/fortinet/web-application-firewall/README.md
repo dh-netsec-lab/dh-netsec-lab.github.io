@@ -9,7 +9,12 @@ The WAF is deployed behind an NGFW VIP layer and provides Layer 7 inspection,
 policy enforcement, and application security controls.
 
 ## Architecture
+
 Edge Router → FortiGate VIPs → FortiWeb → Backend Web Applications
+
+This WAF deployment operates within the broader ECL topology and focuses
+specifically on application-layer protection and traffic flow validation.
+
 
 ## Troubleshooting
 A real-world NAT and return-traffic failure was encountered and resolved
