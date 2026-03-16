@@ -6,7 +6,7 @@ IPsec VPN, and BGP.
 
 ## High Level Architecture
 
-![Hybrid DC Architecture](diagrams/hybrid-datacenter-aws-hld.png)
+![Hybrid DC Architecture](./diagrams/hybrid-datacenter-aws-hld.png)
 
 ## Overview
 
