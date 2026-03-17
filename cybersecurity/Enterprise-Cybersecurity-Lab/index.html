@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enterprise Cybersecurity Lab (ECL)</title>
+
     <style>
         body {
             margin: 0;
@@ -12,34 +13,41 @@
             color: #222;
             line-height: 1.6;
         }
+
         header {
             background: #0d1117;
             color: #fff;
             padding: 56px 20px;
             text-align: center;
         }
+
         header h1 {
             margin: 0;
             font-size: 2.7rem;
-            font-weight: 700;
         }
+
         header p {
-            margin: 12px auto 0;
-            max-width: 900px;
-            font-size: 1.08rem;
+            margin-top: 12px;
+            font-size: 1.05rem;
             opacity: 0.9;
         }
+
         .section {
             padding: 24px 40px;
             max-width: 1400px;
             margin: auto;
         }
+
         h2 {
-            margin-top: 44px;
+            margin-top: 40px;
             border-bottom: 2px solid #ccc;
             padding-bottom: 8px;
-            font-size: 1.7rem;
         }
+
+        p {
+            max-width: 1100px;
+        }
+
         img.topology {
             width: 100%;
             max-width: 1400px;
@@ -48,91 +56,17 @@
             margin-top: 15px;
             background: #fff;
         }
-        p {
-            max-width: 1100px;
-        }
-        table {
-            width: 100%;
-            margin-top: 20px;
-            border-collapse: collapse;
-            background: #fff;
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 12px 10px;
-            text-align: left;
-            vertical-align: top;
-        }
-        th {
-            background: #eee;
-            font-weight: 600;
-        }
-        a.button {
-            display: inline-block;
-            background: #0066ff;
-            color: white;
-            padding: 7px 12px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.95rem;
-            white-space: nowrap;
-        }
-        a.button:hover {
-            background: #0053cc;
-        }
-        .status-planned {
-            color: #666;
-            font-style: italic;
-        }
+
         footer {
             background: #e5e8ec;
             padding: 20px 40px;
             margin-top: 50px;
-            font-size: 0.95rem;
         }
+
         footer a {
-            color: #0d1117;
             text-decoration: none;
             font-weight: 600;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
-        @media (max-width: 900px) {
-            .section {
-                padding: 20px;
-            }
-            header {
-                padding: 40px 20px;
-            }
-            header h1 {
-                font-size: 2.1rem;
-            }
-            table, thead, tbody, th, td, tr {
-                display: block;
-            }
-            thead {
-                display: none;
-            }
-            tr {
-                margin-bottom: 14px;
-                border: 1px solid #ccc;
-                background: #fff;
-            }
-            td {
-                border: none;
-                border-bottom: 1px solid #eee;
-            }
-            td:last-child {
-                border-bottom: none;
-            }
-            td::before {
-                content: attr(data-label);
-                display: block;
-                font-weight: 700;
-                margin-bottom: 4px;
-                color: #444;
-            }
+            color: #0d1117;
         }
     </style>
 </head>
@@ -142,8 +76,8 @@
 <header>
     <h1>Enterprise Cybersecurity Lab (ECL)</h1>
     <p>
-        Enterprise-scale cybersecurity lab focused on network security, identity services, telemetry,
-        detection engineering, and hybrid infrastructure validation.
+        Multi-site enterprise security architecture integrating networking, firewall enforcement,
+        identity services, telemetry, and detection engineering.
     </p>
 </header>
 
@@ -151,77 +85,23 @@
 
     <h2>Overview</h2>
     <p>
-        The Enterprise Cybersecurity Lab (ECL) is a multi-domain security engineering environment designed
-        to simulate real-world enterprise infrastructure. It integrates firewalls, identity services,
-        telemetry pipelines, network access control, hybrid connectivity, and security monitoring workflows
-        to demonstrate practical design, deployment, validation, and troubleshooting skills.
+        The Enterprise Cybersecurity Lab (ECL) is a multi-site enterprise security environment designed to simulate real-world network, security, and detection engineering operations. The architecture spans multiple locations and integrates routing, firewall enforcement, identity services, telemetry pipelines, and hybrid cloud connectivity into a unified platform.
+    </p>
+
+    <p>
+        The environment includes segmented network zones such as management, user, server, and DMZ networks. Traffic flows through Palo Alto firewalls where security policies, NAT, and inspection are enforced. Edge routing connects multiple sites and upstream providers, enabling realistic north-south traffic flow while maintaining internal segmentation for east-west control.
+    </p>
+
+    <p>
+        Security visibility is achieved through a centralized telemetry pipeline including Splunk, Sysmon, Suricata, Zeek, and Wazuh, providing full-stack observability across endpoints, servers, and network sensors. Identity-aware controls are implemented using Active Directory and ClearPass to support authentication, authorization, and network access enforcement.
+    </p>
+
+    <p>
+        The lab also includes attacker simulation and vulnerable systems to support detection engineering and SOC workflows, enabling validation of alerts, correlation, and response scenarios. Hybrid connectivity to external environments such as AWS and secure web gateways extends the architecture beyond a single site.
     </p>
 
     <h2>Network Topology</h2>
     <img class="topology" src="screenshots/network_topology_v2.png" alt="Enterprise Cybersecurity Lab Topology">
-
-    <h2>Core Workstreams</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Workstream</th>
-                <th>Focus Area</th>
-                <th>Description</th>
-                <th>Access</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td data-label="Workstream">Network Connectivity</td>
-                <td data-label="Focus Area">Routing, NAT, Inter-Site Reachability</td>
-                <td data-label="Description">
-                    Core network services and path validation across the lab, including routing behavior,
-                    firewall transit, and site-to-site communication.
-                </td>
-                <td data-label="Access"><a class="button" href="phase1/">View Workstream</a></td>
-            </tr>
-
-            <tr>
-                <td data-label="Workstream">Security Visibility and Telemetry</td>
-                <td data-label="Focus Area">Rsyslog, Splunk, Sysmon, Suricata, Zeek</td>
-                <td data-label="Description">
-                    Centralized logging and telemetry pipeline for collection, normalization, and visibility
-                    across servers, endpoints, and network sensors.
-                </td>
-                <td data-label="Access"><a class="button" href="siem/">View Workstream</a></td>
-            </tr>
-
-            <tr>
-                <td data-label="Workstream">Identity and Trust</td>
-                <td data-label="Focus Area">Active Directory, DNS, PKI, ClearPass, 802.1X, TACACS+</td>
-                <td data-label="Description">
-                    Identity-driven controls and trust services that support authentication, authorization,
-                    certificate services, and network access control.
-                </td>
-                <td data-label="Access"><a class="button" href="identity-trust/">View Workstream</a></td>
-            </tr>
-
-            <tr>
-                <td data-label="Workstream">Threat Detection and SOC Engineering</td>
-                <td data-label="Focus Area">Correlation, Detection Logic, Red/Blue Workflows</td>
-                <td data-label="Description">
-                    Detection engineering and SOC-focused validation using alerts, correlation logic,
-                    adversary simulation, and investigation workflows.
-                </td>
-                <td data-label="Access"><a class="button" href="soc/">View Workstream</a></td>
-            </tr>
-
-            <tr>
-                <td data-label="Workstream">Governance, Risk, and Compliance</td>
-                <td data-label="Focus Area">Risk Modeling, Control Mapping, Security Governance</td>
-                <td data-label="Description">
-                    Planned expansion area for documenting controls, mapping technical implementations
-                    to security frameworks, and evaluating lab risk posture.
-                </td>
-                <td data-label="Access"><span class="status-planned">Planned</span></td>
-            </tr>
-        </tbody>
-    </table>
 
 </div>
 
