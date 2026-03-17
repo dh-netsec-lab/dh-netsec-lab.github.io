@@ -78,7 +78,7 @@ Settings used:
 This profile is used to secure data traffic inside the tunnel.
 
 Screenshot:  
-![IPSec Crypto Profile](screenshots/palo-vpn-ipsec-crypto.png)
+![IPSec Crypto Profile](screenshots/palo-vpn-ipsec.png)
 
 ---
 
