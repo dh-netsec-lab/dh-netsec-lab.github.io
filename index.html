@@ -29,6 +29,12 @@
         .section {
             padding: 20px 40px;
         }
+        .intro {
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+            text-align: center;
+            line-height: 1.6;
+        }
         .featured-labs {
             display: flex;
             gap: 20px;
@@ -39,7 +45,7 @@
             background: white;
             border-radius: 10px;
             padding: 20px;
-            width: 280px;
+            width: 300px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
         .lab-card h3 {
@@ -72,58 +78,71 @@
 <body>
 
 <header>
-    <h1>DH NetSec Lab – Professional Security Engineering Portfolio</h1>
-    <p>Network Security • Cybersecurity • SOC Engineering</p>
+    <h1>DH NetSec Lab – Security Engineering Portfolio</h1>
+    <p>Palo Alto • Hybrid Datacenter Architecture • Cybersecurity Operations</p>
 </header>
 
 <div class="section">
-    <h2>⭐ Featured Labs</h2>
+    <div class="intro">
+        <p>
+            <p>
+This portfolio showcases enterprise security and network architecture design combined with hands-on implementation, including Palo Alto firewalls, hybrid datacenter environments, AWS connectivity, and cybersecurity operations.
+</p>
+        </p>
+    </div>
+
+    <h2>Featured Projects</h2>
 
     <div class="featured-labs">
 
-        <!-- Palo Alto Networks Lab -->
         <div class="lab-card">
-            <h3>Palo Alto Networks Lab Series</h3>
-            <p>Enterprise firewall deployment with Panorama, VPN, logging, and security profiles.</p>
+            <h3>Hybrid Datacenter + AWS Architecture Lab</h3>
+            <p>
+                Flagship architecture project featuring spine-leaf design, Palo Alto HA firewalls,
+                VRF segmentation, dual ISP edge routing, and AWS Transit Gateway integration using IPSec and BGP.
+            </p>
+            <button onclick="location.href='architecture/Hybrid-Datacenter-Architecture/'">View Architecture Lab</button>
+        </div>
+
+        <div class="lab-card">
+            <h3>Palo Alto Firewall Lab Series</h3>
+            <p>
+                Hands-on Palo Alto labs covering Panorama, GlobalProtect, site-to-site VPNs,
+                NAT, security policy design, logging, and hybrid cloud connectivity.
+            </p>
             <button onclick="location.href='network-security/palo-alto-labs/'">View Palo Alto Labs</button>
         </div>
 
-        <!-- Enterprise Cybersecurity Lab (ECL) -->
         <div class="lab-card">
             <h3>Enterprise Cybersecurity Lab (ECL)</h3>
-            <p>Full SOC environment with Suricata, Zeek, Wazuh, Splunk, Windows AD, and more.</p>
-            <button onclick="location.href='cybersecurity/Enterprise-Cybersecurity-Lab/index.html'">Enter ECL</button>
-        </div>
-
-        <!-- SOC Threat Detection Lab -->
-        <div class="lab-card">
-            <h3>SOC Threat Detection Lab</h3>
-            <p>Threat detection with Suricata, Zeek, Wazuh, Sysmon, and Splunk pipeline.</p>
-            <button onclick="location.href='cybersecurity/Enterprise-Cybersecurity-Lab/soc/'">Enter SOC Lab</button>
+            <p>
+                Enterprise-style security lab with Splunk, Suricata, Zeek, Wazuh, Sysmon,
+                Nessus, Active Directory, and detection workflows across a segmented environment.
+            </p>
+            <button onclick="location.href='cybersecurity/Enterprise-Cybersecurity-Lab/index.html'">View ECL Lab</button>
         </div>
 
     </div>
 </div>
 
 <footer>
-    <h2>📇 Contact</h2>
-<p><strong>Email:</strong> 
-    <a href="mailto:derrick_hervey@yahoo.com">derrick_hervey@yahoo.com</a>
-</p>
+    <h2>Contact</h2>
 
-<p><strong>LinkedIn:</strong> 
-    <a href="https://www.linkedin.com/in/derrickhervey" target="_blank">
-        www.linkedin.com/in/derrickhervey
-    </a>
-</p>
+    <p><strong>Email:</strong>
+        <a href="mailto:derrick_hervey@yahoo.com">derrick_hervey@yahoo.com</a>
+    </p>
 
-<!-- Subtle GitHub Repo Link -->
-<p><strong>GitHub Repository:</strong> 
-    <a href="https://github.com/dh-netsec-lab/dh-netsec-lab.github.io" target="_blank">
-        github.com/dh-netsec-lab/dh-netsec-lab.github.io
-    </a>
-</p>
+    <p><strong>LinkedIn:</strong>
+        <a href="https://www.linkedin.com/in/derrickhervey" target="_blank">
+            www.linkedin.com/in/derrickhervey
+        </a>
+    </p>
 
+    <p><strong>GitHub Repository:</strong>
+        <a href="https://github.com/dh-netsec-lab/dh-netsec-lab.github.io" target="_blank">
+            github.com/dh-netsec-lab/dh-netsec-lab.github.io
+        </a>
+    </p>
 </footer>
 
 </body>
