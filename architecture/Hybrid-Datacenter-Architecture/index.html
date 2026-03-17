@@ -117,6 +117,18 @@
     </div>
 
     <div class="section">
+    <h2>Design Decisions</h2>
+    <ul>
+        <li>Implemented a spine-leaf architecture to simulate scalable east-west traffic patterns found in modern datacenters.</li>
+        <li>Deployed Palo Alto firewalls as a routed hop to enforce security policies and provide full traffic inspection.</li>
+        <li>Centralized Layer 3 gateway functionality on Palo Alto firewalls to ensure east-west traffic traverses security controls, enabling inspection, segmentation, and policy enforcement across datacenter zones.</li>
+        <li>Used VRF segmentation (INET, DC, WAN) to isolate routing domains and model enterprise network segmentation.</li>
+        <li>Integrated AWS using Transit Gateway to simulate hybrid cloud connectivity with centralized routing.</li>
+        <li>Leveraged BGP for dynamic route exchange across edge, datacenter, and cloud environments.</li>
+    </ul>
+</div>
+
+    <div class="section">
         <h2>Palo Alto Role Relevance</h2>
         <ul>
             <li>Designed and implemented Palo Alto firewall HA architecture</li>
