@@ -84,60 +84,58 @@
     </div>
 
     <div class="section">
-        <h2>Key Components</h2>
-        <ul>
-            <li>Spine-Leaf Datacenter Fabric (Juniper)</li>
-            <li>Palo Alto Firewalls (Active/Passive HA)</li>
-            <li>VRF Segmentation (INET, DC, WAN)</li>
-            <li>Dual ISP Edge with BGP</li>
-            <li>AWS Transit Gateway Integration</li>
-            <li>IPSec VPN + BGP Routing</li>
-        </ul>
-    </div>
+    <h2>Key Components</h2>
+    <ul>
+        <li>Spine-leaf datacenter fabric built with Juniper vQFX</li>
+        <li>Palo Alto firewalls deployed in Active/Passive HA</li>
+        <li>VRF segmentation for INET, DC, and WAN routing domains</li>
+        <li>Dual-ISP edge with BGP routing</li>
+        <li>AWS Transit Gateway integration</li>
+        <li>IPSec VPN with dynamic route exchange through BGP</li>
+    </ul>
+</div>
 
-    <div class="section">
-        <h2>Traffic Flow</h2>
-        <p>
-            North-South traffic flows from the internet through edge routers into Palo Alto firewalls,
-            then into the datacenter fabric. East-West traffic between internal segments is routed
-            through the firewall to ensure visibility and policy enforcement.
-        </p>
-    </div>
+<div class="section">
+    <h2>Traffic Flow</h2>
+    <p>
+        North-south traffic flows from the internet through the edge routers into the Palo Alto firewalls and then into the datacenter fabric. East-west traffic between internal datacenter segments is routed through the firewalls to provide visibility, segmentation, and policy enforcement.
+    </p>
+</div>
 
-    <div class="section">
-        <h2>Technologies Used</h2>
-        <ul>
-            <li>Palo Alto Networks (PAN-OS, Panorama)</li>
-            <li>AWS Transit Gateway</li>
-            <li>BGP (eBGP & iBGP)</li>
-            <li>IPSec VPN</li>
-            <li>VRFs</li>
-            <li>Juniper JunOS (vQFX)</li>
-        </ul>
-    </div>
+<div class="section">
+    <h2>Technologies Used</h2>
+    <ul>
+        <li>Palo Alto Networks (PAN-OS, Panorama)</li>
+        <li>AWS Transit Gateway</li>
+        <li>BGP (eBGP and iBGP)</li>
+        <li>IPSec VPN</li>
+        <li>VRFs</li>
+        <li>Juniper JunOS (vQFX)</li>
+    </ul>
+</div>
 
-    <div class="section">
+<div class="section">
     <h2>Design Decisions</h2>
     <ul>
-        <li>Implemented a spine-leaf architecture to simulate scalable east-west traffic patterns found in modern datacenters.</li>
-        <li>Deployed Palo Alto firewalls as a routed hop to enforce security policies and provide full traffic inspection.</li>
-        <li>Centralized Layer 3 gateway functionality on Palo Alto firewalls to ensure east-west traffic traverses security controls, enabling inspection, segmentation, and policy enforcement across datacenter zones.</li>
-        <li>Used VRF segmentation (INET, DC, WAN) to isolate routing domains and model enterprise network segmentation.</li>
-        <li>Integrated AWS using Transit Gateway to simulate hybrid cloud connectivity with centralized routing.</li>
+        <li>Implemented a spine-leaf architecture to model scalable east-west traffic patterns used in modern datacenters.</li>
+        <li>Deployed Palo Alto firewalls as a routed security boundary to enforce policy and provide full traffic inspection.</li>
+        <li>Centralized Layer 3 gateway functionality for datacenter VLANs on the Palo Alto firewalls so east-west traffic traverses security controls.</li>
+        <li>Used VRF segmentation to isolate routing domains and reflect enterprise network design practices.</li>
+        <li>Integrated AWS using Transit Gateway to model hybrid cloud connectivity with centralized routing control.</li>
         <li>Leveraged BGP for dynamic route exchange across edge, datacenter, and cloud environments.</li>
     </ul>
 </div>
 
-    <div class="section">
-        <h2>Palo Alto Role Relevance</h2>
-        <ul>
-            <li>Designed and implemented Palo Alto firewall HA architecture</li>
-            <li>Configured VRF-based segmentation for secure traffic isolation</li>
-            <li>Integrated AWS Transit Gateway using IPSec VPN and BGP</li>
-            <li>Built end-to-end traffic inspection for north-south and east-west flows</li>
-            <li>Simulated real-world enterprise routing and security architecture</li>
-        </ul>
-    </div>
+<div class="section">
+    <h2>Palo Alto Role Relevance</h2>
+    <ul>
+        <li>Designed and implemented Palo Alto HA firewall architecture</li>
+        <li>Enforced east-west and north-south inspection through firewall-based routing</li>
+        <li>Applied VRF-based segmentation for secure traffic isolation</li>
+        <li>Integrated AWS Transit Gateway using IPSec VPN and BGP</li>
+        <li>Simulated enterprise routing and security architecture aligned to real-world firewall engineering use cases</li>
+    </ul>
+</div>
 
     <div class="section related-labs">
         <h2>Related Labs</h2>
