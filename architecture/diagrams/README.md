@@ -9,7 +9,7 @@ IPsec VPN, and BGP.
 The diagram below shows the full hybrid connectivity between the on-prem datacenter and AWS.
 
 
-![Hybrid DC Architecture](hybrid-datacenter-aws-hld.png)
+<img src="../diagrams/hybrid-datacenter-aws-hld.png" alt="Architecture Diagram">
 
 ## Overview
 
