@@ -5,7 +5,7 @@ Each lab demonstrates real-world enterprise use cases and showcases practical sk
 
 ---
 
-| 🧩 Lab Name | 🧠 Description | 🔗 Link |
+|  Lab Name |  Description | 🔗 Link |
 |:--|:--|:--|
 | **DNAT Lab** | Configure Destination NAT to publish an internal web server to the Internet via the untrust interface. | [View Lab →](./palo-alto-dnat-lab/) |
 | **L2 NAT Interface Lab** | Demonstrate Layer 2 + Layer 3 + VWire with SNAT and VLAN segmentation. | [View Lab →](./palo-alto-l2-nat-interface-lab/) |
