@@ -35,4 +35,8 @@ The labs reflect real-world enterprise scenarios, progressing from foundational 
 
 ## Navigation
 
-[Back to Network Security Portfolio](../index.md)
+| Previous | Back to Index | Next |
+|----------|--------------|------|
+| [Previous Lab](../previous-lab-folder/) | [Palo Alto Lab Index](../) | [Next Lab →](../next-lab-folder/) |
+
+[Network Security Portfolio](../../index.md)
