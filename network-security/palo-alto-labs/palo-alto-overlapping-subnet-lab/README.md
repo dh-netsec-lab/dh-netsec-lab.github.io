@@ -1,175 +1,202 @@
-# 🧱 Palo Alto Site-to-Site VPN with Overlapping Subnets
+# Palo Alto Site-to-Site VPN with Overlapping Subnets
 
-This lab demonstrates how to configure a **site-to-site VPN** between two sites that share **identical internal subnets**.  
-By using **NAT translation**, each site maps its internal network to a unique subnet for VPN traffic — solving overlapping IP challenges commonly found in M&A or multi-tenant environments.
+## Objective
+Configure a site-to-site VPN between two locations that use identical internal subnets by implementing NAT-based translation.
+
+This lab demonstrates how Palo Alto firewalls resolve overlapping IP space by translating internal networks into unique subnets for VPN communication.
 
 ---
 
-## 🧩 Topology
-
+## Topology
 ![Topology](screenshots/topology.png)
+
+---
+
+## Network Overview
 
 | Component | IP/Subnet | Description |
 |------------|------------|-------------|
-| **Site A LAN** | 10.2.2.0/24 | Local subnet (overlaps with Site B) |
-| **Site B LAN** | 10.2.2.0/24 | Overlapping subnet with Site A |
-| **Mapped Subnet (Site A)** | 10.4.4.0/24 | Used for traffic sent to Site B |
-| **Mapped Subnet (Site B)** | 10.3.3.0/24 | Used for traffic sent to Site A |
-| **Test Host (Site A)** | 10.2.2.8 | Used to generate traffic toward Site B |
-| **Test Host (Site B)** | 10.2.2.9 | Used to generate traffic toward Site A |
-| **WAN Router** | 203.0.113.0/24 ↔ 198.51.100.0/24 | Simulated public WAN |
-| **Management** | Site A 172.29.129.140                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <br> Site B 172.29.129.141 | For firewall GUI/CLI access |
+| Site A LAN | 10.2.2.0/24 | Local subnet (overlaps with Site B) |
+| Site B LAN | 10.2.2.0/24 | Overlapping subnet with Site A |
+| Site A Translated | 10.4.4.0/24 | Presented to Site B |
+| Site B Translated | 10.3.3.0/24 | Presented to Site A |
+| WAN Network | 203.0.113.0/24 ↔ 198.51.100.0/24 | Simulated public WAN |
 
 ---
 
-## ⚙️ Configuration Steps
+## Traffic Flow
 
-### 🔹 Step 1: IKE Gateway Configuration
-Configure IKEv2 gateways on both firewalls.
+Because both sites use the same subnet (10.2.2.0/24), direct routing is not possible.
 
-| Setting | Site A | Site B |
-|----------|---------|--------|
-| IKE Version | IKEv2 | IKEv2 |
-| Peer IP | 198.51.100.254 | 203.0.113.254 |
-| Authentication | Pre-shared key | Pre-shared key |
-| IKE Crypto Profile | AES-256 / SHA256 / DH Group 14 | AES-256 / SHA256 / DH Group 14 |
+To resolve this:
 
-**Screenshot:**  
+- Site A translates 10.2.2.0/24 → 10.4.4.0/24 when sending traffic to Site B  
+- Site B translates 10.2.2.0/24 → 10.3.3.0/24 when sending traffic to Site A  
+
+Example flow:
+
+Site A Host (10.2.2.8) → Translated to 10.4.4.8 → Encrypted over VPN →  
+Received at Site B as 10.4.4.8 → Translated to 10.2.2.8  
+
+This allows both sites to communicate without IP conflict.
+
+---
+
+## Configuration Steps
+
+### 1. Configure IKE Gateways
+
+Configure IKEv2 gateways on both firewalls using:
+- Pre-shared key authentication  
+- AES-256 / SHA256 / DH Group 14  
+
+Screenshot:  
 ![IKE Gateway - Site A](screenshots/ike-gateway-siteA.png)  
 ![IKE Gateway - Site B](screenshots/ike-gateway-siteB.png)
 
 ---
 
-### 🔹 Step 2: IPSec Tunnel Configuration
-Create an IPSec tunnel using the configured IKE Gateway.
+### 2. Configure IPSec Tunnel
 
-| Setting | Value |
-|----------|--------|
-| Tunnel Interface | `tunnel.1` |
-| IKE Gateway | As configured above |
-| Auto Key IKE | Enabled |
-| Proxy IDs | Not manually configured (see note below) |
+Create an IPSec tunnel using the configured IKE gateway.
 
-> ⚠️ **Note on Proxy IDs**  
-> Manual Proxy IDs were **not used** in this lab because both peers are **Palo Alto firewalls** using Auto-Key IKEv2.  
-> The firewalls automatically negotiated matching Proxy IDs based on the translated subnets (10.4.4.0/24 ↔ 10.3.3.0/24).
+- Tunnel Interface: tunnel.1  
+- Auto Key IKE enabled  
+- No manual Proxy IDs required  
 
-**Screenshot:**  
+Note: Proxy IDs are automatically negotiated between Palo Alto firewalls using the translated subnets.
+
+Screenshot:  
 ![IPSec Tunnel - Site A](screenshots/ipsec-tunnel-siteA.png)  
 ![IPSec Tunnel - Site B](screenshots/ipsec-tunnel-siteB.png)
 
 ---
 
-### 🔹 Step 3: NAT Configuration
+### 3. Configure NAT Policies
+
+Configure NAT rules on both firewalls:
 
 | Site | Source NAT | Destination NAT |
 |------|-------------|-----------------|
-| **Site A** | 10.2.2.0/24 → 10.4.4.0/24 | 10.3.3.0/24 → 10.2.2.0/24 |
-| **Site B** | 10.2.2.0/24 → 10.3.3.0/24 | 10.4.4.0/24 → 10.2.2.0/24 |
+| Site A | 10.2.2.0/24 → 10.4.4.0/24 | 10.3.3.0/24 → 10.2.2.0/24 |
+| Site B | 10.2.2.0/24 → 10.3.3.0/24 | 10.4.4.0/24 → 10.2.2.0/24 |
 
-**Screenshot:**  
+These rules translate traffic before entering and after exiting the VPN tunnel.
+
+Screenshot:  
 ![NAT Policy - Site A](screenshots/nat-policy-siteA.png)  
 ![NAT Policy - Site B](screenshots/nat-policy-siteB.png)
 
 ---
 
-### 🔹 Step 4: Security Policies
+### 4. Configure Security Policies
 
-Add security policies to allow VPN traffic between translated subnets.
+Allow traffic between zones:
 
-| Source Zone | Destination Zone | Action |
-|--------------|------------------|---------|
-| Trust | VPN | Allow |
-| VPN | Trust | Allow |
+- Trust → VPN  
+- VPN → Trust  
 
-**Screenshot:**  
+Screenshot:  
 ![Security Policies](screenshots/security-policies.png)
 
 ---
 
-### 🔹 Step 5: Routing Configuration
+### 5. Configure Routing
 
-Add static routes for translated subnets.
+Add routes for translated subnets:
 
 | Site | Destination | Next Hop |
 |------|--------------|-----------|
-| Site A | 10.3.3.0/24 | `tunnel.1` |
-| Site B | 10.4.4.0/24 | `tunnel.1` |
+| Site A | 10.3.3.0/24 | tunnel.1 |
+| Site B | 10.4.4.0/24 | tunnel.1 |
 
-**Screenshot:**  
+Screenshot:  
 ![Virtual Router Routes](screenshots/virtual-router-routes.png)
 
 ---
 
-## 🔍 Verification and Monitoring
+## Verification
 
-### 🔸 Verify IKE SA
-**Path:** `Network → IPSec Tunnels → Tunnel Info (IKE SA)`  
-![IKE SA Active](screenshots/monitor-ike-sa.png)
+### VPN Status
 
----
+Verify that IKE and IPSec Security Associations are established.
 
-### 🔸 Verify IPsec SA
-**Path:** `Network → IPSec Tunnels → Tunnel Info (IPSec SA)`  
+Path:
+Network → IPSec Tunnels → Tunnel Info  
+
+Screenshot:  
+![IKE SA Active](screenshots/monitor-ike-sa.png)  
 ![IPSec SA Active](screenshots/monitor-ipsec-sa.png)
 
 ---
 
-### 🔸 Verify Traffic Logs
-**Path:** `Monitor → Logs → Traffic`  
-Filter: `( interface eq tunnel.1 )`  
+### Traffic Verification
+
+Navigate to:
+Monitor → Traffic  
+
+Confirm:
+- Traffic is seen on tunnel.1  
+- Source and destination IPs reflect translated subnets  
+- Sessions are allowed and decrypted  
+
+Screenshot:  
 ![Traffic Log Verification](screenshots/traffic-log-verification.png)
 
 ---
 
-### 🔸 Ping Verification
-From Site A (Host 10.2.2.8 behind the firewall):
+### Connectivity Test
 
+From Site A:
+```
 ping source 10.2.2.8 host 10.3.3.7
-**Screenshot:**  
-![Ping Success - Site A](screenshots/ping-success-siteA.png)
+```
 
----
-
-#### From Site B (Host 10.2.2.9 behind the firewall)
----
+From Site B:
+```
 ping source 10.2.2.9 host 10.4.4.8
-**Screenshot:**  
+```
+
+Successful responses confirm proper NAT and VPN operation.
+
+Screenshot:  
+![Ping Success - Site A](screenshots/ping-success-siteA.png)  
 ![Ping Success - Site B](screenshots/ping-success-siteB.png)
 
 ---
 
-### 🔸 CLI Verification
+### CLI Verification
 
+```
 show vpn ipsec-sa
+```
 
+Confirm active tunnels and packet counters.
 
-**Screenshot:**  
+Screenshot:  
 ![VPN CLI Output](screenshots/show-vpn-cli.png)
 
 ---
 
-## 🧠 Learning Objectives
-- Understand overlapping subnet challenges and NAT-based solutions.  
-- Configure dual NAT (source/destination) for VPNs.  
-- Validate and troubleshoot Phase 1/2 tunnel negotiation.  
-- Analyze translated traffic flow in Palo Alto firewalls.
+## Key Takeaways
+
+- Overlapping subnets require NAT to enable communication  
+- Palo Alto supports bidirectional NAT within VPN tunnels  
+- Proxy IDs can be automatically negotiated in Palo Alto-to-Palo Alto deployments  
+- Traffic must be translated before encryption and after decryption  
 
 ---
 
-## 🏁 Summary
-This lab demonstrates how **Palo Alto Networks** firewalls can connect two overlapping networks using **NAT-based translation across a site-to-site VPN**.  
-This configuration mirrors real-world enterprise scenarios such as mergers, acquisitions, or service-provider environments.
+## Summary
+
+This lab demonstrates how Palo Alto firewalls enable communication between overlapping networks by applying NAT within a site-to-site VPN.
+
+By translating internal subnets into unique address spaces, both sites can securely communicate without IP conflicts.
 
 ---
 
-### 🔁 Lab Navigation
+## Navigation
 
-| ⬅ Previous | 🏠 Back to Index | Next ➡ |
-|-------------|-----------------|--------|
-| [⬅ Site-to-Site VPN Lab](../palo-alto-site-to-site-vpn/) | [🏠 Network Security Labs](../) | [User-ID Integration Lab →](../palo-alto-user-id-lab/) |
-
-
-
-
-
+| Previous | Back to Index | Next |
+|----------|--------------|------|
+| [Site-to-Site VPN Lab](../palo-alto-site-to-site-vpn/) | [Palo Alto Lab Index](../) | [User-ID Integration Lab →](../palo-alto-user-id-lab/) |
