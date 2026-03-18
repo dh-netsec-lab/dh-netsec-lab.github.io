@@ -44,8 +44,16 @@
             padding-bottom: 8px;
         }
 
-        p {
+        p, ul {
             max-width: 1100px;
+        }
+
+        ul {
+            padding-left: 22px;
+        }
+
+        li {
+            margin-bottom: 10px;
         }
 
         img.topology {
@@ -76,28 +84,67 @@
 <header>
     <h1>Enterprise Cybersecurity Lab (ECL)</h1>
     <p>
-        Multi-site enterprise security architecture integrating networking, firewall enforcement,
-        identity services, telemetry, and detection engineering.
+        Multi-site enterprise security environment focused on firewall enforcement,
+        identity services, telemetry, and detection operations.
     </p>
 </header>
 
 <div class="section">
 
-    <h2>Overview</h2>
+    <h2>Executive Overview</h2>
+
     <p>
-        The Enterprise Cybersecurity Lab (ECL) is a multi-site enterprise security environment designed to simulate real-world network, security, and detection engineering operations. The architecture spans multiple locations and integrates routing, firewall enforcement, identity services, telemetry pipelines, and hybrid cloud connectivity into a unified platform.
+        The Enterprise Cybersecurity Lab (ECL) is a multi-site environment built to simulate
+        real-world network and security operations. It brings together network segmentation,
+        firewall enforcement, identity services, and centralized logging into one working system.
     </p>
 
     <p>
-        The environment includes segmented network zones such as management, user, server, and DMZ networks. Traffic flows through Palo Alto firewalls where security policies, NAT, and inspection are enforced. Edge routing connects multiple sites and upstream providers, enabling realistic north-south traffic flow while maintaining internal segmentation for east-west control.
+        The lab spans multiple locations and includes connectivity to external environments
+        like AWS and secure web gateways. This allows for realistic north/south and east/west
+        traffic flows across a distributed enterprise setup.
     </p>
 
-    <p>
-        Security visibility is achieved through a centralized telemetry pipeline including Splunk, Sysmon, Suricata, Zeek, and Wazuh, providing full-stack observability across endpoints, servers, and network sensors. Identity-aware controls are implemented using Active Directory and ClearPass to support authentication, authorization, and network access enforcement.
-    </p>
+    <h2>Security Stack Overview</h2>
+
+    <ul>
+        <li>
+            <strong>Network Security:</strong>
+            Segmented zones (management, user, server, DMZ) with policy enforcement, NAT,
+            and inspection through Palo Alto firewalls.
+        </li>
+
+        <li>
+            <strong>Detection &amp; Response:</strong>
+            Centralized logging pipeline using network and endpoint data for correlation
+            and alerting.
+        </li>
+
+        <li>
+            <strong>Identity &amp; Access:</strong>
+            Active Directory and ClearPass providing authentication, authorization,
+            and identity-based access control.
+        </li>
+
+        <li>
+            <strong>Application Security:</strong>
+            Web applications and vulnerable systems used to test detection and response scenarios.
+        </li>
+
+        <li>
+            <strong>Monitoring &amp; Operations:</strong>
+            SOC and NOC visibility through logging, monitoring, and performance tools.
+        </li>
+
+        <li>
+            <strong>Hybrid Connectivity:</strong>
+            Integration with AWS and external services to simulate real enterprise traffic flows.
+        </li>
+    </ul>
 
     <p>
-        The lab also includes attacker simulation and vulnerable systems to support detection engineering and SOC workflows, enabling validation of alerts, correlation, and response scenarios. Hybrid connectivity to external environments such as AWS and secure web gateways extends the architecture beyond a single site.
+        Technologies used include Splunk, Sysmon, Suricata, Zeek, Wazuh, Nessus,
+        Palo Alto Panorama, FortiManager, and other supporting tools.
     </p>
 
     <h2>Network Topology</h2>
